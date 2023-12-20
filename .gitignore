@@ -1,0 +1,6 @@
+# ignore data base
+db_data/
+
+# System files
+Pipfile
+Pipfile.lock
