@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-fbo+oj(-$(@vz^_((-olcer#$&^&p$o@g#o+q7@p)08%)zrgpx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '192.168.11.37']
 
 
 # Application definition
@@ -121,3 +121,35 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'debug_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'Logs/debug.log'
+        },
+        'error_file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'Logs/error.log'
+        }
+    },
+    'loggers': {
+            'django': {
+                'handlers': ['debug_file'],
+                'level': 'DEBUG',
+                'propagate': True,
+            },
+            '': {
+                'handlers': ['error_file'],
+                'level': 'ERROR',
+                'propagate': True,
+            },
+        },
+}
+
+
