@@ -2977,3 +2977,7 @@ File /usr/local/lib/python3.8/site-packages/django/contrib/messages/storage/sess
 File /usr/local/lib/python3.8/site-packages/django/contrib/sessions/serializers.py first seen with mtime 1703180372.9643357
 File /usr/local/lib/python3.8/site-packages/django/contrib/messages/storage/fallback.py first seen with mtime 1703180372.8683372
 File /usr/local/lib/python3.8/site-packages/django/contrib/messages/storage/cookie.py first seen with mtime 1703180372.8683372
+"GET / HTTP/1.1" 200 10664
+File /web_django/TaskManager/settings.py previous mtime: 1703180715.5032237, current mtime: 1703241540.5970879
+/web_django/TaskManager/settings.py notified as changed. Signal results: [(<function template_changed at 0x7f3c97d92790>, None), (<function translation_file_changed at 0x7f3c972e91f0>, None)].
+/web_django/TaskManager/settings.py changed, reloading.
