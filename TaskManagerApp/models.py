@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from django.contrib import admin
 
 class Task(models.Model):
   TaskName = models.CharField(max_length=255)
@@ -23,12 +24,21 @@ class Task(models.Model):
   # Береться из таблицы трудозатрат
   ActualExecutionTime = models.ForeignKey('ExecutionTime', on_delete=models.PROTECT)
   Priority = models.OneToOneField('PriorityInfo', on_delete=models.PROTECT)
+  
+  def __str__(self):
+    return self.TaskName[:50]
 
 class Situation(models.Model):
   SituationType = models.CharField(max_length=50)
+  
+  def __str__(self):
+    return self.SituationType
 
 class Service(models.Model):
   ServiceName = models.CharField(max_length=50)
+  
+  def __str__(self):
+    return self.ServiceName
 
 class Person(models.Model):
   Name = models.CharField(max_length=50)
@@ -37,23 +47,45 @@ class Person(models.Model):
   FullName = models.CharField(max_length=150)
   DepartmentName = models.ForeignKey('Department', on_delete=models.PROTECT)
 
+class PersonAdmin(admin.ModelAdmin):
+  list_display = ['Name', 'Surname', 'Patronymic', 'FullName']
+
+
 class Department(models.Model):
   DepartmentName = models.CharField(max_length=100)
+  
+  def __str__(self):
+    return self.DepartmentName
 
 class ITTaskType(models.Model):
   ITTaskTypeName = models.CharField(max_length=50)
+  
+  def __str__(self):
+    return self.ITTaskTypeName
 
 class TypeOfAction(models.Model):
   TypeOfActionName = models.CharField(max_length=50)
+  
+  def __str__(self):
+    return self.TypeOfActionName
 
 class CategoryOfTask(models.Model):
   CategoryOfTaskName = models.CharField(max_length=50)
+  
+  def __str__(self):
+    return self.CategoryOfTaskName
 
 class ResultOfTask(models.Model):
   ResultOfTaskName = models.CharField(max_length=50)
   
+  def __str__(self):
+    return self.ResultOfTaskName
+  
 class ExecutionTime(models.Model):
   TimeExec = models.TimeField()
+  
+  def __str__(self):
+    return self.TimeExec
 
 class PriorityInfo(models.Model):
   PriorityWeight = models.DecimalField(null=False, blank=False, max_digits=5, decimal_places=2)
@@ -65,3 +97,6 @@ class PriorityInfo(models.Model):
   PriorityCalculated = models.DecimalField(null=False, blank=False, max_digits=5, decimal_places=2)
   NpriorCalculated = models.PositiveIntegerField()
   RealPriority = models.DecimalField(null=False, blank=False, max_digits=6, decimal_places=4)
+  
+  def __str__(self):
+    return self.PriorityWeight
