@@ -79,3 +79,162 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'about' not found. 'about' is not a valid view function or pattern name.
 "GET / HTTP/1.1" 500 132847
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 176, in render
+    return self._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/utils.py", line 101, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 153, in render
+    return compiled_parent._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/utils.py", line 101, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 171, in render
+    len_values = len(values)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 1354, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1200, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/testcases.py", line 150, in __call__
+    raise AssertionError(self.message)
+AssertionError: Database queries to 'default' are not allowed in SimpleTestCase subclasses. Either subclass TestCase or TransactionTestCase to ensure proper test isolation or add 'default' to pages.tests.SimpleTests.databases to silence this failure.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 176, in render
+    return self._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/utils.py", line 101, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 153, in render
+    return compiled_parent._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/utils.py", line 101, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 171, in render
+    len_values = len(values)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 1354, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1200, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/testcases.py", line 150, in __call__
+    raise AssertionError(self.message)
+AssertionError: Database queries to 'default' are not allowed in SimpleTestCase subclasses. Either subclass TestCase or TransactionTestCase to ensure proper test isolation or add 'default' to pages.tests.SimpleTests.databases to silence this failure.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 176, in render
+    return self._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/utils.py", line 101, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 153, in render
+    return compiled_parent._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/utils.py", line 101, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 171, in render
+    len_values = len(values)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 1354, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1200, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/testcases.py", line 150, in __call__
+    raise AssertionError(self.message)
+AssertionError: Database queries to 'default' are not allowed in SimpleTestCase subclasses. Either subclass TestCase or TransactionTestCase to ensure proper test isolation or add 'default' to pages.tests.SimpleTests.databases to silence this failure.

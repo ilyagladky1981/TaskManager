@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 from django.contrib import admin
+from django.contrib.auth.models import User
 
 class Task(models.Model):
   TaskName = models.CharField(max_length=255)
@@ -24,6 +25,7 @@ class Task(models.Model):
   # Береться из таблицы трудозатрат
   ActualExecutionTime = models.ForeignKey('ExecutionTime', on_delete=models.PROTECT)
   Priority = models.OneToOneField('PriorityInfo', on_delete=models.PROTECT)
+  Author = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True)
   
   def __str__(self):
     return self.TaskName[:50]
@@ -63,6 +65,9 @@ class ITTaskType(models.Model):
   def __str__(self):
     return self.ITTaskTypeName
 
+  class Meta:
+      verbose_name_plural = "IT Task Type"
+
 class TypeOfAction(models.Model):
   TypeOfActionName = models.CharField(max_length=50)
   
@@ -75,6 +80,10 @@ class CategoryOfTask(models.Model):
   def __str__(self):
     return self.CategoryOfTaskName
 
+  class Meta:
+      verbose_name_plural = "Category Of Task"
+
+
 class ResultOfTask(models.Model):
   ResultOfTaskName = models.CharField(max_length=50)
   
@@ -82,13 +91,17 @@ class ResultOfTask(models.Model):
     return self.ResultOfTaskName
   
   class Meta:
-      verbose_name_plural = "ResultOfTask"
+      verbose_name_plural = "Result Of Task"
   
 class ExecutionTime(models.Model):
   TimeExec = models.TimeField()
   
   def __str__(self):
     return self.TimeExec
+
+  class Meta:
+      verbose_name_plural = "Execution Time"
+
 
 class PriorityInfo(models.Model):
   PriorityWeight = models.DecimalField(null=False, blank=False, max_digits=5, decimal_places=2)
@@ -105,5 +118,5 @@ class PriorityInfo(models.Model):
     return self.PriorityWeight
   
   class Meta:
-      verbose_name_plural = "PriorityInfo"
+      verbose_name_plural = "Priority Info"
 
