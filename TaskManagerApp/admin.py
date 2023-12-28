@@ -4,6 +4,7 @@ from .models import Task
 from .models import Situation
 from .models import Service
 from .models import Person
+from .models import PersonAdmin
 from .models import Department
 from .models import ITTaskType
 from .models import TypeOfAction
@@ -16,7 +17,7 @@ from .models import PriorityInfo
 admin.site.register(Task)
 admin.site.register(Situation)
 admin.site.register(Service)
-admin.site.register(Person)
+admin.site.register(Person, PersonAdmin)
 admin.site.register(Department)
 admin.site.register(ITTaskType)
 admin.site.register(TypeOfAction)

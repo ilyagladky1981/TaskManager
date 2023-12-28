@@ -48,7 +48,7 @@ class Person(models.Model):
   DepartmentName = models.ForeignKey('Department', on_delete=models.PROTECT)
 
 class PersonAdmin(admin.ModelAdmin):
-  list_display = ['Name', 'Surname', 'Patronymic', 'FullName']
+  list_display = ['FullName', 'DepartmentName']
 
 
 class Department(models.Model):
@@ -81,6 +81,9 @@ class ResultOfTask(models.Model):
   def __str__(self):
     return self.ResultOfTaskName
   
+  class Meta:
+      verbose_name_plural = "ResultOfTask"
+  
 class ExecutionTime(models.Model):
   TimeExec = models.TimeField()
   
@@ -100,3 +103,7 @@ class PriorityInfo(models.Model):
   
   def __str__(self):
     return self.PriorityWeight
+  
+  class Meta:
+      verbose_name_plural = "PriorityInfo"
+

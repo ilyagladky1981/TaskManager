@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '192.168.11.37']
 
 INSTALLED_APPS = [
     'TaskManagerApp.apps.TaskManagerAppConfig',
-    'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

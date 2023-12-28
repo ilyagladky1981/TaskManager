@@ -2,5 +2,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Homepage</h1>
+
+<h1>TaskManager homepage</h1>
+<ul>
+  {% for tasks in all_tasks_list %}
+    <li>{{ tasks }}</li>
+  {% endfor %}
+</ul>
+
 {% endblock content %}
