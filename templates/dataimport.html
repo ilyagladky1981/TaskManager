@@ -1,0 +1,12 @@
+<!-- templates/dataimport.html -->
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <form id="data">
+    <p><input placeholder="Файл с именами пользователей" name="CSVUsers"></p>
+    
+  </form>
+  <button> Преборазовать файлы в Базу данных</button>
+  <p><button type="submit" form="data">Отправить форму</button></p>
+{% endblock content %}

@@ -1,13 +1,12 @@
-<!-- templates/home.html -->
 {% extends 'base.html' %}
 
+
 {% block content %}
-
-<h1>TaskManager homepage</h1>
-<ul>
-  {% for tasks in all_tasks_list %}
-    <li>{{ tasks }}</li>
+  <h1><a href="{% url 'dataimport' %}">Import DataBase</a></h1>
+  {% for task in object_list %}
+    <div class="task-entry">
+      <h2><a href="">{{ task.TaskName }}</a></h2>
+      <p>{{ task.DateRegistration }}</p>
+    </div>
   {% endfor %}
-</ul>
-
 {% endblock content %}

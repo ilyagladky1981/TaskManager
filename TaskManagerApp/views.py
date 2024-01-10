@@ -12,3 +12,7 @@ class HomePageView(ListView):
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
+class DataImportPageView(TemplateView):
+    template_name = 'DataImport.html'
+
+
