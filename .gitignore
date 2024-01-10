@@ -1,6 +1,10 @@
 # ignore data base
 db_data/
+db.sqlite3
 
 # System files
 Pipfile
 Pipfile.lock
+
+# ignore csv folder
+csv/
