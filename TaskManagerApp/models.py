@@ -70,7 +70,7 @@ class Person(models.Model):
     Name = models.CharField(max_length=50, null=True, blank=True)
     Surname = models.CharField(max_length=50, null=True, blank=True)
     Patronymic = models.CharField(max_length=50, null=True, blank=True)
-    FullName = models.CharField(max_length=150, null=True, blank=True)
+    PersonFullName = models.CharField(max_length=150, null=True, blank=True)
     WorkPhone = models.CharField(max_length=4, null=True, blank=True)
     MobilePhone = models.CharField(max_length=11, null=True, blank=True)
     Email = models.CharField(max_length=255, null=True, blank=True)

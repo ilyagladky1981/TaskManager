@@ -52,7 +52,7 @@ class PersonResource(resources.ModelResource):
 
 class PersonAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_classes = [PersonResource]
-    list_display = ['FullName', 'Position', 'DepartmentName']
+    list_display = ['PersonFullName', 'Position', 'DepartmentName']
     pass
 
 class TaskResource(resources.ModelResource):
