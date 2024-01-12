@@ -14,6 +14,7 @@ from .models import TypeOfAction
 from .models import CategoryOfTask
 from .models import ResultOfTask
 from .models import Efforts
+from .models import EffortsStats
 from .models import PriorityInfo
 
 
@@ -25,13 +26,33 @@ class CompanyAdmin(ImportExportModelAdmin):
     resource_classes = [CompanyResource]
 
 
+class EffortsResource(resources.ModelResource):
+    class Meta:
+        model = Efforts
+
+class EffortsAdmin(ImportExportModelAdmin):
+    resource_classes = [EffortsResource]
+
+
+
+class EffortsStatsResource(resources.ModelResource):
+    class Meta:
+        model = EffortsStats
+
+class EffortsStatsAdmin(ImportExportModelAdmin):
+    resource_classes = [EffortsStatsResource]
+
+
+
+
+
 class PersonResource(resources.ModelResource):
     class Meta:
         model = Person
 
 class PersonAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_classes = [PersonResource]
-    list_display = ['FullName', 'DepartmentName']
+    list_display = ['FullName', 'Position', 'DepartmentName']
     pass
 
 class TaskResource(resources.ModelResource):
@@ -109,5 +130,6 @@ admin.site.register(ITTaskType, ITTaskTypeAdmin)
 admin.site.register(TypeOfAction, TypeOfActionAdmin)
 admin.site.register(CategoryOfTask, CategoryOfTaskAdmin)
 admin.site.register(ResultOfTask, ResultOfTaskAdmin)
-
+admin.site.register(Efforts, EffortsAdmin)
+admin.site.register(EffortsStats, EffortsStatsAdmin)
 

@@ -13,6 +13,19 @@ class Company(models.Model):
     
     def __str__(self):
         return self.CompanyShortName
+    
+    class Meta:
+        verbose_name_plural = "Companies"
+
+class Efforts(models.Model):
+    EffortsId = models.CharField(max_length=127, null=True, blank=True)
+    
+    
+    def __str__(self):
+        return self.EffortsId
+    
+    class Meta:
+        verbose_name_plural = "Efforts"
 
 class Task(models.Model):
     CompanyName = models.ForeignKey(Company, on_delete=models.PROTECT, null=True, blank=True)
@@ -36,6 +49,7 @@ class Task(models.Model):
     Priority = models.OneToOneField('PriorityInfo', on_delete=models.PROTECT)
     Author = models.ForeignKey('auth.User', on_delete=models.PROTECT, null=True, blank=True)
     TaskTypeId = models.ForeignKey('TaskType', on_delete=models.PROTECT, null=True, blank=True)
+    EffortsId = models.ManyToManyField(Efforts, through="EffortsStats")
     
     def __str__(self):
         return self.TaskName[:50]
@@ -109,17 +123,8 @@ class ResultOfTask(models.Model):
     class Meta:
         verbose_name_plural = "Result Of Task"
 
-class Efforts(models.Model):
-    EffortsId = models.CharField(max_length=127, null=True, blank=True)
-    TaskId = models.ManyToManyField(Task, through="EffortsStat")
-    
-    def __str__(self):
-        return self.TaskId
-    
-    class Meta:
-        verbose_name_plural = "Efforts"
 
-class EffortsStat(models.Model):
+class EffortsStats(models.Model):
     EffortsId = models.ForeignKey(Efforts, on_delete=models.CASCADE)
     TaskId = models.ForeignKey(Task, on_delete=models.CASCADE)
     Comments = models.TextField()
@@ -127,6 +132,9 @@ class EffortsStat(models.Model):
     DateOfAction = models.DateTimeField(default=None)
     StartTimeThisDay = models.TimeField()
     FinishTimeThisDay = models.TimeField()
+    
+    class Meta:
+        verbose_name_plural = "EffortsStats"
 
 class PriorityInfo(models.Model):
     PriorityWeight = models.DecimalField(null=False, blank=False, max_digits=5, decimal_places=2)
