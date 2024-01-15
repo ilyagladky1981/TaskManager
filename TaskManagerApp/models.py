@@ -33,7 +33,7 @@ class Task(models.Model):
     TaskName = models.CharField(max_length=255)
     DateRegistration = models.DateTimeField(default=date.today, db_index=True)
     SituationName = models.ForeignKey('Situation', on_delete=models.PROTECT)
-    ServiceName = models.ManyToManyField('Service')
+    ServiceName = models.ManyToManyField('Service', through='ServiceSet')
     PersonFullName = models.ForeignKey('Person', on_delete=models.PROTECT)
     ITTaskTypeName = models.ForeignKey('ITTaskType', on_delete=models.PROTECT)
     TypeOfActionName = models.ForeignKey('TypeOfAction', on_delete=models.PROTECT)
@@ -135,6 +135,10 @@ class EffortsStats(models.Model):
     
     class Meta:
         verbose_name_plural = "EffortsStats"
+
+class ServiceSet(models.Model):
+    ServiceId = models.ForeignKey(Service, on_delete=models.CASCADE)
+    TaskId = models.ForeignKey(Task, on_delete=models.CASCADE)
 
 class PriorityInfo(models.Model):
     PriorityWeight = models.DecimalField(null=False, blank=False, max_digits=5, decimal_places=2)

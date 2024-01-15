@@ -7,6 +7,7 @@ from .models import Company
 from .models import Task
 from .models import Situation
 from .models import Service
+from .models import ServiceSet
 from .models import Person
 from .models import Department
 from .models import ITTaskType
@@ -16,6 +17,7 @@ from .models import ResultOfTask
 from .models import Efforts
 from .models import EffortsStats
 from .models import PriorityInfo
+
 
 
 class CompanyResource(resources.ModelResource):
@@ -43,6 +45,12 @@ class EffortsStatsAdmin(ImportExportModelAdmin):
     resource_classes = [EffortsStatsResource]
 
 
+class ServiceSetResource(resources.ModelResource):
+    class Meta:
+        model = ServiceSet
+
+class ServiceSetAdmin(ImportExportModelAdmin):
+    resource_classes = [ServiceSetResource]
 
 
 
@@ -124,6 +132,7 @@ admin.site.register(Company, CompanyAdmin)
 admin.site.register(Task, TaskAdmin)
 admin.site.register(Situation, SituationAdmin)
 admin.site.register(Service, ServiceAdmin)
+admin.site.register(ServiceSet, ServiceSetAdmin)
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Department, DepartmentAdmin)
 admin.site.register(ITTaskType, ITTaskTypeAdmin)
