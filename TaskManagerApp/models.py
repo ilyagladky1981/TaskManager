@@ -27,6 +27,14 @@ class Efforts(models.Model):
     class Meta:
         verbose_name_plural = "Efforts"
 
+class Service(models.Model):
+    ServiceName = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.ServiceName
+
+
+
 class Task(models.Model):
     CompanyName = models.ForeignKey(Company, on_delete=models.PROTECT, null=True, blank=True)
     TaskId = models.CharField(max_length=32, null=True, blank=True)
@@ -38,7 +46,7 @@ class Task(models.Model):
     ITTaskTypeName = models.ForeignKey('ITTaskType', on_delete=models.PROTECT)
     TypeOfActionName = models.ForeignKey('TypeOfAction', on_delete=models.PROTECT)
     Description = models.CharField(max_length=255)
-    CategoryOfTaskName = models.ManyToManyField('CategoryOfTask')
+    CategoryOfTaskName = models.ManyToManyField('CategoryOfTask', through='CategorySet')
     ResultOfTaskName = models.ForeignKey('ResultOfTask', on_delete=models.PROTECT)
     DateOfDone = models.DateTimeField(default=None)
     Comments = models.URLField(max_length=1000)
@@ -60,11 +68,6 @@ class Situation(models.Model):
     def __str__(self):
         return self.SituationType
 
-class Service(models.Model):
-    ServiceName = models.CharField(max_length=50)
-    
-    def __str__(self):
-        return self.ServiceName
 
 class Person(models.Model):
     Name = models.CharField(max_length=50, null=True, blank=True)
@@ -113,6 +116,15 @@ class CategoryOfTask(models.Model):
     
     class Meta:
         verbose_name_plural = "Category Of Task"
+
+
+class CategorySet(models.Model):
+    CategoryId = models.ForeignKey(CategoryOfTask, on_delete=models.CASCADE)
+    TaskId = models.ForeignKey(Task, on_delete=models.CASCADE)
+    
+    class Meta:
+        verbose_name_plural = "CategorySets"
+
 
 class ResultOfTask(models.Model):
     ResultOfTaskName = models.CharField(max_length=50)

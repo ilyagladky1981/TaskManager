@@ -13,6 +13,7 @@ from .models import Department
 from .models import ITTaskType
 from .models import TypeOfAction
 from .models import CategoryOfTask
+from .models import CategorySet
 from .models import ResultOfTask
 from .models import Efforts
 from .models import EffortsStats
@@ -34,6 +35,17 @@ class EffortsResource(resources.ModelResource):
 
 class EffortsAdmin(ImportExportModelAdmin):
     resource_classes = [EffortsResource]
+
+
+
+
+
+class CategorySetResource(resources.ModelResource):
+    class Meta:
+        model = CategorySet
+
+class CategorySetAdmin(ImportExportModelAdmin):
+    resource_classes = [CategorySetResource]
 
 
 
@@ -141,4 +153,7 @@ admin.site.register(CategoryOfTask, CategoryOfTaskAdmin)
 admin.site.register(ResultOfTask, ResultOfTaskAdmin)
 admin.site.register(Efforts, EffortsAdmin)
 admin.site.register(EffortsStats, EffortsStatsAdmin)
+admin.site.register(CategorySet, CategorySetAdmin)
+
+
 
