@@ -17,15 +17,6 @@ class Company(models.Model):
     class Meta:
         verbose_name_plural = "Companies"
 
-class Efforts(models.Model):
-    EffortsId = models.CharField(max_length=127, null=True, blank=True)
-    
-    
-    def __str__(self):
-        return self.EffortsId
-    
-    class Meta:
-        verbose_name_plural = "Efforts"
 
 class Service(models.Model):
     ServiceName = models.CharField(max_length=50)
@@ -39,7 +30,7 @@ class Task(models.Model):
     CompanyName = models.ForeignKey(Company, on_delete=models.PROTECT, null=True, blank=True)
     TaskId = models.CharField(max_length=32, null=True, blank=True)
     TaskName = models.CharField(max_length=255)
-    DateRegistration = models.DateTimeField(default=date.today, db_index=True)
+    DateRegistration = models.DateTimeField(default=None, db_index=True)
     SituationName = models.ForeignKey('Situation', on_delete=models.PROTECT)
     ServiceName = models.ManyToManyField('Service', through='ServiceSet')
     PersonFullName = models.ForeignKey('Person', on_delete=models.PROTECT)
@@ -57,7 +48,8 @@ class Task(models.Model):
     Priority = models.OneToOneField('PriorityInfo', on_delete=models.PROTECT)
     Author = models.ForeignKey('auth.User', on_delete=models.PROTECT, null=True, blank=True)
     TaskTypeId = models.ForeignKey('TaskType', on_delete=models.PROTECT, null=True, blank=True)
-    EffortsId = models.ManyToManyField(Efforts, through="EffortsStats")
+    EffortsId = models.ManyToManyField('EffortsStats')
+    
     
     def __str__(self):
         return self.TaskName[:50]
@@ -82,7 +74,7 @@ class Person(models.Model):
     CompanyName = models.ForeignKey(Company, on_delete=models.PROTECT, null=True, blank=True)
     
     def __str__(self):
-        return self.FullName
+        return self.PersonFullName
     
     class Meta:
         verbose_name_plural = "People"
@@ -137,13 +129,10 @@ class ResultOfTask(models.Model):
 
 
 class EffortsStats(models.Model):
-    EffortsId = models.ForeignKey(Efforts, on_delete=models.CASCADE)
     TaskId = models.ForeignKey(Task, on_delete=models.CASCADE)
     Comments = models.TextField()
     TimeOfAction = models.TimeField()
     DateOfAction = models.DateTimeField(default=None)
-    StartTimeThisDay = models.TimeField()
-    FinishTimeThisDay = models.TimeField()
     
     class Meta:
         verbose_name_plural = "EffortsStats"
@@ -175,3 +164,12 @@ class TaskType(models.Model):
     class Meta:
         verbose_name_plural = "Task Type"
 
+class OfficeCalendar(models.Model):
+    Date = models.DateTimeField(default=None)
+    isWorkday = models.BooleanField()
+
+
+class OfficeHours(models.Model):
+    Date = models.DateTimeField(default=None)
+    WorkdayStart = models.TimeField()
+    WorkdayEnd = models.TimeField()

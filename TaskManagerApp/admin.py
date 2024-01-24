@@ -15,10 +15,10 @@ from .models import TypeOfAction
 from .models import CategoryOfTask
 from .models import CategorySet
 from .models import ResultOfTask
-from .models import Efforts
 from .models import EffortsStats
 from .models import PriorityInfo
-
+from .models import OfficeCalendar
+from .models import OfficeHours
 
 
 class CompanyResource(resources.ModelResource):
@@ -29,14 +29,12 @@ class CompanyAdmin(ImportExportModelAdmin):
     resource_classes = [CompanyResource]
 
 
-class EffortsResource(resources.ModelResource):
+class OfficeHoursResource(resources.ModelResource):
     class Meta:
-        model = Efforts
+        model = OfficeHours
 
-class EffortsAdmin(ImportExportModelAdmin):
-    resource_classes = [EffortsResource]
-
-
+class OfficeHoursAdmin(ImportExportModelAdmin):
+    resource_classes = [OfficeHoursResource]
 
 
 
@@ -151,9 +149,10 @@ admin.site.register(ITTaskType, ITTaskTypeAdmin)
 admin.site.register(TypeOfAction, TypeOfActionAdmin)
 admin.site.register(CategoryOfTask, CategoryOfTaskAdmin)
 admin.site.register(ResultOfTask, ResultOfTaskAdmin)
-admin.site.register(Efforts, EffortsAdmin)
 admin.site.register(EffortsStats, EffortsStatsAdmin)
 admin.site.register(CategorySet, CategorySetAdmin)
+admin.site.register(OfficeHours, OfficeHoursAdmin)
+admin.site.register(OfficeCalendar)
 
 
 
