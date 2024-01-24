@@ -238,3 +238,703 @@ Traceback (most recent call last):
   File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/testcases.py", line 150, in __call__
     raise AssertionError(self.message)
 AssertionError: Database queries to 'default' are not allowed in SimpleTestCase subclasses. Either subclass TestCase or TransactionTestCase to ensure proper test isolation or add 'default' to pages.tests.SimpleTests.databases to silence this failure.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 176, in render
+    return self._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 168, in _render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 153, in render
+    return compiled_parent._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 168, in _render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/urls/base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/urls/resolvers.py", line 729, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'dataimport' not found. 'dataimport' is not a valid view function or pattern name.
+"GET / HTTP/1.1" 500 153046
+Internal Server Error: /admin/TaskManagerApp/serviceset/
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: TaskManagerApp_serviceset
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 622, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/views/decorators/cache.py", line 56, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 236, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 667, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 870, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 69, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1710, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 742, in get_changelist_instance
+    return ChangeList(
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 101, in __init__
+    self.get_results(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 245, in get_results
+    result_count = paginator.count
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/paginator.py", line 97, in count
+    return c()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 416, in count
+    return self.query.get_count(using=self.db)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 516, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 501, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: TaskManagerApp_serviceset
+"GET /admin/TaskManagerApp/serviceset/ HTTP/1.1" 500 190006
+Internal Server Error: /admin/TaskManagerApp/serviceset/
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: TaskManagerApp_serviceset
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 622, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/views/decorators/cache.py", line 56, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 236, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 667, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 870, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 69, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1710, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 742, in get_changelist_instance
+    return ChangeList(
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 101, in __init__
+    self.get_results(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 245, in get_results
+    result_count = paginator.count
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/paginator.py", line 97, in count
+    return c()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 416, in count
+    return self.query.get_count(using=self.db)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 516, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 501, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: TaskManagerApp_serviceset
+"GET /admin/TaskManagerApp/serviceset/ HTTP/1.1" 500 190001
+Internal Server Error: /admin/TaskManagerApp/company/
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: TaskManagerApp_company
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 622, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/views/decorators/cache.py", line 56, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 236, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 667, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 870, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 69, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1710, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 742, in get_changelist_instance
+    return ChangeList(
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 101, in __init__
+    self.get_results(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 245, in get_results
+    result_count = paginator.count
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/paginator.py", line 97, in count
+    return c()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 416, in count
+    return self.query.get_count(using=self.db)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 516, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 501, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: TaskManagerApp_company
+"GET /admin/TaskManagerApp/company/ HTTP/1.1" 500 189771
+Internal Server Error: /admin/TaskManagerApp/person/
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: TaskManagerApp_person
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 622, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/views/decorators/cache.py", line 56, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 236, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 667, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 870, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 69, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1710, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 742, in get_changelist_instance
+    return ChangeList(
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 101, in __init__
+    self.get_results(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 245, in get_results
+    result_count = paginator.count
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/paginator.py", line 97, in count
+    return c()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 416, in count
+    return self.query.get_count(using=self.db)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 516, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 501, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: TaskManagerApp_person
+"GET /admin/TaskManagerApp/person/ HTTP/1.1" 500 189942
+Internal Server Error: /admin/TaskManagerApp/person/
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: TaskManagerApp_person
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 622, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/views/decorators/cache.py", line 56, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 236, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 667, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 870, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 69, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1710, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 742, in get_changelist_instance
+    return ChangeList(
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 101, in __init__
+    self.get_results(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 245, in get_results
+    result_count = paginator.count
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/paginator.py", line 97, in count
+    return c()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 416, in count
+    return self.query.get_count(using=self.db)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 516, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 501, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: TaskManagerApp_person
+"GET /admin/TaskManagerApp/person/ HTTP/1.1" 500 189942
+Internal Server Error: /admin/TaskManagerApp/company/
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: TaskManagerApp_company
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 622, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/views/decorators/cache.py", line 56, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 236, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 667, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 870, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 69, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1710, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 742, in get_changelist_instance
+    return ChangeList(
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 101, in __init__
+    self.get_results(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 245, in get_results
+    result_count = paginator.count
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/paginator.py", line 97, in count
+    return c()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 416, in count
+    return self.query.get_count(using=self.db)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 516, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 501, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: TaskManagerApp_company
+"GET /admin/TaskManagerApp/company/ HTTP/1.1" 500 189771
+Internal Server Error: /admin/TaskManagerApp/categoryoftask/
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: TaskManagerApp_categoryoftask
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 622, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/views/decorators/cache.py", line 56, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 236, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 667, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 870, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/import_export/admin.py", line 69, in changelist_view
+    return super().changelist_view(request, extra_context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1710, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/options.py", line 742, in get_changelist_instance
+    return ChangeList(
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 101, in __init__
+    self.get_results(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/views/main.py", line 245, in get_results
+    result_count = paginator.count
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/paginator.py", line 97, in count
+    return c()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/query.py", line 416, in count
+    return self.query.get_count(using=self.db)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 516, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/query.py", line 501, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 416, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: TaskManagerApp_categoryoftask
+"GET /admin/TaskManagerApp/categoryoftask/ HTTP/1.1" 500 190254
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 176, in render
+    return self._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/utils.py", line 101, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 153, in render
+    return compiled_parent._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/test/utils.py", line 101, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/urls/base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/urls/resolvers.py", line 729, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'dataimport' not found. 'dataimport' is not a valid view function or pattern name.
+Internal Server Error: /admin/TaskManagerApp/task/add/
+Traceback (most recent call last):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 176, in render
+    return self._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 168, in _render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 153, in render
+    return compiled_parent._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 168, in _render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 153, in render
+    return compiled_parent._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 168, in _render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/loader_tags.py", line 201, in render
+    return template.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 178, in render
+    return self._render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 168, in _render
+    return self.nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 295, in render
+    return nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/defaulttags.py", line 295, in render
+    return nodelist.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 977, in render
+    return SafeString(''.join([
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 978, in <listcomp>
+    node.render_annotated(context) for node in self
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 938, in render_annotated
+    return self.render(context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 1044, in render
+    return render_value_in_context(output, context)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/template/base.py", line 1021, in render_value_in_context
+    value = str(value)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/html.py", line 377, in <lambda>
+    klass.__str__ = lambda self: mark_safe(klass_str(self))
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/forms/boundfield.py", line 32, in __str__
+    return self.as_widget() + self.as_hidden(only_initial=True)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/forms/boundfield.py", line 92, in as_widget
+    return widget.render(
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/forms/widgets.py", line 246, in render
+    context = self.get_context(name, value, attrs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/contrib/admin/widgets.py", line 86, in get_context
+    context = super().get_context(name, value, attrs)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/forms/widgets.py", line 828, in get_context
+    value = self.decompress(value)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/forms/widgets.py", line 919, in decompress
+    value = to_current_timezone(value)
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/forms/utils.py", line 212, in to_current_timezone
+    if settings.USE_TZ and value is not None and timezone.is_aware(value):
+  File "/home/ilyagladky/.local/share/virtualenvs/New_TM-Q2NRt8wX/lib/python3.10/site-packages/django/utils/timezone.py", line 228, in is_aware
+    return value.utcoffset() is not None
+AttributeError: 'datetime.date' object has no attribute 'utcoffset'
+"GET /admin/TaskManagerApp/task/add/ HTTP/1.1" 500 652229
