@@ -3,6 +3,8 @@ from datetime import date
 from django.contrib import admin
 from django.contrib.auth.models import User
 
+
+
 class Company(models.Model):
     CompanyFullName = models.CharField(max_length=255, null=True, blank=True)
     CompanyShortName = models.CharField(max_length=50, null=True, blank=True)
@@ -30,7 +32,7 @@ class Task(models.Model):
     CompanyName = models.ForeignKey(Company, on_delete=models.PROTECT, null=True, blank=True)
     TaskId = models.CharField(max_length=32, null=True, blank=True)
     TaskName = models.CharField(max_length=255)
-    DateRegistration = models.DateTimeField(default=None, db_index=True)
+    DateRegistration = models.DateTimeField(default=None, blank=True)
     SituationName = models.ForeignKey('Situation', on_delete=models.PROTECT)
     ServiceName = models.ManyToManyField('Service', through='ServiceSet')
     PersonFullName = models.ForeignKey('Person', on_delete=models.PROTECT)
@@ -39,7 +41,7 @@ class Task(models.Model):
     Description = models.CharField(max_length=255)
     CategoryOfTaskName = models.ManyToManyField('CategoryOfTask', through='CategorySet')
     ResultOfTaskName = models.ForeignKey('ResultOfTask', on_delete=models.PROTECT)
-    DateOfDone = models.DateTimeField(default=None)
+    DateOfDone = models.DateTimeField(default=None, blank=True)
     Comments = models.URLField(max_length=1000)
     manual_selection = models.PositiveIntegerField()
     manual_sort = models.PositiveIntegerField()
@@ -171,5 +173,5 @@ class OfficeCalendar(models.Model):
 
 class OfficeHours(models.Model):
     Date = models.DateTimeField(default=None)
-    WorkdayStart = models.TimeField()
-    WorkdayEnd = models.TimeField()
+    WorkdayStart = models.TimeField(default=None, blank=True)
+    WorkdayEnd = models.TimeField(default=None, blank=True)

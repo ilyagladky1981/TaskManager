@@ -1,6 +1,8 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
+from django.utils import timezone
+
 
 
 from .models import Company
@@ -137,6 +139,8 @@ class ResultOfTaskResource(resources.ModelResource):
 class ResultOfTaskAdmin(ImportExportModelAdmin):
     resource_classes = [ResultOfTaskResource]
 
+current_tz = 'Europe/Moscow'
+timezone.activate(current_tz)
 
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Task, TaskAdmin)

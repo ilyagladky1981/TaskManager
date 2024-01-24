@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Guides</title>
+</head>
+<body>
+   {% load tz %}
+   {% localtime on %}
+   <b>Current Time: </b>{{current_time}}
+   <p><b>Current Date-Time: </b>{% now "SHORT_DATETIME_FORMAT" %}</p>
+   {% endlocaltime %}
+<p>
+
+   {% timezone "Europe/Paris" %}
+       Paris time: {% now "r"  %}
+   {% endtimezone %}
+   
+</p>
+   <p>
+
+   {% timezone "Europe/Moscow" %}
+       Moscow time: {% now "r" %}
+   {% endtimezone %}
+</p>
+
+    <p>
+   {% timezone None %}
+       Server time: {% now "r"  %}
+   {% endtimezone %}
+   </p>
+
+   
+   <p><b>Current Date-Time: </b>{% now "r" %}</p>
+   
+   <p><b> Europe/Moscow   </b>{% now "r" %}</p>
+
+</body>
+</html>
