@@ -1,6 +1,7 @@
 # ignore data base
 db_data/
 db.sqlite3
+Logs/
 
 # System files
 Pipfile
