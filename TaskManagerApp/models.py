@@ -50,7 +50,7 @@ class Task(models.Model):
     Priority = models.OneToOneField('PriorityInfo', on_delete=models.PROTECT)
     Author = models.ForeignKey('auth.User', on_delete=models.PROTECT, null=True, blank=True)
     TaskTypeId = models.ForeignKey('TaskType', on_delete=models.PROTECT, null=True, blank=True)
-    EffortsId = models.ManyToManyField('EffortsStats')
+    EffortsId = models.ForeignKey('EffortsStats', on_delete=models.PROTECT, null=True, blank=True)
     
     
     def __str__(self):
@@ -131,7 +131,6 @@ class ResultOfTask(models.Model):
 
 
 class EffortsStats(models.Model):
-    TaskId = models.ForeignKey(Task, on_delete=models.CASCADE)
     Comments = models.TextField()
     TimeOfAction = models.TimeField()
     DateOfAction = models.DateTimeField(default=None)
@@ -167,11 +166,11 @@ class TaskType(models.Model):
         verbose_name_plural = "Task Type"
 
 class OfficeCalendar(models.Model):
-    Date = models.DateTimeField(default=None)
+    Date = models.DateField(default=None)
     isWorkday = models.BooleanField()
 
 
 class OfficeHours(models.Model):
-    Date = models.DateTimeField(default=None)
+    Date = models.DateField(default=None)
     WorkdayStart = models.TimeField(default=None, blank=True)
     WorkdayEnd = models.TimeField(default=None, blank=True)
