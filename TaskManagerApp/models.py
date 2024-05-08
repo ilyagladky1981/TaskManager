@@ -6,15 +6,15 @@ from django.contrib.auth.models import User
 
 
 class Company(models.Model):
-    CompanyFullName = models.CharField(max_length=255, null=True, blank=True)
-    CompanyShortName = models.CharField(max_length=50, null=True, blank=True)
-    CompanyLogo = models.ImageField(height_field=10, width_field=10, null=True, blank=True)
-    CompanyAddress = models.CharField(max_length=50, null=True, blank=True)
-    CompanyPhone = models.CharField(max_length=50, null=True, blank=True)
-    CompanyFax = models.CharField(max_length=50, null=True, blank=True)
+    FullName = models.CharField(max_length=255, null=True, blank=True)
+    ShortName = models.CharField(max_length=50, null=True, blank=True)
+    Logo = models.ImageField(height_field=10, width_field=10, null=True, blank=True)
+    Address = models.CharField(max_length=50, null=True, blank=True)
+    Phone = models.CharField(max_length=50, null=True, blank=True)
+    Fax = models.CharField(max_length=50, null=True, blank=True)
     
     def __str__(self):
-        return self.CompanyShortName
+        return self.ShortName
     
     class Meta:
         verbose_name_plural = "Companies"
@@ -29,25 +29,25 @@ class Service(models.Model):
 
 
 class Task(models.Model):
-    CompanyName = models.ForeignKey(Company, on_delete=models.PROTECT, null=True, blank=True)
+    CompanyId = models.ForeignKey('Company', on_delete=models.PROTECT, null=True, blank=True)
     TaskId = models.CharField(max_length=32, null=True, blank=True)
     TaskName = models.CharField(max_length=255)
-    DateRegistration = models.DateTimeField(default=None, blank=True)
-    SituationName = models.ForeignKey('Situation', on_delete=models.PROTECT)
+    DateRegistration = models.DateTimeField(default=None, null=True, blank=True)
+    SituationType = models.ForeignKey('Situation', on_delete=models.PROTECT)
     ServiceName = models.ManyToManyField('Service', through='ServiceSet')
     PersonFullName = models.ForeignKey('Person', on_delete=models.PROTECT)
     ITTaskTypeName = models.ForeignKey('ITTaskType', on_delete=models.PROTECT)
     TypeOfActionName = models.ForeignKey('TypeOfAction', on_delete=models.PROTECT)
-    Description = models.CharField(max_length=255)
+    Description = models.CharField(max_length=255,  null=True, blank=True)
     CategoryOfTaskName = models.ManyToManyField('CategoryOfTask', through='CategorySet')
-    ResultOfTaskName = models.ForeignKey('ResultOfTask', on_delete=models.PROTECT)
-    DateOfDone = models.DateTimeField(default=None, blank=True)
-    Comments = models.URLField(max_length=1000)
-    manual_selection = models.PositiveIntegerField()
-    manual_sort = models.PositiveIntegerField()
-    PriorityColor = models.PositiveIntegerField()
-    ProjectName = models.ForeignKey('self', on_delete=models.PROTECT)
-    Priority = models.OneToOneField('PriorityInfo', on_delete=models.PROTECT)
+    ResultOfTaskName = models.ForeignKey('ResultOfTask', on_delete=models.PROTECT, null=True, blank=True)
+    DateOfDone = models.DateTimeField(default=None, null=True, blank=True)
+    Comments = models.URLField(max_length=1000, null=True, blank=True)
+    manual_selection = models.PositiveIntegerField(null=True, blank=True)
+    manual_sort = models.PositiveIntegerField(null=True, blank=True)
+    PriorityColor = models.PositiveIntegerField(null=True, blank=True)
+    ProjectName = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True)
+    Priority = models.OneToOneField('PriorityInfo', on_delete=models.PROTECT,  null=True, blank=True)
     Author = models.ForeignKey('auth.User', on_delete=models.PROTECT, null=True, blank=True)
     TaskTypeId = models.ForeignKey('TaskType', on_delete=models.PROTECT, null=True, blank=True)
     EffortsId = models.ForeignKey('EffortsStats', on_delete=models.PROTECT, null=True, blank=True)
@@ -121,10 +121,10 @@ class CategorySet(models.Model):
 
 
 class ResultOfTask(models.Model):
-    ResultOfTaskName = models.CharField(max_length=50)
+    Name = models.CharField(max_length=50)
     
     def __str__(self):
-        return self.ResultOfTaskName
+        return self.Name
     
     class Meta:
         verbose_name_plural = "Result Of Task"

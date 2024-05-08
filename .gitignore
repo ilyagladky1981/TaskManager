@@ -8,3 +8,6 @@ Pipfile.lock
 
 # ignore csv folder
 csv/
+
+# ignore Logs
+Logs/

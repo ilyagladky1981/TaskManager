@@ -1,0 +1,26 @@
+#Actions {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.Actions span {
+  color: #0d4710;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  transition-duration: 0.1s;
+  transition-property: transform;
+  width: 33px;
+  white-space: nowrap;
+}
+
+.Actions span:hover {
+  transform: scale(1.1);
+}
+
+
+.Actions .ActionsClose {
+  border-color: #B7477D;
+  color: #B7477D;
+}
