@@ -1,0 +1,22 @@
+.TaskEditor .TaskEditorToolbar {
+  margin: 40px;
+}
+
+.TaskEditor .TaskEditorToolbarAdd {
+  float: left;
+}
+
+.TaskEditor .TaskEditorToolbarSearch {
+  float: right;
+}
+
+.TaskEditor .TaskEditorToolbarAddButton {
+  font-size: 32px;
+}
+
+.TaskEditor .TaskEditorDatagrid {
+  clear: both;
+  margin: 40px;
+  padding-top: 20px;
+}
+

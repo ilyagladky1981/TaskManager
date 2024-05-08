@@ -1,0 +1,28 @@
+html {
+  background-color: #f0f0f0;
+  font: 16px Arial;
+}
+
+body {
+  margin: 0;
+}
+
+input, textarea {
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+}
+
+.app-header {
+  background-color: #0077b8;
+  color: #F0F0F0;
+  font-family: 'Arial';
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 900;
+  margin: 0;
+  padding: 10px 10px 10px 10px;
+  vertical-align: middle;
+  text-align: center;
+}
+
