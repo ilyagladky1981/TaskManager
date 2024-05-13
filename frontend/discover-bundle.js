@@ -35278,6 +35278,9 @@ var FormInput = function (_Component) {
         case 'rating':
           return _react2.default.createElement(_Rating2.default, _extends({}, common, {
             defaultValue: parseInt(this.props.defaultValue, 10) }));
+        case 'datetime':
+          return _react2.default.createElement(_Rating2.default, _extends({}, common, {
+            defaultValue: parseInt(this.props.defaultValue, 10) }));
         case 'text':
           return _react2.default.createElement('textarea', common);
         default:

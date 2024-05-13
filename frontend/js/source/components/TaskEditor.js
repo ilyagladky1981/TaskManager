@@ -17,22 +17,9 @@ class TaskEditor extends Component {
     };
     this._preSearchData = null;
     this.formRef = React.createRef();
-    //this._saveData = this._saveData.bind(this);
   }
 
   static getDerivedStateFromProps(props, state) {
-    /*
-    ///////////
-    console.log('state.data getDerivedStateFromProps TaskEditor');
-    console.log(state.data);
-
-    console.log('props.data from state getDerivedStateFromProps TaskEditor');
-    console.log(props.data);
-
-    console.log('props.initialData TaskEditor');
-    console.log(props.initialData);
-    ///////////
-    */
     if (props.initialData !== state.prevData) {
       return {
         data: props.initialData,
@@ -94,10 +81,10 @@ class TaskEditor extends Component {
 
 
   
-  _commitToStorage(data) {
+  /*_commitToStorage(data) {
     //save to REST
     localStorage.setItem('data', JSON.stringify(data));
-  }
+  }*/
   
   _startSearching() {
     this._preSearchData = this.state.data;
@@ -138,15 +125,8 @@ class TaskEditor extends Component {
             <Button 
               onClick={this._addNewDialog.bind(this)}
               className="TaskEditorToolbarAddButton">
-              Add Task
+              Добавить задачу
             </Button>
-          </div>
-          <div className="TaskEditorToolbarSearch">
-            <input 
-              placeholder="Search..." 
-              onChange={this._search.bind(this)}
-              onFocus={this._startSearching.bind(this)}
-              onBlur={this._doneSearching.bind(this)}/>
           </div>
         </div>
         <div className="TaskEditorDatagrid">

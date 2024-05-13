@@ -52,7 +52,6 @@ var TaskEditor = function (_Component) {
     };
     _this._preSearchData = null;
     _this.formRef = _react2.default.createRef();
-    //this._saveData = this._saveData.bind(this);
     return _this;
   }
 
@@ -108,12 +107,11 @@ var TaskEditor = function (_Component) {
       }
     };*/
 
-  }, {
-    key: '_commitToStorage',
-    value: function _commitToStorage(data) {
+    /*_commitToStorage(data) {
       //save to REST
       localStorage.setItem('data', JSON.stringify(data));
-    }
+    }*/
+
   }, {
     key: '_startSearching',
     value: function _startSearching() {
@@ -167,17 +165,8 @@ var TaskEditor = function (_Component) {
               {
                 onClick: this._addNewDialog.bind(this),
                 className: 'TaskEditorToolbarAddButton' },
-              'Add Task'
+              '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443'
             )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'TaskEditorToolbarSearch' },
-            _react2.default.createElement('input', {
-              placeholder: 'Search...',
-              onChange: this._search.bind(this),
-              onFocus: this._startSearching.bind(this),
-              onBlur: this._doneSearching.bind(this) })
           )
         ),
         _react2.default.createElement(
@@ -205,16 +194,6 @@ var TaskEditor = function (_Component) {
   }], [{
     key: 'getDerivedStateFromProps',
     value: function getDerivedStateFromProps(props, state) {
-      /*
-      ///////////
-      console.log('state.data getDerivedStateFromProps TaskEditor');
-      console.log(state.data);
-       console.log('props.data from state getDerivedStateFromProps TaskEditor');
-      console.log(props.data);
-       console.log('props.initialData TaskEditor');
-      console.log(props.initialData);
-      ///////////
-      */
       if (props.initialData !== state.prevData) {
         return {
           data: props.initialData,

@@ -35715,6 +35715,9 @@ var FormInput = function (_Component) {
         case 'rating':
           return _react2.default.createElement(_Rating2.default, _extends({}, common, {
             defaultValue: parseInt(this.props.defaultValue, 10) }));
+        case 'datetime':
+          return _react2.default.createElement(_Rating2.default, _extends({}, common, {
+            defaultValue: parseInt(this.props.defaultValue, 10) }));
         case 'text':
           return _react2.default.createElement('textarea', common);
         default:
@@ -36007,7 +36010,6 @@ var TaskEditor = function (_Component) {
     };
     _this._preSearchData = null;
     _this.formRef = _react2.default.createRef();
-    //this._saveData = this._saveData.bind(this);
     return _this;
   }
 
@@ -36063,12 +36065,11 @@ var TaskEditor = function (_Component) {
       }
     };*/
 
-  }, {
-    key: '_commitToStorage',
-    value: function _commitToStorage(data) {
+    /*_commitToStorage(data) {
       //save to REST
       localStorage.setItem('data', JSON.stringify(data));
-    }
+    }*/
+
   }, {
     key: '_startSearching',
     value: function _startSearching() {
@@ -36122,17 +36123,8 @@ var TaskEditor = function (_Component) {
               {
                 onClick: this._addNewDialog.bind(this),
                 className: 'TaskEditorToolbarAddButton' },
-              'Add Task'
+              '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443'
             )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'TaskEditorToolbarSearch' },
-            _react2.default.createElement('input', {
-              placeholder: 'Search...',
-              onChange: this._search.bind(this),
-              onFocus: this._startSearching.bind(this),
-              onBlur: this._doneSearching.bind(this) })
           )
         ),
         _react2.default.createElement(
@@ -36160,16 +36152,6 @@ var TaskEditor = function (_Component) {
   }], [{
     key: 'getDerivedStateFromProps',
     value: function getDerivedStateFromProps(props, state) {
-      /*
-      ///////////
-      console.log('state.data getDerivedStateFromProps TaskEditor');
-      console.log(state.data);
-       console.log('props.data from state getDerivedStateFromProps TaskEditor');
-      console.log(props.data);
-       console.log('props.initialData TaskEditor');
-      console.log(props.initialData);
-      ///////////
-      */
       if (props.initialData !== state.prevData) {
         return {
           data: props.initialData,
@@ -36212,7 +36194,7 @@ exports.default = [{
   id: 'TaskId',
   label: 'TaskId',
   type: 'text',
-  show: true,
+  show: false,
   sample: '_01439',
   align: 'left'
 }, {
@@ -36224,8 +36206,117 @@ exports.default = [{
 }, {
   id: 'DateRegistration',
   label: 'DateRegistration',
-  show: true,
+  type: 'datetime',
+  show: false,
   sample: '2023-03-29T00:00:00+03:00'
+}, {
+  id: 'SituationType',
+  label: 'SituationType',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'ServiceName',
+  label: 'ServiceName',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'PersonFullName',
+  label: 'PersonFullName',
+  type: 'text',
+  show: true,
+  sample: ''
+}, {
+  id: 'ITTaskTypeName',
+  label: 'ITTaskTypeName',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'TypeOfActionName',
+  label: 'TypeOfActionName',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'Description',
+  label: 'Description',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'CategoryOfTaskName',
+  label: 'CategoryOfTaskName',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'ResultOfTaskName',
+  label: 'ResultOfTaskName',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'DateOfDone',
+  label: 'DateOfDone',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'Comments',
+  label: 'Comments',
+  type: 'text',
+  show: true,
+  sample: ''
+}, {
+  id: 'manual_selection',
+  label: 'manual_selection',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'manual_sort',
+  label: 'manual_sort',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'PriorityColor',
+  label: 'PriorityColor',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'ProjectName',
+  label: 'ProjectName',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'Priority',
+  label: 'Priority',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'Author',
+  label: 'Author',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'TaskTypeId',
+  label: 'TaskTypeId',
+  type: 'text',
+  show: false,
+  sample: ''
+}, {
+  id: 'EffortsId',
+  label: 'EffortsId',
+  type: 'text',
+  show: false,
+  sample: ''
 }];
 },{}],33:[function(require,module,exports){
 // shim for using process in browser
