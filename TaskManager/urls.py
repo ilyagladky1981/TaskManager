@@ -20,7 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('TaskManagerApp.urls')),
+    path('api/', include('TaskManagerApp.api.urls')),
 ]
 
 

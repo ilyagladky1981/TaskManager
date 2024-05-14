@@ -28,17 +28,6 @@ def api_tasks(request):
         return Response(serializer.errors,
                         status=status.HTTP_400_BAD_REQUEST)
 
-"""
-    elif request.method == 'POST':
-        serializer = TaskSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, 
-                            status=status.HTTP_201_CREATED)
-        return Response(serializer.errors,
-                        status=status.HTTP_400_BAD_REQUEST)
-"""
-
 
 
 @api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
@@ -66,13 +55,4 @@ def api_control_panel(request, CompanyId):
         control_panel = Task.objects.filter(q).order_by('-PriorityColor')
         serializer = TaskSerializer(control_panel, many=True)
         return Response(serializer.data)
-    elif request.method == 'POST':
-        print("request.data=",request.data)
-        serializer = TaskSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, 
-                            status=status.HTTP_201_CREATED)
-        return Response(serializer.errors,
-                        status=status.HTTP_400_BAD_REQUEST)
 

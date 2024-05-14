@@ -33,6 +33,12 @@ class FormInput extends Component {
             {...common}
             defaultValue={parseInt(this.props.defaultValue, 10)} />
         );
+      case 'datetime':
+        return (
+          <Rating
+            {...common}
+            defaultValue={parseInt(this.props.defaultValue, 10)} />
+        );
       case 'text':
         return <textarea {...common} />;
       default:

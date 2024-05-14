@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-fbo+oj(-$(@vz^_((-olcer#$&^&p$o@g#o+q7@p)08%)zrgpx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '192.168.11.37']
+ALLOWED_HOSTS = ['*', '.localhost', '127.0.0.1', '[::1]', '45.135.233.68']
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -44,18 +44,22 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'import_export',
+    'rest_framework',
+    'corsheaders',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
-    'TaskManagerApp.middleware.TimezoneMiddleware'
+    'TaskManagerApp.middleware.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'TaskManager.urls'
@@ -137,6 +141,15 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+#CORS_ORIGIN_WHITELIST = [
+#  'http://192.168.11.37:8000',
+#  'http://192.168.11.37:3000',
+#]
+
+CORS_URLS_REGEX = r'^/api/.*$'
+
 
 LOGGING = {
     'version': 1,
@@ -144,13 +157,18 @@ LOGGING = {
     'handlers': {
         'debug_file': {
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'Logs/debug.log'
+            'class': 'logging.handlers.RotatingFileHandler', 
+            'filename': 'Logs/debug.log',
+            'maxBytes': 1048576,
+            'backupCount': 10,
         },
         'error_file': {
             'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': 'Logs/error.log'
+            'class': 'logging.handlers.RotatingFileHandler', 
+            'filename': 'Logs/error.log',
+            'maxBytes': 1048576,
+            'backupCount': 10,
+
         }
     },
     'loggers': {
