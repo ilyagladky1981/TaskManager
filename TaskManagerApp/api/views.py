@@ -13,7 +13,7 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.utils import timezone
 from django.http import JsonResponse
-from .serializers import TaskSerializer
+from .serializers import TaskSerializer, PersonSerializer
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 

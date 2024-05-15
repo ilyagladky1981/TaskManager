@@ -35,7 +35,7 @@ class Task(models.Model):
     DateRegistration = models.DateTimeField(default=None, null=True, blank=True)
     SituationType = models.ForeignKey('Situation', on_delete=models.PROTECT)
     ServiceName = models.ManyToManyField('Service', through='ServiceSet')
-    PersonFullNameId = models.ForeignKey('Person', on_delete=models.PROTECT)
+    PersonFullNameId = models.ForeignKey('Person', on_delete=models.PROTECT, related_name='PersonFullNameIds')
     ITTaskTypeName = models.ForeignKey('ITTaskType', on_delete=models.PROTECT)
     TypeOfActionName = models.ForeignKey('TypeOfAction', on_delete=models.PROTECT)
     Description = models.CharField(max_length=255,  null=True, blank=True)

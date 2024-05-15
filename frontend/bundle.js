@@ -35214,7 +35214,7 @@ var Excel = function (_Component) {
       edit: null, // [row index, schema.id],
       dialog: null // {type, idx}
     };
-    _this._saveRow = _this._saveRow.bind(_this);
+    //this._saveRow = this._saveRow.bind(this);
     return _this;
   }
 
@@ -35273,53 +35273,25 @@ var Excel = function (_Component) {
     key: '_save',
     value: function _save(e) {
       e.preventDefault();
-      var value = this.inputRef.current.getValue();
-      var data = Array.from(this.state.data);
-      var rowId = this.state.edit.row;
-      var taskId = data[rowId]['id'];
+      /*const value = this.inputRef.current.getValue();
+      let data = Array.from(this.state.data);
+      let rowId = this.state.edit.row;
+      let taskId = data[rowId]['id'];
       //console.log("taskId = ", taskId);
-      var thisRow = {};
-      /*thisRow = Array.from(data[rowId]);
-      console.log("thisRow 1 - ");
-      console.log(thisRow);*/
-
-      var thisSchema = this.props.schema;
+      let thisRow = {};
+       const thisSchema = this.props.schema;
       data[rowId][this.state.edit.key] = value;
-
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = thisSchema[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var schema = _step.value;
-
-          thisRow[schema.id] = data[rowId][schema.id];;
-        }
-
-        /*console.log("thisRow 3 - ");
-        console.log(thisRow);*/
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
+       for (let schema of thisSchema) {
+        thisRow[schema.id] = data[rowId][schema.id];;
       }
-
-      this._saveRow(taskId, thisRow);
+       console.log("thisRow 3 - ");
+      console.log(thisRow);
+       this._saveRow(taskId, thisRow);
       this.setState({
         edit: null,
-        data: data
+        data: data,
       });
-      this._fireDataChange(data);
+      this._fireDataChange(data);*/
     }
   }, {
     key: '_actionClick',
@@ -36006,6 +35978,7 @@ var TaskEditor = function (_Component) {
 
     _this.state = {
       data: props.initialData,
+      fullData: props.fullAPIData,
       addnew: false
     };
     _this._preSearchData = null;
@@ -36167,7 +36140,8 @@ var TaskEditor = function (_Component) {
 
 TaskEditor.propTypes = {
   schema: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  initialData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = TaskEditor;
@@ -36222,11 +36196,11 @@ exports.default = [{
   show: false,
   sample: ''
 }, {
-  id: 'PersonFullName',
+  id: 'PersonFullNameId',
   label: 'PersonFullName',
   type: 'text',
   show: true,
-  sample: ''
+  sample: 'Денисов Николай Валерьевич'
 }, {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
@@ -36268,7 +36242,7 @@ exports.default = [{
   label: 'Comments',
   type: 'text',
   show: true,
-  sample: ''
+  sample: '  '
 }, {
   id: 'manual_selection',
   label: 'manual_selection',
@@ -36285,8 +36259,8 @@ exports.default = [{
   id: 'PriorityColor',
   label: 'PriorityColor',
   type: 'text',
-  show: false,
-  sample: ''
+  show: true,
+  sample: '6'
 }, {
   id: 'ProjectName',
   label: 'ProjectName',

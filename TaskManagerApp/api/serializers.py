@@ -9,11 +9,18 @@ class PersonSerializer(serializers.ModelSerializer):
 
 
 class TaskSerializer(serializers.ModelSerializer):
-    AuthorFullName = serializers.StringRelatedField(many=True)
-    
     class Meta:
         model = Task
-        fields = ['TaskId', 'TaskName', 'AuthorFullName']
+        depth = 1
+        fields = ['id', 'CompanyId', 'TaskId', 
+          'TaskName', 'DateRegistration', 
+          'SituationType', 'ServiceName', 
+          'PersonFullNameId', 'ITTaskTypeName', 
+          'TypeOfActionName', 'Description', 
+          'CategoryOfTaskName', 'ResultOfTaskName', 
+          'DateOfDone', 'Comments', 'manual_selection', 
+          'manual_sort', 'PriorityColor', 'ProjectName', 
+          'Priority', 'Author', 'TaskTypeId', 'EffortsId' ] 
 
 
 

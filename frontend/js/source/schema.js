@@ -57,11 +57,11 @@ export default [
     
 
   {
-    id: 'PersonFullName',
+    id: 'PersonFullNameId',
     label: 'PersonFullName',
     type: 'text',
     show: true,
-    sample: '',
+    sample: 'Денисов Николай Валерьевич',
   },
     
 
@@ -124,7 +124,7 @@ export default [
     label: 'Comments',
     type: 'text',
     show: true,
-    sample: '',
+    sample: '  ',
   },
     
 
@@ -151,7 +151,7 @@ export default [
     label: 'PriorityColor',
     type: 'text',
     show: true,
-    sample: '',
+    sample: '6',
   },
     
 

@@ -48,6 +48,7 @@ var TaskEditor = function (_Component) {
 
     _this.state = {
       data: props.initialData,
+      fullData: props.fullAPIData,
       addnew: false
     };
     _this._preSearchData = null;
@@ -209,7 +210,8 @@ var TaskEditor = function (_Component) {
 
 TaskEditor.propTypes = {
   schema: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  initialData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = TaskEditor;

@@ -23,7 +23,7 @@ class Excel extends Component {
       edit: null, // [row index, schema.id],
       dialog: null, // {type, idx}
     };
-    this._saveRow = this._saveRow.bind(this);
+    //this._saveRow = this._saveRow.bind(this);
   }
 
 
@@ -91,15 +91,12 @@ class Excel extends Component {
   
   _save(e) {
     e.preventDefault();
-    const value = this.inputRef.current.getValue();
+    /*const value = this.inputRef.current.getValue();
     let data = Array.from(this.state.data);
     let rowId = this.state.edit.row;
     let taskId = data[rowId]['id'];
     //console.log("taskId = ", taskId);
     let thisRow = {};
-    /*thisRow = Array.from(data[rowId]);
-    console.log("thisRow 1 - ");
-    console.log(thisRow);*/
 
     const thisSchema = this.props.schema;
     data[rowId][this.state.edit.key] = value;
@@ -108,15 +105,15 @@ class Excel extends Component {
       thisRow[schema.id] = data[rowId][schema.id];;
     }
 
-    /*console.log("thisRow 3 - ");
-    console.log(thisRow);*/
+    console.log("thisRow 3 - ");
+    console.log(thisRow);
 
     this._saveRow(taskId, thisRow);
     this.setState({
       edit: null,
       data: data,
     });
-    this._fireDataChange(data);
+    this._fireDataChange(data);*/
   }
   
   _actionClick(rowidx, action) {

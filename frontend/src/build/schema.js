@@ -48,11 +48,11 @@ exports.default = [{
   show: false,
   sample: ''
 }, {
-  id: 'PersonFullName',
+  id: 'PersonFullNameId',
   label: 'PersonFullName',
   type: 'text',
   show: true,
-  sample: ''
+  sample: 'Денисов Николай Валерьевич'
 }, {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
@@ -94,7 +94,7 @@ exports.default = [{
   label: 'Comments',
   type: 'text',
   show: true,
-  sample: ''
+  sample: '  '
 }, {
   id: 'manual_selection',
   label: 'manual_selection',
@@ -111,8 +111,8 @@ exports.default = [{
   id: 'PriorityColor',
   label: 'PriorityColor',
   type: 'text',
-  show: false,
-  sample: ''
+  show: true,
+  sample: '6'
 }, {
   id: 'ProjectName',
   label: 'ProjectName',

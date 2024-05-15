@@ -13,6 +13,7 @@ class TaskEditor extends Component {
     super(props);
     this.state = {
       data: props.initialData,
+      fullData: props.fullAPIData,
       addnew: false,
     };
     this._preSearchData = null;
@@ -157,6 +158,9 @@ TaskEditor.propTypes = {
     PropTypes.object
   ),
   initialData: PropTypes.arrayOf(
+    PropTypes.object
+  ),
+  fullAPIData: PropTypes.arrayOf(
     PropTypes.object
   ),
 };
