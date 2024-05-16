@@ -21,7 +21,7 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 @api_view(['GET'])
 def api_tasks(request):
     if request.method == 'GET':
-        tasks = Task.objects.all()
+        tasks = Task.objects.filter(id__gte=1425)
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
     else:
@@ -51,7 +51,7 @@ def api_task_detail(request, taskId):
 @api_view(['GET', 'POST'])
 def api_control_panel(request, CompanyId):
     if request.method == 'GET':
-        q = (Q(ResultOfTaskName__Name='') | Q(ResultOfTaskName__Name='в_работе')) & Q(CompanyId=CompanyId)
+        q = (Q(ResultOfTaskName__Name='') | Q(ResultOfTaskName__Name='в_работе')) & Q(CompanyId=CompanyId) & Q(id__gte=1425)
         control_panel = Task.objects.filter(q).order_by('-PriorityColor')
         serializer = TaskSerializer(control_panel, many=True)
         return Response(serializer.data)

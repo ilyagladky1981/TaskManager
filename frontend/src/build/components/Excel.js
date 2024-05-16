@@ -128,6 +128,18 @@ var Excel = function (_Component) {
     key: '_save',
     value: function _save(e) {
       e.preventDefault();
+      var value = this.inputRef.current.getValue();
+      var data = Array.from(this.state.data);
+      var rowId = this.state.edit.row;
+
+      data[rowId][this.state.edit.key] = value;
+
+      this.setState({
+        edit: null,
+        data: data
+      });
+      this._fireDataChange(data);
+
       /*const value = this.inputRef.current.getValue();
       let data = Array.from(this.state.data);
       let rowId = this.state.edit.row;
@@ -300,12 +312,27 @@ var Excel = function (_Component) {
                 var _classNames;
 
                 var schema = _this2.props.schema[idx];
+                /*console.log("Excel _renderTable tbody -------------------");
+                console.log(`Excel rowidx = ${rowidx}`);
+                console.log(`Excel idx = ${idx}`);
+                console.log(`Excel cell = ${cell}`);*/
                 if (!schema || !schema.show) {
+                  /*if (!schema) {
+                    return null;
+                  } else {
+                    console.log(`Excel schema.id = ${schema.id}`);
+                    console.log(`Excel schema.show = ${schema.show}`);
+                  }*/
+
                   return null;
                 }
                 var isRating = schema.type === 'rating';
                 var edit = _this2.state.edit;
                 var content = row[cell];
+
+                /*console.log(`Excel content = ${content}`);
+                console.log(`Excel schema.id = ${schema.id}`);*/
+
                 if (!isRating && edit && edit.row === rowidx && edit.key === schema.id) {
                   content = _react2.default.createElement(
                     'form',

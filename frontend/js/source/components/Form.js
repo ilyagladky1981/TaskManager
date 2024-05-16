@@ -15,30 +15,31 @@ class Form extends Component {
   
   render() {
     return (
-      <form className="Form">{this.props.fields.map(field => {
+      <form className="Form"><table className="FormTable">
+          <tbody>{this.props.fields.map(field => {
         const prefilled = this.props.initialData && this.props.initialData[field.id];
         if (!this.props.readonly) {
           return (
-            <div className="FormRow" key={field.id}>
-              <label className="FormLabel" htmlFor={field.id}>{field.label}:</label>
-              <FormInput {...field} ref={field.id} defaultValue={prefilled} />
-            </div>
+            <tr className="FormRow" key={field.id}>
+              <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
+              <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled} /></td>
+            </tr>
           );
         }
         if (!prefilled) {
           return null;
         }
         return (
-          <div className="FormRow" key={field.id}>
-            <span className="FormLabel">{field.label}:</span>
-            {
+          <tr className="FormRow" key={field.id}>
+            <td className="FormTableLabel"><span className="FormLabel">{field.label}:</span></td>
+            <td className="FormTableData">{
               field.type === 'rating'
                 ? <Rating readonly={true} defaultValue={parseInt(prefilled, 10)} />
                 : <div>{prefilled}</div>
-            }
-          </div>
+            }</td>
+          </tr>
         );
-      }, this)}</form>
+      }, this)}</tbody></table></form>
     );
   }
 }

@@ -35273,6 +35273,18 @@ var Excel = function (_Component) {
     key: '_save',
     value: function _save(e) {
       e.preventDefault();
+      var value = this.inputRef.current.getValue();
+      var data = Array.from(this.state.data);
+      var rowId = this.state.edit.row;
+
+      data[rowId][this.state.edit.key] = value;
+
+      this.setState({
+        edit: null,
+        data: data
+      });
+      this._fireDataChange(data);
+
       /*const value = this.inputRef.current.getValue();
       let data = Array.from(this.state.data);
       let rowId = this.state.edit.row;
@@ -35445,12 +35457,27 @@ var Excel = function (_Component) {
                 var _classNames;
 
                 var schema = _this2.props.schema[idx];
+                /*console.log("Excel _renderTable tbody -------------------");
+                console.log(`Excel rowidx = ${rowidx}`);
+                console.log(`Excel idx = ${idx}`);
+                console.log(`Excel cell = ${cell}`);*/
                 if (!schema || !schema.show) {
+                  /*if (!schema) {
+                    return null;
+                  } else {
+                    console.log(`Excel schema.id = ${schema.id}`);
+                    console.log(`Excel schema.show = ${schema.show}`);
+                  }*/
+
                   return null;
                 }
                 var isRating = schema.type === 'rating';
                 var edit = _this2.state.edit;
                 var content = row[cell];
+
+                /*console.log(`Excel content = ${content}`);
+                console.log(`Excel schema.id = ${schema.id}`);*/
+
                 if (!isRating && edit && edit.row === rowidx && edit.key === schema.id) {
                   content = _react2.default.createElement(
                     'form',
@@ -35567,40 +35594,64 @@ var Form = function (_Component) {
       return _react2.default.createElement(
         'form',
         { className: 'Form' },
-        this.props.fields.map(function (field) {
-          var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
-          if (!_this3.props.readonly) {
-            return _react2.default.createElement(
-              'div',
-              { className: 'FormRow', key: field.id },
-              _react2.default.createElement(
-                'label',
-                { className: 'FormLabel', htmlFor: field.id },
-                field.label,
-                ':'
-              ),
-              _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
-            );
-          }
-          if (!prefilled) {
-            return null;
-          }
-          return _react2.default.createElement(
-            'div',
-            { className: 'FormRow', key: field.id },
-            _react2.default.createElement(
-              'span',
-              { className: 'FormLabel' },
-              field.label,
-              ':'
-            ),
-            field.type === 'rating' ? _react2.default.createElement(_Rating2.default, { readonly: true, defaultValue: parseInt(prefilled, 10) }) : _react2.default.createElement(
-              'div',
-              null,
-              prefilled
-            )
-          );
-        }, this)
+        _react2.default.createElement(
+          'table',
+          { className: 'FormTable' },
+          _react2.default.createElement(
+            'tbody',
+            null,
+            this.props.fields.map(function (field) {
+              var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
+              if (!_this3.props.readonly) {
+                return _react2.default.createElement(
+                  'tr',
+                  { className: 'FormRow', key: field.id },
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'FormTableLabel' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'FormLabel', htmlFor: field.id },
+                      field.label,
+                      ':\xA0'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'FormTableData' },
+                    _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                  )
+                );
+              }
+              if (!prefilled) {
+                return null;
+              }
+              return _react2.default.createElement(
+                'tr',
+                { className: 'FormRow', key: field.id },
+                _react2.default.createElement(
+                  'td',
+                  { className: 'FormTableLabel' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'FormLabel' },
+                    field.label,
+                    ':'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'FormTableData' },
+                  field.type === 'rating' ? _react2.default.createElement(_Rating2.default, { readonly: true, defaultValue: parseInt(prefilled, 10) }) : _react2.default.createElement(
+                    'div',
+                    null,
+                    prefilled
+                  )
+                )
+              );
+            }, this)
+          )
+        )
       );
     }
   }]);
@@ -36160,7 +36211,7 @@ exports.default = [{
   sample: 1425,
   align: 'left'
 }, {
-  id: 'CompanyId',
+  id: 'CompanyName',
   label: 'Компания',
   show: false,
   sample: 1
@@ -36180,8 +36231,9 @@ exports.default = [{
 }, {
   id: 'DateRegistration',
   label: 'DateRegistration',
-  type: 'datetime',
+  type: 'text',
   show: false,
+  editable: false,
   sample: '2023-03-29T00:00:00+03:00'
 }, {
   id: 'SituationType',

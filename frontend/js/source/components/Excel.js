@@ -91,6 +91,18 @@ class Excel extends Component {
   
   _save(e) {
     e.preventDefault();
+    const value = this.inputRef.current.getValue();
+    let data = Array.from(this.state.data);
+    let rowId = this.state.edit.row;
+
+    data[rowId][this.state.edit.key] = value;
+
+    this.setState({
+      edit: null,
+      data: data,
+    });
+    this._fireDataChange(data);
+
     /*const value = this.inputRef.current.getValue();
     let data = Array.from(this.state.data);
     let rowId = this.state.edit.row;
@@ -243,12 +255,27 @@ class Excel extends Component {
               <tr key={rowidx}>{
                 Object.keys(row).map((cell, idx) => {
                   const schema = this.props.schema[idx];
+                  /*console.log("Excel _renderTable tbody -------------------");
+                  console.log(`Excel rowidx = ${rowidx}`);
+                  console.log(`Excel idx = ${idx}`);
+                  console.log(`Excel cell = ${cell}`);*/
                   if (!schema || !schema.show) {
+                    /*if (!schema) {
+                      return null;
+                    } else {
+                      console.log(`Excel schema.id = ${schema.id}`);
+                      console.log(`Excel schema.show = ${schema.show}`);
+                    }*/
+                    
                     return null;
                   }
                   const isRating = schema.type === 'rating';
                   const edit = this.state.edit;
                   let content = row[cell];
+                  
+                  /*console.log(`Excel content = ${content}`);
+                  console.log(`Excel schema.id = ${schema.id}`);*/
+                  
                   if (!isRating && edit && edit.row === rowidx && edit.key === schema.id) {
                     content = (
                       <form onSubmit={this._save.bind(this)}>

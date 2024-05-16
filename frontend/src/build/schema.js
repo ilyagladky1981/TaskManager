@@ -12,7 +12,7 @@ exports.default = [{
   sample: 1425,
   align: 'left'
 }, {
-  id: 'CompanyId',
+  id: 'CompanyName',
   label: 'Компания',
   show: false,
   sample: 1
@@ -32,8 +32,9 @@ exports.default = [{
 }, {
   id: 'DateRegistration',
   label: 'DateRegistration',
-  type: 'datetime',
+  type: 'text',
   show: false,
+  editable: false,
   sample: '2023-03-29T00:00:00+03:00'
 }, {
   id: 'SituationType',

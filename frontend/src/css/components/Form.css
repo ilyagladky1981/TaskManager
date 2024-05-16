@@ -1,11 +1,45 @@
 .Form .FormLabel {
   color: #A0A0A0;
-  display: block;
+  /*display: block;*/ 
   font-size: 12px;
-  padding: 12px 0 6px;
+  /*padding: 12px 0 6px;*/
 }
 
-.Form .FormRow {
-  padding-left: 20px;
-  text-align: left;
+/*.Form .FormRow {
+  padding-left: 10px;
+  align-content: right;
+  border: thick double #32a1ce;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: block;double
+}*/
+
+.Form table.FormTable {
+  border: thick #ff0505;
+  table-layout: fixed;
+  width: 100%;
 }
+
+.Form td.FormTableLabel {
+  width: 20%;
+  border: 1px #32a1ce;
+}
+
+.Form td.FormTableData {
+  width: 80%;
+  border: 1px #32a1ce;
+}
+
+.Form textarea {
+  width: 97%;
+}
+
+.Form input {
+  width: 97%;
+}
+
+
+
+/*.Form td.FormTableData {
+  width: 80%;
+}*/
