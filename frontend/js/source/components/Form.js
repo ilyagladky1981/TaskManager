@@ -3,6 +3,9 @@ import Rating from './Rating';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
+
+
+
 class Form extends Component {
 
   getData() {
@@ -19,11 +22,20 @@ class Form extends Component {
         <tbody>{this.props.fields.map(field => {
         let prefilled;
         const value = this.props.initialData && this.props.initialData[field.id];
-        if (!value && field.autoFilling) {
+        if (this.props.addNewDialog) {
+          if (field.autoFilling) {
+            prefilled = this.props.defaultValue[field.id];
+          } else {
+            prefilled = null;
+          }
+        } else {
+          prefilled = value;
+        }
+        /*if (!value && field.autoFilling) {
           prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
         } else {
           prefilled = JSON.parse(JSON.stringify(value));
-        }
+        }*/
         if (!this.props.readonly) {
           if (field.editable) {
             return (
@@ -63,6 +75,7 @@ Form.propTypes = {
   })).isRequired,
   initialData: PropTypes.object,
   readonly: PropTypes.bool,
+  addNewDialog: PropTypes.bool,
 };
 
 export default Form

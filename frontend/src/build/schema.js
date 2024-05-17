@@ -60,7 +60,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
-  autoFilling: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'ServiceName',

@@ -35214,7 +35214,6 @@ var Excel = function (_Component) {
       edit: null, // [row index, schema.id],
       dialog: null // {type, idx}
     };
-    //this._saveRow = this._saveRow.bind(this);
     return _this;
   }
 
@@ -35222,8 +35221,6 @@ var Excel = function (_Component) {
     key: '_saveRow',
     value: async function _saveRow(taskId, thisRow) {
       try {
-        /*console.log("_saveRow - thisRow");
-        console.log(thisRow);*/
         var response = await fetch(API_URL + 'tasks/' + taskId + '/', { method: 'PATCH',
           mode: "cors",
           headers: {
@@ -35233,8 +35230,6 @@ var Excel = function (_Component) {
         });
 
         var responsePOSTAPIData = await response.json();
-        /*console.log("responsePOSTAPIData");
-        console.log(responsePOSTAPIData);*/
 
         return responsePOSTAPIData;
       } catch (error) {
@@ -35294,7 +35289,7 @@ var Excel = function (_Component) {
        const thisSchema = this.props.schema;
       data[rowId][this.state.edit.key] = value;
        for (let schema of thisSchema) {
-        thisRow[schema.id] = data[rowId][schema.id];;
+        thisRow[schema.id] = data[rowId][schema.id];
       }
        console.log("thisRow 3 - ");
       console.log(thisRow);
@@ -35410,7 +35405,7 @@ var Excel = function (_Component) {
     value: function _renderTable() {
       var _this2 = this;
 
-      /*console.log('this.state.data Excel');
+      /*console.log('Excel this.state.data');
       console.log(this.state.data);*/
       return _react2.default.createElement(
         'table',
@@ -35601,13 +35596,13 @@ var Form = function (_Component) {
             'tbody',
             null,
             this.props.fields.map(function (field) {
-              var prefilled = void 0;
-              var value = _this3.props.initialData && _this3.props.initialData[field.id];
-              if (!value && field.autoFilling) {
-                prefilled = JSON.parse(JSON.stringify(_this3.props.initialData[field.id].defaultValue));
+              //let prefilled;
+              var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
+              /*if (!value && field.autoFilling) {
+                prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
               } else {
                 prefilled = JSON.parse(JSON.stringify(value));
-              }
+              }*/
               if (!_this3.props.readonly) {
                 if (field.editable) {
                   return _react2.default.createElement(
@@ -36175,8 +36170,8 @@ var TaskEditor = function (_Component) {
           _Dialog2.default,
           {
             modal: true,
-            header: 'Add new item',
-            confirmLabel: 'Add',
+            header: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E \u0437\u0430\u0434\u0430\u0447\u0443',
+            confirmLabel: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C',
             onAction: this._addNew.bind(this)
           },
           _react2.default.createElement(_Form2.default, {
@@ -36271,7 +36266,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
-  autoFilling: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'ServiceName',

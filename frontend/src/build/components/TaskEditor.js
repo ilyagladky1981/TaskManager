@@ -182,8 +182,8 @@ var TaskEditor = function (_Component) {
           _Dialog2.default,
           {
             modal: true,
-            header: 'Add new item',
-            confirmLabel: 'Add',
+            header: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E \u0437\u0430\u0434\u0430\u0447\u0443',
+            confirmLabel: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C',
             onAction: this._addNew.bind(this)
           },
           _react2.default.createElement(_Form2.default, {

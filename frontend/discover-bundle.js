@@ -35165,13 +35165,13 @@ var Form = function (_Component) {
             'tbody',
             null,
             this.props.fields.map(function (field) {
-              var prefilled = void 0;
-              var value = _this3.props.initialData && _this3.props.initialData[field.id];
-              if (!value && field.autoFilling) {
-                prefilled = JSON.parse(JSON.stringify(_this3.props.initialData[field.id].defaultValue));
+              //let prefilled;
+              var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
+              /*if (!value && field.autoFilling) {
+                prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
               } else {
                 prefilled = JSON.parse(JSON.stringify(value));
-              }
+              }*/
               if (!_this3.props.readonly) {
                 if (field.editable) {
                   return _react2.default.createElement(

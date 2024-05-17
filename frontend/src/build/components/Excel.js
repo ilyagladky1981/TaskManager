@@ -69,7 +69,6 @@ var Excel = function (_Component) {
       edit: null, // [row index, schema.id],
       dialog: null // {type, idx}
     };
-    //this._saveRow = this._saveRow.bind(this);
     return _this;
   }
 
@@ -77,8 +76,6 @@ var Excel = function (_Component) {
     key: '_saveRow',
     value: async function _saveRow(taskId, thisRow) {
       try {
-        /*console.log("_saveRow - thisRow");
-        console.log(thisRow);*/
         var response = await fetch(API_URL + 'tasks/' + taskId + '/', { method: 'PATCH',
           mode: "cors",
           headers: {
@@ -88,8 +85,6 @@ var Excel = function (_Component) {
         });
 
         var responsePOSTAPIData = await response.json();
-        /*console.log("responsePOSTAPIData");
-        console.log(responsePOSTAPIData);*/
 
         return responsePOSTAPIData;
       } catch (error) {
@@ -149,7 +144,7 @@ var Excel = function (_Component) {
        const thisSchema = this.props.schema;
       data[rowId][this.state.edit.key] = value;
        for (let schema of thisSchema) {
-        thisRow[schema.id] = data[rowId][schema.id];;
+        thisRow[schema.id] = data[rowId][schema.id];
       }
        console.log("thisRow 3 - ");
       console.log(thisRow);
@@ -265,7 +260,7 @@ var Excel = function (_Component) {
     value: function _renderTable() {
       var _this2 = this;
 
-      /*console.log('this.state.data Excel');
+      /*console.log('Excel this.state.data');
       console.log(this.state.data);*/
       return _react2.default.createElement(
         'table',

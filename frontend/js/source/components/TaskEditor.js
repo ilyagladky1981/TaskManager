@@ -145,7 +145,8 @@ class TaskEditor extends Component {
             >
               <Form
                 ref={this.formRef}
-                fields={this.props.schema} />
+                fields={this.props.schema} 
+                addNewDialog={true}/>
             </Dialog>
           : null}
       </div>
