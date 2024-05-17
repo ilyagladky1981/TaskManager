@@ -18,13 +18,17 @@ class Form extends Component {
       <form className="Form"><table className="FormTable">
         <tbody>{this.props.fields.map(field => {
         const prefilled = this.props.initialData && this.props.initialData[field.id];
-        if (!this.props.readonly && field.editable) {
-          return (
-            <tr className="FormRow" key={field.id}>
-              <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
-              <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled} /></td>
-            </tr>
-          );
+        if (!this.props.readonly) {
+          if (field.editable) {
+            return (
+              <tr className="FormRow" key={field.id}>
+                <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
+                <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled} /></td>
+              </tr>
+            );
+          } else {
+            return null;
+          }
         }
         if (!prefilled) {
           return null;

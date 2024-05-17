@@ -7,6 +7,8 @@ export default [
     pathJSON: 'id',
     show: false,
     editable: false,
+    autoFilling: false,
+    type: 'input', 
     sample: 1425,
     align: 'left',
   },
@@ -14,17 +16,20 @@ export default [
     id: 'CompanyName',
     label: 'Компания',
     pathJSON: 'CompanyId.ShortName',
+    type: 'input',
     show: false,
-    editable: false,
+    editable: false, 
+    autoFilling: false,
     sample: 1,
   },
   {
     id: 'TaskId',
     label: 'TaskId',
-    pathJSON: 'TaskId',
-    type: 'input', 
+    pathJSON: 'TaskId', 
+    type: 'input',
     show: false,
     editable: false,
+    autoFilling: false,
     sample: '_01439',
     align: 'left',
   },
@@ -34,6 +39,7 @@ export default [
     pathJSON: 'TaskName',
     show: true,
     editable: true,
+    autoFilling: false,
     type: 'text',
     sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
     align: 'left',
@@ -46,6 +52,7 @@ export default [
     type: 'input', 
     show: false,
     editable: false,
+    autoFilling: false,
     sample: '2023-03-29T00:00:00+03:00',
   },
   
@@ -56,6 +63,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: true,
     sample: '',
   },
     
@@ -67,6 +75,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
     
@@ -78,6 +87,7 @@ export default [
     type: 'input',
     show: true,
     editable: true,
+    autoFilling: false,
     sample: 'Денисов Николай Валерьевич',
   },
     
@@ -89,6 +99,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
     
@@ -100,6 +111,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
     
@@ -111,6 +123,7 @@ export default [
     type: 'text',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
     
@@ -122,6 +135,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
     
@@ -133,6 +147,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
     
@@ -144,6 +159,7 @@ export default [
     type: 'input',
     show: false,
     editable: false,
+    autoFilling: false,
     sample: '',
   },
     
@@ -155,6 +171,7 @@ export default [
     type: 'text',
     show: true,
     editable: true,
+    autoFilling: false,
     sample: '  ',
   },
     
@@ -166,6 +183,7 @@ export default [
     type: 'input',
     show: false,
     editable: false,
+    autoFilling: false,
     sample: '',
   },
     
@@ -177,6 +195,7 @@ export default [
     type: 'input',
     show: false,
     editable: false,
+    autoFilling: false,
     sample: '',
   },
     
@@ -188,6 +207,7 @@ export default [
     type: 'input',
     show: true,
     editable: false,
+    autoFilling: false,
     sample: '6',
   },
     
@@ -199,6 +219,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
     
@@ -210,6 +231,7 @@ export default [
     type: 'input',
     show: false,
     editable: false,
+    autoFilling: false,
     sample: '',
   },
     
@@ -221,6 +243,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
     
@@ -232,6 +255,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
     
@@ -243,6 +267,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
+    autoFilling: false,
     sample: '',
   },
 

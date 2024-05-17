@@ -35602,26 +35602,30 @@ var Form = function (_Component) {
             null,
             this.props.fields.map(function (field) {
               var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
-              if (!_this3.props.readonly && field.editable) {
-                return _react2.default.createElement(
-                  'tr',
-                  { className: 'FormRow', key: field.id },
-                  _react2.default.createElement(
-                    'td',
-                    { className: 'FormTableLabel' },
+              if (!_this3.props.readonly) {
+                if (field.editable) {
+                  return _react2.default.createElement(
+                    'tr',
+                    { className: 'FormRow', key: field.id },
                     _react2.default.createElement(
-                      'label',
-                      { className: 'FormLabel', htmlFor: field.id },
-                      field.label,
-                      ':\xA0'
+                      'td',
+                      { className: 'FormTableLabel' },
+                      _react2.default.createElement(
+                        'label',
+                        { className: 'FormLabel', htmlFor: field.id },
+                        field.label,
+                        ':\xA0'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableData' },
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
                     )
-                  ),
-                  _react2.default.createElement(
-                    'td',
-                    { className: 'FormTableData' },
-                    _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
-                  )
-                );
+                  );
+                } else {
+                  return null;
+                }
               }
               if (!prefilled) {
                 return null;
