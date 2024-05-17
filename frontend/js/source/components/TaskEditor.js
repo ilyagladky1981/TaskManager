@@ -5,7 +5,7 @@ import Form from './Form';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-
+const API_URL='http://45.135.233.68:8000/api/';
 
 class TaskEditor extends Component {
 
@@ -46,8 +46,28 @@ class TaskEditor extends Component {
       addnew: false,
       data: data,
     });
-    this._commitToStorage(data);
+    //this._commitToStorage(data);
+    this._saveData(data);
   }
+
+  async _saveRow(taskId, thisRow) { 
+    try {
+      const response = await fetch(`${API_URL}tasks/addnew/`,
+          { method: 'PATCH',
+            mode: "cors",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(thisRow),
+          });
+      
+      const responsePOSTAPIData = await response.json();
+      
+      return responsePOSTAPIData;
+    } catch(error) {
+      console.error(error);
+    }
+  };
   
   _onExcelDataChange(data) {
     this.setState({data: data});
@@ -55,7 +75,7 @@ class TaskEditor extends Component {
     //this._commitToStorage(data);
   }
   
-  /*
+  
   async _saveData(data) { 
     try {
       console.log("_saveData - data");
@@ -77,7 +97,7 @@ class TaskEditor extends Component {
     } catch(error) {
       console.error(error);
     }
-  };*/
+  };
 
 
 

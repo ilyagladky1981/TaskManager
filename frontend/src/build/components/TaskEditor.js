@@ -74,7 +74,8 @@ var TaskEditor = function (_Component) {
         addnew: false,
         data: data
       });
-      this._commitToStorage(data);
+      //this._commitToStorage(data);
+      this._saveData(data);
     }
   }, {
     key: '_onExcelDataChange',
@@ -188,7 +189,8 @@ var TaskEditor = function (_Component) {
           },
           _react2.default.createElement(_Form2.default, {
             ref: this.formRef,
-            fields: this.props.schema })
+            fields: this.props.schema,
+            addNewDialog: true })
         ) : null
       );
     }

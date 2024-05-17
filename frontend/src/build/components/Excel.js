@@ -243,8 +243,8 @@ var Excel = function (_Component) {
         _Dialog2.default,
         {
           modal: true,
-          header: readonly ? 'Item info' : 'Edit item',
-          confirmLabel: readonly ? 'ok' : 'Save',
+          header: readonly ? 'Item info' : 'Изменить задачу',
+          confirmLabel: readonly ? 'ok' : 'Сохранить',
           hasCancel: !readonly,
           onAction: this._saveDataDialog.bind(this)
         },
@@ -252,7 +252,8 @@ var Excel = function (_Component) {
           ref: this.formRef,
           fields: this.props.schema,
           initialData: this.state.data[this.state.dialog.idx],
-          readonly: readonly })
+          readonly: readonly,
+          addNewDialog: false })
       );
     }
   }, {

@@ -35063,7 +35063,7 @@ var Dialog = function (_Component) {
               {
                 className: 'DialogDismiss',
                 onClick: this.props.onAction.bind(this, 'dismiss') },
-              'Cancel'
+              '\u041E\u0442\u043C\u0435\u043D\u0430'
             ) : null,
             _react2.default.createElement(
               _Button2.default,
@@ -35133,10 +35133,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Form = function (_Component) {
   _inherits(Form, _Component);
 
-  function Form() {
+  function Form(props) {
     _classCallCheck(this, Form);
 
-    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+
+    _this.currentFormRef = _react2.default.createRef();
+    _this.state = {
+      formData: null
+    };
+    return _this;
   }
 
   _createClass(Form, [{
@@ -35165,8 +35171,21 @@ var Form = function (_Component) {
             'tbody',
             null,
             this.props.fields.map(function (field) {
-              //let prefilled;
-              var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
+              var prefilled = void 0;
+              var value = _this3.props.initialData && _this3.props.initialData[field.id];
+              if (_this3.props.addNewDialog) {
+                if (field.autoFilling) {
+                  prefilled = _this3.props.defaultValue[field.id];
+                } else {
+                  prefilled = null;
+                }
+              } else {
+                if (!value) {
+                  prefilled = JSON.parse(JSON.stringify(value));
+                } else {
+                  prefilled = '';
+                }
+              }
               /*if (!value && field.autoFilling) {
                 prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
               } else {
@@ -35241,7 +35260,9 @@ Form.propTypes = {
     options: _propTypes2.default.arrayOf(_propTypes2.default.string)
   })).isRequired,
   initialData: _propTypes2.default.object,
-  readonly: _propTypes2.default.bool
+  readonly: _propTypes2.default.bool,
+  addNewDialog: _propTypes2.default.bool,
+  defaultValue: _propTypes2.default.object
 };
 
 exports.default = Form;

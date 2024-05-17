@@ -8,6 +8,15 @@ import PropTypes from 'prop-types';
 
 class Form extends Component {
 
+
+  constructor(props) {
+    super(props);
+    this.currentFormRef = React.createRef();
+    this.state = {
+      formData: null,
+    };
+  }
+
   getData() {
     let data = {};
     this.props.fields.forEach(field => 
@@ -29,7 +38,12 @@ class Form extends Component {
             prefilled = null;
           }
         } else {
-          prefilled = value;
+          if (!value) {
+            prefilled = JSON.parse(JSON.stringify(value));
+          } else {
+            prefilled = '';
+          }
+          
         }
         /*if (!value && field.autoFilling) {
           prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
@@ -76,6 +90,7 @@ Form.propTypes = {
   initialData: PropTypes.object,
   readonly: PropTypes.bool,
   addNewDialog: PropTypes.bool,
+  defaultValue: PropTypes.object,
 };
 
 export default Form

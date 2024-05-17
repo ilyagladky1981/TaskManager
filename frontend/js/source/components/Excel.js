@@ -201,8 +201,8 @@ class Excel extends Component {
     return (
       <Dialog 
         modal={true}
-        header={readonly ? 'Item info' : 'Edit item'}
-        confirmLabel={readonly ? 'ok' : 'Save'}
+        header={readonly ? 'Item info' : 'Изменить задачу'}
+        confirmLabel={readonly ? 'ok' : 'Сохранить'}
         hasCancel={!readonly}
         onAction={this._saveDataDialog.bind(this)}
       >

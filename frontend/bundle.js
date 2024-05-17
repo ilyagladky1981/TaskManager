@@ -35110,7 +35110,7 @@ var Dialog = function (_Component) {
               {
                 className: 'DialogDismiss',
                 onClick: this.props.onAction.bind(this, 'dismiss') },
-              'Cancel'
+              '\u041E\u0442\u043C\u0435\u043D\u0430'
             ) : null,
             _react2.default.createElement(
               _Button2.default,
@@ -35388,8 +35388,8 @@ var Excel = function (_Component) {
         _Dialog2.default,
         {
           modal: true,
-          header: readonly ? 'Item info' : 'Edit item',
-          confirmLabel: readonly ? 'ok' : 'Save',
+          header: readonly ? 'Item info' : 'Изменить задачу',
+          confirmLabel: readonly ? 'ok' : 'Сохранить',
           hasCancel: !readonly,
           onAction: this._saveDataDialog.bind(this)
         },
@@ -35397,7 +35397,8 @@ var Excel = function (_Component) {
           ref: this.formRef,
           fields: this.props.schema,
           initialData: this.state.data[this.state.dialog.idx],
-          readonly: readonly })
+          readonly: readonly,
+          addNewDialog: false })
       );
     }
   }, {
@@ -35564,10 +35565,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Form = function (_Component) {
   _inherits(Form, _Component);
 
-  function Form() {
+  function Form(props) {
     _classCallCheck(this, Form);
 
-    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+
+    _this.currentFormRef = _react2.default.createRef();
+    _this.state = {
+      formData: null
+    };
+    return _this;
   }
 
   _createClass(Form, [{
@@ -35596,8 +35603,21 @@ var Form = function (_Component) {
             'tbody',
             null,
             this.props.fields.map(function (field) {
-              //let prefilled;
-              var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
+              var prefilled = void 0;
+              var value = _this3.props.initialData && _this3.props.initialData[field.id];
+              if (_this3.props.addNewDialog) {
+                if (field.autoFilling) {
+                  prefilled = _this3.props.defaultValue[field.id];
+                } else {
+                  prefilled = null;
+                }
+              } else {
+                if (!value) {
+                  prefilled = JSON.parse(JSON.stringify(value));
+                } else {
+                  prefilled = '';
+                }
+              }
               /*if (!value && field.autoFilling) {
                 prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
               } else {
@@ -35672,7 +35692,9 @@ Form.propTypes = {
     options: _propTypes2.default.arrayOf(_propTypes2.default.string)
   })).isRequired,
   initialData: _propTypes2.default.object,
-  readonly: _propTypes2.default.bool
+  readonly: _propTypes2.default.bool,
+  addNewDialog: _propTypes2.default.bool,
+  defaultValue: _propTypes2.default.object
 };
 
 exports.default = Form;
@@ -36062,7 +36084,8 @@ var TaskEditor = function (_Component) {
         addnew: false,
         data: data
       });
-      this._commitToStorage(data);
+      //this._commitToStorage(data);
+      this._saveData(data);
     }
   }, {
     key: '_onExcelDataChange',
@@ -36176,7 +36199,8 @@ var TaskEditor = function (_Component) {
           },
           _react2.default.createElement(_Form2.default, {
             ref: this.formRef,
-            fields: this.props.schema })
+            fields: this.props.schema,
+            addNewDialog: true })
         ) : null
       );
     }
