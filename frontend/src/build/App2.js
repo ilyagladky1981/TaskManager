@@ -40,108 +40,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var API_URL = 'http://45.135.233.68:8000/api/';
 
-/*
-while (preparedAPIData.length > 0) {
-  preparedAPIData.pop();
-}*/
-
-var initialDataApp2 = [{
-  "id": 1425,
-  "CompanyId": {
-    "id": 1,
-    "FullName": "ЗАО Санкт-Петербургская Образцовая Типография",
-    "ShortName": "СПБОТ",
-    "Logo": null,
-    "Address": "Санкт-Петербург, Мебельная, 3А",
-    "Phone": "812-320-19-56",
-    "Fax": null
-  },
-  "TaskId": "_01439",
-  "TaskName": "_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.",
-  "DateRegistration": "2023-03-29T00:00:00+03:00",
-  "SituationType": {
-    "id": 2,
-    "SituationType": "Штатная ситуация"
-  },
-  "ServiceName": [{
-    "id": 15,
-    "ServiceName": "Настройка ПК"
-  }, {
-    "id": 17,
-    "ServiceName": "Пользователи"
-  }],
-  "PersonFullNameId": {
-    "id": 34,
-    "Name": "Николай",
-    "Surname": "Денисов",
-    "Patronymic": "Валерьевич",
-    "PersonFullName": "Денисов Николай Валерьевич",
-    "WorkPhone": "287",
-    "MobilePhone": "",
-    "Email": "ndenisov@print.spb.ru",
-    "Position": "Руководитель производства одноразовой посуды",
-    "DepartmentName": 14,
-    "CompanyName": null
-  },
-  "ITTaskTypeName": {
-    "id": 3,
-    "ITTaskTypeName": "задача"
-  },
-  "TypeOfActionName": {
-    "id": 3,
-    "TypeOfActionName": "настройка"
-  },
-  "Description": "Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.",
-  "CategoryOfTaskName": [{
-    "id": 76,
-    "CategoryOfTaskName": "РАБОТА"
-  }, {
-    "id": 23,
-    "CategoryOfTaskName": "АДМИНИСТРИРОВАНИЕ"
-  }, {
-    "id": 47,
-    "CategoryOfTaskName": "НАСТРОЙКА_ПК"
-  }],
-  "ResultOfTaskName": {
-    "id": 0,
-    "Name": ""
-  },
-  "DateOfDone": null,
-  "Comments": "",
-  "manual_selection": 1,
-  "manual_sort": 1,
-  "PriorityColor": 6,
-  "ProjectName": {
-    "id": 1425,
-    "TaskId": "_01439",
-    "TaskName": "_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия. Тест111112222",
-    "DateRegistration": "2023-03-29T00:00:00+03:00",
-    "Description": "Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.",
-    "DateOfDone": null,
-    "Comments": "",
-    "manual_selection": 1,
-    "manual_sort": 1,
-    "PriorityColor": 6,
-    "CompanyId": 1,
-    "SituationType": 2,
-    "PersonFullNameId": 34,
-    "ITTaskTypeName": 3,
-    "TypeOfActionName": 3,
-    "ResultOfTaskName": 0,
-    "ProjectName": 1425,
-    "Priority": null,
-    "Author": null,
-    "TaskTypeId": null,
-    "EffortsId": null,
-    "ServiceName": [15, 17],
-    "CategoryOfTaskName": [76, 23, 47]
-  },
-  "Priority": null,
-  "Author": null,
-  "TaskTypeId": null,
-  "EffortsId": null
-}];
-
 var App2 = function (_Component) {
   _inherits(App2, _Component);
 
@@ -203,47 +101,73 @@ var App2 = function (_Component) {
         /*console.log("App2 refreshList - inputLen");
         console.log(inputLen);*/
 
-        for (var elem_number = 0; elem_number < inputLen; elem_number++) {
-          /*console.log("refreshList - elem_number");
-          console.log(elem_number);*/
-          inputDict.id = responseAPIData[elem_number]['id'];
-          inputDict.CompanyName = responseAPIData[elem_number]['CompanyId']['ShortName'];
-          inputDict.TaskId = responseAPIData[elem_number]['TaskId'];
-          inputDict.TaskName = responseAPIData[elem_number]['TaskName'];
-          inputDict.DateRegistration = responseAPIData[elem_number]['DateRegistration'];
-          inputDict.SituationType = responseAPIData[elem_number]['SituationType']['SituationType'];
-          inputDict.ServiceName = responseAPIData[elem_number]['ServiceName'][0]['ServiceName'];
-          inputDict.PersonFullNameId = responseAPIData[elem_number]['PersonFullNameId']['PersonFullName'];
-          inputDict.ITTaskTypeName = responseAPIData[elem_number]['ITTaskTypeName']['ITTaskTypeName'];
-          inputDict.TypeOfActionName = responseAPIData[elem_number]['TypeOfActionName']['TypeOfActionName'];
-          inputDict.Description = responseAPIData[elem_number]['Description'];
-          if (responseAPIData[elem_number]['CategoryOfTaskName'].length > 0) {
-            inputDict.CategoryOfTaskName = responseAPIData[elem_number]['CategoryOfTaskName'][0]['CategoryOfTaskName'];
+        for (var elemNumber = 0; elemNumber < inputLen; elemNumber++) {
+          inputDict = {};
+          /* 
+          
+          НЕ  УДАЛЯТЬ !!! ДЛЯ РЕФАКТОРИНГА!
+            for (let schemaElem in schema) {
+            let pathJSON = schemaElem.pathJSON.split('.');
+            let nextLevel = structuredClone(responseAPIData[elemNumber]);
+            for (let level in pathJSON) {
+              if (level === '[]') {
+                if ( nextLevel.length > 0) {
+                  // Array of Elem => TODO
+                  for 
+                    inputDict[schemaElem] = responseAPIData[elemNumber]['CategoryOfTaskName'][0]['CategoryOfTaskName'];
+                } else {
+                  // Empty Array stop walk through levels
+                  inputDict.CategoryOfTaskName = '';
+                  break; 
+                }
+              } else {
+                nextLevel = structuredClone(nextLevel[level])
+              }
+              
+            }
+          }
+            */
+
+          /*console.log("refreshList - elemNumber");
+          console.log(elemNumber);*/
+          inputDict.id = responseAPIData[elemNumber]['id'];
+          inputDict.CompanyName = responseAPIData[elemNumber]['CompanyId']['ShortName'];
+          inputDict.TaskId = responseAPIData[elemNumber]['TaskId'];
+          inputDict.TaskName = responseAPIData[elemNumber]['TaskName'];
+          inputDict.DateRegistration = responseAPIData[elemNumber]['DateRegistration'];
+          inputDict.SituationType = responseAPIData[elemNumber]['SituationType']['SituationType'];
+          inputDict.ServiceName = responseAPIData[elemNumber]['ServiceName'][0]['ServiceName'];
+          inputDict.PersonFullNameId = responseAPIData[elemNumber]['PersonFullNameId']['PersonFullName'];
+          inputDict.ITTaskTypeName = responseAPIData[elemNumber]['ITTaskTypeName']['ITTaskTypeName'];
+          inputDict.TypeOfActionName = responseAPIData[elemNumber]['TypeOfActionName']['TypeOfActionName'];
+          inputDict.Description = responseAPIData[elemNumber]['Description'];
+          if (responseAPIData[elemNumber]['CategoryOfTaskName'].length > 0) {
+            inputDict.CategoryOfTaskName = responseAPIData[elemNumber]['CategoryOfTaskName'][0]['CategoryOfTaskName'];
           } else {
             inputDict.CategoryOfTaskName = '';
           }
-          inputDict.ResultOfTaskName = responseAPIData[elem_number]['ResultOfTaskName']['Name'];
-          inputDict.DateOfDone = responseAPIData[elem_number]['DateOfDone'];
-          inputDict.Comments = responseAPIData[elem_number]['Comments'];
-          inputDict.manual_selection = responseAPIData[elem_number]['manual_selection'];
-          inputDict.manual_sort = responseAPIData[elem_number]['manual_sort'];
-          inputDict.PriorityColor = responseAPIData[elem_number]['PriorityColor'].toString();
-          if (Object.keys(responseAPIData[elem_number]['ProjectName']).length > 0) {
-            inputDict.ProjectName = responseAPIData[elem_number]['ProjectName']['id'];
+          inputDict.ResultOfTaskName = responseAPIData[elemNumber]['ResultOfTaskName']['Name'];
+          inputDict.DateOfDone = responseAPIData[elemNumber]['DateOfDone'];
+          inputDict.Comments = responseAPIData[elemNumber]['Comments'];
+          inputDict.manual_selection = responseAPIData[elemNumber]['manual_selection'];
+          inputDict.manual_sort = responseAPIData[elemNumber]['manual_sort'];
+          inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor'].toString();
+          if (Object.keys(responseAPIData[elemNumber]['ProjectName']).length > 0) {
+            inputDict.ProjectName = responseAPIData[elemNumber]['ProjectName']['id'];
           } else {
             inputDict.ProjectName = '';
           }
-          inputDict.Priority = responseAPIData[elem_number]['Priority'];
-          inputDict.Author = responseAPIData[elem_number]['Author'];
-          inputDict.TaskTypeId = responseAPIData[elem_number]['TaskTypeId'];
-          inputDict.EffortsId = responseAPIData[elem_number]['EffortsId'];
+          inputDict.Priority = responseAPIData[elemNumber]['Priority'];
+          inputDict.Author = responseAPIData[elemNumber]['Author'];
+          inputDict.TaskTypeId = responseAPIData[elemNumber]['TaskTypeId'];
+          inputDict.EffortsId = responseAPIData[elemNumber]['EffortsId'];
 
           /*console.log("refreshList - inputDict");
           console.log(inputDict);*/
 
           //const copyDict = JSON.parse(JSON.stringify(inputDict))
           var copyDict = structuredClone(inputDict);
-          preparedAPIData[elem_number] = copyDict;
+          preparedAPIData[elemNumber] = copyDict;
 
           /*console.log("refreshList - preparedAPIData");
           console.log(preparedAPIData);

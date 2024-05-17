@@ -34,6 +34,7 @@ exports.default = [{
   label: 'Название',
   pathJSON: 'TaskName',
   show: true,
+  editable: true,
   type: 'text',
   sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
   align: 'left'
@@ -51,6 +52,7 @@ exports.default = [{
   pathJSON: 'SituationType.SituationType',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'ServiceName',
@@ -58,6 +60,7 @@ exports.default = [{
   pathJSON: 'ServiceName.[].ServiceName',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'PersonFullNameId',
@@ -65,95 +68,126 @@ exports.default = [{
   pathJSON: 'PersonFullNameId.PersonFullName',
   type: 'input',
   show: true,
+  editable: true,
   sample: 'Денисов Николай Валерьевич'
 }, {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'TypeOfActionName',
   label: 'TypeOfActionName',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'Description',
   label: 'Description',
+  pathJSON: '',
   type: 'text',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'CategoryOfTaskName',
   label: 'CategoryOfTaskName',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'ResultOfTaskName',
   label: 'ResultOfTaskName',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'DateOfDone',
   label: 'DateOfDone',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: false,
   sample: ''
 }, {
   id: 'Comments',
   label: 'Comments',
+  pathJSON: '',
   type: 'text',
   show: true,
+  editable: true,
   sample: '  '
 }, {
   id: 'manual_selection',
   label: 'manual_selection',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: false,
   sample: ''
 }, {
   id: 'manual_sort',
   label: 'manual_sort',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: false,
   sample: ''
 }, {
   id: 'PriorityColor',
   label: 'PriorityColor',
+  pathJSON: '',
   type: 'input',
   show: true,
+  editable: false,
   sample: '6'
 }, {
   id: 'ProjectName',
   label: 'ProjectName',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'Priority',
   label: 'Priority',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: false,
   sample: ''
 }, {
   id: 'Author',
   label: 'Author',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'TaskTypeId',
   label: 'TaskTypeId',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }, {
   id: 'EffortsId',
   label: 'EffortsId',
+  pathJSON: '',
   type: 'input',
   show: false,
+  editable: true,
   sample: ''
 }];

@@ -16,9 +16,9 @@ class Form extends Component {
   render() {
     return (
       <form className="Form"><table className="FormTable">
-          <tbody>{this.props.fields.map(field => {
+        <tbody>{this.props.fields.map(field => {
         const prefilled = this.props.initialData && this.props.initialData[field.id];
-        if (!this.props.readonly) {
+        if (!this.props.readonly && field.editable) {
           return (
             <tr className="FormRow" key={field.id}>
               <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
@@ -39,7 +39,7 @@ class Form extends Component {
             }</td>
           </tr>
         );
-      }, this)}</tbody></table></form>
+        }, this)}</tbody></table></form>
     );
   }
 }

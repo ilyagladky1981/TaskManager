@@ -33,6 +33,7 @@ export default [
     label: 'Название', 
     pathJSON: 'TaskName',
     show: true,
+    editable: true,
     type: 'text',
     sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
     align: 'left',
@@ -54,6 +55,7 @@ export default [
     pathJSON: 'SituationType.SituationType',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -64,6 +66,7 @@ export default [
     pathJSON: 'ServiceName.[].ServiceName',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -74,6 +77,7 @@ export default [
     pathJSON: 'PersonFullNameId.PersonFullName',
     type: 'input',
     show: true,
+    editable: true,
     sample: 'Денисов Николай Валерьевич',
   },
     
@@ -84,6 +88,7 @@ export default [
     pathJSON: '',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -94,6 +99,7 @@ export default [
     pathJSON: '',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -104,6 +110,7 @@ export default [
     pathJSON: '',
     type: 'text',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -114,6 +121,7 @@ export default [
     pathJSON: '',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -124,6 +132,7 @@ export default [
     pathJSON: '',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -133,8 +142,8 @@ export default [
     label: 'DateOfDone',
     pathJSON: '',
     type: 'input',
-    editable: false,
     show: false,
+    editable: false,
     sample: '',
   },
     
@@ -145,6 +154,7 @@ export default [
     pathJSON: '',
     type: 'text',
     show: true,
+    editable: true,
     sample: '  ',
   },
     
@@ -154,8 +164,8 @@ export default [
     label: 'manual_selection',
     pathJSON: '',
     type: 'input',
-    editable: false,
     show: false,
+    editable: false,
     sample: '',
   },
     
@@ -165,8 +175,8 @@ export default [
     label: 'manual_sort',
     pathJSON: '',
     type: 'input',
-    editable: false,
     show: false,
+    editable: false,
     sample: '',
   },
     
@@ -188,6 +198,7 @@ export default [
     pathJSON: '',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -209,6 +220,7 @@ export default [
     pathJSON: '',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -219,6 +231,7 @@ export default [
     pathJSON: '',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
     
@@ -229,6 +242,7 @@ export default [
     pathJSON: '',
     type: 'input',
     show: false,
+    editable: true,
     sample: '',
   },
 

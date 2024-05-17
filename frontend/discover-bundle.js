@@ -35166,7 +35166,7 @@ var Form = function (_Component) {
             null,
             this.props.fields.map(function (field) {
               var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
-              if (!_this3.props.readonly) {
+              if (!_this3.props.readonly && field.editable) {
                 return _react2.default.createElement(
                   'tr',
                   { className: 'FormRow', key: field.id },
