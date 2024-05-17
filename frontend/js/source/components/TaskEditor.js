@@ -139,8 +139,8 @@ class TaskEditor extends Component {
         {this.state.addnew
           ? <Dialog 
               modal={true}
-              header="Add new item"
-              confirmLabel="Add"
+              header="Добавить новую задачу"
+              confirmLabel="Добавить"
               onAction={this._addNew.bind(this)}
             >
               <Form

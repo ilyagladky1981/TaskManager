@@ -66,11 +66,11 @@ var App2 = function (_Component) {
       var response = await this.refreshList();
 
       /*const { error, isLoaded, apiData, dataForRender } = this.state;
-      console.log(`error in componentDidMount = ${error} , isLoaded in componentDidMount = ${isLoaded}`);
-      console.log('apiData in componentDidMount');
+      console.log(`App2 error in componentDidMount = ${error} , isLoaded in componentDidMount = ${isLoaded}`);
+      console.log('App2 apiData in componentDidMount');
       console.log(apiData);
       
-      console.log("componentDidMount - dataForRender");
+      console.log("App2 componentDidMount - dataForRender");
       console.log(dataForRender);*/
     }
   }, {
@@ -80,32 +80,18 @@ var App2 = function (_Component) {
         var response = await fetch(API_URL + 'control/1/');
         var responseAPIData = await response.json();
 
-        //preparedAPIData = [];
+        //console.log(`App2 typeof refreshList responseAPIData = ${typeof responseAPIData}`);
         var preparedAPIData = [];
-        /*preparedAPIData.length = 0;
-        while (preparedAPIData.length > 0) {
-          await preparedAPIData.pop();
-        }
-        //preparedAPIData.length = 0;
-        console.log(`App2 typeof refreshList responseAPIData = ${typeof responseAPIData}`);
-        console.log(`App2 typeof refreshList responseAPIData[0] = ${typeof responseAPIData[0]}`);
-        console.log("App2 refreshList 1 - responseAPIData[0]");
-        console.log(responseAPIData[0]);
-        console.log("App2 refreshList 1 - preparedAPIData");
-        console.log(preparedAPIData);*/
 
         var inputDict = {};
 
         var inputLen = responseAPIData.length;
 
-        /*console.log("App2 refreshList - inputLen");
-        console.log(inputLen);*/
-
         for (var elemNumber = 0; elemNumber < inputLen; elemNumber++) {
           inputDict = {};
           /* 
           
-          НЕ  УДАЛЯТЬ !!! ДЛЯ РЕФАКТОРИНГА!
+          НЕ  УДАЛЯТЬ !!! ДЛЯ РЕФАКТОРИНГА! !!!
             for (let schemaElem in schema) {
             let pathJSON = schemaElem.pathJSON.split('.');
             let nextLevel = structuredClone(responseAPIData[elemNumber]);
@@ -126,10 +112,9 @@ var App2 = function (_Component) {
               
             }
           }
+            НЕ  УДАЛЯТЬ !!! ДЛЯ РЕФАКТОРИНГА! !!!
             */
 
-          /*console.log("refreshList - elemNumber");
-          console.log(elemNumber);*/
           inputDict.id = responseAPIData[elemNumber]['id'];
           inputDict.CompanyName = responseAPIData[elemNumber]['CompanyId']['ShortName'];
           inputDict.TaskId = responseAPIData[elemNumber]['TaskId'];
@@ -162,18 +147,9 @@ var App2 = function (_Component) {
           inputDict.TaskTypeId = responseAPIData[elemNumber]['TaskTypeId'];
           inputDict.EffortsId = responseAPIData[elemNumber]['EffortsId'];
 
-          /*console.log("refreshList - inputDict");
-          console.log(inputDict);*/
-
           //const copyDict = JSON.parse(JSON.stringify(inputDict))
           var copyDict = structuredClone(inputDict);
           preparedAPIData[elemNumber] = copyDict;
-
-          /*console.log("refreshList - preparedAPIData");
-          console.log(preparedAPIData);
-          for (let dictKeys in Object.keys(inputDict)) {
-            delete inputDict[dictKeys]
-          }*/
         }
 
         /**/
@@ -183,18 +159,6 @@ var App2 = function (_Component) {
           apiData: responseAPIData,
           dataForRender: preparedAPIData
         });
-
-        /*console.log("refreshList 2 -> preparedAPIData");
-        console.log(preparedAPIData);
-          
-        //preparedAPIData.length = 0;
-        for (let dictKeys in Object.keys(inputDict)) {
-          delete inputDict[dictKeys]
-        }
-        console.log("refreshList 3 -> preparedAPIData");
-        console.log(preparedAPIData);
-        console.log("refreshList 3 -> inputDict");
-        console.log(inputDict);*/
 
         return preparedAPIData;
       } catch (error) {
@@ -210,7 +174,7 @@ var App2 = function (_Component) {
     key: 'render',
     value: function render() {
       /*var currentdate = new Date(); 
-      var datetime = "Last Sync: " + currentdate.getDate() + "/"
+      var datetime = "App2  Last Sync: " + currentdate.getDate() + "/"
                       + (currentdate.getMonth()+1)  + "/" 
                       + currentdate.getFullYear() + " @ "  
                       + currentdate.getHours() + ":"  
@@ -222,9 +186,9 @@ var App2 = function (_Component) {
           isLoaded = _state.isLoaded,
           apiData = _state.apiData,
           dataForRender = _state.dataForRender;
-      /*console.log(`error in render = ${error} , isLoaded in render = ${isLoaded}`);
-      console.log("render() at " + datetime);
-      console.log('apiData in render 1');
+      /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
+      console.log("App2 render() at " + datetime);
+      console.log('App2 apiData in render 1');
       console.log(apiData);*/
 
       if (error) {
@@ -238,9 +202,9 @@ var App2 = function (_Component) {
           return <div>Loading...</div>;*/
       } else if (typeof dataForRender !== "undefined") {
         /*console.log(`instanceof Array = ${apiData instanceof Array}`);
-        console.log('apiData in render 2');
+        console.log('App2 apiData in render 2');
         console.log(apiDatcurrentdatea);
-        console.log('apiData#2 in render 3');
+        console.log('App2 apiData#2 in render 3');
         console.log(apiData);*/
         return _react2.default.createElement(
           'div',

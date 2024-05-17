@@ -17,7 +17,13 @@ class Form extends Component {
     return (
       <form className="Form"><table className="FormTable">
         <tbody>{this.props.fields.map(field => {
-        const prefilled = this.props.initialData && this.props.initialData[field.id];
+        let prefilled;
+        const value = this.props.initialData && this.props.initialData[field.id];
+        if (!value && field.autoFilling) {
+          prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
+        } else {
+          prefilled = JSON.parse(JSON.stringify(value));
+        }
         if (!this.props.readonly) {
           if (field.editable) {
             return (

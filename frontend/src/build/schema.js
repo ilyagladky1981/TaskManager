@@ -11,14 +11,18 @@ exports.default = [{
   pathJSON: 'id',
   show: false,
   editable: false,
+  autoFilling: false,
+  type: 'input',
   sample: 1425,
   align: 'left'
 }, {
   id: 'CompanyName',
   label: 'Компания',
   pathJSON: 'CompanyId.ShortName',
+  type: 'input',
   show: false,
   editable: false,
+  autoFilling: false,
   sample: 1
 }, {
   id: 'TaskId',
@@ -27,6 +31,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: false,
+  autoFilling: false,
   sample: '_01439',
   align: 'left'
 }, {
@@ -35,6 +40,7 @@ exports.default = [{
   pathJSON: 'TaskName',
   show: true,
   editable: true,
+  autoFilling: false,
   type: 'text',
   sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
   align: 'left'
@@ -45,6 +51,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: false,
+  autoFilling: false,
   sample: '2023-03-29T00:00:00+03:00'
 }, {
   id: 'SituationType',
@@ -53,6 +60,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: true,
   sample: ''
 }, {
   id: 'ServiceName',
@@ -61,6 +69,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'PersonFullNameId',
@@ -69,6 +78,7 @@ exports.default = [{
   type: 'input',
   show: true,
   editable: true,
+  autoFilling: false,
   sample: 'Денисов Николай Валерьевич'
 }, {
   id: 'ITTaskTypeName',
@@ -77,6 +87,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'TypeOfActionName',
@@ -85,6 +96,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Description',
@@ -93,6 +105,7 @@ exports.default = [{
   type: 'text',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'CategoryOfTaskName',
@@ -101,6 +114,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'ResultOfTaskName',
@@ -109,6 +123,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'DateOfDone',
@@ -117,6 +132,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Comments',
@@ -125,6 +141,7 @@ exports.default = [{
   type: 'text',
   show: true,
   editable: true,
+  autoFilling: false,
   sample: '  '
 }, {
   id: 'manual_selection',
@@ -133,6 +150,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'manual_sort',
@@ -141,6 +159,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'PriorityColor',
@@ -149,6 +168,7 @@ exports.default = [{
   type: 'input',
   show: true,
   editable: false,
+  autoFilling: false,
   sample: '6'
 }, {
   id: 'ProjectName',
@@ -157,6 +177,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Priority',
@@ -165,6 +186,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Author',
@@ -173,6 +195,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'TaskTypeId',
@@ -181,6 +204,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'EffortsId',
@@ -189,5 +213,6 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
+  autoFilling: false,
   sample: ''
 }];
