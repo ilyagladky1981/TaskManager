@@ -41,6 +41,8 @@ class FormInput extends Component {
         );
       case 'text':
         return <textarea {...common} />;
+      case 'input':
+        return <input {...common} type="text" />;
       default:
         return <input {...common} type="text" />;
     }

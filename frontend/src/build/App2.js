@@ -200,8 +200,8 @@ var App2 = function (_Component) {
 
         var inputLen = responseAPIData.length;
 
-        console.log("App2 refreshList - inputLen");
-        console.log(inputLen);
+        /*console.log("App2 refreshList - inputLen");
+        console.log(inputLen);*/
 
         for (var elem_number = 0; elem_number < inputLen; elem_number++) {
           /*console.log("refreshList - elem_number");
