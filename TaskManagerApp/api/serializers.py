@@ -11,7 +11,6 @@ class PersonSerializer(serializers.ModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        depth = 1
         fields = ['id', 'CompanyId', 'TaskId', 
           'TaskName', 'DateRegistration', 
           'SituationType', 'ServiceName', 
@@ -23,4 +22,32 @@ class TaskSerializer(serializers.ModelSerializer):
           'Priority', 'Author', 'TaskTypeId', 'EffortsId' ] 
 
 
+class DepthTaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        depth = 1
+        fields = ['id', 'CompanyId', 'TaskId', 
+          'TaskName', 'DateRegistration', 
+          'SituationType', 'ServiceName', 
+          'PersonFullNameId', 'ITTaskTypeName', 
+          'TypeOfActionName', 'Description', 
+          'CategoryOfTaskName', 'ResultOfTaskName', 
+          'DateOfDone', 'Comments', 'manual_selection', 
+          'manual_sort', 'PriorityColor', 'ProjectName', 
+          'Priority', 'Author', 'TaskTypeId', 'EffortsId' ]
+
+
+class ControlSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        depth = 1
+        fields = ['id', 'CompanyId', 'TaskId', 
+          'TaskName', 'DateRegistration', 
+          'SituationType', 'ServiceName', 
+          'PersonFullNameId', 'ITTaskTypeName', 
+          'TypeOfActionName', 'Description', 
+          'CategoryOfTaskName', 'ResultOfTaskName', 
+          'DateOfDone', 'Comments', 'manual_selection', 
+          'manual_sort', 'PriorityColor', 'ProjectName', 
+          'Priority', 'Author', 'TaskTypeId', 'EffortsId' ]
 

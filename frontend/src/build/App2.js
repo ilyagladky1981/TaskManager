@@ -63,7 +63,7 @@ var App2 = function (_Component) {
     key: 'componentDidMount',
     value: async function componentDidMount() {
       //console.log("componentDidMount()");
-      var response = await this.refreshList();
+      await this.refreshList();
 
       /*const { error, isLoaded, apiData, dataForRender } = this.state;
       console.log(`App2 error in componentDidMount = ${error} , isLoaded in componentDidMount = ${isLoaded}`);
@@ -206,6 +206,7 @@ var App2 = function (_Component) {
         console.log(apiDatcurrentdatea);
         console.log('App2 apiData#2 in render 3');
         console.log(apiData);*/
+        document.title = "Task Manager";
         return _react2.default.createElement(
           'div',
           { className: 'app' },

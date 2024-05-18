@@ -41,7 +41,8 @@ class TaskEditor extends Component {
       return;
     }
     let data = Array.from(this.state.data);
-    data.unshift(this.formRef.current.getData());
+    let thisRow = this.formRef.current.getData()
+    data.unshift();
     this.setState({
       addnew: false,
       data: data,
@@ -53,7 +54,7 @@ class TaskEditor extends Component {
   async _saveRow(taskId, thisRow) { 
     try {
       const response = await fetch(`${API_URL}tasks/addnew/`,
-          { method: 'PATCH',
+          { method: 'PUT',
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json'

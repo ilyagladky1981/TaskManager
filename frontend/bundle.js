@@ -36048,6 +36048,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var API_URL = 'http://45.135.233.68:8000/api/';
+
 var TaskEditor = function (_Component) {
   _inherits(TaskEditor, _Component);
 
@@ -36079,7 +36081,8 @@ var TaskEditor = function (_Component) {
         return;
       }
       var data = Array.from(this.state.data);
-      data.unshift(this.formRef.current.getData());
+      var thisRow = this.formRef.current.getData();
+      data.unshift();
       this.setState({
         addnew: false,
         data: data
@@ -36088,44 +36091,63 @@ var TaskEditor = function (_Component) {
       this._saveData(data);
     }
   }, {
+    key: '_saveRow',
+    value: async function _saveRow(taskId, thisRow) {
+      try {
+        var response = await fetch(API_URL + 'tasks/addnew/', { method: 'PATCH',
+          mode: "cors",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(thisRow)
+        });
+
+        var responsePOSTAPIData = await response.json();
+
+        return responsePOSTAPIData;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }, {
     key: '_onExcelDataChange',
     value: function _onExcelDataChange(data) {
       this.setState({ data: data });
       //this._saveData(data);
       //this._commitToStorage(data);
     }
-
-    /*
-    async _saveData(data) { 
+  }, {
+    key: '_saveData',
+    value: async function _saveData(data) {
       try {
         console.log("_saveData - data");
         console.log(data);
-        const response = await fetch(`${API_URL}control/1/`,
-            { method: 'POST',
-              mode: "cors",
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data),
-            });
-        
-        const responsePOSTAPIData = await response.json();
+        var response = await fetch(API_URL + 'control/1/', { method: 'POST',
+          mode: "cors",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        var responsePOSTAPIData = await response.json();
         console.log("responsePOSTAPIData");
         console.log(responsePOSTAPIData);
-        
+
         return responsePOSTAPIData;
-      } catch(error) {
+      } catch (error) {
         console.error(error);
       }
-    };*/
+    }
+  }, {
+    key: '_startSearching',
+
 
     /*_commitToStorage(data) {
       //save to REST
       localStorage.setItem('data', JSON.stringify(data));
     }*/
 
-  }, {
-    key: '_startSearching',
     value: function _startSearching() {
       this._preSearchData = this.state.data;
     }

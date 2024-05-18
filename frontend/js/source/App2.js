@@ -12,8 +12,6 @@ import schema from './schema';
 //const Excel = require("./build/components/Excel");
 
 
-
-
 const API_URL='http://45.135.233.68:8000/api/';
 
 
@@ -33,7 +31,7 @@ class App2 extends Component {
 
   async componentDidMount() {
     //console.log("componentDidMount()");
-    const response = await this.refreshList();
+    await this.refreshList();
     
     /*const { error, isLoaded, apiData, dataForRender } = this.state;
     console.log(`App2 error in componentDidMount = ${error} , isLoaded in componentDidMount = ${isLoaded}`);
@@ -172,6 +170,7 @@ class App2 extends Component {
       console.log(apiDatcurrentdatea);
       console.log('App2 apiData#2 in render 3');
       console.log(apiData);*/
+      document.title = "Task Manager";
       return (
         <div className="app">
           <div className="app-header">
