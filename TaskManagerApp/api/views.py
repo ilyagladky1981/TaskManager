@@ -26,9 +26,9 @@ def api_tasks(request):
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = TaskSerializer(data=request.data)
-        print(f"request.data = {request.data}")
-        print(f"serializer = {serializer}")
-        print(f"type(serializer) = {type(serializer)}")
+        # print(f"request.data = {request.data}")
+        # print(f"serializer = {serializer}")
+        # print(f"type(serializer) = {type(serializer)}")
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, 

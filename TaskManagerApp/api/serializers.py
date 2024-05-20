@@ -2,10 +2,6 @@ from rest_framework import serializers
 from ..models import Task
 from ..models import Person
 
-class PersonSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Person
-        fields = ['id', 'PersonFullName', 'Email']
 
 
 class TaskSerializer(serializers.ModelSerializer):
@@ -19,7 +15,7 @@ class TaskSerializer(serializers.ModelSerializer):
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
           'manual_sort', 'PriorityColor', 'ProjectName', 
-          'Priority', 'Author', 'TaskTypeId', 'EffortsId' ] 
+          'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' ] 
 
 
 class DepthTaskSerializer(serializers.ModelSerializer):
@@ -34,7 +30,7 @@ class DepthTaskSerializer(serializers.ModelSerializer):
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
           'manual_sort', 'PriorityColor', 'ProjectName', 
-          'Priority', 'Author', 'TaskTypeId', 'EffortsId' ]
+          'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' ]
 
 
 class ControlSerializer(serializers.ModelSerializer):
@@ -49,5 +45,5 @@ class ControlSerializer(serializers.ModelSerializer):
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
           'manual_sort', 'PriorityColor', 'ProjectName', 
-          'Priority', 'Author', 'TaskTypeId', 'EffortsId' ]
+          'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' ]
 

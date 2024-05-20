@@ -48,7 +48,7 @@ class Task(models.Model):
     PriorityColor = models.PositiveIntegerField(null=True, blank=True)
     ProjectName = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True)
     Priority = models.OneToOneField('PriorityInfo', on_delete=models.PROTECT,  null=True, blank=True)
-    Author = models.ForeignKey('auth.User', on_delete=models.PROTECT, null=True, blank=True)
+    CreatedByUser = models.ForeignKey('auth.User', on_delete=models.PROTECT, null=True, blank=True)
     TaskTypeId = models.ForeignKey('TaskType', on_delete=models.PROTECT, null=True, blank=True)
     EffortsId = models.ForeignKey('EffortsStats', on_delete=models.PROTECT, null=True, blank=True)
     
