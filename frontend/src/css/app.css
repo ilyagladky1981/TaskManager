@@ -8,10 +8,11 @@ body {
 }
 
 input, textarea {
-  font-size: 14px;
+  /*font-size: 14px;*/
   /*padding: 10px;*/
   text-align: center;
-  width: 65%;
+  width: 97%;
+  font: 14px Arial;
 }
 
 .app-header {

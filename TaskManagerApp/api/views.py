@@ -59,6 +59,7 @@ def api_task_detail(request, taskId):
 def api_control_panel(request, CompanyId):
     if request.method == 'GET':
         q = (Q(ResultOfTaskName__Name='') | Q(ResultOfTaskName__Name='в_работе')) & Q(CompanyId=CompanyId) & Q(id__gte=1425)
+        control_panel = Task.objects.filter(q).order_by('-PriorityColor')
         serializer = ControlSerializer(control_panel, many=True)
         return Response(serializer.data)
 

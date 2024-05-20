@@ -11,7 +11,7 @@ class Form extends Component {
 
   constructor(props) {
     super(props);
-    this.currentFormRef = React.createRef();
+    this.currentFormInputRef = React.createRef();
     this.state = {
       formData: null,
     };
@@ -19,6 +19,9 @@ class Form extends Component {
 
   getData() {
     let data = {};
+    let schema_tmp = this.props.fields;
+    console.log("getData - schema_tmp");
+    console.log(schema_tmp);
     this.props.fields.forEach(field => 
       data[field.id] = this.refs[field.id].getValue()
     );
@@ -26,24 +29,37 @@ class Form extends Component {
   }
   
   render() {
+    /*let fields_tmp = this.props.fields;
+    console.log("render - fields_tmp");
+    console.log(fields_tmp);
+    console.log("render - this.props.addNewDialog");
+    console.log(this.props.addNewDialog);*/
     return (
       <form className="Form"><table className="FormTable">
         <tbody>{this.props.fields.map(field => {
         let prefilled;
         const value = this.props.initialData && this.props.initialData[field.id];
+        /*console.log("render - value");
+        console.log(value);
+        console.log("render - field.id");
+        console.log(field.id);
+        console.log("render - this.props.initialData");
+        console.log(this.props.initialData);
+        console.log("render - this.props.initialData[field.id]");
+        console.log(this.props.initialData[field.id]);*/
+
         if (this.props.addNewDialog) {
           if (field.autoFilling) {
             prefilled = this.props.defaultValue[field.id];
           } else {
-            prefilled = null;
+            prefilled = '';
           }
         } else {
-          if (!value) {
+          if (value) {
             prefilled = JSON.parse(JSON.stringify(value));
           } else {
             prefilled = '';
           }
-          
         }
         /*if (!value && field.autoFilling) {
           prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
@@ -53,18 +69,25 @@ class Form extends Component {
         if (!this.props.readonly) {
           if (field.editable) {
             return (
-              <tr className="FormRow" key={field.id}>
+              <tr className="FormRowShowField" key={field.id}>
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
                 <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled} /></td>
               </tr>
             );
           } else {
-            return null;
+            return (
+              <tr className="FormRowHideField" key={field.id}>
+                <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
+                <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled} /></td>
+              </tr>
+            );
           }
         }
+
         if (!prefilled) {
           return null;
         }
+
         return (
           <tr className="FormRow" key={field.id}>
             <td className="FormTableLabel"><span className="FormLabel">{field.label}:</span></td>

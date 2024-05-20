@@ -5,6 +5,13 @@
   /*padding: 12px 0 6px;*/
 }
 
+.Form .FormRowShowField{
+}
+
+.Form .FormRowHideField{
+  display: none;
+}
+
 /*.Form .FormRow {
   padding-left: 10px;
   align-content: right;

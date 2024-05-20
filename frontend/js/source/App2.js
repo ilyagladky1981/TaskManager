@@ -94,7 +94,12 @@ class App2 extends Component {
         inputDict.TaskName = responseAPIData[elemNumber]['TaskName'];
         inputDict.DateRegistration = responseAPIData[elemNumber]['DateRegistration'];
         inputDict.SituationType = responseAPIData[elemNumber]['SituationType']['SituationType'];
-        inputDict.ServiceName = responseAPIData[elemNumber]['ServiceName'][0]['ServiceName'];
+        if ( responseAPIData[elemNumber]['CategoryOfTaskName'].length > 0) {
+          inputDict.ServiceName = responseAPIData[elemNumber]['ServiceName'][0]['ServiceName'];
+        } else {
+          inputDict.ServiceName = '';
+        }
+
         inputDict.PersonFullNameId = responseAPIData[elemNumber]['PersonFullNameId']['PersonFullName'];
         inputDict.ITTaskTypeName = responseAPIData[elemNumber]['ITTaskTypeName']['ITTaskTypeName'];
         inputDict.TypeOfActionName = responseAPIData[elemNumber]['TypeOfActionName']['TypeOfActionName'];

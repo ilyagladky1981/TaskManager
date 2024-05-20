@@ -40,7 +40,7 @@ var Form = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
 
-    _this.currentFormRef = _react2.default.createRef();
+    _this.currentFormInputRef = _react2.default.createRef();
     _this.state = {
       formData: null
     };
@@ -53,6 +53,9 @@ var Form = function (_Component) {
       var _this2 = this;
 
       var data = {};
+      var schema_tmp = this.props.fields;
+      console.log("getData - schema_tmp");
+      console.log(schema_tmp);
       this.props.fields.forEach(function (field) {
         return data[field.id] = _this2.refs[field.id].getValue();
       });
@@ -63,6 +66,11 @@ var Form = function (_Component) {
     value: function render() {
       var _this3 = this;
 
+      /*let fields_tmp = this.props.fields;
+      console.log("render - fields_tmp");
+      console.log(fields_tmp);
+      console.log("render - this.props.addNewDialog");
+      console.log(this.props.addNewDialog);*/
       return _react2.default.createElement(
         'form',
         { className: 'Form' },
@@ -75,14 +83,23 @@ var Form = function (_Component) {
             this.props.fields.map(function (field) {
               var prefilled = void 0;
               var value = _this3.props.initialData && _this3.props.initialData[field.id];
+              /*console.log("render - value");
+              console.log(value);
+              console.log("render - field.id");
+              console.log(field.id);
+              console.log("render - this.props.initialData");
+              console.log(this.props.initialData);
+              console.log("render - this.props.initialData[field.id]");
+              console.log(this.props.initialData[field.id]);*/
+
               if (_this3.props.addNewDialog) {
                 if (field.autoFilling) {
                   prefilled = _this3.props.defaultValue[field.id];
                 } else {
-                  prefilled = null;
+                  prefilled = '';
                 }
               } else {
-                if (!value) {
+                if (value) {
                   prefilled = JSON.parse(JSON.stringify(value));
                 } else {
                   prefilled = '';
@@ -97,7 +114,7 @@ var Form = function (_Component) {
                 if (field.editable) {
                   return _react2.default.createElement(
                     'tr',
-                    { className: 'FormRow', key: field.id },
+                    { className: 'FormRowShowField', key: field.id },
                     _react2.default.createElement(
                       'td',
                       { className: 'FormTableLabel' },
@@ -115,12 +132,32 @@ var Form = function (_Component) {
                     )
                   );
                 } else {
-                  return null;
+                  return _react2.default.createElement(
+                    'tr',
+                    { className: 'FormRowHideField', key: field.id },
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableLabel' },
+                      _react2.default.createElement(
+                        'label',
+                        { className: 'FormLabel', htmlFor: field.id },
+                        field.label,
+                        ':\xA0'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableData' },
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                    )
+                  );
                 }
               }
+
               if (!prefilled) {
                 return null;
               }
+
               return _react2.default.createElement(
                 'tr',
                 { className: 'FormRow', key: field.id },

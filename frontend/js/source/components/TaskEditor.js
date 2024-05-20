@@ -41,25 +41,27 @@ class TaskEditor extends Component {
       return;
     }
     let data = Array.from(this.state.data);
-    let thisRow = this.formRef.current.getData()
+    let newRow = this.formRef.current.getData()
+    console.log("_addNew - newRow");
+    console.log(newRow);
     data.unshift();
     this.setState({
       addnew: false,
       data: data,
     });
     //this._commitToStorage(data);
-    this._saveData(data);
+    this._createNewRow(newRow);
   }
 
-  async _saveRow(taskId, thisRow) { 
+  async _createNewRow(newRow) { 
     try {
-      const response = await fetch(`${API_URL}tasks/addnew/`,
-          { method: 'PUT',
+      const response = await fetch(`${API_URL}tasks/`,
+          { method: 'POST',
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(thisRow),
+            body: JSON.stringify(newRow),
           });
       
       const responsePOSTAPIData = await response.json();
@@ -77,7 +79,7 @@ class TaskEditor extends Component {
   }
   
   
-  async _saveData(data) { 
+  /*async _saveData(data) { 
     try {
       console.log("_saveData - data");
       console.log(data);
@@ -98,7 +100,7 @@ class TaskEditor extends Component {
     } catch(error) {
       console.error(error);
     }
-  };
+  };*/
 
 
 

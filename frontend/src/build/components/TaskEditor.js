@@ -71,25 +71,27 @@ var TaskEditor = function (_Component) {
         return;
       }
       var data = Array.from(this.state.data);
-      var thisRow = this.formRef.current.getData();
+      var newRow = this.formRef.current.getData();
+      console.log("_addNew - newRow");
+      console.log(newRow);
       data.unshift();
       this.setState({
         addnew: false,
         data: data
       });
       //this._commitToStorage(data);
-      this._saveData(data);
+      this._createNewRow(newRow);
     }
   }, {
-    key: '_saveRow',
-    value: async function _saveRow(taskId, thisRow) {
+    key: '_createNewRow',
+    value: async function _createNewRow(newRow) {
       try {
-        var response = await fetch(API_URL + 'tasks/addnew/', { method: 'PATCH',
+        var response = await fetch(API_URL + 'tasks/', { method: 'POST',
           mode: "cors",
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(thisRow)
+          body: JSON.stringify(newRow)
         });
 
         var responsePOSTAPIData = await response.json();
@@ -106,38 +108,37 @@ var TaskEditor = function (_Component) {
       //this._saveData(data);
       //this._commitToStorage(data);
     }
-  }, {
-    key: '_saveData',
-    value: async function _saveData(data) {
+
+    /*async _saveData(data) { 
       try {
         console.log("_saveData - data");
         console.log(data);
-        var response = await fetch(API_URL + 'control/1/', { method: 'POST',
-          mode: "cors",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
-
-        var responsePOSTAPIData = await response.json();
+        const response = await fetch(`${API_URL}control/1/`,
+            { method: 'POST',
+              mode: "cors",
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data),
+            });
+        
+        const responsePOSTAPIData = await response.json();
         console.log("responsePOSTAPIData");
         console.log(responsePOSTAPIData);
-
+        
         return responsePOSTAPIData;
-      } catch (error) {
+      } catch(error) {
         console.error(error);
       }
-    }
-  }, {
-    key: '_startSearching',
-
+    };*/
 
     /*_commitToStorage(data) {
       //save to REST
       localStorage.setItem('data', JSON.stringify(data));
     }*/
 
+  }, {
+    key: '_startSearching',
     value: function _startSearching() {
       this._preSearchData = this.state.data;
     }
