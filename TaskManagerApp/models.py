@@ -14,7 +14,7 @@ class Company(models.Model):
     Fax = models.CharField(max_length=50, null=True, blank=True)
     
     def __str__(self):
-        return self.ShortName
+        return f"{self.id}_{self.ShortName}"
     
     class Meta:
         verbose_name_plural = "Companies"
@@ -24,7 +24,7 @@ class Service(models.Model):
     ServiceName = models.CharField(max_length=50)
     
     def __str__(self):
-        return self.ServiceName
+        return f"{self.id}_{self.ServiceName}"
 
 
 
@@ -33,8 +33,8 @@ class Task(models.Model):
     TaskId = models.CharField(max_length=32, null=True, blank=True)
     TaskName = models.CharField(max_length=255)
     DateRegistration = models.DateTimeField(default=None, null=True, blank=True)
-    SituationType = models.ForeignKey('Situation', on_delete=models.PROTECT)
-    ServiceName = models.ManyToManyField('Service', through='ServiceSet')
+    SituationType = models.ForeignKey('Situation', on_delete=models.PROTECT, null=True, blank=True)
+    ServiceName = models.ManyToManyField('Service', through='ServiceSet', related_name='tasks_service_name', related_query_name='tasks_service_name')
     PersonFullNameId = models.ForeignKey('Person', on_delete=models.PROTECT, related_name='PersonFullNameIds')
     ITTaskTypeName = models.ForeignKey('ITTaskType', on_delete=models.PROTECT)
     TypeOfActionName = models.ForeignKey('TypeOfAction', on_delete=models.PROTECT)
@@ -54,13 +54,13 @@ class Task(models.Model):
     
     
     def __str__(self):
-        return self.TaskName[:50]
+        return f"task.id={self.id}_{self.TaskName[:50]}" 
 
 class Situation(models.Model):
     SituationType = models.CharField(max_length=50)
     
     def __str__(self):
-        return self.SituationType
+        return f"Situation.id={self.id}_{self.SituationType}"
 
 
 class Person(models.Model):
@@ -85,13 +85,13 @@ class Department(models.Model):
     DepartmentName = models.CharField(max_length=100)
     
     def __str__(self):
-        return self.DepartmentName
+        return f"Department.id={self.id}_{self.DepartmentName}"
 
 class ITTaskType(models.Model):
     ITTaskTypeName = models.CharField(max_length=50)
     
     def __str__(self):
-        return self.ITTaskTypeName
+        return f"ITTaskType.id={self.id}_{self.ITTaskTypeName}"
     
     class Meta:
         verbose_name_plural = "IT Task Type"
@@ -106,8 +106,8 @@ class CategoryOfTask(models.Model):
     CategoryOfTaskName = models.CharField(max_length=50)
     
     def __str__(self):
-        return self.CategoryOfTaskName
-    
+        return f"CategoryOfTaskName.id={self.id}_{self.CategoryOfTaskName}"
+        
     class Meta:
         verbose_name_plural = "Category Of Task"
 
@@ -118,6 +118,9 @@ class CategorySet(models.Model):
     
     class Meta:
         verbose_name_plural = "CategorySets"
+    
+    def __str__(self):
+        return f"CategorySet.id={self.id}_{self.TaskId}={self.CategoryId}"
 
 
 class ResultOfTask(models.Model):
@@ -139,8 +142,11 @@ class EffortsStats(models.Model):
         verbose_name_plural = "EffortsStats"
 
 class ServiceSet(models.Model):
-    ServiceId = models.ForeignKey(Service, on_delete=models.CASCADE)
-    TaskId = models.ForeignKey(Task, on_delete=models.CASCADE)
+    ServiceId = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='service_set', related_query_name='service_id_s')
+    TaskId = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='service_set', related_query_name='task_id_s')
+    
+    def __str__(self):
+        return f"ServiceSet.id={self.id}_{self.TaskId}_ServiceId.id={self.ServiceId}"
 
 class PriorityInfo(models.Model):
     PriorityWeight = models.DecimalField(null=False, blank=False, max_digits=5, decimal_places=2)
