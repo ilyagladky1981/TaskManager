@@ -35063,7 +35063,7 @@ var Dialog = function (_Component) {
               {
                 className: 'DialogDismiss',
                 onClick: this.props.onAction.bind(this, 'dismiss') },
-              'Cancel'
+              '\u041E\u0442\u043C\u0435\u043D\u0430'
             ) : null,
             _react2.default.createElement(
               _Button2.default,
@@ -35133,10 +35133,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Form = function (_Component) {
   _inherits(Form, _Component);
 
-  function Form() {
+  function Form(props) {
     _classCallCheck(this, Form);
 
-    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+
+    _this.currentFormInputRef = _react2.default.createRef();
+    _this.state = {
+      formData: null
+    };
+    return _this;
   }
 
   _createClass(Form, [{
@@ -35145,6 +35151,9 @@ var Form = function (_Component) {
       var _this2 = this;
 
       var data = {};
+      var schema_tmp = this.props.fields;
+      console.log("getData - schema_tmp");
+      console.log(schema_tmp);
       this.props.fields.forEach(function (field) {
         return data[field.id] = _this2.refs[field.id].getValue();
       });
@@ -35155,43 +35164,124 @@ var Form = function (_Component) {
     value: function render() {
       var _this3 = this;
 
+      /*let fields_tmp = this.props.fields;
+      console.log("render - fields_tmp");
+      console.log(fields_tmp);
+      console.log("render - this.props.addNewDialog");
+      console.log(this.props.addNewDialog);*/
       return _react2.default.createElement(
         'form',
         { className: 'Form' },
-        this.props.fields.map(function (field) {
-          var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
-          if (!_this3.props.readonly) {
-            return _react2.default.createElement(
-              'div',
-              { className: 'FormRow', key: field.id },
-              _react2.default.createElement(
-                'label',
-                { className: 'FormLabel', htmlFor: field.id },
-                field.label,
-                ':'
-              ),
-              _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
-            );
-          }
-          if (!prefilled) {
-            return null;
-          }
-          return _react2.default.createElement(
-            'div',
-            { className: 'FormRow', key: field.id },
-            _react2.default.createElement(
-              'span',
-              { className: 'FormLabel' },
-              field.label,
-              ':'
-            ),
-            field.type === 'rating' ? _react2.default.createElement(_Rating2.default, { readonly: true, defaultValue: parseInt(prefilled, 10) }) : _react2.default.createElement(
-              'div',
-              null,
-              prefilled
-            )
-          );
-        }, this)
+        _react2.default.createElement(
+          'table',
+          { className: 'FormTable' },
+          _react2.default.createElement(
+            'tbody',
+            null,
+            this.props.fields.map(function (field) {
+              var prefilled = void 0;
+              var value = _this3.props.initialData && _this3.props.initialData[field.id];
+              /*console.log("render - value");
+              console.log(value);
+              console.log("render - field.id");
+              console.log(field.id);
+              console.log("render - this.props.initialData");
+              console.log(this.props.initialData);
+              console.log("render - this.props.initialData[field.id]");
+              console.log(this.props.initialData[field.id]);*/
+
+              if (_this3.props.addNewDialog) {
+                if (field.autoFilling) {
+                  prefilled = _this3.props.defaultValue[field.id];
+                } else {
+                  prefilled = '';
+                }
+              } else {
+                if (value) {
+                  prefilled = JSON.parse(JSON.stringify(value));
+                } else {
+                  prefilled = '';
+                }
+              }
+              /*if (!value && field.autoFilling) {
+                prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
+              } else {
+                prefilled = JSON.parse(JSON.stringify(value));
+              }*/
+              if (!_this3.props.readonly) {
+                if (field.editable) {
+                  return _react2.default.createElement(
+                    'tr',
+                    { className: 'FormRowShowField', key: field.id },
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableLabel' },
+                      _react2.default.createElement(
+                        'label',
+                        { className: 'FormLabel', htmlFor: field.id },
+                        field.label,
+                        ':\xA0'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableData' },
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                    )
+                  );
+                } else {
+                  return _react2.default.createElement(
+                    'tr',
+                    { className: 'FormRowHideField', key: field.id },
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableLabel' },
+                      _react2.default.createElement(
+                        'label',
+                        { className: 'FormLabel', htmlFor: field.id },
+                        field.label,
+                        ':\xA0'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableData' },
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                    )
+                  );
+                }
+              }
+
+              if (!prefilled) {
+                return null;
+              }
+
+              return _react2.default.createElement(
+                'tr',
+                { className: 'FormRow', key: field.id },
+                _react2.default.createElement(
+                  'td',
+                  { className: 'FormTableLabel' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'FormLabel' },
+                    field.label,
+                    ':'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'FormTableData' },
+                  field.type === 'rating' ? _react2.default.createElement(_Rating2.default, { readonly: true, defaultValue: parseInt(prefilled, 10) }) : _react2.default.createElement(
+                    'div',
+                    null,
+                    prefilled
+                  )
+                )
+              );
+            }, this)
+          )
+        )
       );
     }
   }]);
@@ -35207,7 +35297,9 @@ Form.propTypes = {
     options: _propTypes2.default.arrayOf(_propTypes2.default.string)
   })).isRequired,
   initialData: _propTypes2.default.object,
-  readonly: _propTypes2.default.bool
+  readonly: _propTypes2.default.bool,
+  addNewDialog: _propTypes2.default.bool,
+  defaultValue: _propTypes2.default.object
 };
 
 exports.default = Form;
@@ -35283,6 +35375,8 @@ var FormInput = function (_Component) {
             defaultValue: parseInt(this.props.defaultValue, 10) }));
         case 'text':
           return _react2.default.createElement('textarea', common);
+        case 'input':
+          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
         default:
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
       }

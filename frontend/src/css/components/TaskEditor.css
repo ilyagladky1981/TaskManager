@@ -11,12 +11,12 @@
 }
 
 .TaskEditor .TaskEditorToolbarAddButton {
-  font-size: 32px;
+  font-size: 20px;
 }
 
 .TaskEditor .TaskEditorDatagrid {
   clear: both;
-  margin: 40px;
-  padding-top: 20px;
+  margin: 10px;
+  padding-top: 10px;
 }
 

@@ -35110,7 +35110,7 @@ var Dialog = function (_Component) {
               {
                 className: 'DialogDismiss',
                 onClick: this.props.onAction.bind(this, 'dismiss') },
-              'Cancel'
+              '\u041E\u0442\u043C\u0435\u043D\u0430'
             ) : null,
             _react2.default.createElement(
               _Button2.default,
@@ -35214,7 +35214,6 @@ var Excel = function (_Component) {
       edit: null, // [row index, schema.id],
       dialog: null // {type, idx}
     };
-    _this._saveRow = _this._saveRow.bind(_this);
     return _this;
   }
 
@@ -35222,8 +35221,6 @@ var Excel = function (_Component) {
     key: '_saveRow',
     value: async function _saveRow(taskId, thisRow) {
       try {
-        /*console.log("_saveRow - thisRow");
-        console.log(thisRow);*/
         var response = await fetch(API_URL + 'tasks/' + taskId + '/', { method: 'PATCH',
           mode: "cors",
           headers: {
@@ -35233,8 +35230,6 @@ var Excel = function (_Component) {
         });
 
         var responsePOSTAPIData = await response.json();
-        /*console.log("responsePOSTAPIData");
-        console.log(responsePOSTAPIData);*/
 
         return responsePOSTAPIData;
       } catch (error) {
@@ -35276,50 +35271,34 @@ var Excel = function (_Component) {
       var value = this.inputRef.current.getValue();
       var data = Array.from(this.state.data);
       var rowId = this.state.edit.row;
-      var taskId = data[rowId]['id'];
-      //console.log("taskId = ", taskId);
-      var thisRow = {};
-      /*thisRow = Array.from(data[rowId]);
-      console.log("thisRow 1 - ");
-      console.log(thisRow);*/
 
-      var thisSchema = this.props.schema;
       data[rowId][this.state.edit.key] = value;
 
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = thisSchema[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var schema = _step.value;
-
-          thisRow[schema.id] = data[rowId][schema.id];;
-        }
-
-        /*console.log("thisRow 3 - ");
-        console.log(thisRow);*/
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      this._saveRow(taskId, thisRow);
       this.setState({
         edit: null,
         data: data
       });
       this._fireDataChange(data);
+
+      /*const value = this.inputRef.current.getValue();
+      let data = Array.from(this.state.data);
+      let rowId = this.state.edit.row;
+      let taskId = data[rowId]['id'];
+      //console.log("taskId = ", taskId);
+      let thisRow = {};
+       const thisSchema = this.props.schema;
+      data[rowId][this.state.edit.key] = value;
+       for (let schema of thisSchema) {
+        thisRow[schema.id] = data[rowId][schema.id];
+      }
+       console.log("thisRow 3 - ");
+      console.log(thisRow);
+       this._saveRow(taskId, thisRow);
+      this.setState({
+        edit: null,
+        data: data,
+      });
+      this._fireDataChange(data);*/
     }
   }, {
     key: '_actionClick',
@@ -35409,8 +35388,8 @@ var Excel = function (_Component) {
         _Dialog2.default,
         {
           modal: true,
-          header: readonly ? 'Item info' : 'Edit item',
-          confirmLabel: readonly ? 'ok' : 'Save',
+          header: readonly ? 'Item info' : 'Изменить задачу',
+          confirmLabel: readonly ? 'ok' : 'Сохранить',
           hasCancel: !readonly,
           onAction: this._saveDataDialog.bind(this)
         },
@@ -35418,7 +35397,8 @@ var Excel = function (_Component) {
           ref: this.formRef,
           fields: this.props.schema,
           initialData: this.state.data[this.state.dialog.idx],
-          readonly: readonly })
+          readonly: readonly,
+          addNewDialog: false })
       );
     }
   }, {
@@ -35426,7 +35406,7 @@ var Excel = function (_Component) {
     value: function _renderTable() {
       var _this2 = this;
 
-      /*console.log('this.state.data Excel');
+      /*console.log('Excel this.state.data');
       console.log(this.state.data);*/
       return _react2.default.createElement(
         'table',
@@ -35473,12 +35453,27 @@ var Excel = function (_Component) {
                 var _classNames;
 
                 var schema = _this2.props.schema[idx];
+                /*console.log("Excel _renderTable tbody -------------------");
+                console.log(`Excel rowidx = ${rowidx}`);
+                console.log(`Excel idx = ${idx}`);
+                console.log(`Excel cell = ${cell}`);*/
                 if (!schema || !schema.show) {
+                  /*if (!schema) {
+                    return null;
+                  } else {
+                    console.log(`Excel schema.id = ${schema.id}`);
+                    console.log(`Excel schema.show = ${schema.show}`);
+                  }*/
+
                   return null;
                 }
                 var isRating = schema.type === 'rating';
                 var edit = _this2.state.edit;
                 var content = row[cell];
+
+                /*console.log(`Excel content = ${content}`);
+                console.log(`Excel schema.id = ${schema.id}`);*/
+
                 if (!isRating && edit && edit.row === rowidx && edit.key === schema.id) {
                   content = _react2.default.createElement(
                     'form',
@@ -35570,10 +35565,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Form = function (_Component) {
   _inherits(Form, _Component);
 
-  function Form() {
+  function Form(props) {
     _classCallCheck(this, Form);
 
-    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+
+    _this.currentFormInputRef = _react2.default.createRef();
+    _this.state = {
+      formData: null
+    };
+    return _this;
   }
 
   _createClass(Form, [{
@@ -35582,6 +35583,9 @@ var Form = function (_Component) {
       var _this2 = this;
 
       var data = {};
+      var schema_tmp = this.props.fields;
+      console.log("getData - schema_tmp");
+      console.log(schema_tmp);
       this.props.fields.forEach(function (field) {
         return data[field.id] = _this2.refs[field.id].getValue();
       });
@@ -35592,43 +35596,124 @@ var Form = function (_Component) {
     value: function render() {
       var _this3 = this;
 
+      /*let fields_tmp = this.props.fields;
+      console.log("render - fields_tmp");
+      console.log(fields_tmp);
+      console.log("render - this.props.addNewDialog");
+      console.log(this.props.addNewDialog);*/
       return _react2.default.createElement(
         'form',
         { className: 'Form' },
-        this.props.fields.map(function (field) {
-          var prefilled = _this3.props.initialData && _this3.props.initialData[field.id];
-          if (!_this3.props.readonly) {
-            return _react2.default.createElement(
-              'div',
-              { className: 'FormRow', key: field.id },
-              _react2.default.createElement(
-                'label',
-                { className: 'FormLabel', htmlFor: field.id },
-                field.label,
-                ':'
-              ),
-              _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
-            );
-          }
-          if (!prefilled) {
-            return null;
-          }
-          return _react2.default.createElement(
-            'div',
-            { className: 'FormRow', key: field.id },
-            _react2.default.createElement(
-              'span',
-              { className: 'FormLabel' },
-              field.label,
-              ':'
-            ),
-            field.type === 'rating' ? _react2.default.createElement(_Rating2.default, { readonly: true, defaultValue: parseInt(prefilled, 10) }) : _react2.default.createElement(
-              'div',
-              null,
-              prefilled
-            )
-          );
-        }, this)
+        _react2.default.createElement(
+          'table',
+          { className: 'FormTable' },
+          _react2.default.createElement(
+            'tbody',
+            null,
+            this.props.fields.map(function (field) {
+              var prefilled = void 0;
+              var value = _this3.props.initialData && _this3.props.initialData[field.id];
+              /*console.log("render - value");
+              console.log(value);
+              console.log("render - field.id");
+              console.log(field.id);
+              console.log("render - this.props.initialData");
+              console.log(this.props.initialData);
+              console.log("render - this.props.initialData[field.id]");
+              console.log(this.props.initialData[field.id]);*/
+
+              if (_this3.props.addNewDialog) {
+                if (field.autoFilling) {
+                  prefilled = _this3.props.defaultValue[field.id];
+                } else {
+                  prefilled = '';
+                }
+              } else {
+                if (value) {
+                  prefilled = JSON.parse(JSON.stringify(value));
+                } else {
+                  prefilled = '';
+                }
+              }
+              /*if (!value && field.autoFilling) {
+                prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
+              } else {
+                prefilled = JSON.parse(JSON.stringify(value));
+              }*/
+              if (!_this3.props.readonly) {
+                if (field.editable) {
+                  return _react2.default.createElement(
+                    'tr',
+                    { className: 'FormRowShowField', key: field.id },
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableLabel' },
+                      _react2.default.createElement(
+                        'label',
+                        { className: 'FormLabel', htmlFor: field.id },
+                        field.label,
+                        ':\xA0'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableData' },
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                    )
+                  );
+                } else {
+                  return _react2.default.createElement(
+                    'tr',
+                    { className: 'FormRowHideField', key: field.id },
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableLabel' },
+                      _react2.default.createElement(
+                        'label',
+                        { className: 'FormLabel', htmlFor: field.id },
+                        field.label,
+                        ':\xA0'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'FormTableData' },
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                    )
+                  );
+                }
+              }
+
+              if (!prefilled) {
+                return null;
+              }
+
+              return _react2.default.createElement(
+                'tr',
+                { className: 'FormRow', key: field.id },
+                _react2.default.createElement(
+                  'td',
+                  { className: 'FormTableLabel' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'FormLabel' },
+                    field.label,
+                    ':'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'FormTableData' },
+                  field.type === 'rating' ? _react2.default.createElement(_Rating2.default, { readonly: true, defaultValue: parseInt(prefilled, 10) }) : _react2.default.createElement(
+                    'div',
+                    null,
+                    prefilled
+                  )
+                )
+              );
+            }, this)
+          )
+        )
       );
     }
   }]);
@@ -35644,7 +35729,9 @@ Form.propTypes = {
     options: _propTypes2.default.arrayOf(_propTypes2.default.string)
   })).isRequired,
   initialData: _propTypes2.default.object,
-  readonly: _propTypes2.default.bool
+  readonly: _propTypes2.default.bool,
+  addNewDialog: _propTypes2.default.bool,
+  defaultValue: _propTypes2.default.object
 };
 
 exports.default = Form;
@@ -35720,6 +35807,8 @@ var FormInput = function (_Component) {
             defaultValue: parseInt(this.props.defaultValue, 10) }));
         case 'text':
           return _react2.default.createElement('textarea', common);
+        case 'input':
+          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
         default:
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
       }
@@ -35996,6 +36085,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var API_URL = 'http://45.135.233.68:8000/api/';
+
 var TaskEditor = function (_Component) {
   _inherits(TaskEditor, _Component);
 
@@ -36006,6 +36097,7 @@ var TaskEditor = function (_Component) {
 
     _this.state = {
       data: props.initialData,
+      fullData: props.fullAPIData,
       addnew: false
     };
     _this._preSearchData = null;
@@ -36026,12 +36118,35 @@ var TaskEditor = function (_Component) {
         return;
       }
       var data = Array.from(this.state.data);
-      data.unshift(this.formRef.current.getData());
+      var newRow = this.formRef.current.getData();
+      console.log("_addNew - newRow");
+      console.log(newRow);
+      data.unshift();
       this.setState({
         addnew: false,
         data: data
       });
-      this._commitToStorage(data);
+      //this._commitToStorage(data);
+      this._createNewRow(newRow);
+    }
+  }, {
+    key: '_createNewRow',
+    value: async function _createNewRow(newRow) {
+      try {
+        var response = await fetch(API_URL + 'tasks/', { method: 'POST',
+          mode: "cors",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newRow)
+        });
+
+        var responsePOSTAPIData = await response.json();
+
+        return responsePOSTAPIData;
+      } catch (error) {
+        console.error(error);
+      }
     }
   }, {
     key: '_onExcelDataChange',
@@ -36041,8 +36156,7 @@ var TaskEditor = function (_Component) {
       //this._commitToStorage(data);
     }
 
-    /*
-    async _saveData(data) { 
+    /*async _saveData(data) { 
       try {
         console.log("_saveData - data");
         console.log(data);
@@ -36139,13 +36253,14 @@ var TaskEditor = function (_Component) {
           _Dialog2.default,
           {
             modal: true,
-            header: 'Add new item',
-            confirmLabel: 'Add',
+            header: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E \u0437\u0430\u0434\u0430\u0447\u0443',
+            confirmLabel: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C',
             onAction: this._addNew.bind(this)
           },
           _react2.default.createElement(_Form2.default, {
             ref: this.formRef,
-            fields: this.props.schema })
+            fields: this.props.schema,
+            addNewDialog: true })
         ) : null
       );
     }
@@ -36167,7 +36282,8 @@ var TaskEditor = function (_Component) {
 
 TaskEditor.propTypes = {
   schema: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  initialData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = TaskEditor;
@@ -36182,140 +36298,212 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = [{
   id: 'id',
   label: '#',
+  pathJSON: 'id',
   show: false,
+  editable: false,
+  autoFilling: false,
+  type: 'input',
   sample: 1425,
   align: 'left'
 }, {
-  id: 'CompanyId',
+  id: 'CompanyName',
   label: 'Компания',
+  pathJSON: 'CompanyId.ShortName',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: 1
 }, {
   id: 'TaskId',
   label: 'TaskId',
-  type: 'text',
+  pathJSON: 'TaskId',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: '_01439',
   align: 'left'
 }, {
   id: 'TaskName',
   label: 'Название',
+  pathJSON: 'TaskName',
   show: true,
+  editable: true,
+  autoFilling: false,
+  type: 'text',
   sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
   align: 'left'
 }, {
   id: 'DateRegistration',
   label: 'DateRegistration',
-  type: 'datetime',
+  pathJSON: 'DateRegistration',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: '2023-03-29T00:00:00+03:00'
 }, {
   id: 'SituationType',
   label: 'SituationType',
-  type: 'text',
+  pathJSON: 'SituationType.SituationType',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'ServiceName',
   label: 'ServiceName',
-  type: 'text',
+  pathJSON: 'ServiceName.[].ServiceName',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
-  id: 'PersonFullName',
+  id: 'PersonFullNameId',
   label: 'PersonFullName',
-  type: 'text',
+  pathJSON: 'PersonFullNameId.PersonFullName',
+  type: 'input',
   show: true,
-  sample: ''
+  editable: true,
+  autoFilling: false,
+  sample: 'Денисов Николай Валерьевич'
 }, {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'TypeOfActionName',
   label: 'TypeOfActionName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Description',
   label: 'Description',
+  pathJSON: '',
   type: 'text',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'CategoryOfTaskName',
   label: 'CategoryOfTaskName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'ResultOfTaskName',
   label: 'ResultOfTaskName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'DateOfDone',
   label: 'DateOfDone',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Comments',
   label: 'Comments',
+  pathJSON: '',
   type: 'text',
   show: true,
-  sample: ''
+  editable: true,
+  autoFilling: false,
+  sample: '  '
 }, {
   id: 'manual_selection',
   label: 'manual_selection',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'manual_sort',
   label: 'manual_sort',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'PriorityColor',
   label: 'PriorityColor',
-  type: 'text',
-  show: false,
-  sample: ''
+  pathJSON: '',
+  type: 'input',
+  show: true,
+  editable: false,
+  autoFilling: false,
+  sample: '6'
 }, {
   id: 'ProjectName',
   label: 'ProjectName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Priority',
   label: 'Priority',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Author',
   label: 'Author',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'TaskTypeId',
   label: 'TaskTypeId',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'EffortsId',
   label: 'EffortsId',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }];
 },{}],33:[function(require,module,exports){

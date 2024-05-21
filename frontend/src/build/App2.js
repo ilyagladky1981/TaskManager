@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -53,13 +51,8 @@ var App2 = function (_Component) {
     _this.state = {
       error: null,
       isLoaded: false,
-      apiData: [{
-        "id": 1425,
-        "CompanyName": 1,
-        "TaskId": "_01439",
-        "TaskName": "_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.",
-        "DateRegistration": "2023-03-29T00:00:00+03:00"
-      }]
+      apiData: [],
+      dataForRender: []
     };
     _this.refreshList = _this.refreshList.bind(_this);
 
@@ -68,15 +61,17 @@ var App2 = function (_Component) {
 
   _createClass(App2, [{
     key: 'componentDidMount',
-    value: function componentDidMount() {
+    value: async function componentDidMount() {
       //console.log("componentDidMount()");
-      this.refreshList();
-      /*
-      const { error, isLoaded, apiData } = this.state;
-      console.log(`error in componentDidMount = ${error} , isLoaded in componentDidMount = ${isLoaded}`);
-      console.log('apiData in componentDidMount');
+      await this.refreshList();
+
+      /*const { error, isLoaded, apiData, dataForRender } = this.state;
+      console.log(`App2 error in componentDidMount = ${error} , isLoaded in componentDidMount = ${isLoaded}`);
+      console.log('App2 apiData in componentDidMount');
       console.log(apiData);
-      */
+      
+      console.log("App2 componentDidMount - dataForRender");
+      console.log(dataForRender);*/
     }
   }, {
     key: 'refreshList',
@@ -84,13 +79,93 @@ var App2 = function (_Component) {
       try {
         var response = await fetch(API_URL + 'control/1/');
         var responseAPIData = await response.json();
+
+        //console.log(`App2 typeof refreshList responseAPIData = ${typeof responseAPIData}`);
+        var preparedAPIData = [];
+
+        var inputDict = {};
+
+        var inputLen = responseAPIData.length;
+
+        for (var elemNumber = 0; elemNumber < inputLen; elemNumber++) {
+          inputDict = {};
+          /* 
+          
+          НЕ  УДАЛЯТЬ !!! ДЛЯ РЕФАКТОРИНГА! !!!
+            for (let schemaElem in schema) {
+            let pathJSON = schemaElem.pathJSON.split('.');
+            let nextLevel = structuredClone(responseAPIData[elemNumber]);
+            for (let level in pathJSON) {
+              if (level === '[]') {
+                if ( nextLevel.length > 0) {
+                  // Array of Elem => TODO
+                  for 
+                    inputDict[schemaElem] = responseAPIData[elemNumber]['CategoryOfTaskName'][0]['CategoryOfTaskName'];
+                } else {
+                  // Empty Array stop walk through levels
+                  inputDict.CategoryOfTaskName = '';
+                  break; 
+                }
+              } else {
+                nextLevel = structuredClone(nextLevel[level])
+              }
+              
+            }
+          }
+            НЕ  УДАЛЯТЬ !!! ДЛЯ РЕФАКТОРИНГА! !!!
+            */
+
+          inputDict.id = responseAPIData[elemNumber]['id'];
+          inputDict.CompanyName = responseAPIData[elemNumber]['CompanyId']['ShortName'];
+          inputDict.TaskId = responseAPIData[elemNumber]['TaskId'];
+          inputDict.TaskName = responseAPIData[elemNumber]['TaskName'];
+          inputDict.DateRegistration = responseAPIData[elemNumber]['DateRegistration'];
+          inputDict.SituationType = responseAPIData[elemNumber]['SituationType']['SituationType'];
+          if (responseAPIData[elemNumber]['CategoryOfTaskName'].length > 0) {
+            inputDict.ServiceName = responseAPIData[elemNumber]['ServiceName'][0]['ServiceName'];
+          } else {
+            inputDict.ServiceName = '';
+          }
+
+          inputDict.PersonFullNameId = responseAPIData[elemNumber]['PersonFullNameId']['PersonFullName'];
+          inputDict.ITTaskTypeName = responseAPIData[elemNumber]['ITTaskTypeName']['ITTaskTypeName'];
+          inputDict.TypeOfActionName = responseAPIData[elemNumber]['TypeOfActionName']['TypeOfActionName'];
+          inputDict.Description = responseAPIData[elemNumber]['Description'];
+          if (responseAPIData[elemNumber]['CategoryOfTaskName'].length > 0) {
+            inputDict.CategoryOfTaskName = responseAPIData[elemNumber]['CategoryOfTaskName'][0]['CategoryOfTaskName'];
+          } else {
+            inputDict.CategoryOfTaskName = '';
+          }
+          inputDict.ResultOfTaskName = responseAPIData[elemNumber]['ResultOfTaskName']['Name'];
+          inputDict.DateOfDone = responseAPIData[elemNumber]['DateOfDone'];
+          inputDict.Comments = responseAPIData[elemNumber]['Comments'];
+          inputDict.manual_selection = responseAPIData[elemNumber]['manual_selection'];
+          inputDict.manual_sort = responseAPIData[elemNumber]['manual_sort'];
+          inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor'].toString();
+          if (Object.keys(responseAPIData[elemNumber]['ProjectName']).length > 0) {
+            inputDict.ProjectName = responseAPIData[elemNumber]['ProjectName']['id'];
+          } else {
+            inputDict.ProjectName = '';
+          }
+          inputDict.Priority = responseAPIData[elemNumber]['Priority'];
+          inputDict.Author = responseAPIData[elemNumber]['Author'];
+          inputDict.TaskTypeId = responseAPIData[elemNumber]['TaskTypeId'];
+          inputDict.EffortsId = responseAPIData[elemNumber]['EffortsId'];
+
+          //const copyDict = JSON.parse(JSON.stringify(inputDict))
+          var copyDict = structuredClone(inputDict);
+          preparedAPIData[elemNumber] = copyDict;
+        }
+
+        /**/
+
         this.setState({
           isLoaded: true,
-          apiData: responseAPIData
+          apiData: responseAPIData,
+          dataForRender: preparedAPIData
         });
-        /*console.log("responseAPIData");
-        console.log(responseAPIData);*/
-        return responseAPIData;
+
+        return preparedAPIData;
       } catch (error) {
         console.error(error);
       }
@@ -104,7 +179,7 @@ var App2 = function (_Component) {
     key: 'render',
     value: function render() {
       /*var currentdate = new Date(); 
-      var datetime = "Last Sync: " + currentdate.getDate() + "/"
+      var datetime = "App2  Last Sync: " + currentdate.getDate() + "/"
                       + (currentdate.getMonth()+1)  + "/" 
                       + currentdate.getFullYear() + " @ "  
                       + currentdate.getHours() + ":"  
@@ -114,10 +189,11 @@ var App2 = function (_Component) {
       var _state = this.state,
           error = _state.error,
           isLoaded = _state.isLoaded,
-          apiData = _state.apiData;
-      /*console.log(`error in render = ${error} , isLoaded in render = ${isLoaded}`);
-      console.log("render() at " + datetime);
-      console.log('apiData in render 1');
+          apiData = _state.apiData,
+          dataForRender = _state.dataForRender;
+      /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
+      console.log("App2 render() at " + datetime);
+      console.log('App2 apiData in render 1');
       console.log(apiData);*/
 
       if (error) {
@@ -129,12 +205,13 @@ var App2 = function (_Component) {
         );
         /*} else if (!isLoaded) {                defaultApiData
           return <div>Loading...</div>;*/
-      } else if (typeof apiData !== "undefined") {
+      } else if (typeof dataForRender !== "undefined") {
         /*console.log(`instanceof Array = ${apiData instanceof Array}`);
-        console.log('apiData in render 2');
+        console.log('App2 apiData in render 2');
         console.log(apiDatcurrentdatea);
-        console.log('apiData#2 in render 3');
+        console.log('App2 apiData#2 in render 3');
         console.log(apiData);*/
+        document.title = "Task Manager";
         return _react2.default.createElement(
           'div',
           { className: 'app' },
@@ -143,14 +220,14 @@ var App2 = function (_Component) {
             { className: 'app-header' },
             'Task Manager'
           ),
-          _react2.default.createElement(_TaskEditor2.default, { schema: _schema2.default, initialData: apiData })
+          _react2.default.createElement(_TaskEditor2.default, { schema: _schema2.default, initialData: dataForRender, fullAPIData: apiData })
         );
       } else {
-        console.log('typeof apiData 2 = ' + (typeof apiData === 'undefined' ? 'undefined' : _typeof(apiData)));
+        //console.log(`App2 typeof dataForRender 2 = ${typeof dataForRender}`);
         return _react2.default.createElement(
           'div',
           null,
-          'apiData === "undefined"...'
+          'dataForRender === "undefined"...'
         );
       }
     }

@@ -74,7 +74,7 @@ var Dialog = function (_Component) {
               {
                 className: 'DialogDismiss',
                 onClick: this.props.onAction.bind(this, 'dismiss') },
-              'Cancel'
+              '\u041E\u0442\u043C\u0435\u043D\u0430'
             ) : null,
             _react2.default.createElement(
               _Button2.default,

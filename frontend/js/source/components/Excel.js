@@ -23,7 +23,6 @@ class Excel extends Component {
       edit: null, // [row index, schema.id],
       dialog: null, // {type, idx}
     };
-    this._saveRow = this._saveRow.bind(this);
   }
 
 
@@ -41,8 +40,6 @@ class Excel extends Component {
 
   async _saveRow(taskId, thisRow) { 
     try {
-      /*console.log("_saveRow - thisRow");
-      console.log(thisRow);*/
       const response = await fetch(`${API_URL}tasks/${taskId}/`,
           { method: 'PATCH',
             mode: "cors",
@@ -53,8 +50,6 @@ class Excel extends Component {
           });
       
       const responsePOSTAPIData = await response.json();
-      /*console.log("responsePOSTAPIData");
-      console.log(responsePOSTAPIData);*/
       
       return responsePOSTAPIData;
     } catch(error) {
@@ -94,29 +89,38 @@ class Excel extends Component {
     const value = this.inputRef.current.getValue();
     let data = Array.from(this.state.data);
     let rowId = this.state.edit.row;
+
+    data[rowId][this.state.edit.key] = value;
+
+    this.setState({
+      edit: null,
+      data: data,
+    });
+    this._fireDataChange(data);
+
+    /*const value = this.inputRef.current.getValue();
+    let data = Array.from(this.state.data);
+    let rowId = this.state.edit.row;
     let taskId = data[rowId]['id'];
     //console.log("taskId = ", taskId);
     let thisRow = {};
-    /*thisRow = Array.from(data[rowId]);
-    console.log("thisRow 1 - ");
-    console.log(thisRow);*/
 
     const thisSchema = this.props.schema;
     data[rowId][this.state.edit.key] = value;
 
     for (let schema of thisSchema) {
-      thisRow[schema.id] = data[rowId][schema.id];;
+      thisRow[schema.id] = data[rowId][schema.id];
     }
 
-    /*console.log("thisRow 3 - ");
-    console.log(thisRow);*/
+    console.log("thisRow 3 - ");
+    console.log(thisRow);
 
     this._saveRow(taskId, thisRow);
     this.setState({
       edit: null,
       data: data,
     });
-    this._fireDataChange(data);
+    this._fireDataChange(data);*/
   }
   
   _actionClick(rowidx, action) {
@@ -197,8 +201,8 @@ class Excel extends Component {
     return (
       <Dialog 
         modal={true}
-        header={readonly ? 'Item info' : 'Edit item'}
-        confirmLabel={readonly ? 'ok' : 'Save'}
+        header={readonly ? 'Item info' : 'Изменить задачу'}
+        confirmLabel={readonly ? 'ok' : 'Сохранить'}
         hasCancel={!readonly}
         onAction={this._saveDataDialog.bind(this)}
       >
@@ -206,13 +210,14 @@ class Excel extends Component {
           ref={this.formRef}
           fields={this.props.schema}
           initialData={this.state.data[this.state.dialog.idx]}
-          readonly={readonly} />
+          readonly={readonly} 
+          addNewDialog={false}/>
       </Dialog>
     ); 
   }
   
   _renderTable() {
-    /*console.log('this.state.data Excel');
+    /*console.log('Excel this.state.data');
     console.log(this.state.data);*/
     return (
       <table>
@@ -246,12 +251,27 @@ class Excel extends Component {
               <tr key={rowidx}>{
                 Object.keys(row).map((cell, idx) => {
                   const schema = this.props.schema[idx];
+                  /*console.log("Excel _renderTable tbody -------------------");
+                  console.log(`Excel rowidx = ${rowidx}`);
+                  console.log(`Excel idx = ${idx}`);
+                  console.log(`Excel cell = ${cell}`);*/
                   if (!schema || !schema.show) {
+                    /*if (!schema) {
+                      return null;
+                    } else {
+                      console.log(`Excel schema.id = ${schema.id}`);
+                      console.log(`Excel schema.show = ${schema.show}`);
+                    }*/
+                    
                     return null;
                   }
                   const isRating = schema.type === 'rating';
                   const edit = this.state.edit;
                   let content = row[cell];
+                  
+                  /*console.log(`Excel content = ${content}`);
+                  console.log(`Excel schema.id = ${schema.id}`);*/
+                  
                   if (!isRating && edit && edit.row === rowidx && edit.key === schema.id) {
                     content = (
                       <form onSubmit={this._save.bind(this)}>

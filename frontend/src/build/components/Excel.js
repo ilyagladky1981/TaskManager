@@ -69,7 +69,6 @@ var Excel = function (_Component) {
       edit: null, // [row index, schema.id],
       dialog: null // {type, idx}
     };
-    _this._saveRow = _this._saveRow.bind(_this);
     return _this;
   }
 
@@ -77,8 +76,6 @@ var Excel = function (_Component) {
     key: '_saveRow',
     value: async function _saveRow(taskId, thisRow) {
       try {
-        /*console.log("_saveRow - thisRow");
-        console.log(thisRow);*/
         var response = await fetch(API_URL + 'tasks/' + taskId + '/', { method: 'PATCH',
           mode: "cors",
           headers: {
@@ -88,8 +85,6 @@ var Excel = function (_Component) {
         });
 
         var responsePOSTAPIData = await response.json();
-        /*console.log("responsePOSTAPIData");
-        console.log(responsePOSTAPIData);*/
 
         return responsePOSTAPIData;
       } catch (error) {
@@ -131,50 +126,34 @@ var Excel = function (_Component) {
       var value = this.inputRef.current.getValue();
       var data = Array.from(this.state.data);
       var rowId = this.state.edit.row;
-      var taskId = data[rowId]['id'];
-      //console.log("taskId = ", taskId);
-      var thisRow = {};
-      /*thisRow = Array.from(data[rowId]);
-      console.log("thisRow 1 - ");
-      console.log(thisRow);*/
 
-      var thisSchema = this.props.schema;
       data[rowId][this.state.edit.key] = value;
 
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = thisSchema[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var schema = _step.value;
-
-          thisRow[schema.id] = data[rowId][schema.id];;
-        }
-
-        /*console.log("thisRow 3 - ");
-        console.log(thisRow);*/
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      this._saveRow(taskId, thisRow);
       this.setState({
         edit: null,
         data: data
       });
       this._fireDataChange(data);
+
+      /*const value = this.inputRef.current.getValue();
+      let data = Array.from(this.state.data);
+      let rowId = this.state.edit.row;
+      let taskId = data[rowId]['id'];
+      //console.log("taskId = ", taskId);
+      let thisRow = {};
+       const thisSchema = this.props.schema;
+      data[rowId][this.state.edit.key] = value;
+       for (let schema of thisSchema) {
+        thisRow[schema.id] = data[rowId][schema.id];
+      }
+       console.log("thisRow 3 - ");
+      console.log(thisRow);
+       this._saveRow(taskId, thisRow);
+      this.setState({
+        edit: null,
+        data: data,
+      });
+      this._fireDataChange(data);*/
     }
   }, {
     key: '_actionClick',
@@ -264,8 +243,8 @@ var Excel = function (_Component) {
         _Dialog2.default,
         {
           modal: true,
-          header: readonly ? 'Item info' : 'Edit item',
-          confirmLabel: readonly ? 'ok' : 'Save',
+          header: readonly ? 'Item info' : 'Изменить задачу',
+          confirmLabel: readonly ? 'ok' : 'Сохранить',
           hasCancel: !readonly,
           onAction: this._saveDataDialog.bind(this)
         },
@@ -273,7 +252,8 @@ var Excel = function (_Component) {
           ref: this.formRef,
           fields: this.props.schema,
           initialData: this.state.data[this.state.dialog.idx],
-          readonly: readonly })
+          readonly: readonly,
+          addNewDialog: false })
       );
     }
   }, {
@@ -281,7 +261,7 @@ var Excel = function (_Component) {
     value: function _renderTable() {
       var _this2 = this;
 
-      /*console.log('this.state.data Excel');
+      /*console.log('Excel this.state.data');
       console.log(this.state.data);*/
       return _react2.default.createElement(
         'table',
@@ -328,12 +308,27 @@ var Excel = function (_Component) {
                 var _classNames;
 
                 var schema = _this2.props.schema[idx];
+                /*console.log("Excel _renderTable tbody -------------------");
+                console.log(`Excel rowidx = ${rowidx}`);
+                console.log(`Excel idx = ${idx}`);
+                console.log(`Excel cell = ${cell}`);*/
                 if (!schema || !schema.show) {
+                  /*if (!schema) {
+                    return null;
+                  } else {
+                    console.log(`Excel schema.id = ${schema.id}`);
+                    console.log(`Excel schema.show = ${schema.show}`);
+                  }*/
+
                   return null;
                 }
                 var isRating = schema.type === 'rating';
                 var edit = _this2.state.edit;
                 var content = row[cell];
+
+                /*console.log(`Excel content = ${content}`);
+                console.log(`Excel schema.id = ${schema.id}`);*/
+
                 if (!isRating && edit && edit.row === rowidx && edit.key === schema.id) {
                   content = _react2.default.createElement(
                     'form',

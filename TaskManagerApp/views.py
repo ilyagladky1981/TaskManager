@@ -18,7 +18,6 @@ def api_tasks(request):
         tasks = Task.objects.all()
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
-#JsonResponse(serializer.data, safe=False)
 
 
 
@@ -29,34 +28,3 @@ def api_task_detail(request, task_id):
         serializer = TaskSerializer(task)
         return Response(serializer.data)
 
-
-#@api_view(['PUT'])
-#def api_task_detail(request, task_id):
-#    if request.method == 'PUT':
-#        tasks = Task.objects.all()
-#        serializer = TaskSerializer(tasks, many=True)
-#        return Response(serializer.data)
-
-
-
-
-class HomePageView(ListView):
-    model = Task
-    template_name = 'home.html'
-    context_object_name = 'all_tasks_list'
-
-
-class AboutPageView(TemplateView):
-    template_name = 'about.html'
-
-class DataImportPageView(TemplateView):
-    template_name = 'DataImport.html'
-
-
-def TimePageView(request):
-    current_tz = 'Europe/Moscow'
-    timezone.activate(current_tz)
-    # now = timezone.localtime(timezone.now())
-    current_time = timezone.now().time()
-    now = timezone.localtime(timezone.now())
-    return render(request, 'CurrentTime.html', {'current_time':now})

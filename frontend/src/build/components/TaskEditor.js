@@ -38,6 +38,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var API_URL = 'http://45.135.233.68:8000/api/';
+
 var TaskEditor = function (_Component) {
   _inherits(TaskEditor, _Component);
 
@@ -48,6 +50,7 @@ var TaskEditor = function (_Component) {
 
     _this.state = {
       data: props.initialData,
+      fullData: props.fullAPIData,
       addnew: false
     };
     _this._preSearchData = null;
@@ -68,12 +71,35 @@ var TaskEditor = function (_Component) {
         return;
       }
       var data = Array.from(this.state.data);
-      data.unshift(this.formRef.current.getData());
+      var newRow = this.formRef.current.getData();
+      console.log("_addNew - newRow");
+      console.log(newRow);
+      data.unshift();
       this.setState({
         addnew: false,
         data: data
       });
-      this._commitToStorage(data);
+      //this._commitToStorage(data);
+      this._createNewRow(newRow);
+    }
+  }, {
+    key: '_createNewRow',
+    value: async function _createNewRow(newRow) {
+      try {
+        var response = await fetch(API_URL + 'tasks/', { method: 'POST',
+          mode: "cors",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newRow)
+        });
+
+        var responsePOSTAPIData = await response.json();
+
+        return responsePOSTAPIData;
+      } catch (error) {
+        console.error(error);
+      }
     }
   }, {
     key: '_onExcelDataChange',
@@ -83,8 +109,7 @@ var TaskEditor = function (_Component) {
       //this._commitToStorage(data);
     }
 
-    /*
-    async _saveData(data) { 
+    /*async _saveData(data) { 
       try {
         console.log("_saveData - data");
         console.log(data);
@@ -181,13 +206,14 @@ var TaskEditor = function (_Component) {
           _Dialog2.default,
           {
             modal: true,
-            header: 'Add new item',
-            confirmLabel: 'Add',
+            header: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E \u0437\u0430\u0434\u0430\u0447\u0443',
+            confirmLabel: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C',
             onAction: this._addNew.bind(this)
           },
           _react2.default.createElement(_Form2.default, {
             ref: this.formRef,
-            fields: this.props.schema })
+            fields: this.props.schema,
+            addNewDialog: true })
         ) : null
       );
     }
@@ -209,7 +235,8 @@ var TaskEditor = function (_Component) {
 
 TaskEditor.propTypes = {
   schema: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  initialData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = TaskEditor;

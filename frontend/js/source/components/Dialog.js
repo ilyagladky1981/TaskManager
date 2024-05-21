@@ -25,7 +25,7 @@ class Dialog extends Component {
               ? <span 
                   className="DialogDismiss"
                   onClick={this.props.onAction.bind(this, 'dismiss')}>
-                  Cancel
+                  Отмена
                 </span>
               : null
             }

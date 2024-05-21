@@ -8,139 +8,211 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = [{
   id: 'id',
   label: '#',
+  pathJSON: 'id',
   show: false,
+  editable: false,
+  autoFilling: false,
+  type: 'input',
   sample: 1425,
   align: 'left'
 }, {
-  id: 'CompanyId',
+  id: 'CompanyName',
   label: 'Компания',
+  pathJSON: 'CompanyId.ShortName',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: 1
 }, {
   id: 'TaskId',
   label: 'TaskId',
-  type: 'text',
+  pathJSON: 'TaskId',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: '_01439',
   align: 'left'
 }, {
   id: 'TaskName',
   label: 'Название',
+  pathJSON: 'TaskName',
   show: true,
+  editable: true,
+  autoFilling: false,
+  type: 'text',
   sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
   align: 'left'
 }, {
   id: 'DateRegistration',
   label: 'DateRegistration',
-  type: 'datetime',
+  pathJSON: 'DateRegistration',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: '2023-03-29T00:00:00+03:00'
 }, {
   id: 'SituationType',
   label: 'SituationType',
-  type: 'text',
+  pathJSON: 'SituationType.SituationType',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'ServiceName',
   label: 'ServiceName',
-  type: 'text',
+  pathJSON: 'ServiceName.[].ServiceName',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
-  id: 'PersonFullName',
+  id: 'PersonFullNameId',
   label: 'PersonFullName',
-  type: 'text',
+  pathJSON: 'PersonFullNameId.PersonFullName',
+  type: 'input',
   show: true,
-  sample: ''
+  editable: true,
+  autoFilling: false,
+  sample: 'Денисов Николай Валерьевич'
 }, {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'TypeOfActionName',
   label: 'TypeOfActionName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Description',
   label: 'Description',
+  pathJSON: '',
   type: 'text',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'CategoryOfTaskName',
   label: 'CategoryOfTaskName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'ResultOfTaskName',
   label: 'ResultOfTaskName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'DateOfDone',
   label: 'DateOfDone',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Comments',
   label: 'Comments',
+  pathJSON: '',
   type: 'text',
   show: true,
-  sample: ''
+  editable: true,
+  autoFilling: false,
+  sample: '  '
 }, {
   id: 'manual_selection',
   label: 'manual_selection',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'manual_sort',
   label: 'manual_sort',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'PriorityColor',
   label: 'PriorityColor',
-  type: 'text',
-  show: false,
-  sample: ''
+  pathJSON: '',
+  type: 'input',
+  show: true,
+  editable: false,
+  autoFilling: false,
+  sample: '6'
 }, {
   id: 'ProjectName',
   label: 'ProjectName',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Priority',
   label: 'Priority',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: false,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'Author',
   label: 'Author',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'TaskTypeId',
   label: 'TaskTypeId',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }, {
   id: 'EffortsId',
   label: 'EffortsId',
-  type: 'text',
+  pathJSON: '',
+  type: 'input',
   show: false,
+  editable: true,
+  autoFilling: false,
   sample: ''
 }];
