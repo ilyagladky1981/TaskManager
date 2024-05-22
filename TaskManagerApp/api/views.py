@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
-from ..models import Task
+from ..models import Task, ServiceSet
 from ..models import ResultOfTask
 from django.db.models import Q
 
@@ -14,6 +14,7 @@ from datetime import datetime
 from django.utils import timezone
 from django.http import JsonResponse
 from .serializers import TaskSerializer, DepthTaskSerializer, ControlSerializer
+from .serializers import ServiceSetSerializer
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 
@@ -74,13 +75,13 @@ def api_control_panel_project(request, CompanyId, ProjectID, UserId):
 
 
 @api_view(['GET','POST'])
-def api_service_set(request, UserId, CompanyId):
+def api_service_set(request, UserId):
     if request.method == 'GET':
-        tasks = Task.objects.all()
-        serializer = TaskSerializer(tasks, many=True)
+        service_set = ServiceSet.objects.all()
+        serializer = ServiceSetSerializer(service_set, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        serializer = TaskSerializer(data=request.data)
+        serializer = ServiceSetSerializer(data=request.data)
         # print(f"request.data = {request.data}")
         # print(f"serializer = {serializer}")
         # print(f"type(serializer) = {type(serializer)}")

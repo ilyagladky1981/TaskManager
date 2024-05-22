@@ -142,8 +142,8 @@ class EffortsStats(models.Model):
         verbose_name_plural = "EffortsStats"
 
 class ServiceSet(models.Model):
-    ServiceId = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='service_set', related_query_name='service_id_s')
-    TaskId = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='service_set', related_query_name='task_id_s')
+    ServiceId = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='service_id', related_query_name='service_id_s')
+    TaskId = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='task_id', related_query_name='task_id_s')
     
     def __str__(self):
         return f"ServiceSet.id={self.id}_{self.TaskId}_ServiceId.id={self.ServiceId}"
