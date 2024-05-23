@@ -72,8 +72,10 @@ var TaskEditor = function (_Component) {
       }
       var data = Array.from(this.state.data);
       var newRow = this.formRef.current.getData();
-      console.log("_addNew - newRow");
+      console.log("TaskEditor - _addNew - newRow");
       console.log(newRow);
+      console.log("TaskEditor - _addNew - JSON.stringify(newRow)");
+      console.log(JSON.stringify(newRow));
       data.unshift();
       this.setState({
         addnew: false,
@@ -86,7 +88,7 @@ var TaskEditor = function (_Component) {
     key: '_createNewRow',
     value: async function _createNewRow(newRow) {
       try {
-        var response = await fetch(API_URL + 'tasks/', { method: 'POST',
+        var response = await fetch(API_URL + 'tasks/1/', { method: 'POST',
           mode: "cors",
           headers: {
             'Content-Type': 'application/json'
@@ -111,7 +113,7 @@ var TaskEditor = function (_Component) {
 
     /*async _saveData(data) { 
       try {
-        console.log("_saveData - data");
+        console.log("TaskEditor - _saveData - data");
         console.log(data);
         const response = await fetch(`${API_URL}control/1/`,
             { method: 'POST',
@@ -123,7 +125,7 @@ var TaskEditor = function (_Component) {
             });
         
         const responsePOSTAPIData = await response.json();
-        console.log("responsePOSTAPIData");
+        console.log("TaskEditor - responsePOSTAPIData");
         console.log(responsePOSTAPIData);
         
         return responsePOSTAPIData;
@@ -173,7 +175,7 @@ var TaskEditor = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      /*console.log('this.state.data TaskEditor');
+      /*console.log('TaskEditor - render - this.state.data');
       console.log(this.state.data);*/
 
       return _react2.default.createElement(

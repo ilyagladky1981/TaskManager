@@ -42,8 +42,10 @@ class TaskEditor extends Component {
     }
     let data = Array.from(this.state.data);
     let newRow = this.formRef.current.getData()
-    console.log("_addNew - newRow");
+    console.log("TaskEditor - _addNew - newRow");
     console.log(newRow);
+    console.log("TaskEditor - _addNew - JSON.stringify(newRow)");
+    console.log(JSON.stringify(newRow));
     data.unshift();
     this.setState({
       addnew: false,
@@ -55,7 +57,7 @@ class TaskEditor extends Component {
 
   async _createNewRow(newRow) { 
     try {
-      const response = await fetch(`${API_URL}tasks/`,
+      const response = await fetch(`${API_URL}tasks/1/`,
           { method: 'POST',
             mode: "cors",
             headers: {
@@ -81,7 +83,7 @@ class TaskEditor extends Component {
   
   /*async _saveData(data) { 
     try {
-      console.log("_saveData - data");
+      console.log("TaskEditor - _saveData - data");
       console.log(data);
       const response = await fetch(`${API_URL}control/1/`,
           { method: 'POST',
@@ -93,7 +95,7 @@ class TaskEditor extends Component {
           });
       
       const responsePOSTAPIData = await response.json();
-      console.log("responsePOSTAPIData");
+      console.log("TaskEditor - responsePOSTAPIData");
       console.log(responsePOSTAPIData);
       
       return responsePOSTAPIData;
@@ -139,7 +141,7 @@ class TaskEditor extends Component {
   }
   
   render() {
-    /*console.log('this.state.data TaskEditor');
+    /*console.log('TaskEditor - render - this.state.data');
     console.log(this.state.data);*/
 
     return (

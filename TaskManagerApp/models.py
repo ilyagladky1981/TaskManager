@@ -29,28 +29,28 @@ class Service(models.Model):
 
 
 class Task(models.Model):
-    CompanyId = models.ForeignKey('Company', on_delete=models.PROTECT, null=True, blank=True)
+    CompanyId = models.ForeignKey('Company', on_delete=models.CASCADE, null=True, blank=True)
     TaskId = models.CharField(max_length=32, null=True, blank=True)
     TaskName = models.CharField(max_length=255)
     DateRegistration = models.DateTimeField(default=None, null=True, blank=True)
-    SituationType = models.ForeignKey('Situation', on_delete=models.PROTECT, null=True, blank=True)
-    ServiceName = models.ManyToManyField('Service', through='ServiceSet', related_name='tasks_service_name', related_query_name='tasks_service_name')
-    PersonFullNameId = models.ForeignKey('Person', on_delete=models.PROTECT, related_name='PersonFullNameIds')
-    ITTaskTypeName = models.ForeignKey('ITTaskType', on_delete=models.PROTECT)
-    TypeOfActionName = models.ForeignKey('TypeOfAction', on_delete=models.PROTECT)
+    SituationType = models.ForeignKey('Situation', on_delete=models.CASCADE, null=True, blank=True)
+    ServiceName = models.ManyToManyField('Service', through='ServiceSet')
+    PersonFullNameId = models.ForeignKey('Person', on_delete=models.CASCADE, related_name='PersonFullNameIds')
+    ITTaskTypeName = models.ForeignKey('ITTaskType', on_delete=models.CASCADE)
+    TypeOfActionName = models.ForeignKey('TypeOfAction', on_delete=models.CASCADE)
     Description = models.CharField(max_length=255,  null=True, blank=True)
     CategoryOfTaskName = models.ManyToManyField('CategoryOfTask', through='CategorySet')
-    ResultOfTaskName = models.ForeignKey('ResultOfTask', on_delete=models.PROTECT, null=True, blank=True)
+    ResultOfTaskName = models.ForeignKey('ResultOfTask', on_delete=models.CASCADE, null=True, blank=True)
     DateOfDone = models.DateTimeField(default=None, null=True, blank=True)
     Comments = models.URLField(max_length=1000, null=True, blank=True)
     manual_selection = models.PositiveIntegerField(null=True, blank=True)
     manual_sort = models.PositiveIntegerField(null=True, blank=True)
     PriorityColor = models.PositiveIntegerField(null=True, blank=True)
-    ProjectName = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True)
-    Priority = models.OneToOneField('PriorityInfo', on_delete=models.PROTECT,  null=True, blank=True)
-    CreatedByUser = models.ForeignKey('auth.User', on_delete=models.PROTECT, null=True, blank=True)
-    TaskTypeId = models.ForeignKey('TaskType', on_delete=models.PROTECT, null=True, blank=True)
-    EffortsId = models.ForeignKey('EffortsStats', on_delete=models.PROTECT, null=True, blank=True)
+    ProjectName = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
+    Priority = models.OneToOneField('PriorityInfo', on_delete=models.CASCADE,  null=True, blank=True)
+    CreatedByUser = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True)
+    TaskTypeId = models.ForeignKey('TaskType', on_delete=models.CASCADE, null=True, blank=True)
+    EffortsId = models.ForeignKey('EffortsStats', on_delete=models.CASCADE, null=True, blank=True)
     
     
     def __str__(self):
@@ -71,9 +71,9 @@ class Person(models.Model):
     WorkPhone = models.CharField(max_length=4, null=True, blank=True)
     MobilePhone = models.CharField(max_length=11, null=True, blank=True)
     Email = models.CharField(max_length=255, null=True, blank=True)
-    DepartmentName  = models.ForeignKey('Department', on_delete=models.PROTECT, null=True, blank=True)
+    DepartmentName  = models.ForeignKey('Department', on_delete=models.CASCADE, null=True, blank=True)
     Position = models.CharField(max_length=150, null=True, blank=True)
-    CompanyName = models.ForeignKey(Company, on_delete=models.PROTECT, null=True, blank=True)
+    CompanyName = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)
     
     def __str__(self):
         return self.PersonFullName

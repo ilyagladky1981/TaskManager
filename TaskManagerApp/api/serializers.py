@@ -1,8 +1,16 @@
 from rest_framework import serializers
-from ..models import Task, ServiceSet, Service
+from ..models import Task, ServiceSet, Service, CategorySet
 from ..models import Person
 
 
+
+class CategorySetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CategorySet
+        fields = [
+            'CategoryId',
+            'TaskId',
+        ]
 
 class ServiceSerializer(serializers.ModelSerializer):    
     class Meta:
@@ -12,11 +20,19 @@ class ServiceSerializer(serializers.ModelSerializer):
             'SituationType'
             ]
 
+class ServiceSetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ServiceSet
+        fields = [
+            'ServiceId',
+            'TaskId',
+        ]
+
 
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['id', 'CompanyId', 'TaskId', 
+        fields = ('id', 'CompanyId', 'TaskId', 
           'TaskName', 'DateRegistration', 
           'SituationType', 'ServiceName', 
           'PersonFullNameId', 'ITTaskTypeName', 
@@ -24,8 +40,7 @@ class TaskSerializer(serializers.ModelSerializer):
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
           'manual_sort', 'PriorityColor', 'ProjectName', 
-          'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' ]
-        read_only_fields = ['ServiceName']
+          'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' )
 
 
 class DepthTaskSerializer(serializers.ModelSerializer):
@@ -58,11 +73,4 @@ class ControlSerializer(serializers.ModelSerializer):
           'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' ]
 
 
-class ServiceSetSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = ServiceSet
-        fields = [
-            'task_id_s',
-            'service_id_s',
-        ]

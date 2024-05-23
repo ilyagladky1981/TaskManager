@@ -77,7 +77,7 @@ var App2 = function (_Component) {
     key: 'refreshList',
     value: async function refreshList() {
       try {
-        var response = await fetch(API_URL + 'control/1/');
+        var response = await fetch(API_URL + 'control/1/1/');
         var responseAPIData = await response.json();
 
         //console.log(`App2 typeof refreshList responseAPIData = ${typeof responseAPIData}`);
@@ -121,7 +121,7 @@ var App2 = function (_Component) {
           inputDict.TaskName = responseAPIData[elemNumber]['TaskName'];
           inputDict.DateRegistration = responseAPIData[elemNumber]['DateRegistration'];
           inputDict.SituationType = responseAPIData[elemNumber]['SituationType']['SituationType'];
-          if (responseAPIData[elemNumber]['CategoryOfTaskName'].length > 0) {
+          if (responseAPIData[elemNumber]['ServiceName'].length > 0) {
             inputDict.ServiceName = responseAPIData[elemNumber]['ServiceName'][0]['ServiceName'];
           } else {
             inputDict.ServiceName = '';

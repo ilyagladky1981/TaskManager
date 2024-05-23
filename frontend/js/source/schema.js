@@ -10,7 +10,7 @@ export default [
     autoFilling: false,
     type: 'input', 
     sample: 1425,
-    align: 'left',
+    align: 'center',
   },
   {
     id: 'CompanyName',
@@ -31,7 +31,7 @@ export default [
     editable: false,
     autoFilling: false,
     sample: '_01439',
-    align: 'left',
+    align: 'center',
   },
   {
     id: 'TaskName',
@@ -42,7 +42,7 @@ export default [
     autoFilling: false,
     type: 'text',
     sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
-    align: 'left',
+    align: 'center',
   },
 
   {

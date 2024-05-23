@@ -76,7 +76,7 @@ var Excel = function (_Component) {
     key: '_saveRow',
     value: async function _saveRow(taskId, thisRow) {
       try {
-        var response = await fetch(API_URL + 'tasks/' + taskId + '/', { method: 'PATCH',
+        var response = await fetch(API_URL + 'tasks/1/' + taskId + '/', { method: 'PATCH',
           mode: "cors",
           headers: {
             'Content-Type': 'application/json'
