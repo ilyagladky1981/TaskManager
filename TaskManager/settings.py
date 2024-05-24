@@ -28,9 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*', '.localhost', '127.0.0.1', '[::1]', '45.135.233.68']
 
-TIME_ZONE = 'Europe/Moscow'
+# TIME_ZONE = 'Europe/Moscow'
 
-USE_TZ = True
+# USE_TZ = True
 
 # Application definition
 
@@ -85,6 +85,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 WSGI_APPLICATION = 'TaskManager.wsgi.application'
+
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': "%Y-%m-%dT%H:%M",
+}
+
 
 
 # Database
