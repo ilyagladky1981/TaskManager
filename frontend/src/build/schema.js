@@ -14,7 +14,7 @@ exports.default = [{
   autoFilling: false,
   type: 'input',
   sample: 1425,
-  align: 'left'
+  align: 'center'
 }, {
   id: 'CompanyName',
   label: 'Компания',
@@ -33,7 +33,7 @@ exports.default = [{
   editable: false,
   autoFilling: false,
   sample: '_01439',
-  align: 'left'
+  align: 'center'
 }, {
   id: 'TaskName',
   label: 'Название',
@@ -43,7 +43,7 @@ exports.default = [{
   autoFilling: false,
   type: 'text',
   sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
-  align: 'left'
+  align: 'center'
 }, {
   id: 'DateRegistration',
   label: 'DateRegistration',

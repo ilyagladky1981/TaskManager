@@ -40,7 +40,7 @@ class Excel extends Component {
 
   async _saveRow(taskId, thisRow) { 
     try {
-      const response = await fetch(`${API_URL}tasks/${taskId}/`,
+      const response = await fetch(`${API_URL}tasks/1/${taskId}/`,
           { method: 'PATCH',
             mode: "cors",
             headers: {
