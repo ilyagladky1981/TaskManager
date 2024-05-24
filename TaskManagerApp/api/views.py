@@ -20,16 +20,21 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 import json
 
 
-def isSavedSerializedNewList(dataList, NewTaskId, DataSerializer, DataFieldName)->bool:
+def isSavedSerializedNewList(dataList, NewTaskId, DataSerializer, DataFieldName)->(bool, dict()):
     SaveSucces = True
+    errors = {}
     for dataId in dataList:
         dataForSerialize = {DataFieldName:str(dataId), 'TaskId':NewTaskId}
         serializer = DataSerializer(data=dataForSerialize)
-        # print(f"serializerServiceSet = {serializerServiceSet}")
         SaveSucces &= serializer.is_valid()
         if serializer.is_valid():
             serializer.save()
-    return SaveSucces
+        else:
+          errors.update(serializer.errors)
+        #print(f"serializerTask.errors = {serializer.errors}")
+        #print(f"type of serializerTask.errors = {type(serializer.errors)}")
+        # {'SaveSucces':SaveSucces, 'errors':errors}
+    return (SaveSucces, errors)
 
 
 @api_view(['GET','POST'])
@@ -42,27 +47,32 @@ def api_tasks(request, UserId):
         serializerTask = TaskSerializer(data=request.data)
         if serializerTask.is_valid():
             serializerTask.save()
-            NewTaskId = serializerTask.data['id']
+            newTaskId = serializerTask.data['id']
             serviceSetRequestData = json.loads(request.data['ServiceName'])
-            ServiceSetSaveSucces = isSavedSerializedNewList(dataList=serviceSetRequestData,
-                                    NewTaskId=NewTaskId, DataSerializer=ServiceSetSerializer,
+            (serviceSetSaveSucces, errorsSS) = isSavedSerializedNewList(dataList=serviceSetRequestData,
+                                    NewTaskId=newTaskId, DataSerializer=ServiceSetSerializer,
                                     DataFieldName='ServiceId')
             categorySetRequestData = json.loads(request.data['CategoryOfTaskName'])
-            CategorySetSaveSucces = isSavedSerializedNewList(dataList=categorySetRequestData,
-                                    NewTaskId=NewTaskId, DataSerializer=CategorySetSerializer,
+            (categorySetSaveSucces, errorsCS) = isSavedSerializedNewList(dataList=categorySetRequestData,
+                                    NewTaskId=newTaskId, DataSerializer=CategorySetSerializer,
                                     DataFieldName='CategoryId')
+            # errorsSS = savingSSResultInfo['errors']
+            # errorsCS = savingCSResultInfo['errors']
+            errorsSS.update(errorsCS)
             ...
-            #print(f"serviceSetRequestData = {serviceSetRequestData}")
-            #print(f"type of serviceSetRequestData = {type(serviceSetRequestData)}")
-            TaskSaveSucces = ServiceSetSaveSucces
-            TaskSaveSucces &= CategorySetSaveSucces
-            ...
+            TaskSaveSucces = serviceSetSaveSucces
+            TaskSaveSucces &= categorySetSaveSucces
+            # print(f"serializerTask.errors = {serializerTask.errors}")
+            # print(f"serializerTask.errors = {type(serializerTask.errors)}")
             if TaskSaveSucces:
                 return Response(serializerTask.data, 
                                     status=status.HTTP_201_CREATED)
             else:
-                ...# TODO Удалить то что было ошибочно записано!
-                return Response(serializerTask.errors,
+                errorsTasks = serializerTask.errors
+                errorsTasks.update(errorsSS)
+                task = Task.objects.get(id=newTaskId)
+                task.delete()
+                return Response(errorsTasks,
                         status=status.HTTP_400_BAD_REQUEST)
         return Response(serializerTask.errors,
                         status=status.HTTP_400_BAD_REQUEST)

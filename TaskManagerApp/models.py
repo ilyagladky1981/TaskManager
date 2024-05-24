@@ -2,6 +2,7 @@ from django.db import models
 from datetime import date
 from django.contrib import admin
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 
@@ -32,13 +33,14 @@ class Task(models.Model):
     CompanyId = models.ForeignKey('Company', on_delete=models.CASCADE, null=True, blank=True)
     TaskId = models.CharField(max_length=32, null=True, blank=True)
     TaskName = models.CharField(max_length=255)
-    DateRegistration = models.DateTimeField(default=None, null=True, blank=True)
+    DateRegistration = models.DateTimeField(editable=False, null=True, blank=True)
+    modified = models.DateTimeField(default=None, null=True, blank=True)
     SituationType = models.ForeignKey('Situation', on_delete=models.CASCADE, null=True, blank=True)
     ServiceName = models.ManyToManyField('Service', through='ServiceSet')
     PersonFullNameId = models.ForeignKey('Person', on_delete=models.CASCADE, related_name='PersonFullNameIds')
     ITTaskTypeName = models.ForeignKey('ITTaskType', on_delete=models.CASCADE)
     TypeOfActionName = models.ForeignKey('TypeOfAction', on_delete=models.CASCADE)
-    Description = models.CharField(max_length=255,  null=True, blank=True)
+    Description = models.CharField(max_length=255, null=True, blank=True)
     CategoryOfTaskName = models.ManyToManyField('CategoryOfTask', through='CategorySet')
     ResultOfTaskName = models.ForeignKey('ResultOfTask', on_delete=models.CASCADE, null=True, blank=True)
     DateOfDone = models.DateTimeField(default=None, null=True, blank=True)
@@ -52,7 +54,12 @@ class Task(models.Model):
     TaskTypeId = models.ForeignKey('TaskType', on_delete=models.CASCADE, null=True, blank=True)
     EffortsId = models.ForeignKey('EffortsStats', on_delete=models.CASCADE, null=True, blank=True)
     
-    
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.DateRegistration = timezone.now()
+        self.modified = timezone.now()
+        return super(Task, self).save(*args, **kwargs)
+
     def __str__(self):
         return f"task.id={self.id}_{self.TaskName[:50]}" 
 
