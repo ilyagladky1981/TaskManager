@@ -11,3 +11,5 @@ csv/
 
 # ignore Logs
 Logs/
+
+TaskManager/__pycache__/
