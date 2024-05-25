@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
-from ..models import Task, ServiceSet
+from ..models import Task, ServiceSet, Person
 from ..models import ResultOfTask
 from django.db.models import Q
 
@@ -15,9 +15,11 @@ from django.utils import timezone
 from django.http import JsonResponse
 from .serializers import TaskSerializer, DepthTaskSerializer, ControlSerializer
 from .serializers import ServiceSetSerializer, CategorySetSerializer
+from .serializers import PersonFIOSerializer
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 import json
+
 
 
 def isSavedSerializedNewList(dataList, NewTaskId, DataSerializer, DataFieldName)->(bool, dict()):
@@ -31,9 +33,6 @@ def isSavedSerializedNewList(dataList, NewTaskId, DataSerializer, DataFieldName)
             serializer.save()
         else:
           errors.update(serializer.errors)
-        #print(f"serializerTask.errors = {serializer.errors}")
-        #print(f"type of serializerTask.errors = {type(serializer.errors)}")
-        # {'SaveSucces':SaveSucces, 'errors':errors}
     return (SaveSucces, errors)
 
 
@@ -56,14 +55,10 @@ def api_tasks(request, UserId):
             (categorySetSaveSucces, errorsCS) = isSavedSerializedNewList(dataList=categorySetRequestData,
                                     NewTaskId=newTaskId, DataSerializer=CategorySetSerializer,
                                     DataFieldName='CategoryId')
-            # errorsSS = savingSSResultInfo['errors']
-            # errorsCS = savingCSResultInfo['errors']
             errorsSS.update(errorsCS)
             ...
             TaskSaveSucces = serviceSetSaveSucces
             TaskSaveSucces &= categorySetSaveSucces
-            # print(f"serializerTask.errors = {serializerTask.errors}")
-            # print(f"serializerTask.errors = {type(serializerTask.errors)}")
             if TaskSaveSucces:
                 return Response(serializerTask.data, 
                                     status=status.HTTP_201_CREATED)
@@ -131,3 +126,11 @@ def api_service_set(request, UserId):
                             status=status.HTTP_201_CREATED)
         return Response(serializer.errors,
                         status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def api_get_person_fio(request, CompanyId, UserId):
+    if request.method == 'GET':
+        people = Person.objects.all()
+        serializer = PersonFIOSerializer(people, many=True)
+        return Response(serializer.data)

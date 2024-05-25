@@ -73,4 +73,28 @@ class ControlSerializer(serializers.ModelSerializer):
           'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' ]
 
 
+class PersonFIOSerializer(serializers.ModelSerializer):    
+    class Meta:
+        model = Person
+        fields = [
+            'id',
+            'PersonFullName'
+            ]
+
+class PersonSerializer(serializers.ModelSerializer):    
+    class Meta:
+        model = Person
+        fields = [
+            'id',
+            'Name',
+            'Surname',
+            'Patronymic',
+            'PersonFullName',
+            'WorkPhone',
+            'MobilePhone',
+            'Email',
+            'DepartmentName',
+            'Position',
+            'CompanyName'
+            ]
 

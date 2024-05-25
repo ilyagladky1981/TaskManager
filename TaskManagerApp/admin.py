@@ -21,6 +21,7 @@ from .models import EffortsStats
 from .models import PriorityInfo
 from .models import OfficeCalendar
 from .models import OfficeHours
+from .models import TimeInterval
 
 
 class CompanyResource(resources.ModelResource):
@@ -29,6 +30,14 @@ class CompanyResource(resources.ModelResource):
 
 class CompanyAdmin(ImportExportModelAdmin):
     resource_classes = [CompanyResource]
+
+
+class TimeIntervalResource(resources.ModelResource):
+    class Meta:
+        model = TimeInterval
+
+class TimeIntervalAdmin(ImportExportModelAdmin):
+    resource_classes = [TimeIntervalResource]
 
 
 class OfficeHoursResource(resources.ModelResource):
@@ -46,7 +55,6 @@ class CategorySetResource(resources.ModelResource):
 
 class CategorySetAdmin(ImportExportModelAdmin):
     resource_classes = [CategorySetResource]
-
 
 
 class EffortsStatsResource(resources.ModelResource):
@@ -157,6 +165,6 @@ admin.site.register(EffortsStats, EffortsStatsAdmin)
 admin.site.register(CategorySet, CategorySetAdmin)
 admin.site.register(OfficeHours, OfficeHoursAdmin)
 admin.site.register(OfficeCalendar)
-
+admin.site.register(TimeInterval, TimeIntervalAdmin)
 
 

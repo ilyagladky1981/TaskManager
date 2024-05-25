@@ -27,6 +27,14 @@ class Service(models.Model):
     def __str__(self):
         return f"{self.id}_{self.ServiceName}"
 
+class TimeInterval(models.Model):
+    startTimeOfAction  = models.TimeField(default=None, null=True, blank=True)
+    dateOfAction = models.DateTimeField(default=None, null=True, blank=True)
+    duration = models.PositiveIntegerField(null=True, blank=True)
+    
+    class Meta:
+        verbose_name_plural = "TimeIntervals"
+
 
 
 class Task(models.Model):
@@ -52,7 +60,8 @@ class Task(models.Model):
     Priority = models.OneToOneField('PriorityInfo', on_delete=models.CASCADE,  null=True, blank=True)
     CreatedByUser = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True)
     TaskTypeId = models.ForeignKey('TaskType', on_delete=models.CASCADE, null=True, blank=True)
-    EffortsId = models.ForeignKey('EffortsStats', on_delete=models.CASCADE, null=True, blank=True)
+    EffortsId = models.ManyToManyField('TimeInterval', through='EffortsStats')
+
     
     def save(self, *args, **kwargs):
         if not self.id:
@@ -62,6 +71,7 @@ class Task(models.Model):
 
     def __str__(self):
         return f"task.id={self.id}_{self.TaskName[:50]}" 
+
 
 class Situation(models.Model):
     SituationType = models.CharField(max_length=50)
@@ -142,9 +152,10 @@ class ResultOfTask(models.Model):
 
 class EffortsStats(models.Model):
     Comments = models.TextField()
-    TimeOfAction = models.TimeField()
-    DateOfAction = models.DateTimeField(default=None)
+    TimeInterval = models.ForeignKey('TimeInterval', on_delete=models.CASCADE)
+    Task = models.ForeignKey('Task', on_delete=models.CASCADE)
     
+
     class Meta:
         verbose_name_plural = "EffortsStats"
 
@@ -185,5 +196,8 @@ class OfficeCalendar(models.Model):
 
 class OfficeHours(models.Model):
     Date = models.DateField(default=None)
-    WorkdayStart = models.TimeField(default=None, blank=True)
-    WorkdayEnd = models.TimeField(default=None, blank=True)
+    WorkdayStart = models.TimeField(default=None, null=True, blank=True)
+    WorkdayEnd = models.TimeField(default=None, null=True, blank=True)
+
+
+
