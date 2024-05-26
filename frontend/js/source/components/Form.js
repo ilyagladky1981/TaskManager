@@ -27,6 +27,24 @@ class Form extends Component {
     );
     return data;
   }
+
+
+  // _handleSearch(event) {
+    // const term = event.target.value.toLowerCase();
+    // setSearchTerm(term);
+    //
+    // const filtered = data.filter((item) =>
+    //   item.toLowerCase().includes(term)
+    // );
+    // setFilteredData(filtered);
+  // };
+
+  _handleSearch(listid) {
+    // let inputData = {};
+    // let schema_tmp = this.props.fields;
+    console.log("Excel - _handleSearch - listid ");
+    console.log(listid);
+  }
   
   render() {
     /*let fields_tmp = this.props.fields;
@@ -71,14 +89,18 @@ class Form extends Component {
             return (
               <tr className="FormRowShowField" key={field.id}>
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
-                <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled} /></td>
+                <td className="FormTableData"><FormInput {...field} 
+                                                ref={field.id} 
+                                                defaultValue={prefilled} 
+                                                onDataChange={this._handleSearch.bind(this, field.id)} 
+                                                listid={field.id}/></td>
               </tr>
             );
           } else {
             return (
               <tr className="FormRowHideField" key={field.id}>
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
-                <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled} /></td>
+                <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled}/></td>
               </tr>
             );
           }

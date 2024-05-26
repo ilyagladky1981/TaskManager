@@ -219,7 +219,7 @@ export default [
     type: 'input',
     show: false,
     editable: true,
-    autoFilling: false,
+    autoFilling: false, //true
     sample: '',
   },
     

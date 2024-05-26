@@ -42,9 +42,15 @@ class FormInput extends Component {
       case 'text':
         return <textarea {...common} />;
       case 'input':
-        return <input {...common} type="text" />;
+        return <input {...common} 
+                type="text" 
+                onChange={this.onDataChange.bind(this, this.props.listid)} 
+                list={this.props.listid} />;
       default:
-        return <input {...common} type="text" />;
+        return <input {...common} 
+                type="text" 
+                onChange={this.onDataChange.bind(this, this.props.listid)} 
+                list={this.props.listid} />;  
     }
   }
 }
@@ -54,6 +60,8 @@ FormInput.propTypes = {
   id: PropTypes.string,
   options: PropTypes.array,
   defaultValue: PropTypes.any,
+  listid: PropTypes.string, 
+  onDataChange: PropTypes.func,
 };
 
 export default FormInput

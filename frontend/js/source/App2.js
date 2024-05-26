@@ -181,7 +181,8 @@ class App2 extends Component {
           <div className="app-header">
             Task Manager
           </div>
-          <TaskEditor schema={schema} initialData={dataForRender} fullAPIData={apiData} />
+          <TaskEditor schema={schema} initialData={dataForRender} fullAPIData={apiData} 
+            API_URL={API_URL}/>
         </div>
       );
     } else {
