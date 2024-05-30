@@ -8,12 +8,12 @@ class ListOptions extends Component {
     super(props);
     this.state = {
       value: props.defaultValue,
-      options : []
+      dataid: 0,
     };
   }
   
   getValue() {
-    return this.state.value;
+    return this.state.dataid;
   }
 
   
@@ -37,10 +37,10 @@ class ListOptions extends Component {
       // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
       // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
     if (!Array.isArray(this.props.options)) {
-        console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
-        console.log(this.state.options);
-        console.log("typeof this.props.options");
-        console.log(typeof this.state.options);
+        // console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
+        // console.log(this.props.options);
+        // console.log("typeof this.props.options");
+        // console.log(typeof this.props.options);
         return (
             <input 
               defaultValue={this.props.defaultValue}
@@ -48,20 +48,22 @@ class ListOptions extends Component {
               id={this.props.id} />
         )
     } else {
-      console.log("ListOptions - render - (options === isArray) - this.state.options = ");
-      console.log(this.state.options);
-      console.log("typeof this.props.options");
-      console.log(typeof this.state.options);
+      // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
+      // console.log(this.props.options);
+      // console.log("typeof this.props.options");
+      // console.log(typeof this.props.options);
       return (
         <div>
           <input
             list={"options" + this.props.listid}
             defaultValue={this.props.defaultValue}
-            onChange={e => this.setState({ value: e.target.value })}
+            onChange={e => this.setState({ value: e.target.value, dataid: e.target.dataid})}
             id={this.props.id} />
           <datalist id={"options" + this.props.listid}>{
             this.props.options.map((item, idx) =>
-              <option value={item} key={idx} />
+              <option value={item[this.props.objName]} 
+                      dataid={item.id}  
+                      key={idx} />
             )
           }</datalist>
         </div>
@@ -76,7 +78,7 @@ ListOptions.propTypes = {
   defaultValue: PropTypes.string,
   listid : PropTypes.string,
   API_URL: PropTypes.string,
-  dataURL: PropTypes.string,
+  objName: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string),
 };
 

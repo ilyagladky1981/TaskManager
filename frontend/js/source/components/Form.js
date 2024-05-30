@@ -94,7 +94,7 @@ class Form extends Component {
                                                 defaultValue={prefilled} 
                                                 listid={field.id} 
                                                 API_URL={this.props.API_URL}
-                                                dataURL={field.dataURL}
+                                                objName={field.objName}
                                                 peopleAPIData={this.props.peopleAPIData}
                                                 /></td>
               </tr>

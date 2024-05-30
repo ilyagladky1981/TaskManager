@@ -74,10 +74,10 @@ class App2 extends Component {
       // console.log(`App2 refreshList peopleAPIres = `);
       // console.log(peopleAPIres);
       
-      let peopleData = [];
-      peopleData = this.getPeopleNames(peopleAPIres, 'PersonFullName');
-      console.log(`App2 refreshList peopleData = `);
-      console.log(peopleData);
+      // let peopleData = [];
+      // peopleData = this.getPeopleNames(peopleAPIres, 'PersonFullName');
+      // console.log(`App2 refreshList peopleData = `);
+      // console.log(peopleData);
       
       
 
@@ -164,7 +164,7 @@ class App2 extends Component {
         isLoaded: true,
         apiData: responseAPIData,
         dataForRender: preparedAPIData,
-        peopleAPIData: peopleData,
+        peopleAPIData: peopleAPIres,
       });
       
       return preparedAPIData;

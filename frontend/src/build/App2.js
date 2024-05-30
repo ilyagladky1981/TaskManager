@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -100,13 +98,15 @@ var App2 = function (_Component) {
         var peopleResp = await fetch(API_URL + 'people/1/1/');
         var peopleAPIres = await peopleResp.json();
 
-        console.log('App2 refreshList typeof peopleAPIres = ' + (typeof peopleAPIres === 'undefined' ? 'undefined' : _typeof(peopleAPIres)));
-        console.log('App2 refreshList peopleAPIres = ');
-        console.log(peopleAPIres);
+        // console.log(`App2 refreshList typeof peopleAPIres = ${typeof peopleAPIres}`);
+        // console.log(`App2 refreshList peopleAPIres = `);
+        // console.log(peopleAPIres);
 
-        var peopleData = [];
-        peopleData = this.getPeopleNames(peopleAPIres, 'PersonFullName');
-        console.log('App2 refreshList peopleData = ' + peopleData);
+        // let peopleData = [];
+        // peopleData = this.getPeopleNames(peopleAPIres, 'PersonFullName');
+        // console.log(`App2 refreshList peopleData = `);
+        // console.log(peopleData);
+
 
         var preparedAPIData = [];
         var inputDict = {};
@@ -185,7 +185,7 @@ var App2 = function (_Component) {
           isLoaded: true,
           apiData: responseAPIData,
           dataForRender: preparedAPIData,
-          peopleAPIData: peopleData
+          peopleAPIData: peopleAPIres
         });
 
         return preparedAPIData;

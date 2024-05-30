@@ -52,7 +52,7 @@ class FormInput extends Component {
           return <ListOptions {...common} 
                   listid={this.props.listid} 
                   API_URL={this.props.API_URL} 
-                  dataURL={this.props.dataURL}
+                  objName={this.props.objName}
                   options={this.props.peopleAPIData}/>;
         } else {
           console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
@@ -71,7 +71,7 @@ FormInput.propTypes = {
   defaultValue: PropTypes.any,
   listid: PropTypes.string, 
   API_URL: PropTypes.string,
-  dataURL: PropTypes.string,
+  objName: PropTypes.string,
   peopleAPIData: PropTypes.arrayOf(
     PropTypes.object
   ),

@@ -34,7 +34,7 @@ var ListOptions = function (_Component) {
 
     _this.state = {
       value: props.defaultValue,
-      options: []
+      dataid: 0
     };
     return _this;
   }
@@ -42,7 +42,7 @@ var ListOptions = function (_Component) {
   _createClass(ListOptions, [{
     key: 'getValue',
     value: function getValue() {
-      return this.state.value;
+      return this.state.dataid;
     }
   }, {
     key: 'render',
@@ -68,18 +68,18 @@ var ListOptions = function (_Component) {
       // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
       if (!Array.isArray(this.props.options)) {
         console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
-        console.log(this.state.options);
+        console.log(this.props.options);
         console.log("typeof this.props.options");
-        console.log(_typeof(this.state.options));
+        console.log(_typeof(this.props.options));
         return _react2.default.createElement('input', {
           defaultValue: this.props.defaultValue
           // onChange={e => this.setState({value: e.target.value})}
           , id: this.props.id });
       } else {
-        console.log("ListOptions - render - (options === isArray) - this.state.options = ");
-        console.log(this.state.options);
+        console.log("ListOptions - render - (options === isArray) - this.props.options = ");
+        console.log(this.props.options);
         console.log("typeof this.props.options");
-        console.log(_typeof(this.state.options));
+        console.log(_typeof(this.props.options));
         return _react2.default.createElement(
           'div',
           null,
@@ -87,14 +87,14 @@ var ListOptions = function (_Component) {
             list: "options" + this.props.listid,
             defaultValue: this.props.defaultValue,
             onChange: function onChange(e) {
-              return _this2.setState({ value: e.target.value });
+              return _this2.setState({ value: e.target.value, dataid: e.target.dataid });
             },
             id: this.props.id }),
           _react2.default.createElement(
             'datalist',
             { id: "options" + this.props.listid },
             this.props.options.map(function (item, idx) {
-              return _react2.default.createElement('option', { value: item, key: idx });
+              return _react2.default.createElement('option', { value: item['PersonFullName'], dataid: item.id, key: idx });
             })
           )
         );
