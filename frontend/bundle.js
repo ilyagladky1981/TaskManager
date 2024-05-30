@@ -276,7 +276,7 @@ checkPropTypes.resetWarningCache = function() {
 module.exports = checkPropTypes;
 
 }).call(this)}).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":33}],4:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":35}],4:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -957,7 +957,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this)}).call(this,require('_process'))
-},{"./checkPropTypes":3,"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":33,"object-assign":2,"react-is":11}],6:[function(require,module,exports){
+},{"./checkPropTypes":3,"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":35,"object-assign":2,"react-is":11}],6:[function(require,module,exports){
 (function (process){(function (){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -980,7 +980,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./factoryWithThrowingShims":4,"./factoryWithTypeCheckers":5,"_process":33,"react-is":11}],7:[function(require,module,exports){
+},{"./factoryWithThrowingShims":4,"./factoryWithTypeCheckers":5,"_process":35,"react-is":11}],7:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1182,7 +1182,7 @@ exports.typeOf = typeOf;
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":33}],10:[function(require,module,exports){
+},{"_process":35}],10:[function(require,module,exports){
 /** @license React v16.13.1
  * react-is.production.min.js
  *
@@ -1210,7 +1210,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-is.development.js":9,"./cjs/react-is.production.min.js":10,"_process":33}],12:[function(require,module,exports){
+},{"./cjs/react-is.development.js":9,"./cjs/react-is.production.min.js":10,"_process":35}],12:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -31082,7 +31082,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":33,"react":17,"scheduler":20}],13:[function(require,module,exports){
+},{"_process":35,"react":17,"scheduler":20}],13:[function(require,module,exports){
 /**
  * @license React
  * react-dom.production.min.js
@@ -31449,7 +31449,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":12,"./cjs/react-dom.production.min.js":13,"_process":33}],15:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":12,"./cjs/react-dom.production.min.js":13,"_process":35}],15:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -34192,7 +34192,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":33}],16:[function(require,module,exports){
+},{"_process":35}],16:[function(require,module,exports){
 /**
  * @license React
  * react.production.min.js
@@ -34231,7 +34231,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react.development.js":15,"./cjs/react.production.min.js":16,"_process":33}],18:[function(require,module,exports){
+},{"./cjs/react.development.js":15,"./cjs/react.production.min.js":16,"_process":35}],18:[function(require,module,exports){
 (function (process,setImmediate){(function (){
 /**
  * @license React
@@ -34869,7 +34869,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":33,"timers":34}],19:[function(require,module,exports){
+},{"_process":35,"timers":36}],19:[function(require,module,exports){
 (function (setImmediate){(function (){
 /**
  * @license React
@@ -34892,7 +34892,7 @@ exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();"
 exports.unstable_shouldYield=M;exports.unstable_wrapCallback=function(a){var b=y;return function(){var c=y;y=b;try{return a.apply(this,arguments)}finally{y=c}}};
 
 }).call(this)}).call(this,require("timers").setImmediate)
-},{"timers":34}],20:[function(require,module,exports){
+},{"timers":36}],20:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -34903,7 +34903,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/scheduler.development.js":18,"./cjs/scheduler.production.min.js":19,"_process":33}],21:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":18,"./cjs/scheduler.production.min.js":19,"_process":35}],21:[function(require,module,exports){
 'use strict';
 
 var _Logo = require('./components/Logo');
@@ -34950,7 +34950,7 @@ _reactDom2.default.render(_react2.default.createElement(
   ),
   _react2.default.createElement(_TaskEditor2.default, { schema: _schema2.default, initialData: data })
 ), document.getElementById('app'));
-},{"./components/Logo":28,"./components/TaskEditor":31,"./schema":32,"react":17,"react-dom":14}],22:[function(require,module,exports){
+},{"./components/Logo":30,"./components/TaskEditor":33,"./schema":34,"react":17,"react-dom":14}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35165,9 +35165,9 @@ var _Form = require('./Form');
 
 var _Form2 = _interopRequireDefault(_Form);
 
-var _FormInput = require('./FormInput');
+var _ExcelFormInput = require('./ExcelFormInput');
 
-var _FormInput2 = _interopRequireDefault(_FormInput);
+var _ExcelFormInput2 = _interopRequireDefault(_ExcelFormInput);
 
 var _Rating = require('./Rating');
 
@@ -35195,8 +35195,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var API_URL = 'http://45.135.233.68:8000/api/';
-
 var Excel = function (_Component) {
   _inherits(Excel, _Component);
 
@@ -35221,7 +35219,7 @@ var Excel = function (_Component) {
     key: '_saveRow',
     value: async function _saveRow(taskId, thisRow) {
       try {
-        var response = await fetch(API_URL + 'tasks/1/' + taskId + '/', { method: 'PATCH',
+        var response = await fetch(this.props.API_URL + 'tasks/1/' + taskId + '/', { method: 'PATCH',
           mode: "cors",
           headers: {
             'Content-Type': 'application/json'
@@ -35238,6 +35236,22 @@ var Excel = function (_Component) {
     }
   }, {
     key: '_fireDataChange',
+
+
+    // _handleSearch(event) {
+    //   // const term = event.target.value.toLowerCase();
+    //   // setSearchTerm(term);
+    //   //
+    //   // const filtered = data.filter((item) =>
+    //   //   item.toLowerCase().includes(term)
+    //   // );
+    //   // setFilteredData(filtered);
+    //   console.log("Excel - _handleSearch - ----");
+    //   console.log(event);
+
+    // };
+
+
     value: function _fireDataChange(data) {
       this.props.onDataChange(data);
     }
@@ -35280,7 +35294,13 @@ var Excel = function (_Component) {
       });
       this._fireDataChange(data);
 
-      /*const value = this.inputRef.current.getValue();
+      /*
+      =====================
+      Saving data of currently changed row
+      этот код нужен и будет здесь работать
+      для быстрого комментирования задач
+      =====================
+      const value = this.inputRef.current.getValue();
       let data = Array.from(this.state.data);
       let rowId = this.state.edit.row;
       let taskId = data[rowId]['id'];
@@ -35478,7 +35498,7 @@ var Excel = function (_Component) {
                   content = _react2.default.createElement(
                     'form',
                     { onSubmit: _this2._save.bind(_this2) },
-                    _react2.default.createElement(_FormInput2.default, _extends({ ref: _this2.inputRef }, schema, { defaultValue: content }))
+                    _react2.default.createElement(_ExcelFormInput2.default, _extends({ ref: _this2.inputRef }, schema, { defaultValue: content }))
                   );
                 } else if (isRating) {
                   content = _react2.default.createElement(_Rating2.default, { readonly: true, defaultValue: Number(content) });
@@ -35523,11 +35543,105 @@ var Excel = function (_Component) {
 Excel.propTypes = {
   schema: _propTypes2.default.arrayOf(_propTypes2.default.object),
   initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  API_URL: _propTypes2.default.string,
   onDataChange: _propTypes2.default.func
 };
 
 exports.default = Excel;
-},{"./Actions":22,"./Dialog":24,"./Form":26,"./FormInput":27,"./Rating":29,"classnames":1,"prop-types":6,"react":17}],26:[function(require,module,exports){
+},{"./Actions":22,"./Dialog":24,"./ExcelFormInput":26,"./Form":27,"./Rating":31,"classnames":1,"prop-types":6,"react":17}],26:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Rating = require('./Rating');
+
+var _Rating2 = _interopRequireDefault(_Rating);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Suggest = require('./Suggest');
+
+var _Suggest2 = _interopRequireDefault(_Suggest);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ExcelFormInput = function (_Component) {
+  _inherits(ExcelFormInput, _Component);
+
+  function ExcelFormInput() {
+    _classCallCheck(this, ExcelFormInput);
+
+    return _possibleConstructorReturn(this, (ExcelFormInput.__proto__ || Object.getPrototypeOf(ExcelFormInput)).apply(this, arguments));
+  }
+
+  _createClass(ExcelFormInput, [{
+    key: 'getValue',
+    value: function getValue() {
+      return 'value' in this.refs.input ? this.refs.input.value : this.refs.input.getValue();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var common = {
+        id: this.props.id,
+        ref: 'input',
+        defaultValue: this.props.defaultValue
+      };
+      switch (this.props.type) {
+        case 'year':
+          return _react2.default.createElement('input', _extends({}, common, {
+            type: 'number',
+            defaultValue: this.props.defaultValue || new Date().getFullYear() }));
+        case 'suggest':
+          return _react2.default.createElement(_Suggest2.default, _extends({}, common, { options: this.props.options }));
+        case 'rating':
+          return _react2.default.createElement(_Rating2.default, _extends({}, common, {
+            defaultValue: parseInt(this.props.defaultValue, 10) }));
+        case 'datetime':
+          return _react2.default.createElement(_Rating2.default, _extends({}, common, {
+            defaultValue: parseInt(this.props.defaultValue, 10) }));
+        case 'text':
+          return _react2.default.createElement('textarea', common);
+        case 'input':
+          console.log("FormInput - render - case input ");
+          console.log(this.props.listid);
+          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+        default:
+          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+      }
+    }
+  }]);
+
+  return ExcelFormInput;
+}(_react.Component);
+
+ExcelFormInput.propTypes = {
+  type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
+  id: _propTypes2.default.string,
+  options: _propTypes2.default.array,
+  defaultValue: _propTypes2.default.any
+};
+
+exports.default = ExcelFormInput;
+},{"./Rating":31,"./Suggest":32,"prop-types":6,"react":17}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35590,6 +35704,25 @@ var Form = function (_Component) {
         return data[field.id] = _this2.refs[field.id].getValue();
       });
       return data;
+    }
+
+    // _handleSearch(event) {
+    // const term = event.target.value.toLowerCase();
+    // setSearchTerm(term);
+    //
+    // const filtered = data.filter((item) =>
+    //   item.toLowerCase().includes(term)
+    // );
+    // setFilteredData(filtered);
+    // };
+
+  }, {
+    key: '_handleSearch',
+    value: function _handleSearch(listid) {
+      // let inputData = {};
+      // let schema_tmp = this.props.fields;
+      console.log("Excel - _handleSearch - listid ");
+      console.log(listid);
     }
   }, {
     key: 'render',
@@ -35658,7 +35791,14 @@ var Form = function (_Component) {
                     _react2.default.createElement(
                       'td',
                       { className: 'FormTableData' },
-                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, {
+                        ref: field.id,
+                        defaultValue: prefilled,
+                        listid: field.id,
+                        API_URL: _this3.props.API_URL,
+                        dataURL: field.dataURL,
+                        peopleAPIData: _this3.props.peopleAPIData
+                      }))
                     )
                   );
                 } else {
@@ -35726,16 +35866,19 @@ Form.propTypes = {
     id: _propTypes2.default.string.isRequired,
     label: _propTypes2.default.string.isRequired,
     type: _propTypes2.default.string,
+    dataURL: _propTypes2.default.string,
     options: _propTypes2.default.arrayOf(_propTypes2.default.string)
   })).isRequired,
   initialData: _propTypes2.default.object,
   readonly: _propTypes2.default.bool,
   addNewDialog: _propTypes2.default.bool,
-  defaultValue: _propTypes2.default.object
+  defaultValue: _propTypes2.default.object,
+  API_URL: _propTypes2.default.string,
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = Form;
-},{"./FormInput":27,"./Rating":29,"prop-types":6,"react":17}],27:[function(require,module,exports){
+},{"./FormInput":28,"./Rating":31,"prop-types":6,"react":17}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35761,6 +35904,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 var _Suggest = require('./Suggest');
 
 var _Suggest2 = _interopRequireDefault(_Suggest);
+
+var _ListOptions = require('./ListOptions');
+
+var _ListOptions2 = _interopRequireDefault(_ListOptions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35808,7 +35955,20 @@ var FormInput = function (_Component) {
         case 'text':
           return _react2.default.createElement('textarea', common);
         case 'input':
-          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          // console.log("FormInput - render - case input - this.props.listid =");
+          // console.log(this.props.listid);
+          if (typeof this.props.listid !== "undefined" & this.props.listid === "PersonFullNameId") {
+            console.log("PersonFullNameId = " + this.props.listid);
+            // console.log(this.props.listid + "=== undefined");
+            return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
+              listid: this.props.listid,
+              API_URL: this.props.API_URL,
+              dataURL: this.props.dataURL,
+              options: this.props.peopleAPIData }));
+          } else {
+            console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
+            return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          }
         default:
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
       }
@@ -35822,11 +35982,133 @@ FormInput.propTypes = {
   type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
   id: _propTypes2.default.string,
   options: _propTypes2.default.array,
-  defaultValue: _propTypes2.default.any
+  defaultValue: _propTypes2.default.any,
+  listid: _propTypes2.default.string,
+  API_URL: _propTypes2.default.string,
+  dataURL: _propTypes2.default.string,
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = FormInput;
-},{"./Rating":29,"./Suggest":30,"prop-types":6,"react":17}],28:[function(require,module,exports){
+},{"./ListOptions":29,"./Rating":31,"./Suggest":32,"prop-types":6,"react":17}],29:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ListOptions = function (_Component) {
+  _inherits(ListOptions, _Component);
+
+  function ListOptions(props) {
+    _classCallCheck(this, ListOptions);
+
+    var _this = _possibleConstructorReturn(this, (ListOptions.__proto__ || Object.getPrototypeOf(ListOptions)).call(this, props));
+
+    _this.state = {
+      value: props.defaultValue,
+      dataid: 0
+    };
+    return _this;
+  }
+
+  _createClass(ListOptions, [{
+    key: 'getValue',
+    value: function getValue() {
+      return this.state.dataid;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      // console.log("ListOptions - render - this.props.listid =");
+      // console.log("schema = " + typeof this.props.schema);
+      // console.log("schema[listid] = " + typeof typeof this.props.schema[this.props.listid]);
+      // console.log("schema[listid].dataURL = " + typeof this.props.schema[this.props.listid].dataURL);
+      // if (typeof this.props.dataURL === 'undefined') {
+      //       console.log("ListOptions - render - (dataURL === undefined) => listid = " + this.props.listid);
+      //       return (
+      //         <input 
+      //           defaultValue={this.props.defaultValue}
+      //           //onChange={e => this.setState({value: e.target.value})}
+      //           id={this.props.id} />
+      //       )
+      // } else {
+      // console.log("ListOptions - render - this.props.schema[this.props.listid].dataURL =");
+      // console.log(typeof this.props.schema[this.props.listid].dataURL);
+      // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
+      // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
+      if (!Array.isArray(this.props.options)) {
+        console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
+        console.log(this.props.options);
+        console.log("typeof this.props.options");
+        console.log(_typeof(this.props.options));
+        return _react2.default.createElement('input', {
+          defaultValue: this.props.defaultValue
+          // onChange={e => this.setState({value: e.target.value})}
+          , id: this.props.id });
+      } else {
+        console.log("ListOptions - render - (options === isArray) - this.props.options = ");
+        console.log(this.props.options);
+        console.log("typeof this.props.options");
+        console.log(_typeof(this.props.options));
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('input', {
+            list: "options" + this.props.listid,
+            defaultValue: this.props.defaultValue,
+            onChange: function onChange(e) {
+              return _this2.setState({ value: e.target.value, dataid: e.target.dataid });
+            },
+            id: this.props.id }),
+          _react2.default.createElement(
+            'datalist',
+            { id: "options" + this.props.listid },
+            this.props.options.map(function (item, idx) {
+              return _react2.default.createElement('option', { value: item['PersonFullName'], dataid: item.id, key: idx });
+            })
+          )
+        );
+      }
+    }
+  }]);
+
+  return ListOptions;
+}(_react.Component);
+
+ListOptions.propTypes = {
+  id: _propTypes2.default.string,
+  defaultValue: _propTypes2.default.string,
+  listid: _propTypes2.default.string,
+  API_URL: _propTypes2.default.string,
+  dataURL: _propTypes2.default.string,
+  options: _propTypes2.default.arrayOf(_propTypes2.default.string)
+};
+
+exports.default = ListOptions;
+},{"prop-types":6,"react":17}],30:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35844,7 +36126,7 @@ var Logo = function Logo() {
 };
 
 exports.default = Logo;
-},{"react":17}],29:[function(require,module,exports){
+},{"react":17}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35965,7 +36247,7 @@ Rating.defaultProps = {
 };
 
 exports.default = Rating;
-},{"classnames":1,"prop-types":6,"react":17}],30:[function(require,module,exports){
+},{"classnames":1,"prop-types":6,"react":17}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36044,7 +36326,7 @@ Suggest.propTypes = {
 };
 
 exports.default = Suggest;
-},{"prop-types":6,"react":17}],31:[function(require,module,exports){
+},{"prop-types":6,"react":17}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36084,8 +36366,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var API_URL = 'http://45.135.233.68:8000/api/';
 
 var TaskEditor = function (_Component) {
   _inherits(TaskEditor, _Component);
@@ -36135,7 +36415,7 @@ var TaskEditor = function (_Component) {
     key: '_createNewRow',
     value: async function _createNewRow(newRow) {
       try {
-        var response = await fetch(API_URL + 'tasks/1/', { method: 'POST',
+        var response = await fetch(this.props.API_URL + 'tasks/1/', { method: 'POST',
           mode: "cors",
           headers: {
             'Content-Type': 'application/json'
@@ -36162,7 +36442,7 @@ var TaskEditor = function (_Component) {
       try {
         console.log("TaskEditor - _saveData - data");
         console.log(data);
-        const response = await fetch(`${API_URL}control/1/`,
+        const response = await fetch(`${this.props.API_URL}control/1/`,
             { method: 'POST',
               mode: "cors",
               headers: {
@@ -36249,7 +36529,8 @@ var TaskEditor = function (_Component) {
           _react2.default.createElement(_Excel2.default, {
             schema: this.props.schema,
             initialData: this.state.data,
-            onDataChange: this._onExcelDataChange.bind(this) })
+            onDataChange: this._onExcelDataChange.bind(this),
+            API_URL: this.props.API_URL })
         ),
         this.state.addnew ? _react2.default.createElement(
           _Dialog2.default,
@@ -36262,7 +36543,9 @@ var TaskEditor = function (_Component) {
           _react2.default.createElement(_Form2.default, {
             ref: this.formRef,
             fields: this.props.schema,
-            addNewDialog: true })
+            addNewDialog: true,
+            API_URL: this.props.API_URL,
+            peopleAPIData: this.props.peopleAPIData })
         ) : null
       );
     }
@@ -36285,11 +36568,13 @@ var TaskEditor = function (_Component) {
 TaskEditor.propTypes = {
   schema: _propTypes2.default.arrayOf(_propTypes2.default.object),
   initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  API_URL: _propTypes2.default.string,
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = TaskEditor;
-},{"./Button":23,"./Dialog":24,"./Excel":25,"./Form":26,"prop-types":6,"react":17}],32:[function(require,module,exports){
+},{"./Button":23,"./Dialog":24,"./Excel":25,"./Form":27,"prop-types":6,"react":17}],34:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36367,11 +36652,13 @@ exports.default = [{
   id: 'PersonFullNameId',
   label: 'PersonFullName',
   pathJSON: 'PersonFullNameId.PersonFullName',
+  objName: '',
   type: 'input',
   show: true,
   editable: true,
   autoFilling: false,
-  sample: 'Денисов Николай Валерьевич'
+  sample: 'Денисов Николай Валерьевич',
+  dataURL: "people/"
 }, {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
@@ -36469,7 +36756,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
-  autoFilling: false,
+  autoFilling: false, //true
   sample: ''
 }, {
   id: 'Priority',
@@ -36508,7 +36795,7 @@ exports.default = [{
   autoFilling: false,
   sample: ''
 }];
-},{}],33:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -36694,7 +36981,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],34:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 (function (setImmediate,clearImmediate){(function (){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -36773,4 +37060,4 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this)}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":33,"timers":34}]},{},[21]);
+},{"process/browser.js":35,"timers":36}]},{},[21]);

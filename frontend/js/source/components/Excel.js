@@ -1,13 +1,11 @@
 import Actions from './Actions';
 import Dialog from './Dialog';
 import Form from './Form';
-import FormInput from './FormInput';
+import ExcelFormInput from './ExcelFormInput';
 import Rating from './Rating';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
-const API_URL='http://45.135.233.68:8000/api/';
 
 
 class Excel extends Component {
@@ -40,7 +38,7 @@ class Excel extends Component {
 
   async _saveRow(taskId, thisRow) { 
     try {
-      const response = await fetch(`${API_URL}tasks/1/${taskId}/`,
+      const response = await fetch(`${this.props.API_URL}tasks/1/${taskId}/`,
           { method: 'PATCH',
             mode: "cors",
             headers: {
@@ -56,6 +54,22 @@ class Excel extends Component {
       console.error(error);
     }
   };
+
+
+  // _handleSearch(event) {
+  //   // const term = event.target.value.toLowerCase();
+  //   // setSearchTerm(term);
+  //   //
+  //   // const filtered = data.filter((item) =>
+  //   //   item.toLowerCase().includes(term)
+  //   // );
+  //   // setFilteredData(filtered);
+  //   console.log("Excel - _handleSearch - ----");
+  //   console.log(event);
+
+  // };
+
+  
   
   _fireDataChange(data) {
     this.props.onDataChange(data);
@@ -98,7 +112,13 @@ class Excel extends Component {
     });
     this._fireDataChange(data);
 
-    /*const value = this.inputRef.current.getValue();
+    /*
+    =====================
+    Saving data of currently changed row
+    этот код нужен и будет здесь работать
+    для быстрого комментирования задач
+    =====================
+    const value = this.inputRef.current.getValue();
     let data = Array.from(this.state.data);
     let rowId = this.state.edit.row;
     let taskId = data[rowId]['id'];
@@ -275,7 +295,7 @@ class Excel extends Component {
                   if (!isRating && edit && edit.row === rowidx && edit.key === schema.id) {
                     content = (
                       <form onSubmit={this._save.bind(this)}>
-                        <FormInput ref={this.inputRef} {...schema} defaultValue={content} />
+                        <ExcelFormInput ref={this.inputRef} {...schema} defaultValue={content} />
                       </form>
                     );
                   } else if (isRating) {
@@ -316,6 +336,7 @@ Excel.propTypes = {
   initialData: PropTypes.arrayOf(
     PropTypes.object
   ),
+  API_URL: PropTypes.string,
   onDataChange: PropTypes.func,
 };
 

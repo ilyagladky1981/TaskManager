@@ -276,7 +276,7 @@ checkPropTypes.resetWarningCache = function() {
 module.exports = checkPropTypes;
 
 }).call(this)}).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":30}],4:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":31}],4:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -957,7 +957,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this)}).call(this,require('_process'))
-},{"./checkPropTypes":3,"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":30,"object-assign":2,"react-is":11}],6:[function(require,module,exports){
+},{"./checkPropTypes":3,"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":31,"object-assign":2,"react-is":11}],6:[function(require,module,exports){
 (function (process){(function (){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -980,7 +980,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./factoryWithThrowingShims":4,"./factoryWithTypeCheckers":5,"_process":30,"react-is":11}],7:[function(require,module,exports){
+},{"./factoryWithThrowingShims":4,"./factoryWithTypeCheckers":5,"_process":31,"react-is":11}],7:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1182,7 +1182,7 @@ exports.typeOf = typeOf;
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":30}],10:[function(require,module,exports){
+},{"_process":31}],10:[function(require,module,exports){
 /** @license React v16.13.1
  * react-is.production.min.js
  *
@@ -1210,7 +1210,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-is.development.js":9,"./cjs/react-is.production.min.js":10,"_process":30}],12:[function(require,module,exports){
+},{"./cjs/react-is.development.js":9,"./cjs/react-is.production.min.js":10,"_process":31}],12:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -31082,7 +31082,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":30,"react":17,"scheduler":20}],13:[function(require,module,exports){
+},{"_process":31,"react":17,"scheduler":20}],13:[function(require,module,exports){
 /**
  * @license React
  * react-dom.production.min.js
@@ -31449,7 +31449,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":12,"./cjs/react-dom.production.min.js":13,"_process":30}],15:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":12,"./cjs/react-dom.production.min.js":13,"_process":31}],15:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -34192,7 +34192,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":30}],16:[function(require,module,exports){
+},{"_process":31}],16:[function(require,module,exports){
 /**
  * @license React
  * react.production.min.js
@@ -34231,7 +34231,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react.development.js":15,"./cjs/react.production.min.js":16,"_process":30}],18:[function(require,module,exports){
+},{"./cjs/react.development.js":15,"./cjs/react.production.min.js":16,"_process":31}],18:[function(require,module,exports){
 (function (process,setImmediate){(function (){
 /**
  * @license React
@@ -34869,7 +34869,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":30,"timers":31}],19:[function(require,module,exports){
+},{"_process":31,"timers":32}],19:[function(require,module,exports){
 (function (setImmediate){(function (){
 /**
  * @license React
@@ -34892,7 +34892,7 @@ exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();"
 exports.unstable_shouldYield=M;exports.unstable_wrapCallback=function(a){var b=y;return function(){var c=y;y=b;try{return a.apply(this,arguments)}finally{y=c}}};
 
 }).call(this)}).call(this,require("timers").setImmediate)
-},{"timers":31}],20:[function(require,module,exports){
+},{"timers":32}],20:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -34903,7 +34903,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/scheduler.development.js":18,"./cjs/scheduler.production.min.js":19,"_process":30}],21:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":18,"./cjs/scheduler.production.min.js":19,"_process":31}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35159,6 +35159,25 @@ var Form = function (_Component) {
       });
       return data;
     }
+
+    // _handleSearch(event) {
+    // const term = event.target.value.toLowerCase();
+    // setSearchTerm(term);
+    //
+    // const filtered = data.filter((item) =>
+    //   item.toLowerCase().includes(term)
+    // );
+    // setFilteredData(filtered);
+    // };
+
+  }, {
+    key: '_handleSearch',
+    value: function _handleSearch(listid) {
+      // let inputData = {};
+      // let schema_tmp = this.props.fields;
+      console.log("Excel - _handleSearch - listid ");
+      console.log(listid);
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -35226,7 +35245,14 @@ var Form = function (_Component) {
                     _react2.default.createElement(
                       'td',
                       { className: 'FormTableData' },
-                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, {
+                        ref: field.id,
+                        defaultValue: prefilled,
+                        listid: field.id,
+                        API_URL: _this3.props.API_URL,
+                        dataURL: field.dataURL,
+                        peopleAPIData: _this3.props.peopleAPIData
+                      }))
                     )
                   );
                 } else {
@@ -35294,16 +35320,19 @@ Form.propTypes = {
     id: _propTypes2.default.string.isRequired,
     label: _propTypes2.default.string.isRequired,
     type: _propTypes2.default.string,
+    dataURL: _propTypes2.default.string,
     options: _propTypes2.default.arrayOf(_propTypes2.default.string)
   })).isRequired,
   initialData: _propTypes2.default.object,
   readonly: _propTypes2.default.bool,
   addNewDialog: _propTypes2.default.bool,
-  defaultValue: _propTypes2.default.object
+  defaultValue: _propTypes2.default.object,
+  API_URL: _propTypes2.default.string,
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = Form;
-},{"./FormInput":25,"./Rating":27,"prop-types":6,"react":17}],25:[function(require,module,exports){
+},{"./FormInput":25,"./Rating":28,"prop-types":6,"react":17}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35329,6 +35358,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 var _Suggest = require('./Suggest');
 
 var _Suggest2 = _interopRequireDefault(_Suggest);
+
+var _ListOptions = require('./ListOptions');
+
+var _ListOptions2 = _interopRequireDefault(_ListOptions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35376,7 +35409,20 @@ var FormInput = function (_Component) {
         case 'text':
           return _react2.default.createElement('textarea', common);
         case 'input':
-          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          // console.log("FormInput - render - case input - this.props.listid =");
+          // console.log(this.props.listid);
+          if (typeof this.props.listid !== "undefined" & this.props.listid === "PersonFullNameId") {
+            console.log("PersonFullNameId = " + this.props.listid);
+            // console.log(this.props.listid + "=== undefined");
+            return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
+              listid: this.props.listid,
+              API_URL: this.props.API_URL,
+              dataURL: this.props.dataURL,
+              options: this.props.peopleAPIData }));
+          } else {
+            console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
+            return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          }
         default:
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
       }
@@ -35390,11 +35436,133 @@ FormInput.propTypes = {
   type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
   id: _propTypes2.default.string,
   options: _propTypes2.default.array,
-  defaultValue: _propTypes2.default.any
+  defaultValue: _propTypes2.default.any,
+  listid: _propTypes2.default.string,
+  API_URL: _propTypes2.default.string,
+  dataURL: _propTypes2.default.string,
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = FormInput;
-},{"./Rating":27,"./Suggest":28,"prop-types":6,"react":17}],26:[function(require,module,exports){
+},{"./ListOptions":26,"./Rating":28,"./Suggest":29,"prop-types":6,"react":17}],26:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ListOptions = function (_Component) {
+  _inherits(ListOptions, _Component);
+
+  function ListOptions(props) {
+    _classCallCheck(this, ListOptions);
+
+    var _this = _possibleConstructorReturn(this, (ListOptions.__proto__ || Object.getPrototypeOf(ListOptions)).call(this, props));
+
+    _this.state = {
+      value: props.defaultValue,
+      dataid: 0
+    };
+    return _this;
+  }
+
+  _createClass(ListOptions, [{
+    key: 'getValue',
+    value: function getValue() {
+      return this.state.dataid;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      // console.log("ListOptions - render - this.props.listid =");
+      // console.log("schema = " + typeof this.props.schema);
+      // console.log("schema[listid] = " + typeof typeof this.props.schema[this.props.listid]);
+      // console.log("schema[listid].dataURL = " + typeof this.props.schema[this.props.listid].dataURL);
+      // if (typeof this.props.dataURL === 'undefined') {
+      //       console.log("ListOptions - render - (dataURL === undefined) => listid = " + this.props.listid);
+      //       return (
+      //         <input 
+      //           defaultValue={this.props.defaultValue}
+      //           //onChange={e => this.setState({value: e.target.value})}
+      //           id={this.props.id} />
+      //       )
+      // } else {
+      // console.log("ListOptions - render - this.props.schema[this.props.listid].dataURL =");
+      // console.log(typeof this.props.schema[this.props.listid].dataURL);
+      // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
+      // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
+      if (!Array.isArray(this.props.options)) {
+        console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
+        console.log(this.props.options);
+        console.log("typeof this.props.options");
+        console.log(_typeof(this.props.options));
+        return _react2.default.createElement('input', {
+          defaultValue: this.props.defaultValue
+          // onChange={e => this.setState({value: e.target.value})}
+          , id: this.props.id });
+      } else {
+        console.log("ListOptions - render - (options === isArray) - this.props.options = ");
+        console.log(this.props.options);
+        console.log("typeof this.props.options");
+        console.log(_typeof(this.props.options));
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('input', {
+            list: "options" + this.props.listid,
+            defaultValue: this.props.defaultValue,
+            onChange: function onChange(e) {
+              return _this2.setState({ value: e.target.value, dataid: e.target.dataid });
+            },
+            id: this.props.id }),
+          _react2.default.createElement(
+            'datalist',
+            { id: "options" + this.props.listid },
+            this.props.options.map(function (item, idx) {
+              return _react2.default.createElement('option', { value: item['PersonFullName'], dataid: item.id, key: idx });
+            })
+          )
+        );
+      }
+    }
+  }]);
+
+  return ListOptions;
+}(_react.Component);
+
+ListOptions.propTypes = {
+  id: _propTypes2.default.string,
+  defaultValue: _propTypes2.default.string,
+  listid: _propTypes2.default.string,
+  API_URL: _propTypes2.default.string,
+  dataURL: _propTypes2.default.string,
+  options: _propTypes2.default.arrayOf(_propTypes2.default.string)
+};
+
+exports.default = ListOptions;
+},{"prop-types":6,"react":17}],27:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35412,7 +35580,7 @@ var Logo = function Logo() {
 };
 
 exports.default = Logo;
-},{"react":17}],27:[function(require,module,exports){
+},{"react":17}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35533,7 +35701,7 @@ Rating.defaultProps = {
 };
 
 exports.default = Rating;
-},{"classnames":1,"prop-types":6,"react":17}],28:[function(require,module,exports){
+},{"classnames":1,"prop-types":6,"react":17}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35612,7 +35780,7 @@ Suggest.propTypes = {
 };
 
 exports.default = Suggest;
-},{"prop-types":6,"react":17}],29:[function(require,module,exports){
+},{"prop-types":6,"react":17}],30:[function(require,module,exports){
 'use strict';
 
 var _Actions = require('./components/Actions');
@@ -35920,7 +36088,7 @@ _reactDom2.default.render(_react2.default.createElement(
     )
   )
 ), document.getElementById('pad'));
-},{"./components/Actions":21,"./components/Button":22,"./components/Dialog":23,"./components/Form":24,"./components/FormInput":25,"./components/Logo":26,"./components/Rating":27,"./components/Suggest":28,"react":17,"react-dom":14}],30:[function(require,module,exports){
+},{"./components/Actions":21,"./components/Button":22,"./components/Dialog":23,"./components/Form":24,"./components/FormInput":25,"./components/Logo":27,"./components/Rating":28,"./components/Suggest":29,"react":17,"react-dom":14}],31:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -36106,7 +36274,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 (function (setImmediate,clearImmediate){(function (){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -36185,4 +36353,4 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this)}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":30,"timers":31}]},{},[29]);
+},{"process/browser.js":31,"timers":32}]},{},[30]);

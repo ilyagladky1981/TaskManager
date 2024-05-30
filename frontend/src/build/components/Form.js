@@ -61,6 +61,25 @@ var Form = function (_Component) {
       });
       return data;
     }
+
+    // _handleSearch(event) {
+    // const term = event.target.value.toLowerCase();
+    // setSearchTerm(term);
+    //
+    // const filtered = data.filter((item) =>
+    //   item.toLowerCase().includes(term)
+    // );
+    // setFilteredData(filtered);
+    // };
+
+  }, {
+    key: '_handleSearch',
+    value: function _handleSearch(listid) {
+      // let inputData = {};
+      // let schema_tmp = this.props.fields;
+      console.log("Excel - _handleSearch - listid ");
+      console.log(listid);
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -128,7 +147,14 @@ var Form = function (_Component) {
                     _react2.default.createElement(
                       'td',
                       { className: 'FormTableData' },
-                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, {
+                        ref: field.id,
+                        defaultValue: prefilled,
+                        listid: field.id,
+                        API_URL: _this3.props.API_URL,
+                        dataURL: field.dataURL,
+                        peopleAPIData: _this3.props.peopleAPIData
+                      }))
                     )
                   );
                 } else {
@@ -196,12 +222,15 @@ Form.propTypes = {
     id: _propTypes2.default.string.isRequired,
     label: _propTypes2.default.string.isRequired,
     type: _propTypes2.default.string,
+    dataURL: _propTypes2.default.string,
     options: _propTypes2.default.arrayOf(_propTypes2.default.string)
   })).isRequired,
   initialData: _propTypes2.default.object,
   readonly: _propTypes2.default.bool,
   addNewDialog: _propTypes2.default.bool,
-  defaultValue: _propTypes2.default.object
+  defaultValue: _propTypes2.default.object,
+  API_URL: _propTypes2.default.string,
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = Form;

@@ -5,7 +5,6 @@ import Form from './Form';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-const API_URL='http://45.135.233.68:8000/api/';
 
 class TaskEditor extends Component {
 
@@ -57,7 +56,7 @@ class TaskEditor extends Component {
 
   async _createNewRow(newRow) { 
     try {
-      const response = await fetch(`${API_URL}tasks/1/`,
+      const response = await fetch(`${this.props.API_URL}tasks/1/`,
           { method: 'POST',
             mode: "cors",
             headers: {
@@ -85,7 +84,7 @@ class TaskEditor extends Component {
     try {
       console.log("TaskEditor - _saveData - data");
       console.log(data);
-      const response = await fetch(`${API_URL}control/1/`,
+      const response = await fetch(`${this.props.API_URL}control/1/`,
           { method: 'POST',
             mode: "cors",
             headers: {
@@ -159,7 +158,8 @@ class TaskEditor extends Component {
           <Excel 
             schema={this.props.schema}
             initialData={this.state.data}
-            onDataChange={this._onExcelDataChange.bind(this)} />
+            onDataChange={this._onExcelDataChange.bind(this)}
+            API_URL={this.props.API_URL} />
         </div>
         {this.state.addnew
           ? <Dialog 
@@ -171,7 +171,9 @@ class TaskEditor extends Component {
               <Form
                 ref={this.formRef}
                 fields={this.props.schema} 
-                addNewDialog={true}/>
+                addNewDialog={true}
+                API_URL={this.props.API_URL}
+                peopleAPIData={this.props.peopleAPIData}/>
             </Dialog>
           : null}
       </div>
@@ -187,6 +189,10 @@ TaskEditor.propTypes = {
     PropTypes.object
   ),
   fullAPIData: PropTypes.arrayOf(
+    PropTypes.object
+  ),
+  API_URL: PropTypes.string,
+  peopleAPIData: PropTypes.arrayOf(
     PropTypes.object
   ),
 };

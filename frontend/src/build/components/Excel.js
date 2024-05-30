@@ -20,9 +20,9 @@ var _Form = require('./Form');
 
 var _Form2 = _interopRequireDefault(_Form);
 
-var _FormInput = require('./FormInput');
+var _ExcelFormInput = require('./ExcelFormInput');
 
-var _FormInput2 = _interopRequireDefault(_FormInput);
+var _ExcelFormInput2 = _interopRequireDefault(_ExcelFormInput);
 
 var _Rating = require('./Rating');
 
@@ -50,8 +50,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var API_URL = 'http://45.135.233.68:8000/api/';
-
 var Excel = function (_Component) {
   _inherits(Excel, _Component);
 
@@ -76,7 +74,7 @@ var Excel = function (_Component) {
     key: '_saveRow',
     value: async function _saveRow(taskId, thisRow) {
       try {
-        var response = await fetch(API_URL + 'tasks/1/' + taskId + '/', { method: 'PATCH',
+        var response = await fetch(this.props.API_URL + 'tasks/1/' + taskId + '/', { method: 'PATCH',
           mode: "cors",
           headers: {
             'Content-Type': 'application/json'
@@ -93,6 +91,22 @@ var Excel = function (_Component) {
     }
   }, {
     key: '_fireDataChange',
+
+
+    // _handleSearch(event) {
+    //   // const term = event.target.value.toLowerCase();
+    //   // setSearchTerm(term);
+    //   //
+    //   // const filtered = data.filter((item) =>
+    //   //   item.toLowerCase().includes(term)
+    //   // );
+    //   // setFilteredData(filtered);
+    //   console.log("Excel - _handleSearch - ----");
+    //   console.log(event);
+
+    // };
+
+
     value: function _fireDataChange(data) {
       this.props.onDataChange(data);
     }
@@ -135,7 +149,13 @@ var Excel = function (_Component) {
       });
       this._fireDataChange(data);
 
-      /*const value = this.inputRef.current.getValue();
+      /*
+      =====================
+      Saving data of currently changed row
+      этот код нужен и будет здесь работать
+      для быстрого комментирования задач
+      =====================
+      const value = this.inputRef.current.getValue();
       let data = Array.from(this.state.data);
       let rowId = this.state.edit.row;
       let taskId = data[rowId]['id'];
@@ -333,7 +353,7 @@ var Excel = function (_Component) {
                   content = _react2.default.createElement(
                     'form',
                     { onSubmit: _this2._save.bind(_this2) },
-                    _react2.default.createElement(_FormInput2.default, _extends({ ref: _this2.inputRef }, schema, { defaultValue: content }))
+                    _react2.default.createElement(_ExcelFormInput2.default, _extends({ ref: _this2.inputRef }, schema, { defaultValue: content }))
                   );
                 } else if (isRating) {
                   content = _react2.default.createElement(_Rating2.default, { readonly: true, defaultValue: Number(content) });
@@ -378,6 +398,7 @@ var Excel = function (_Component) {
 Excel.propTypes = {
   schema: _propTypes2.default.arrayOf(_propTypes2.default.object),
   initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  API_URL: _propTypes2.default.string,
   onDataChange: _propTypes2.default.func
 };
 

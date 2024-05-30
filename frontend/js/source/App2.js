@@ -24,6 +24,7 @@ class App2 extends Component {
       isLoaded: false,
       apiData: [],
       dataForRender: [],
+      peopleAPIData: [],
     }; 
     this.refreshList = this.refreshList.bind(this);
     
@@ -43,20 +44,46 @@ class App2 extends Component {
 
   };
 
+
+  getPeopleNames(apiResponse, objName) {
+    let len = apiResponse.length;
+    let data = [];
+    for (let e = 0; e < len; e++) {
+      data[e] = structuredClone(apiResponse[e][objName]);
+    }
+    let copyData = structuredClone(data);
+    return copyData
+  }
+
+
+
+  getArrayFromJSONresponse() {
+
+  }
+
+
   async refreshList() {
     try {
       const response = await fetch(`${API_URL}control/1/1/`);
       const responseAPIData = await response.json();
+      
+      const peopleResp = await fetch(`${API_URL}people/1/1/`);
+      const peopleAPIres = await peopleResp.json();
 
-      //console.log(`App2 typeof refreshList responseAPIData = ${typeof responseAPIData}`);
+      // console.log(`App2 refreshList typeof peopleAPIres = ${typeof peopleAPIres}`);
+      // console.log(`App2 refreshList peopleAPIres = `);
+      // console.log(peopleAPIres);
+      
+      // let peopleData = [];
+      // peopleData = this.getPeopleNames(peopleAPIres, 'PersonFullName');
+      // console.log(`App2 refreshList peopleData = `);
+      // console.log(peopleData);
+      
+      
+
       let preparedAPIData = [];
-
       let inputDict = {};
-      
-
       let inputLen = responseAPIData.length;
-
-      
       for (let elemNumber = 0; elemNumber < inputLen; elemNumber++) {
         inputDict = {};
         /* 
@@ -131,13 +158,13 @@ class App2 extends Component {
 
       }
 
-      /**/
 
 
       this.setState({
         isLoaded: true,
         apiData: responseAPIData,
         dataForRender: preparedAPIData,
+        peopleAPIData: peopleAPIres,
       });
       
       return preparedAPIData;
@@ -160,7 +187,7 @@ class App2 extends Component {
                     + currentdate.getMinutes() + ":" 
                     + currentdate.getSeconds() + ":" 
                     + currentdate.getMilliseconds();*/
-    const { error, isLoaded, apiData, dataForRender} = this.state;
+    const { error, isLoaded, apiData, dataForRender, peopleAPIData} = this.state;
     /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
     console.log("App2 render() at " + datetime);
     console.log('App2 apiData in render 1');
@@ -181,7 +208,8 @@ class App2 extends Component {
           <div className="app-header">
             Task Manager
           </div>
-          <TaskEditor schema={schema} initialData={dataForRender} fullAPIData={apiData} />
+          <TaskEditor schema={schema} initialData={dataForRender} fullAPIData={apiData} 
+            API_URL={API_URL} peopleAPIData={peopleAPIData}/>
         </div>
       );
     } else {

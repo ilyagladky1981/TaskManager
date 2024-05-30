@@ -24,10 +24,6 @@ var _Suggest = require('./Suggest');
 
 var _Suggest2 = _interopRequireDefault(_Suggest);
 
-var _ListOptions = require('./ListOptions');
-
-var _ListOptions2 = _interopRequireDefault(_ListOptions);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39,16 +35,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FormInput = function (_Component) {
   _inherits(FormInput, _Component);
 
-  function FormInput() {
+  function FormInput(props) {
     _classCallCheck(this, FormInput);
 
-    return _possibleConstructorReturn(this, (FormInput.__proto__ || Object.getPrototypeOf(FormInput)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (FormInput.__proto__ || Object.getPrototypeOf(FormInput)).call(this, props));
+
+    _this.inputRef = _react2.default.createRef();
+    //this.formRef = React.createRef();
+    return _this;
   }
 
   _createClass(FormInput, [{
     key: 'getValue',
     value: function getValue() {
-      return 'value' in this.refs.input ? this.refs.input.value : this.refs.input.getValue();
+      return 'value' in this.inputRef ? this.inputRef.value : this.inputRef.getValue();
     }
   }, {
     key: 'render',
@@ -68,26 +68,8 @@ var FormInput = function (_Component) {
         case 'rating':
           return _react2.default.createElement(_Rating2.default, _extends({}, common, {
             defaultValue: parseInt(this.props.defaultValue, 10) }));
-        case 'datetime':
-          return _react2.default.createElement(_Rating2.default, _extends({}, common, {
-            defaultValue: parseInt(this.props.defaultValue, 10) }));
         case 'text':
           return _react2.default.createElement('textarea', common);
-        case 'input':
-          // console.log("FormInput - render - case input - this.props.listid =");
-          // console.log(this.props.listid);
-          if (typeof this.props.listid !== "undefined" & this.props.listid === "PersonFullNameId") {
-            console.log("PersonFullNameId = " + this.props.listid);
-            // console.log(this.props.listid + "=== undefined");
-            return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
-              listid: this.props.listid,
-              API_URL: this.props.API_URL,
-              dataURL: this.props.dataURL,
-              options: this.props.peopleAPIData }));
-          } else {
-            console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
-            return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
-          }
         default:
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
       }
@@ -101,11 +83,7 @@ FormInput.propTypes = {
   type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
   id: _propTypes2.default.string,
   options: _propTypes2.default.array,
-  defaultValue: _propTypes2.default.any,
-  listid: _propTypes2.default.string,
-  API_URL: _propTypes2.default.string,
-  dataURL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  defaultValue: _propTypes2.default.any
 };
 
 exports.default = FormInput;

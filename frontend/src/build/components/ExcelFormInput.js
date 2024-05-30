@@ -24,10 +24,6 @@ var _Suggest = require('./Suggest');
 
 var _Suggest2 = _interopRequireDefault(_Suggest);
 
-var _ListOptions = require('./ListOptions');
-
-var _ListOptions2 = _interopRequireDefault(_ListOptions);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36,16 +32,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var FormInput = function (_Component) {
-  _inherits(FormInput, _Component);
+var ExcelFormInput = function (_Component) {
+  _inherits(ExcelFormInput, _Component);
 
-  function FormInput() {
-    _classCallCheck(this, FormInput);
+  function ExcelFormInput() {
+    _classCallCheck(this, ExcelFormInput);
 
-    return _possibleConstructorReturn(this, (FormInput.__proto__ || Object.getPrototypeOf(FormInput)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ExcelFormInput.__proto__ || Object.getPrototypeOf(ExcelFormInput)).apply(this, arguments));
   }
 
-  _createClass(FormInput, [{
+  _createClass(ExcelFormInput, [{
     key: 'getValue',
     value: function getValue() {
       return 'value' in this.refs.input ? this.refs.input.value : this.refs.input.getValue();
@@ -74,38 +70,23 @@ var FormInput = function (_Component) {
         case 'text':
           return _react2.default.createElement('textarea', common);
         case 'input':
-          // console.log("FormInput - render - case input - this.props.listid =");
-          // console.log(this.props.listid);
-          if (typeof this.props.listid !== "undefined" & this.props.listid === "PersonFullNameId") {
-            console.log("PersonFullNameId = " + this.props.listid);
-            // console.log(this.props.listid + "=== undefined");
-            return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
-              listid: this.props.listid,
-              API_URL: this.props.API_URL,
-              dataURL: this.props.dataURL,
-              options: this.props.peopleAPIData }));
-          } else {
-            console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
-            return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
-          }
+          console.log("FormInput - render - case input ");
+          console.log(this.props.listid);
+          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
         default:
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
       }
     }
   }]);
 
-  return FormInput;
+  return ExcelFormInput;
 }(_react.Component);
 
-FormInput.propTypes = {
+ExcelFormInput.propTypes = {
   type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
   id: _propTypes2.default.string,
   options: _propTypes2.default.array,
-  defaultValue: _propTypes2.default.any,
-  listid: _propTypes2.default.string,
-  API_URL: _propTypes2.default.string,
-  dataURL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  defaultValue: _propTypes2.default.any
 };
 
-exports.default = FormInput;
+exports.default = ExcelFormInput;

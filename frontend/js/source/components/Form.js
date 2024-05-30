@@ -27,6 +27,24 @@ class Form extends Component {
     );
     return data;
   }
+
+
+  // _handleSearch(event) {
+    // const term = event.target.value.toLowerCase();
+    // setSearchTerm(term);
+    //
+    // const filtered = data.filter((item) =>
+    //   item.toLowerCase().includes(term)
+    // );
+    // setFilteredData(filtered);
+  // };
+
+  _handleSearch(listid) {
+    // let inputData = {};
+    // let schema_tmp = this.props.fields;
+    console.log("Excel - _handleSearch - listid ");
+    console.log(listid);
+  }
   
   render() {
     /*let fields_tmp = this.props.fields;
@@ -71,14 +89,21 @@ class Form extends Component {
             return (
               <tr className="FormRowShowField" key={field.id}>
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
-                <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled} /></td>
+                <td className="FormTableData"><FormInput {...field} 
+                                                ref={field.id} 
+                                                defaultValue={prefilled} 
+                                                listid={field.id} 
+                                                API_URL={this.props.API_URL}
+                                                objName={field.objName}
+                                                peopleAPIData={this.props.peopleAPIData}
+                                                /></td>
               </tr>
             );
           } else {
             return (
               <tr className="FormRowHideField" key={field.id}>
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
-                <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled} /></td>
+                <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled}/></td>
               </tr>
             );
           }
@@ -108,12 +133,17 @@ Form.propTypes = {
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     type: PropTypes.string,
+    dataURL: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.string),
   })).isRequired,
   initialData: PropTypes.object,
   readonly: PropTypes.bool,
   addNewDialog: PropTypes.bool,
   defaultValue: PropTypes.object,
+  API_URL: PropTypes.string,
+  peopleAPIData: PropTypes.arrayOf(
+    PropTypes.object
+  ),
 };
 
 export default Form
