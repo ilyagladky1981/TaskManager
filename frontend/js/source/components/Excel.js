@@ -1,7 +1,7 @@
 import Actions from './Actions';
 import Dialog from './Dialog';
 import Form from './Form';
-import FormInput from './FormInput';
+import ExcelFormInput from './ExcelFormInput';
 import Rating from './Rating';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
@@ -295,7 +295,7 @@ class Excel extends Component {
                   if (!isRating && edit && edit.row === rowidx && edit.key === schema.id) {
                     content = (
                       <form onSubmit={this._save.bind(this)}>
-                        <FormInput ref={this.inputRef} {...schema} defaultValue={content} />
+                        <ExcelFormInput ref={this.inputRef} {...schema} defaultValue={content} />
                       </form>
                     );
                   } else if (isRating) {

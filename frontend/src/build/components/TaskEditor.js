@@ -38,8 +38,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var API_URL = 'http://45.135.233.68:8000/api/';
-
 var TaskEditor = function (_Component) {
   _inherits(TaskEditor, _Component);
 
@@ -88,7 +86,7 @@ var TaskEditor = function (_Component) {
     key: '_createNewRow',
     value: async function _createNewRow(newRow) {
       try {
-        var response = await fetch(API_URL + 'tasks/1/', { method: 'POST',
+        var response = await fetch(this.props.API_URL + 'tasks/1/', { method: 'POST',
           mode: "cors",
           headers: {
             'Content-Type': 'application/json'
@@ -115,7 +113,7 @@ var TaskEditor = function (_Component) {
       try {
         console.log("TaskEditor - _saveData - data");
         console.log(data);
-        const response = await fetch(`${API_URL}control/1/`,
+        const response = await fetch(`${this.props.API_URL}control/1/`,
             { method: 'POST',
               mode: "cors",
               headers: {
@@ -202,7 +200,8 @@ var TaskEditor = function (_Component) {
           _react2.default.createElement(_Excel2.default, {
             schema: this.props.schema,
             initialData: this.state.data,
-            onDataChange: this._onExcelDataChange.bind(this) })
+            onDataChange: this._onExcelDataChange.bind(this),
+            API_URL: this.props.API_URL })
         ),
         this.state.addnew ? _react2.default.createElement(
           _Dialog2.default,
@@ -215,7 +214,9 @@ var TaskEditor = function (_Component) {
           _react2.default.createElement(_Form2.default, {
             ref: this.formRef,
             fields: this.props.schema,
-            addNewDialog: true })
+            addNewDialog: true,
+            API_URL: this.props.API_URL,
+            peopleAPIData: this.props.peopleAPIData })
         ) : null
       );
     }
@@ -238,7 +239,9 @@ var TaskEditor = function (_Component) {
 TaskEditor.propTypes = {
   schema: _propTypes2.default.arrayOf(_propTypes2.default.object),
   initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  API_URL: _propTypes2.default.string,
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = TaskEditor;

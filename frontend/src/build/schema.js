@@ -79,7 +79,8 @@ exports.default = [{
   show: true,
   editable: true,
   autoFilling: false,
-  sample: 'Денисов Николай Валерьевич'
+  sample: 'Денисов Николай Валерьевич',
+  dataURL: "people/"
 }, {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
@@ -177,7 +178,7 @@ exports.default = [{
   type: 'input',
   show: false,
   editable: true,
-  autoFilling: false,
+  autoFilling: false, //true
   sample: ''
 }, {
   id: 'Priority',

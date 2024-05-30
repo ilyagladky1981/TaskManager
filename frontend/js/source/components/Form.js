@@ -92,8 +92,11 @@ class Form extends Component {
                 <td className="FormTableData"><FormInput {...field} 
                                                 ref={field.id} 
                                                 defaultValue={prefilled} 
-                                                onDataChange={this._handleSearch.bind(this, field.id)} 
-                                                listid={field.id}/></td>
+                                                listid={field.id} 
+                                                API_URL={this.props.API_URL}
+                                                dataURL={field.dataURL}
+                                                peopleAPIData={this.props.peopleAPIData}
+                                                /></td>
               </tr>
             );
           } else {
@@ -130,12 +133,17 @@ Form.propTypes = {
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     type: PropTypes.string,
+    dataURL: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.string),
   })).isRequired,
   initialData: PropTypes.object,
   readonly: PropTypes.bool,
   addNewDialog: PropTypes.bool,
   defaultValue: PropTypes.object,
+  API_URL: PropTypes.string,
+  peopleAPIData: PropTypes.arrayOf(
+    PropTypes.object
+  ),
 };
 
 export default Form

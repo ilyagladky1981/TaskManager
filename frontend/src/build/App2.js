@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -52,7 +54,8 @@ var App2 = function (_Component) {
       error: null,
       isLoaded: false,
       apiData: [],
-      dataForRender: []
+      dataForRender: [],
+      peopleAPIData: []
     };
     _this.refreshList = _this.refreshList.bind(_this);
 
@@ -74,19 +77,40 @@ var App2 = function (_Component) {
       console.log(dataForRender);*/
     }
   }, {
+    key: 'getPeopleNames',
+    value: function getPeopleNames(apiResponse, objName) {
+      var len = apiResponse.length;
+      var data = [];
+      for (var e = 0; e < len; e++) {
+        data[e] = structuredClone(apiResponse[e][objName]);
+      }
+      var copyData = structuredClone(data);
+      return copyData;
+    }
+  }, {
+    key: 'getArrayFromJSONresponse',
+    value: function getArrayFromJSONresponse() {}
+  }, {
     key: 'refreshList',
     value: async function refreshList() {
       try {
         var response = await fetch(API_URL + 'control/1/1/');
         var responseAPIData = await response.json();
 
-        //console.log(`App2 typeof refreshList responseAPIData = ${typeof responseAPIData}`);
+        var peopleResp = await fetch(API_URL + 'people/1/1/');
+        var peopleAPIres = await peopleResp.json();
+
+        console.log('App2 refreshList typeof peopleAPIres = ' + (typeof peopleAPIres === 'undefined' ? 'undefined' : _typeof(peopleAPIres)));
+        console.log('App2 refreshList peopleAPIres = ');
+        console.log(peopleAPIres);
+
+        var peopleData = [];
+        peopleData = this.getPeopleNames(peopleAPIres, 'PersonFullName');
+        console.log('App2 refreshList peopleData = ' + peopleData);
+
         var preparedAPIData = [];
-
         var inputDict = {};
-
         var inputLen = responseAPIData.length;
-
         for (var elemNumber = 0; elemNumber < inputLen; elemNumber++) {
           inputDict = {};
           /* 
@@ -157,12 +181,11 @@ var App2 = function (_Component) {
           preparedAPIData[elemNumber] = copyDict;
         }
 
-        /**/
-
         this.setState({
           isLoaded: true,
           apiData: responseAPIData,
-          dataForRender: preparedAPIData
+          dataForRender: preparedAPIData,
+          peopleAPIData: peopleData
         });
 
         return preparedAPIData;
@@ -190,7 +213,8 @@ var App2 = function (_Component) {
           error = _state.error,
           isLoaded = _state.isLoaded,
           apiData = _state.apiData,
-          dataForRender = _state.dataForRender;
+          dataForRender = _state.dataForRender,
+          peopleAPIData = _state.peopleAPIData;
       /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
       console.log("App2 render() at " + datetime);
       console.log('App2 apiData in render 1');
@@ -220,7 +244,8 @@ var App2 = function (_Component) {
             { className: 'app-header' },
             'Task Manager'
           ),
-          _react2.default.createElement(_TaskEditor2.default, { schema: _schema2.default, initialData: dataForRender, fullAPIData: apiData })
+          _react2.default.createElement(_TaskEditor2.default, { schema: _schema2.default, initialData: dataForRender, fullAPIData: apiData,
+            API_URL: API_URL, peopleAPIData: peopleAPIData })
         );
       } else {
         //console.log(`App2 typeof dataForRender 2 = ${typeof dataForRender}`);

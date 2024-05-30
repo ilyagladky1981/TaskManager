@@ -84,11 +84,13 @@ export default [
     id: 'PersonFullNameId',
     label: 'PersonFullName',
     pathJSON: 'PersonFullNameId.PersonFullName',
+    objName: '',
     type: 'input',
     show: true,
     editable: true,
     autoFilling: false,
     sample: 'Денисов Николай Валерьевич',
+    dataURL: "people/"
   },
     
 

@@ -171,7 +171,9 @@ class TaskEditor extends Component {
               <Form
                 ref={this.formRef}
                 fields={this.props.schema} 
-                addNewDialog={true}/>
+                addNewDialog={true}
+                API_URL={this.props.API_URL}
+                peopleAPIData={this.props.peopleAPIData}/>
             </Dialog>
           : null}
       </div>
@@ -190,6 +192,9 @@ TaskEditor.propTypes = {
     PropTypes.object
   ),
   API_URL: PropTypes.string,
+  peopleAPIData: PropTypes.arrayOf(
+    PropTypes.object
+  ),
 };
 
 export default TaskEditor

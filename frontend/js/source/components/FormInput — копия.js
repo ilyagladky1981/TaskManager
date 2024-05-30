@@ -2,7 +2,6 @@ import Rating from './Rating';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Suggest from './Suggest';
-import ListOptions from './ListOptions';
 
 class FormInput extends Component {
   
@@ -43,23 +42,17 @@ class FormInput extends Component {
       case 'text':
         return <textarea {...common} />;
       case 'input':
-        // console.log("FormInput - render - case input - this.props.listid =");
-        // console.log(this.props.listid);
-        if ((typeof this.props.listid !== "undefined") &
-        (this.props.listid === "PersonFullNameId")) {
-          console.log("PersonFullNameId = " + this.props.listid);
-          // console.log(this.props.listid + "=== undefined");
-          return <ListOptions {...common} 
-                  listid={this.props.listid} 
-                  API_URL={this.props.API_URL} 
-                  dataURL={this.props.dataURL}
-                  options={this.props.peopleAPIData}/>;
-        } else {
-          console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
-          return <input {...common} type="text" />
-        }
+        console.log("FormInput - render - case input ");
+        console.log(this.props.listid);
+        return <input {...common} 
+                type="text" 
+                onKeyUp={this.onDataChange.bind(this, this.props.listid)} 
+                list={this.props.listid} />;
       default:
-        return <input {...common}   type="text" />;  
+        return <input {...common} 
+                type="text" 
+                onKeyUp={this.onDataChange.bind(this, this.props.listid)} 
+                list={this.props.listid} />;  
     }
   }
 }
@@ -70,11 +63,7 @@ FormInput.propTypes = {
   options: PropTypes.array,
   defaultValue: PropTypes.any,
   listid: PropTypes.string, 
-  API_URL: PropTypes.string,
-  dataURL: PropTypes.string,
-  peopleAPIData: PropTypes.arrayOf(
-    PropTypes.object
-  ),
+  onDataChange: PropTypes.func,
 };
 
 export default FormInput

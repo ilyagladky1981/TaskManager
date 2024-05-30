@@ -2,9 +2,8 @@ import Rating from './Rating';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Suggest from './Suggest';
-import ListOptions from './ListOptions';
 
-class FormInput extends Component {
+class ExcelFormInput extends Component {
   
   getValue() {
     return 'value' in this.refs.input
@@ -43,38 +42,20 @@ class FormInput extends Component {
       case 'text':
         return <textarea {...common} />;
       case 'input':
-        // console.log("FormInput - render - case input - this.props.listid =");
-        // console.log(this.props.listid);
-        if ((typeof this.props.listid !== "undefined") &
-        (this.props.listid === "PersonFullNameId")) {
-          console.log("PersonFullNameId = " + this.props.listid);
-          // console.log(this.props.listid + "=== undefined");
-          return <ListOptions {...common} 
-                  listid={this.props.listid} 
-                  API_URL={this.props.API_URL} 
-                  dataURL={this.props.dataURL}
-                  options={this.props.peopleAPIData}/>;
-        } else {
-          console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
-          return <input {...common} type="text" />
-        }
+        console.log("FormInput - render - case input ");
+        console.log(this.props.listid);
+        return <input {...common}  type="text" />;
       default:
-        return <input {...common}   type="text" />;  
+        return <input {...common}  type="text" />;
     }
   }
 }
 
-FormInput.propTypes = {
+ExcelFormInput.propTypes = {
   type: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
   id: PropTypes.string,
   options: PropTypes.array,
   defaultValue: PropTypes.any,
-  listid: PropTypes.string, 
-  API_URL: PropTypes.string,
-  dataURL: PropTypes.string,
-  peopleAPIData: PropTypes.arrayOf(
-    PropTypes.object
-  ),
 };
 
-export default FormInput
+export default ExcelFormInput

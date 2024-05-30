@@ -24,10 +24,6 @@ var _Suggest = require('./Suggest');
 
 var _Suggest2 = _interopRequireDefault(_Suggest);
 
-var _ListOptions = require('./ListOptions');
-
-var _ListOptions2 = _interopRequireDefault(_ListOptions);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -74,22 +70,17 @@ var FormInput = function (_Component) {
         case 'text':
           return _react2.default.createElement('textarea', common);
         case 'input':
-          // console.log("FormInput - render - case input - this.props.listid =");
-          // console.log(this.props.listid);
-          if (typeof this.props.listid !== "undefined" & this.props.listid === "PersonFullNameId") {
-            console.log("PersonFullNameId = " + this.props.listid);
-            // console.log(this.props.listid + "=== undefined");
-            return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
-              listid: this.props.listid,
-              API_URL: this.props.API_URL,
-              dataURL: this.props.dataURL,
-              options: this.props.peopleAPIData }));
-          } else {
-            console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
-            return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
-          }
+          console.log("FormInput - render - case input ");
+          console.log(this.props.listid);
+          return _react2.default.createElement('input', _extends({}, common, {
+            type: 'text',
+            onKeyUp: this.onDataChange.bind(this, this.props.listid),
+            list: this.props.listid }));
         default:
-          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          return _react2.default.createElement('input', _extends({}, common, {
+            type: 'text',
+            onKeyUp: this.onDataChange.bind(this, this.props.listid),
+            list: this.props.listid }));
       }
     }
   }]);
@@ -103,9 +94,7 @@ FormInput.propTypes = {
   options: _propTypes2.default.array,
   defaultValue: _propTypes2.default.any,
   listid: _propTypes2.default.string,
-  API_URL: _propTypes2.default.string,
-  dataURL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  onDataChange: _propTypes2.default.func
 };
 
 exports.default = FormInput;
