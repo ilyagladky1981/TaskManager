@@ -152,7 +152,7 @@ var Form = function (_Component) {
                         defaultValue: prefilled,
                         listid: field.id,
                         API_URL: _this3.props.API_URL,
-                        dataURL: field.dataURL,
+                        objName: field.objName,
                         peopleAPIData: _this3.props.peopleAPIData
                       }))
                     )
