@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
 from ..models import Task, ServiceSet, Person
-from ..models import ResultOfTask
+from ..models import ResultOfTask, Situation
 from django.db.models import Q
 
 from rest_framework.response import Response
@@ -16,6 +16,7 @@ from django.http import JsonResponse
 from .serializers import TaskSerializer, DepthTaskSerializer, ControlSerializer
 from .serializers import ServiceSetSerializer, CategorySetSerializer
 from .serializers import PersonFIOSerializer
+from .serializers import SituationSerializer
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 import json
@@ -117,9 +118,6 @@ def api_service_set(request, UserId):
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = ServiceSetSerializer(data=request.data)
-        # print(f"request.data = {request.data}")
-        # print(f"serializer = {serializer}")
-        # print(f"type(serializer) = {type(serializer)}")
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, 
@@ -129,8 +127,33 @@ def api_service_set(request, UserId):
 
 
 @api_view(['GET'])
-def api_get_person_fio(request, CompanyId, UserId):
+def get_person_fio_api(request, CompanyId, UserId):
     if request.method == 'GET':
         people = Person.objects.all()
         serializer = PersonFIOSerializer(people, many=True)
         return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_situations(request, CompanyId, UserId):
+    if request.method == 'GET':
+        situation = Situation.objects.all()
+        serializer = SituationSerializer(situation, many=True)
+        return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_person_fio_api2(request, CompanyId, UserId):
+    if request.method == 'GET':
+        people = Person.objects.all()
+        serializer = PersonFIOSerializer(people, many=True)
+        return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_person_fio_api3(request, CompanyId, UserId):
+    if request.method == 'GET':
+        people = Person.objects.all()
+        serializer = PersonFIOSerializer(people, many=True)
+        return Response(serializer.data)
+

@@ -67,12 +67,24 @@ class App2 extends Component {
       const response = await fetch(`${API_URL}control/1/1/`);
       const responseAPIData = await response.json();
       
+      urlDict = {
+        'PersonFullNameId': 'people',
+        'Situation': 'situations',
+      }
       const peopleResp = await fetch(`${API_URL}people/1/1/`);
       const peopleAPIres = await peopleResp.json();
 
+      let optionsData = []
+      for (let url in urlDict) {
+        if (!urlDict.hasOwnProperty(url)) continue;
+        const urlResponse = await fetch(`${API_URL}${urlDict[url]}'/1/1/`);
+        const urlAPIres = await urlResponse.json();
+        optionsData[url] = structuredClone(urlAPIres);
+      }
+
       // console.log(`App2 refreshList typeof peopleAPIres = ${typeof peopleAPIres}`);
-      // console.log(`App2 refreshList peopleAPIres = `);
-      // console.log(peopleAPIres);
+      console.log(`App2 refreshList optionsData = `);
+      console.log(optionsData);
       
       // let peopleData = [];
       // peopleData = this.getPeopleNames(peopleAPIres, 'PersonFullName');
@@ -120,7 +132,7 @@ class App2 extends Component {
         inputDict.TaskId = responseAPIData[elemNumber]['TaskId'];
         inputDict.TaskName = responseAPIData[elemNumber]['TaskName'];
         inputDict.DateRegistration = responseAPIData[elemNumber]['DateRegistration'];
-        inputDict.SituationType = responseAPIData[elemNumber]['SituationType']['SituationType'];
+        inputDict.SituationType = responseAPIData[elemNumber]['Situation']['SituationType'];
         if ( responseAPIData[elemNumber]['ServiceName'].length > 0) {
           inputDict.ServiceName = responseAPIData[elemNumber]['ServiceName'][0]['ServiceName'];
         } else {
@@ -165,6 +177,7 @@ class App2 extends Component {
         apiData: responseAPIData,
         dataForRender: preparedAPIData,
         peopleAPIData: peopleAPIres,
+        optionsAPIData: optionsData,
       });
       
       return preparedAPIData;

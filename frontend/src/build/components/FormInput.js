@@ -39,10 +39,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FormInput = function (_Component) {
   _inherits(FormInput, _Component);
 
-  function FormInput() {
+  function FormInput(props) {
     _classCallCheck(this, FormInput);
 
-    return _possibleConstructorReturn(this, (FormInput.__proto__ || Object.getPrototypeOf(FormInput)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (FormInput.__proto__ || Object.getPrototypeOf(FormInput)).call(this, props));
+
+    _this.inputRef = _react2.default.createRef();
+    //this.formRef = React.createRef();
+    return _this;
   }
 
   _createClass(FormInput, [{
@@ -76,16 +80,17 @@ var FormInput = function (_Component) {
         case 'input':
           // console.log("FormInput - render - case input - this.props.listid =");
           // console.log(this.props.listid);
-          if (typeof this.props.listid !== "undefined" & this.props.listid === "PersonFullNameId") {
-            console.log("PersonFullNameId = " + this.props.listid);
+          if (typeof this.props.listid !== "undefined" & this.props.objName !== "id") {
+            console.log("FormInput - render - case input - objName = " + this.props.objName);
+            console.log("FormInput - render - case input - listid = " + this.props.listid);
             // console.log(this.props.listid + "=== undefined");
             return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
               listid: this.props.listid,
               API_URL: this.props.API_URL,
-              dataURL: this.props.dataURL,
+              objName: this.props.objName,
               options: this.props.peopleAPIData }));
           } else {
-            console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
+            // console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
             return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
           }
         default:
@@ -104,7 +109,7 @@ FormInput.propTypes = {
   defaultValue: _propTypes2.default.any,
   listid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
-  dataURL: _propTypes2.default.string,
+  objName: _propTypes2.default.string,
   peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 

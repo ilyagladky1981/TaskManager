@@ -95,12 +95,24 @@ var App2 = function (_Component) {
         var response = await fetch(API_URL + 'control/1/1/');
         var responseAPIData = await response.json();
 
+        urlDict = {
+          'PersonFullNameId': 'people',
+          'Situation': 'situations'
+        };
         var peopleResp = await fetch(API_URL + 'people/1/1/');
         var peopleAPIres = await peopleResp.json();
 
+        var optionsData = [];
+        for (var url in urlDict) {
+          if (!urlDict.hasOwnProperty(url)) continue;
+          var urlResponse = await fetch('' + API_URL + urlDict[url] + '\'/1/1/');
+          var urlAPIres = await urlResponse.json();
+          optionsData[url] = structuredClone(urlAPIres);
+        }
+
         // console.log(`App2 refreshList typeof peopleAPIres = ${typeof peopleAPIres}`);
-        // console.log(`App2 refreshList peopleAPIres = `);
-        // console.log(peopleAPIres);
+        console.log('App2 refreshList optionsData = ');
+        console.log(optionsData);
 
         // let peopleData = [];
         // peopleData = this.getPeopleNames(peopleAPIres, 'PersonFullName');
@@ -144,7 +156,7 @@ var App2 = function (_Component) {
           inputDict.TaskId = responseAPIData[elemNumber]['TaskId'];
           inputDict.TaskName = responseAPIData[elemNumber]['TaskName'];
           inputDict.DateRegistration = responseAPIData[elemNumber]['DateRegistration'];
-          inputDict.SituationType = responseAPIData[elemNumber]['SituationType']['SituationType'];
+          inputDict.SituationType = responseAPIData[elemNumber]['Situation']['SituationType'];
           if (responseAPIData[elemNumber]['ServiceName'].length > 0) {
             inputDict.ServiceName = responseAPIData[elemNumber]['ServiceName'][0]['ServiceName'];
           } else {
@@ -185,7 +197,8 @@ var App2 = function (_Component) {
           isLoaded: true,
           apiData: responseAPIData,
           dataForRender: preparedAPIData,
-          peopleAPIData: peopleAPIres
+          peopleAPIData: peopleAPIres,
+          optionsAPIData: optionsData
         });
 
         return preparedAPIData;

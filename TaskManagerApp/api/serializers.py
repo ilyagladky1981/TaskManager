@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from ..models import Task, ServiceSet, Service, CategorySet
-from ..models import Person
+from ..models import Person, Situation
 
 
 
@@ -98,3 +98,11 @@ class PersonSerializer(serializers.ModelSerializer):
             'CompanyName'
             ]
 
+class SituationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Situation
+        fields = [
+            'id',
+            'SituationType'
+            ]
+        

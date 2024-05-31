@@ -22,13 +22,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ListOptions = function (_Component) {
-  _inherits(ListOptions, _Component);
+var ListCheckboxes = function (_Component) {
+  _inherits(ListCheckboxes, _Component);
 
-  function ListOptions(props) {
-    _classCallCheck(this, ListOptions);
+  function ListCheckboxes(props) {
+    _classCallCheck(this, ListCheckboxes);
 
-    var _this = _possibleConstructorReturn(this, (ListOptions.__proto__ || Object.getPrototypeOf(ListOptions)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ListCheckboxes.__proto__ || Object.getPrototypeOf(ListCheckboxes)).call(this, props));
 
     _this.state = {
       value: props.defaultValue,
@@ -37,7 +37,7 @@ var ListOptions = function (_Component) {
     return _this;
   }
 
-  _createClass(ListOptions, [{
+  _createClass(ListCheckboxes, [{
     key: 'getValue',
     value: function getValue() {
       return this.state.dataid;
@@ -102,10 +102,10 @@ var ListOptions = function (_Component) {
     }
   }]);
 
-  return ListOptions;
+  return ListCheckboxes;
 }(_react.Component);
 
-ListOptions.propTypes = {
+ListCheckboxes.propTypes = {
   id: _propTypes2.default.string,
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
@@ -114,4 +114,4 @@ ListOptions.propTypes = {
   options: _propTypes2.default.arrayOf(_propTypes2.default.string)
 };
 
-exports.default = ListOptions;
+exports.default = ListCheckboxes;

@@ -5,6 +5,12 @@ import Suggest from './Suggest';
 import ListOptions from './ListOptions';
 
 class FormInput extends Component {
+
+  constructor(props) {
+    super(props);
+    this.inputRef = React.createRef();
+    //this.formRef = React.createRef();
+  }
   
   getValue() {
     return 'value' in this.refs.input
@@ -46,16 +52,17 @@ class FormInput extends Component {
         // console.log("FormInput - render - case input - this.props.listid =");
         // console.log(this.props.listid);
         if ((typeof this.props.listid !== "undefined") &
-        (this.props.listid === "PersonFullNameId")) {
-          console.log("PersonFullNameId = " + this.props.listid);
+        (this.props.objName !== "id")) {
+          console.log("FormInput - render - case input - objName = " + this.props.objName);
+          console.log("FormInput - render - case input - listid = " + this.props.listid);
           // console.log(this.props.listid + "=== undefined");
           return <ListOptions {...common} 
-                  listid={this.props.listid} 
-                  API_URL={this.props.API_URL} 
-                  objName={this.props.objName}
-                  options={this.props.peopleAPIData}/>;
+                    listid={this.props.listid} 
+                    API_URL={this.props.API_URL} 
+                    objName={this.props.objName}
+                    options={this.props.peopleAPIData}/>;
         } else {
-          console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
+          // console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
           return <input {...common} type="text" />
         }
       default:
