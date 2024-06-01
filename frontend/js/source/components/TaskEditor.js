@@ -173,7 +173,8 @@ class TaskEditor extends Component {
                 fields={this.props.schema} 
                 addNewDialog={true}
                 API_URL={this.props.API_URL}
-                peopleAPIData={this.props.peopleAPIData}/>
+                peopleAPIData={this.props.peopleAPIData}
+                optionsAPIData={this.props.optionsAPIData}/>
             </Dialog>
           : null}
       </div>
@@ -193,6 +194,9 @@ TaskEditor.propTypes = {
   ),
   API_URL: PropTypes.string,
   peopleAPIData: PropTypes.arrayOf(
+    PropTypes.object
+  ),
+  optionsAPIData: PropTypes.arrayOf(
     PropTypes.object
   ),
 };

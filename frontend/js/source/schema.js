@@ -65,11 +65,11 @@ export default [
   },
   
   {
-    id: 'Situation',
+    id: 'SituationType',
     label: 'Ситуация',
-    pathJSON: 'Situation.SituationType',
-    objName: 'id',
-    type: 'input',
+    pathJSON: 'SituationType.SituationType',
+    objName: 'SituationType',
+    type: 'ListOptions',
     show: false,
     editable: true,
     addnew: true,
@@ -94,11 +94,11 @@ export default [
 
   {
     id: 'PersonFullNameId',
-    label: 'PersonFullName',
+    label: 'ФИО заказчика',
     pathJSON: 'PersonFullNameId.PersonFullName',
     objName: 'id',
     objName: 'PersonFullName',
-    type: 'input',
+    type: 'ListOptions',
     show: true,
     editable: true,
     addnew: true,

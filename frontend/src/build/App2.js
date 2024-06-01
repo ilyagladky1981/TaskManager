@@ -53,7 +53,8 @@ var App2 = function (_Component) {
       isLoaded: false,
       apiData: [],
       dataForRender: [],
-      peopleAPIData: []
+      peopleAPIData: [],
+      optionsAPIData: []
     };
     _this.refreshList = _this.refreshList.bind(_this);
 
@@ -95,9 +96,9 @@ var App2 = function (_Component) {
         var response = await fetch(API_URL + 'control/1/1/');
         var responseAPIData = await response.json();
 
-        urlDict = {
+        var urlDict = {
           'PersonFullNameId': 'people',
-          'Situation': 'situations'
+          'SituationType': 'situations'
         };
         var peopleResp = await fetch(API_URL + 'people/1/1/');
         var peopleAPIres = await peopleResp.json();
@@ -105,7 +106,7 @@ var App2 = function (_Component) {
         var optionsData = [];
         for (var url in urlDict) {
           if (!urlDict.hasOwnProperty(url)) continue;
-          var urlResponse = await fetch('' + API_URL + urlDict[url] + '\'/1/1/');
+          var urlResponse = await fetch('' + API_URL + urlDict[url] + '/1/1/');
           var urlAPIres = await urlResponse.json();
           optionsData[url] = structuredClone(urlAPIres);
         }
@@ -156,7 +157,7 @@ var App2 = function (_Component) {
           inputDict.TaskId = responseAPIData[elemNumber]['TaskId'];
           inputDict.TaskName = responseAPIData[elemNumber]['TaskName'];
           inputDict.DateRegistration = responseAPIData[elemNumber]['DateRegistration'];
-          inputDict.SituationType = responseAPIData[elemNumber]['Situation']['SituationType'];
+          inputDict.SituationType = responseAPIData[elemNumber]['SituationType']['SituationType'];
           if (responseAPIData[elemNumber]['ServiceName'].length > 0) {
             inputDict.ServiceName = responseAPIData[elemNumber]['ServiceName'][0]['ServiceName'];
           } else {
@@ -227,7 +228,8 @@ var App2 = function (_Component) {
           isLoaded = _state.isLoaded,
           apiData = _state.apiData,
           dataForRender = _state.dataForRender,
-          peopleAPIData = _state.peopleAPIData;
+          peopleAPIData = _state.peopleAPIData,
+          optionsAPIData = _state.optionsAPIData;
       /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
       console.log("App2 render() at " + datetime);
       console.log('App2 apiData in render 1');
@@ -258,7 +260,7 @@ var App2 = function (_Component) {
             'Task Manager'
           ),
           _react2.default.createElement(_TaskEditor2.default, { schema: _schema2.default, initialData: dataForRender, fullAPIData: apiData,
-            API_URL: API_URL, peopleAPIData: peopleAPIData })
+            API_URL: API_URL, peopleAPIData: peopleAPIData, optionsAPIData: optionsAPIData })
         );
       } else {
         //console.log(`App2 typeof dataForRender 2 = ${typeof dataForRender}`);

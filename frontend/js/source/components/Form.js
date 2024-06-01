@@ -92,10 +92,11 @@ class Form extends Component {
                 <td className="FormTableData"><FormInput {...field} 
                                                 ref={field.id} 
                                                 defaultValue={prefilled} 
-                                                listid={field.id} 
+                                                fieldid={field.id} 
                                                 API_URL={this.props.API_URL}
                                                 objName={field.objName}
                                                 peopleAPIData={this.props.peopleAPIData}
+                                                optionsAPIData={this.props.optionsAPIData}
                                                 /></td>
               </tr>
             );
@@ -103,7 +104,9 @@ class Form extends Component {
             return (
               <tr className="FormRowHideField" key={field.id}>
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
-                <td className="FormTableData"><FormInput {...field} ref={field.id} defaultValue={prefilled}/></td>
+                <td className="FormTableData"><FormInput {...field} 
+                                                ref={field.id} 
+                                                defaultValue={prefilled}/></td>
               </tr>
             );
           }
@@ -142,6 +145,9 @@ Form.propTypes = {
   defaultValue: PropTypes.object,
   API_URL: PropTypes.string,
   peopleAPIData: PropTypes.arrayOf(
+    PropTypes.object
+  ),
+  optionsAPIData: PropTypes.arrayOf(
     PropTypes.object
   ),
 };

@@ -48,10 +48,11 @@ class ListOptions extends Component {
               id={this.props.id} />
         )
     } else {
-      // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
-      // console.log(this.props.options);
-      // console.log("typeof this.props.options");
-      // console.log(typeof this.props.options);
+      console.log("ListOptions - render - listid = " + this.props.listid);
+      console.log("ListOptions - render - (options === isArray) - this.props.options = ");
+      console.log(this.props.options);
+      console.log("typeof this.props.options");
+      console.log(typeof this.props.options);
       return (
         <div>
           <input

@@ -48,23 +48,26 @@ class FormInput extends Component {
         );
       case 'text':
         return <textarea {...common} />;
-      case 'input':
-        // console.log("FormInput - render - case input - this.props.listid =");
-        // console.log(this.props.listid);
+      case 'ListOptions':
+        console.log("FormInput - render - case ListOptions - this.props.listid =");
+        console.log(this.props.listid);
         if ((typeof this.props.listid !== "undefined") &
         (this.props.objName !== "id")) {
           console.log("FormInput - render - case input - objName = " + this.props.objName);
           console.log("FormInput - render - case input - listid = " + this.props.listid);
           // console.log(this.props.listid + "=== undefined");
           return <ListOptions {...common} 
-                    listid={this.props.listid} 
+                    listid={this.props.fieldid} 
                     API_URL={this.props.API_URL} 
                     objName={this.props.objName}
-                    options={this.props.peopleAPIData}/>;
+                    options={this.props.peopleAPIData}
+                    // options={this.props.optionsAPIData[this.props.fieldid]}
+                    />;
         } else {
           // console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
           return <input {...common} type="text" />
-        }
+        };
+      case 'input': return <input {...common} type="text" />;
       default:
         return <input {...common}   type="text" />;  
     }
@@ -72,14 +75,19 @@ class FormInput extends Component {
 }
 
 FormInput.propTypes = {
-  type: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
+  type: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
+                        'input', 'ListOptions', 'datetime', 
+                        'ListCheckboxes']),
   id: PropTypes.string,
   options: PropTypes.array,
   defaultValue: PropTypes.any,
-  listid: PropTypes.string, 
+  fieldid: PropTypes.string, 
   API_URL: PropTypes.string,
   objName: PropTypes.string,
   peopleAPIData: PropTypes.arrayOf(
+    PropTypes.object
+  ),
+  optionsAPIData: PropTypes.arrayOf(
     PropTypes.object
   ),
 };

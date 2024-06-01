@@ -66,11 +66,11 @@ exports.default = [{
   autoFilling: false,
   sample: '2023-03-29T00:00:00+03:00'
 }, {
-  id: 'Situation',
+  id: 'SituationType',
   label: 'Ситуация',
-  pathJSON: 'Situation.SituationType',
-  objName: 'id',
-  type: 'input',
+  pathJSON: 'SituationType.SituationType',
+  objName: 'SituationType',
+  type: 'ListOptions',
   show: false,
   editable: true,
   addnew: true,
@@ -89,10 +89,10 @@ exports.default = [{
   sample: ''
 }, (_ref = {
   id: 'PersonFullNameId',
-  label: 'PersonFullName',
+  label: 'ФИО заказчика',
   pathJSON: 'PersonFullNameId.PersonFullName',
   objName: 'id'
-}, _defineProperty(_ref, 'objName', 'PersonFullName'), _defineProperty(_ref, 'type', 'input'), _defineProperty(_ref, 'show', true), _defineProperty(_ref, 'editable', true), _defineProperty(_ref, 'addnew', true), _defineProperty(_ref, 'autoFilling', false), _defineProperty(_ref, 'sample', 'Денисов Николай Валерьевич'), _defineProperty(_ref, 'dataURL', "people/"), _ref), {
+}, _defineProperty(_ref, 'objName', 'PersonFullName'), _defineProperty(_ref, 'type', 'ListOptions'), _defineProperty(_ref, 'show', true), _defineProperty(_ref, 'editable', true), _defineProperty(_ref, 'addnew', true), _defineProperty(_ref, 'autoFilling', false), _defineProperty(_ref, 'sample', 'Денисов Николай Валерьевич'), _defineProperty(_ref, 'dataURL', "people/"), _ref), {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
   pathJSON: '',
