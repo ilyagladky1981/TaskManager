@@ -216,7 +216,8 @@ var TaskEditor = function (_Component) {
             fields: this.props.schema,
             addNewDialog: true,
             API_URL: this.props.API_URL,
-            peopleAPIData: this.props.peopleAPIData })
+            peopleAPIData: this.props.peopleAPIData,
+            optionsAPIData: this.props.optionsAPIData })
         ) : null
       );
     }
@@ -241,7 +242,8 @@ TaskEditor.propTypes = {
   initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   API_URL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = TaskEditor;

@@ -150,10 +150,11 @@ var Form = function (_Component) {
                       _react2.default.createElement(_FormInput2.default, _extends({}, field, {
                         ref: field.id,
                         defaultValue: prefilled,
-                        listid: field.id,
+                        fieldid: field.id,
                         API_URL: _this3.props.API_URL,
                         objName: field.objName,
-                        peopleAPIData: _this3.props.peopleAPIData
+                        peopleAPIData: _this3.props.peopleAPIData,
+                        optionsAPIData: _this3.props.optionsAPIData
                       }))
                     )
                   );
@@ -174,7 +175,9 @@ var Form = function (_Component) {
                     _react2.default.createElement(
                       'td',
                       { className: 'FormTableData' },
-                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, {
+                        ref: field.id,
+                        defaultValue: prefilled }))
                     )
                   );
                 }
@@ -230,7 +233,8 @@ Form.propTypes = {
   addNewDialog: _propTypes2.default.bool,
   defaultValue: _propTypes2.default.object,
   API_URL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = Form;

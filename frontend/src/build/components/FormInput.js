@@ -77,22 +77,26 @@ var FormInput = function (_Component) {
             defaultValue: parseInt(this.props.defaultValue, 10) }));
         case 'text':
           return _react2.default.createElement('textarea', common);
-        case 'input':
-          // console.log("FormInput - render - case input - this.props.listid =");
-          // console.log(this.props.listid);
+        case 'ListOptions':
+          console.log("FormInput - render - case ListOptions - this.props.listid =");
+          console.log(this.props.listid);
           if (typeof this.props.listid !== "undefined" & this.props.objName !== "id") {
             console.log("FormInput - render - case input - objName = " + this.props.objName);
             console.log("FormInput - render - case input - listid = " + this.props.listid);
             // console.log(this.props.listid + "=== undefined");
             return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
-              listid: this.props.listid,
+              listid: this.props.fieldid,
               API_URL: this.props.API_URL,
               objName: this.props.objName,
-              options: this.props.peopleAPIData }));
+              options: this.props.peopleAPIData
+              // options={this.props.optionsAPIData[this.props.fieldid]}
+            }));
           } else {
             // console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
             return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
-          }
+          };
+        case 'input':
+          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
         default:
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
       }
@@ -103,14 +107,15 @@ var FormInput = function (_Component) {
 }(_react.Component);
 
 FormInput.propTypes = {
-  type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
+  type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes']),
   id: _propTypes2.default.string,
   options: _propTypes2.default.array,
   defaultValue: _propTypes2.default.any,
-  listid: _propTypes2.default.string,
+  fieldid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = FormInput;

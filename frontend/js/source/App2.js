@@ -25,6 +25,7 @@ class App2 extends Component {
       apiData: [],
       dataForRender: [],
       peopleAPIData: [],
+      optionsAPIData: [],
     }; 
     this.refreshList = this.refreshList.bind(this);
     
@@ -67,9 +68,9 @@ class App2 extends Component {
       const response = await fetch(`${API_URL}control/1/1/`);
       const responseAPIData = await response.json();
       
-      urlDict = {
+      const urlDict = {
         'PersonFullNameId': 'people',
-        'Situation': 'situations',
+        'SituationType': 'situations',
       }
       const peopleResp = await fetch(`${API_URL}people/1/1/`);
       const peopleAPIres = await peopleResp.json();
@@ -77,7 +78,7 @@ class App2 extends Component {
       let optionsData = []
       for (let url in urlDict) {
         if (!urlDict.hasOwnProperty(url)) continue;
-        const urlResponse = await fetch(`${API_URL}${urlDict[url]}'/1/1/`);
+        const urlResponse = await fetch(`${API_URL}${urlDict[url]}/1/1/`);
         const urlAPIres = await urlResponse.json();
         optionsData[url] = structuredClone(urlAPIres);
       }
@@ -132,7 +133,7 @@ class App2 extends Component {
         inputDict.TaskId = responseAPIData[elemNumber]['TaskId'];
         inputDict.TaskName = responseAPIData[elemNumber]['TaskName'];
         inputDict.DateRegistration = responseAPIData[elemNumber]['DateRegistration'];
-        inputDict.SituationType = responseAPIData[elemNumber]['Situation']['SituationType'];
+        inputDict.SituationType = responseAPIData[elemNumber]['SituationType']['SituationType'];
         if ( responseAPIData[elemNumber]['ServiceName'].length > 0) {
           inputDict.ServiceName = responseAPIData[elemNumber]['ServiceName'][0]['ServiceName'];
         } else {
@@ -200,7 +201,7 @@ class App2 extends Component {
                     + currentdate.getMinutes() + ":" 
                     + currentdate.getSeconds() + ":" 
                     + currentdate.getMilliseconds();*/
-    const { error, isLoaded, apiData, dataForRender, peopleAPIData} = this.state;
+    const { error, isLoaded, apiData, dataForRender, peopleAPIData, optionsAPIData} = this.state;
     /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
     console.log("App2 render() at " + datetime);
     console.log('App2 apiData in render 1');
@@ -222,7 +223,7 @@ class App2 extends Component {
             Task Manager
           </div>
           <TaskEditor schema={schema} initialData={dataForRender} fullAPIData={apiData} 
-            API_URL={API_URL} peopleAPIData={peopleAPIData}/>
+            API_URL={API_URL} peopleAPIData={peopleAPIData} optionsAPIData={optionsAPIData}/>
         </div>
       );
     } else {

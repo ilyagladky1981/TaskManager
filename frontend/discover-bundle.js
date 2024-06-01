@@ -35248,10 +35248,11 @@ var Form = function (_Component) {
                       _react2.default.createElement(_FormInput2.default, _extends({}, field, {
                         ref: field.id,
                         defaultValue: prefilled,
-                        listid: field.id,
+                        fieldid: field.id,
                         API_URL: _this3.props.API_URL,
                         objName: field.objName,
-                        peopleAPIData: _this3.props.peopleAPIData
+                        peopleAPIData: _this3.props.peopleAPIData,
+                        optionsAPIData: _this3.props.optionsAPIData
                       }))
                     )
                   );
@@ -35272,7 +35273,9 @@ var Form = function (_Component) {
                     _react2.default.createElement(
                       'td',
                       { className: 'FormTableData' },
-                      _react2.default.createElement(_FormInput2.default, _extends({}, field, { ref: field.id, defaultValue: prefilled }))
+                      _react2.default.createElement(_FormInput2.default, _extends({}, field, {
+                        ref: field.id,
+                        defaultValue: prefilled }))
                     )
                   );
                 }
@@ -35328,7 +35331,8 @@ Form.propTypes = {
   addNewDialog: _propTypes2.default.bool,
   defaultValue: _propTypes2.default.object,
   API_URL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = Form;
@@ -35412,22 +35416,26 @@ var FormInput = function (_Component) {
             defaultValue: parseInt(this.props.defaultValue, 10) }));
         case 'text':
           return _react2.default.createElement('textarea', common);
-        case 'input':
-          // console.log("FormInput - render - case input - this.props.listid =");
-          // console.log(this.props.listid);
+        case 'ListOptions':
+          console.log("FormInput - render - case ListOptions - this.props.listid =");
+          console.log(this.props.listid);
           if (typeof this.props.listid !== "undefined" & this.props.objName !== "id") {
             console.log("FormInput - render - case input - objName = " + this.props.objName);
             console.log("FormInput - render - case input - listid = " + this.props.listid);
             // console.log(this.props.listid + "=== undefined");
             return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
-              listid: this.props.listid,
+              listid: this.props.fieldid,
               API_URL: this.props.API_URL,
               objName: this.props.objName,
-              options: this.props.peopleAPIData }));
+              options: this.props.peopleAPIData
+              // options={this.props.optionsAPIData[this.props.fieldid]}
+            }));
           } else {
             // console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
             return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
-          }
+          };
+        case 'input':
+          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
         default:
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
       }
@@ -35438,14 +35446,15 @@ var FormInput = function (_Component) {
 }(_react.Component);
 
 FormInput.propTypes = {
-  type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
+  type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes']),
   id: _propTypes2.default.string,
   options: _propTypes2.default.array,
   defaultValue: _propTypes2.default.any,
-  listid: _propTypes2.default.string,
+  fieldid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = FormInput;
@@ -35455,6 +35464,8 @@ exports.default = FormInput;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -35526,10 +35537,11 @@ var ListOptions = function (_Component) {
           // onChange={e => this.setState({value: e.target.value})}
           , id: this.props.id });
       } else {
-        // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
-        // console.log(this.props.options);
-        // console.log("typeof this.props.options");
-        // console.log(typeof this.props.options);
+        console.log("ListOptions - render - listid = " + this.props.listid);
+        console.log("ListOptions - render - (options === isArray) - this.props.options = ");
+        console.log(this.props.options);
+        console.log("typeof this.props.options");
+        console.log(_typeof(this.props.options));
         return _react2.default.createElement(
           'div',
           null,
