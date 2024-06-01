@@ -62,7 +62,9 @@ var FormInput = function (_Component) {
         ref: 'input',
         defaultValue: this.props.defaultValue
       };
-      switch (this.props.type) {
+      // console.log("FormInput - render - this.props.ObjectInputType =");
+      // console.log(this.props.ObjectInputType);
+      switch (this.props.ObjectInputType) {
         case 'year':
           return _react2.default.createElement('input', _extends({}, common, {
             type: 'number',
@@ -78,22 +80,24 @@ var FormInput = function (_Component) {
         case 'text':
           return _react2.default.createElement('textarea', common);
         case 'ListOptions':
-          console.log("FormInput - render - case ListOptions - this.props.listid =");
-          console.log(this.props.listid);
-          if (typeof this.props.listid !== "undefined" & this.props.objName !== "id") {
-            console.log("FormInput - render - case input - objName = " + this.props.objName);
-            console.log("FormInput - render - case input - listid = " + this.props.listid);
-            // console.log(this.props.listid + "=== undefined");
-            return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
-              listid: this.props.fieldid,
-              API_URL: this.props.API_URL,
-              objName: this.props.objName,
-              options: this.props.peopleAPIData
-              // options={this.props.optionsAPIData[this.props.fieldid]}
-            }));
-          } else {
-            // console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
-            return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          {
+            console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
+            console.log(this.props.fieldid);
+            if (typeof this.props.fieldid !== "undefined" & this.props.objName !== "id") {
+              console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
+              // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
+              // console.log(this.props.fieldid + "=== undefined");
+              return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
+                listid: this.props.fieldid,
+                API_URL: this.props.API_URL,
+                objName: this.props.objName
+                // options={this.props.peopleAPIData}
+                , options: this.props.optionsAPIData[this.props.fieldid]
+              }));
+            } else {
+              // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
+              return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+            }
           };
         case 'input':
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
@@ -107,7 +111,7 @@ var FormInput = function (_Component) {
 }(_react.Component);
 
 FormInput.propTypes = {
-  type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes']),
+  type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
   id: _propTypes2.default.string,
   options: _propTypes2.default.array,
   defaultValue: _propTypes2.default.any,
@@ -115,7 +119,8 @@ FormInput.propTypes = {
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
   peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'listcheckboxes'])
 };
 
 exports.default = FormInput;

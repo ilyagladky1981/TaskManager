@@ -24,7 +24,9 @@ class FormInput extends Component {
       ref: 'input',
       defaultValue: this.props.defaultValue,
     };
-    switch (this.props.type) {
+    // console.log("FormInput - render - this.props.ObjectInputType =");
+    // console.log(this.props.ObjectInputType);
+    switch (this.props.ObjectInputType) {
       case 'year':
         return (
           <input
@@ -48,36 +50,35 @@ class FormInput extends Component {
         );
       case 'text':
         return <textarea {...common} />;
-      case 'ListOptions':
-        console.log("FormInput - render - case ListOptions - this.props.listid =");
-        console.log(this.props.listid);
-        if ((typeof this.props.listid !== "undefined") &
-        (this.props.objName !== "id")) {
-          console.log("FormInput - render - case input - objName = " + this.props.objName);
-          console.log("FormInput - render - case input - listid = " + this.props.listid);
-          // console.log(this.props.listid + "=== undefined");
-          return <ListOptions {...common} 
-                    listid={this.props.fieldid} 
-                    API_URL={this.props.API_URL} 
-                    objName={this.props.objName}
-                    options={this.props.peopleAPIData}
-                    // options={this.props.optionsAPIData[this.props.fieldid]}
-                    />;
+      case 'ListOptions': {
+        console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
+        console.log(this.props.fieldid);
+        if ((typeof this.props.fieldid !== "undefined") &
+          (this.props.objName !== "id")) {
+            console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
+            // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
+            // console.log(this.props.fieldid + "=== undefined");
+            return <ListOptions {...common} 
+                      listid={this.props.fieldid} 
+                      API_URL={this.props.API_URL} 
+                      objName={this.props.objName}
+                      // options={this.props.peopleAPIData}
+                      options={this.props.optionsAPIData[this.props.fieldid]}
+                      />;
         } else {
-          // console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
+          // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
           return <input {...common} type="text" />
-        };
+        }
+      }; 
       case 'input': return <input {...common} type="text" />;
       default:
-        return <input {...common}   type="text" />;  
+        return <input {...common} type="text" />;  
     }
   }
 }
 
 FormInput.propTypes = {
-  type: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
-                        'input', 'ListOptions', 'datetime', 
-                        'ListCheckboxes']),
+  type: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
   id: PropTypes.string,
   options: PropTypes.array,
   defaultValue: PropTypes.any,
@@ -90,6 +91,9 @@ FormInput.propTypes = {
   optionsAPIData: PropTypes.arrayOf(
     PropTypes.object
   ),
+  ObjectInputType: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
+                      'input', 'ListOptions', 'datetime', 
+                      'listcheckboxes']),
 };
 
 export default FormInput

@@ -151,6 +151,7 @@ var Form = function (_Component) {
                         ref: field.id,
                         defaultValue: prefilled,
                         fieldid: field.id,
+                        ObjectInputType: field.ObjectInputType,
                         API_URL: _this3.props.API_URL,
                         objName: field.objName,
                         peopleAPIData: _this3.props.peopleAPIData,
@@ -226,7 +227,8 @@ Form.propTypes = {
     label: _propTypes2.default.string.isRequired,
     type: _propTypes2.default.string,
     dataURL: _propTypes2.default.string,
-    options: _propTypes2.default.arrayOf(_propTypes2.default.string)
+    options: _propTypes2.default.arrayOf(_propTypes2.default.string),
+    ObjectInputType: _propTypes2.default.string
   })).isRequired,
   initialData: _propTypes2.default.object,
   readonly: _propTypes2.default.bool,
