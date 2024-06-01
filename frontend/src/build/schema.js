@@ -102,10 +102,10 @@ exports.default = [{
 }, _defineProperty(_ref, 'objName', 'PersonFullName'), _defineProperty(_ref, 'type', 'input'), _defineProperty(_ref, 'ObjectInputType', 'ListOptions'), _defineProperty(_ref, 'show', true), _defineProperty(_ref, 'editable', true), _defineProperty(_ref, 'addnew', true), _defineProperty(_ref, 'autoFilling', false), _defineProperty(_ref, 'sample', 'Денисов Николай Валерьевич'), _defineProperty(_ref, 'dataURL', "people/"), _ref), {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
-  pathJSON: '',
-  objName: 'id',
+  pathJSON: 'ITTaskTypeName.ITTaskTypeName',
+  objName: 'ITTaskTypeName',
   type: 'input',
-  ObjectInputType: 'input',
+  ObjectInputType: 'ListOptions',
   show: false,
   editable: true,
   addnew: true,

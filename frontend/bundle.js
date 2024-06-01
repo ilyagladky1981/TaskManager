@@ -35797,9 +35797,9 @@ var Form = function (_Component) {
                         fieldid: field.id,
                         ObjectInputType: field.ObjectInputType,
                         API_URL: _this3.props.API_URL,
-                        objName: field.objName,
-                        peopleAPIData: _this3.props.peopleAPIData,
-                        optionsAPIData: _this3.props.optionsAPIData
+                        objName: field.objName
+                        // peopleAPIData={this.props.peopleAPIData}
+                        , optionsAPIData: _this3.props.optionsAPIData
                       }))
                     )
                   );
@@ -35872,14 +35872,16 @@ Form.propTypes = {
     type: _propTypes2.default.string,
     dataURL: _propTypes2.default.string,
     options: _propTypes2.default.arrayOf(_propTypes2.default.string),
-    ObjectInputType: _propTypes2.default.string
+    ObjectInputType: _propTypes2.default.string.isRequired
   })).isRequired,
   initialData: _propTypes2.default.object,
   readonly: _propTypes2.default.bool,
   addNewDialog: _propTypes2.default.bool,
   defaultValue: _propTypes2.default.object,
   API_URL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
   optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
@@ -36005,7 +36007,9 @@ FormInput.propTypes = {
   fieldid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
   optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'listcheckboxes'])
 };
@@ -36566,9 +36570,9 @@ var TaskEditor = function (_Component) {
             ref: this.formRef,
             fields: this.props.schema,
             addNewDialog: true,
-            API_URL: this.props.API_URL,
-            peopleAPIData: this.props.peopleAPIData,
-            optionsAPIData: this.props.optionsAPIData })
+            API_URL: this.props.API_URL
+            // peopleAPIData={this.props.peopleAPIData}
+            , optionsAPIData: this.props.optionsAPIData })
         ) : null
       );
     }
@@ -36593,7 +36597,9 @@ TaskEditor.propTypes = {
   initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   API_URL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
   optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
@@ -36703,10 +36709,10 @@ exports.default = [{
 }, _defineProperty(_ref, 'objName', 'PersonFullName'), _defineProperty(_ref, 'type', 'input'), _defineProperty(_ref, 'ObjectInputType', 'ListOptions'), _defineProperty(_ref, 'show', true), _defineProperty(_ref, 'editable', true), _defineProperty(_ref, 'addnew', true), _defineProperty(_ref, 'autoFilling', false), _defineProperty(_ref, 'sample', 'Денисов Николай Валерьевич'), _defineProperty(_ref, 'dataURL', "people/"), _ref), {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
-  pathJSON: '',
-  objName: 'id',
+  pathJSON: 'ITTaskTypeName.ITTaskTypeName',
+  objName: 'ITTaskTypeName',
   type: 'input',
-  ObjectInputType: 'input',
+  ObjectInputType: 'ListOptions',
   show: false,
   editable: true,
   addnew: true,

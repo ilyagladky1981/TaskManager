@@ -71,11 +71,12 @@ class App2 extends Component {
       const urlDict = {
         'PersonFullNameId': 'people',
         'SituationType': 'situations',
+        'ITTaskTypeName': 'ittasktypename',
       }
-      const peopleResp = await fetch(`${API_URL}people/1/1/`);
-      const peopleAPIres = await peopleResp.json();
+      // const peopleResp = await fetch(`${API_URL}people/1/1/`);
+      // const peopleAPIres = await peopleResp.json();
 
-      let optionsData = []
+      let optionsData = [];
       for (let url in urlDict) {
         if (!urlDict.hasOwnProperty(url)) continue;
         const urlResponse = await fetch(`${API_URL}${urlDict[url]}/1/1/`);
@@ -177,7 +178,7 @@ class App2 extends Component {
         isLoaded: true,
         apiData: responseAPIData,
         dataForRender: preparedAPIData,
-        peopleAPIData: peopleAPIres,
+        // peopleAPIData: peopleAPIres,
         optionsAPIData: optionsData,
       });
       
@@ -223,7 +224,7 @@ class App2 extends Component {
             Task Manager
           </div>
           <TaskEditor schema={schema} initialData={dataForRender} fullAPIData={apiData} 
-            API_URL={API_URL} peopleAPIData={peopleAPIData} optionsAPIData={optionsAPIData}/>
+            API_URL={API_URL} optionsAPIData={optionsAPIData}/>
         </div>
       );
     } else {

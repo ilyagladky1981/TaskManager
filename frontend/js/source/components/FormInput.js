@@ -85,9 +85,9 @@ FormInput.propTypes = {
   fieldid: PropTypes.string, 
   API_URL: PropTypes.string,
   objName: PropTypes.string,
-  peopleAPIData: PropTypes.arrayOf(
-    PropTypes.object
-  ),
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
   optionsAPIData: PropTypes.arrayOf(
     PropTypes.object
   ),

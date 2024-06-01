@@ -35251,9 +35251,9 @@ var Form = function (_Component) {
                         fieldid: field.id,
                         ObjectInputType: field.ObjectInputType,
                         API_URL: _this3.props.API_URL,
-                        objName: field.objName,
-                        peopleAPIData: _this3.props.peopleAPIData,
-                        optionsAPIData: _this3.props.optionsAPIData
+                        objName: field.objName
+                        // peopleAPIData={this.props.peopleAPIData}
+                        , optionsAPIData: _this3.props.optionsAPIData
                       }))
                     )
                   );
@@ -35326,14 +35326,16 @@ Form.propTypes = {
     type: _propTypes2.default.string,
     dataURL: _propTypes2.default.string,
     options: _propTypes2.default.arrayOf(_propTypes2.default.string),
-    ObjectInputType: _propTypes2.default.string
+    ObjectInputType: _propTypes2.default.string.isRequired
   })).isRequired,
   initialData: _propTypes2.default.object,
   readonly: _propTypes2.default.bool,
   addNewDialog: _propTypes2.default.bool,
   defaultValue: _propTypes2.default.object,
   API_URL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
   optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
@@ -35459,7 +35461,9 @@ FormInput.propTypes = {
   fieldid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
   optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'listcheckboxes'])
 };

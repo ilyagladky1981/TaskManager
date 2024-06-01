@@ -96,7 +96,7 @@ class Form extends Component {
                                                 ObjectInputType={field.ObjectInputType}
                                                 API_URL={this.props.API_URL}
                                                 objName={field.objName}
-                                                peopleAPIData={this.props.peopleAPIData}
+                                                // peopleAPIData={this.props.peopleAPIData}
                                                 optionsAPIData={this.props.optionsAPIData}
                                                 /></td>
               </tr>
@@ -139,16 +139,16 @@ Form.propTypes = {
     type: PropTypes.string,
     dataURL: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.string),
-    ObjectInputType: PropTypes.string,
+    ObjectInputType: PropTypes.string.isRequired,
   })).isRequired,
   initialData: PropTypes.object,
   readonly: PropTypes.bool,
   addNewDialog: PropTypes.bool,
   defaultValue: PropTypes.object,
   API_URL: PropTypes.string,
-  peopleAPIData: PropTypes.arrayOf(
-    PropTypes.object
-  ),
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
   optionsAPIData: PropTypes.arrayOf(
     PropTypes.object
   ),
