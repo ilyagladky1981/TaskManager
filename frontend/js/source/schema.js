@@ -119,10 +119,10 @@ export default [
   {
     id: 'ITTaskTypeName',
     label: 'ITTaskTypeName',
-    pathJSON: '',
-    objName: 'id',
+    pathJSON: 'ITTaskTypeName.ITTaskTypeName',
+    objName: 'ITTaskTypeName',
     type: 'input',
-    ObjectInputType: 'input',
+    ObjectInputType: 'ListOptions',
     show: false,
     editable: true,
     addnew: true,

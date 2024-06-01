@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from ..models import Task, ServiceSet, Service, CategorySet
-from ..models import Person, Situation
+from ..models import Person, Situation, ITTaskType
 
 
 
@@ -105,4 +105,22 @@ class SituationSerializer(serializers.ModelSerializer):
             'id',
             'SituationType'
             ]
-        
+
+
+class ITTaskTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ITTaskType
+        fields = [
+            'id',
+            'ITTaskTypeName'
+            ]
+
+
+
+
+
+
+
+
+
+
