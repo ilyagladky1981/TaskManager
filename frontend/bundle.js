@@ -35795,10 +35795,11 @@ var Form = function (_Component) {
                         ref: field.id,
                         defaultValue: prefilled,
                         fieldid: field.id,
+                        ObjectInputType: field.ObjectInputType,
                         API_URL: _this3.props.API_URL,
-                        objName: field.objName,
-                        peopleAPIData: _this3.props.peopleAPIData,
-                        optionsAPIData: _this3.props.optionsAPIData
+                        objName: field.objName
+                        // peopleAPIData={this.props.peopleAPIData}
+                        , optionsAPIData: _this3.props.optionsAPIData
                       }))
                     )
                   );
@@ -35870,14 +35871,17 @@ Form.propTypes = {
     label: _propTypes2.default.string.isRequired,
     type: _propTypes2.default.string,
     dataURL: _propTypes2.default.string,
-    options: _propTypes2.default.arrayOf(_propTypes2.default.string)
+    options: _propTypes2.default.arrayOf(_propTypes2.default.string),
+    ObjectInputType: _propTypes2.default.string.isRequired
   })).isRequired,
   initialData: _propTypes2.default.object,
   readonly: _propTypes2.default.bool,
   addNewDialog: _propTypes2.default.bool,
   defaultValue: _propTypes2.default.object,
   API_URL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
   optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
@@ -35947,7 +35951,9 @@ var FormInput = function (_Component) {
         ref: 'input',
         defaultValue: this.props.defaultValue
       };
-      switch (this.props.type) {
+      // console.log("FormInput - render - this.props.ObjectInputType =");
+      // console.log(this.props.ObjectInputType);
+      switch (this.props.ObjectInputType) {
         case 'year':
           return _react2.default.createElement('input', _extends({}, common, {
             type: 'number',
@@ -35963,22 +35969,24 @@ var FormInput = function (_Component) {
         case 'text':
           return _react2.default.createElement('textarea', common);
         case 'ListOptions':
-          console.log("FormInput - render - case ListOptions - this.props.listid =");
-          console.log(this.props.listid);
-          if (typeof this.props.listid !== "undefined" & this.props.objName !== "id") {
-            console.log("FormInput - render - case input - objName = " + this.props.objName);
-            console.log("FormInput - render - case input - listid = " + this.props.listid);
-            // console.log(this.props.listid + "=== undefined");
-            return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
-              listid: this.props.fieldid,
-              API_URL: this.props.API_URL,
-              objName: this.props.objName,
-              options: this.props.peopleAPIData
-              // options={this.props.optionsAPIData[this.props.fieldid]}
-            }));
-          } else {
-            // console.log("FormInput - render - case input - this.props.listid = " + this.props.listid);
-            return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          {
+            console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
+            console.log(this.props.fieldid);
+            if (typeof this.props.fieldid !== "undefined" & this.props.objName !== "id") {
+              console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
+              // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
+              // console.log(this.props.fieldid + "=== undefined");
+              return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
+                listid: this.props.fieldid,
+                API_URL: this.props.API_URL,
+                objName: this.props.objName
+                // options={this.props.peopleAPIData}
+                , options: this.props.optionsAPIData[this.props.fieldid]
+              }));
+            } else {
+              // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
+              return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+            }
           };
         case 'input':
           return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
@@ -35992,15 +36000,18 @@ var FormInput = function (_Component) {
 }(_react.Component);
 
 FormInput.propTypes = {
-  type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes']),
+  type: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input']),
   id: _propTypes2.default.string,
   options: _propTypes2.default.array,
   defaultValue: _propTypes2.default.any,
   fieldid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
+  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'listcheckboxes'])
 };
 
 exports.default = FormInput;
@@ -36010,8 +36021,6 @@ exports.default = FormInput;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -36084,10 +36093,10 @@ var ListOptions = function (_Component) {
           , id: this.props.id });
       } else {
         console.log("ListOptions - render - listid = " + this.props.listid);
-        console.log("ListOptions - render - (options === isArray) - this.props.options = ");
-        console.log(this.props.options);
-        console.log("typeof this.props.options");
-        console.log(_typeof(this.props.options));
+        // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
+        // console.log(this.props.options);
+        // console.log("typeof this.props.options");
+        // console.log(typeof this.props.options);
         return _react2.default.createElement(
           'div',
           null,
@@ -36561,9 +36570,9 @@ var TaskEditor = function (_Component) {
             ref: this.formRef,
             fields: this.props.schema,
             addNewDialog: true,
-            API_URL: this.props.API_URL,
-            peopleAPIData: this.props.peopleAPIData,
-            optionsAPIData: this.props.optionsAPIData })
+            API_URL: this.props.API_URL
+            // peopleAPIData={this.props.peopleAPIData}
+            , optionsAPIData: this.props.optionsAPIData })
         ) : null
       );
     }
@@ -36588,7 +36597,9 @@ TaskEditor.propTypes = {
   initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   API_URL: _propTypes2.default.string,
-  peopleAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  // peopleAPIData: PropTypes.arrayOf(
+  //   PropTypes.object
+  // ),
   optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
@@ -36614,6 +36625,7 @@ exports.default = [{
   editable: false,
   autoFilling: false,
   type: 'input',
+  ObjectInputType: 'input',
   sample: 1425,
   align: 'center'
 }, {
@@ -36622,6 +36634,7 @@ exports.default = [{
   pathJSON: 'CompanyId.ShortName',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: false,
   autoFilling: false,
@@ -36632,6 +36645,7 @@ exports.default = [{
   pathJSON: 'TaskId',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36648,6 +36662,7 @@ exports.default = [{
   addnew: false,
   autoFilling: false,
   type: 'text',
+  ObjectInputType: 'text',
   sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
   align: 'center'
 }, {
@@ -36656,6 +36671,7 @@ exports.default = [{
   pathJSON: 'DateRegistration',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36666,7 +36682,8 @@ exports.default = [{
   label: 'Ситуация',
   pathJSON: 'SituationType.SituationType',
   objName: 'SituationType',
-  type: 'ListOptions',
+  type: 'input',
+  ObjectInputType: 'ListOptions',
   show: false,
   editable: true,
   addnew: true,
@@ -36678,6 +36695,7 @@ exports.default = [{
   pathJSON: 'ServiceName.[].ServiceName',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: true,
   addnew: true,
@@ -36688,12 +36706,13 @@ exports.default = [{
   label: 'ФИО заказчика',
   pathJSON: 'PersonFullNameId.PersonFullName',
   objName: 'id'
-}, _defineProperty(_ref, 'objName', 'PersonFullName'), _defineProperty(_ref, 'type', 'ListOptions'), _defineProperty(_ref, 'show', true), _defineProperty(_ref, 'editable', true), _defineProperty(_ref, 'addnew', true), _defineProperty(_ref, 'autoFilling', false), _defineProperty(_ref, 'sample', 'Денисов Николай Валерьевич'), _defineProperty(_ref, 'dataURL', "people/"), _ref), {
+}, _defineProperty(_ref, 'objName', 'PersonFullName'), _defineProperty(_ref, 'type', 'input'), _defineProperty(_ref, 'ObjectInputType', 'ListOptions'), _defineProperty(_ref, 'show', true), _defineProperty(_ref, 'editable', true), _defineProperty(_ref, 'addnew', true), _defineProperty(_ref, 'autoFilling', false), _defineProperty(_ref, 'sample', 'Денисов Николай Валерьевич'), _defineProperty(_ref, 'dataURL', "people/"), _ref), {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
-  pathJSON: '',
-  objName: 'id',
+  pathJSON: 'ITTaskTypeName.ITTaskTypeName',
+  objName: 'ITTaskTypeName',
   type: 'input',
+  ObjectInputType: 'ListOptions',
   show: false,
   editable: true,
   addnew: true,
@@ -36705,6 +36724,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: true,
   addnew: false,
@@ -36716,6 +36736,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'text',
+  ObjectInputType: 'text',
   show: false,
   editable: true,
   addnew: true,
@@ -36727,6 +36748,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: true,
   addnew: true
@@ -36736,6 +36758,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: true,
   addnew: true,
@@ -36747,6 +36770,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36758,6 +36782,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'text',
+  ObjectInputType: 'text',
   show: true,
   editable: true,
   addnew: true,
@@ -36769,6 +36794,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36780,6 +36806,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36791,6 +36818,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: true,
   editable: false,
   addnew: false,
@@ -36802,6 +36830,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: true,
   addnew: true,
@@ -36813,6 +36842,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36824,6 +36854,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: true,
   addnew: false,
@@ -36835,6 +36866,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: true,
   addnew: true,
@@ -36846,6 +36878,7 @@ exports.default = [{
   pathJSON: '',
   objName: 'id',
   type: 'input',
+  ObjectInputType: 'input',
   show: false,
   editable: true,
   addnew: false,

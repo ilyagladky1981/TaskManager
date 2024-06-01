@@ -98,12 +98,12 @@ var App2 = function (_Component) {
 
         var urlDict = {
           'PersonFullNameId': 'people',
-          'SituationType': 'situations'
-        };
-        var peopleResp = await fetch(API_URL + 'people/1/1/');
-        var peopleAPIres = await peopleResp.json();
+          'SituationType': 'situations',
+          'ITTaskTypeName': 'ittasktypename'
+          // const peopleResp = await fetch(`${API_URL}people/1/1/`);
+          // const peopleAPIres = await peopleResp.json();
 
-        var optionsData = [];
+        };var optionsData = [];
         for (var url in urlDict) {
           if (!urlDict.hasOwnProperty(url)) continue;
           var urlResponse = await fetch('' + API_URL + urlDict[url] + '/1/1/');
@@ -198,7 +198,7 @@ var App2 = function (_Component) {
           isLoaded: true,
           apiData: responseAPIData,
           dataForRender: preparedAPIData,
-          peopleAPIData: peopleAPIres,
+          // peopleAPIData: peopleAPIres,
           optionsAPIData: optionsData
         });
 
@@ -260,7 +260,7 @@ var App2 = function (_Component) {
             'Task Manager'
           ),
           _react2.default.createElement(_TaskEditor2.default, { schema: _schema2.default, initialData: dataForRender, fullAPIData: apiData,
-            API_URL: API_URL, peopleAPIData: peopleAPIData, optionsAPIData: optionsAPIData })
+            API_URL: API_URL, optionsAPIData: optionsAPIData })
         );
       } else {
         //console.log(`App2 typeof dataForRender 2 = ${typeof dataForRender}`);
