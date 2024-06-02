@@ -39,7 +39,7 @@ class TaskSerializer(serializers.ModelSerializer):
           'TypeOfActionName', 'Description', 
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
-          'manual_sort', 'ProjectName', 'TaskTypeId',
+          'manual_sort', 'ProjectName', 'StoryPoint',
           'Priority', 'CreatedByUser',  'EffortsId' )
 
 
@@ -54,7 +54,7 @@ class DepthTaskSerializer(serializers.ModelSerializer):
           'TypeOfActionName', 'Description', 
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
-          'manual_sort', 'ProjectName', 'TaskTypeId',
+          'manual_sort', 'ProjectName', 'StoryPoint',
           'Priority', 'CreatedByUser',  'EffortsId' ]
 
 
@@ -69,7 +69,7 @@ class ControlSerializer(serializers.ModelSerializer):
           'TypeOfActionName', 'Description', 
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
-          'manual_sort',  'ProjectName', 'TaskTypeId',
+          'manual_sort',  'ProjectName', 'StoryPoint',
           'Priority', 'CreatedByUser',  'EffortsId' ]
 
 

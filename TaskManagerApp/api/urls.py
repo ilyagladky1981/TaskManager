@@ -7,7 +7,7 @@ urlpatterns = [
     path('serviceset/<int:UserId>/', api_service_set),
     path('tasks/<int:UserId>/<int:taskId>/', api_task_detail),
     path('tasks/<int:UserId>/', api_tasks),
-    path('control/<int:UserId>/<int:CompanyId>/<int:ProjectID>/', api_control_panel_project),
+    path('project/<int:UserId>/<int:CompanyId>/<int:ProjectID>/', api_control_panel_project),
     path('control/<int:UserId>/<int:CompanyId>/', api_control_panel),
     path('people/<int:UserId>/<int:CompanyId>/', get_person_fio_api),
     path('situations/<int:UserId>/<int:CompanyId>/', get_situations),

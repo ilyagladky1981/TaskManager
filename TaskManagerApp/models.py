@@ -207,7 +207,7 @@ class StoryPoint(models.Model):
         verbose_name_plural = "StoryPoint"
     
     def __str__(self):
-        return f"StoryPoint.id={self.id}StoryPoint={self.StoryPoint}=f(Volume={self.Volume},RiskAndUncertaintly={self.RiskAndUncertaintly},Complexity={self.Complexity})"
+        return f"StoryPoint.id=StoryPoint={self.StoryPoint}=f(Volume={self.Volume},RiskAndUncertaintly={self.RiskAndUncertaintly},Complexity={self.Complexity})"
 
 class OfficeCalendar(models.Model):
     Date = models.DateField(default=None)

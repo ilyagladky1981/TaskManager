@@ -24,7 +24,7 @@ class App2 extends Component {
       isLoaded: false,
       apiData: [],
       dataForRender: [],
-      optionsAPIData: [],
+      optionsAPIData: {},
     }; 
     this.refreshList = this.refreshList.bind(this);
     
@@ -151,7 +151,15 @@ class App2 extends Component {
         inputDict.Comments = responseAPIData[elemNumber]['Comments'];
         inputDict.manual_selection = responseAPIData[elemNumber]['manual_selection'];
         inputDict.manual_sort = responseAPIData[elemNumber]['manual_sort'];
-        inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor'].toString();
+        // console.log(`App2 refreshList typeof responseAPIData[elemNumber]['PriorityColor'] = `);
+        // console.log(typeof responseAPIData[elemNumber]['PriorityColor']);
+        if (typeof responseAPIData[elemNumber]['PriorityColor'] !== 'undefined') {
+            if ('color' in responseAPIData[elemNumber]['PriorityColor']) {
+                inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor']['color'].toString();
+            }
+        } else {
+          inputDict.PriorityColor = '';
+        }
         if ( Object.keys(responseAPIData[elemNumber]['ProjectName']).length > 0) {
           inputDict.ProjectName = responseAPIData[elemNumber]['ProjectName']['id'];
         } else {

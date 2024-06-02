@@ -51,11 +51,11 @@ class FormInput extends Component {
       case 'text':
         return <textarea {...common} />;
       case 'ListOptions': {
-        console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
-        console.log(this.props.fieldid);
+        // console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
+        // console.log(this.props.fieldid);
         if ((typeof this.props.fieldid !== "undefined") &
           (this.props.objName !== "id")) {
-            console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
+            // console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
             // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
             // console.log(this.props.fieldid + "=== undefined");
             return <ListOptions {...common} 

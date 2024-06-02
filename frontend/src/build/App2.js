@@ -53,8 +53,7 @@ var App2 = function (_Component) {
       isLoaded: false,
       apiData: [],
       dataForRender: [],
-      peopleAPIData: [],
-      optionsAPIData: []
+      optionsAPIData: {}
     };
     _this.refreshList = _this.refreshList.bind(_this);
 
@@ -87,9 +86,6 @@ var App2 = function (_Component) {
       return copyData;
     }
   }, {
-    key: 'getArrayFromJSONresponse',
-    value: function getArrayFromJSONresponse() {}
-  }, {
     key: 'refreshList',
     value: async function refreshList() {
       try {
@@ -99,11 +95,12 @@ var App2 = function (_Component) {
         var urlDict = {
           'PersonFullNameId': 'people',
           'SituationType': 'situations',
-          'ITTaskTypeName': 'ittasktypename'
+          'ITTaskTypeName': 'ittasktypename',
+          'PriorityColor': 'prioritycolor'
           // const peopleResp = await fetch(`${API_URL}people/1/1/`);
           // const peopleAPIres = await peopleResp.json();
 
-        };var optionsData = [];
+        };var optionsData = {};
         for (var url in urlDict) {
           if (!urlDict.hasOwnProperty(url)) continue;
           var urlResponse = await fetch('' + API_URL + urlDict[url] + '/1/1/');
@@ -178,7 +175,15 @@ var App2 = function (_Component) {
           inputDict.Comments = responseAPIData[elemNumber]['Comments'];
           inputDict.manual_selection = responseAPIData[elemNumber]['manual_selection'];
           inputDict.manual_sort = responseAPIData[elemNumber]['manual_sort'];
-          inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor'].toString();
+          // console.log(`App2 refreshList typeof responseAPIData[elemNumber]['PriorityColor'] = `);
+          // console.log(typeof responseAPIData[elemNumber]['PriorityColor']);
+          if (typeof responseAPIData[elemNumber]['PriorityColor'] !== 'undefined') {
+            if ('color' in responseAPIData[elemNumber]['PriorityColor']) {
+              inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor']['color'].toString();
+            }
+          } else {
+            inputDict.PriorityColor = '';
+          }
           if (Object.keys(responseAPIData[elemNumber]['ProjectName']).length > 0) {
             inputDict.ProjectName = responseAPIData[elemNumber]['ProjectName']['id'];
           } else {
@@ -228,7 +233,6 @@ var App2 = function (_Component) {
           isLoaded = _state.isLoaded,
           apiData = _state.apiData,
           dataForRender = _state.dataForRender,
-          peopleAPIData = _state.peopleAPIData,
           optionsAPIData = _state.optionsAPIData;
       /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
       console.log("App2 render() at " + datetime);

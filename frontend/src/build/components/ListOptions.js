@@ -74,7 +74,7 @@ var ListOptions = function (_Component) {
           // onChange={e => this.setState({value: e.target.value})}
           , id: this.props.id });
       } else {
-        console.log("ListOptions - render - listid = " + this.props.listid);
+        // console.log("ListOptions - render - listid = " + this.props.listid);
         // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
         // console.log(this.props.options);
         // console.log("typeof this.props.options");

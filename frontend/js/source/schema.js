@@ -255,7 +255,7 @@ export default [
   {
     id: 'PriorityColor',
     label: 'PriorityColor',
-    pathJSON: '',
+    pathJSON: 'PriorityColor.color',
     objName: 'id',
     type: 'input',
     ObjectInputType: 'ColorList',
