@@ -50,12 +50,12 @@ exports.default = [{
   label: 'Название',
   pathJSON: 'TaskName',
   objName: 'id',
+  type: 'text',
+  ObjectInputType: 'text',
   show: true,
   editable: true,
   addnew: false,
   autoFilling: false,
-  type: 'text',
-  ObjectInputType: 'text',
   sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
   align: 'center'
 }, {
@@ -208,10 +208,10 @@ exports.default = [{
 }, {
   id: 'PriorityColor',
   label: 'PriorityColor',
-  pathJSON: '',
+  pathJSON: 'PriorityColor.color',
   objName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  ObjectInputType: 'ColorList',
   show: true,
   editable: false,
   addnew: false,
@@ -254,10 +254,10 @@ exports.default = [{
   autoFilling: false,
   sample: ''
 }, {
-  id: 'TaskTypeId',
-  label: 'TaskTypeId',
-  pathJSON: '',
-  objName: 'id',
+  id: 'StoryPoint',
+  label: 'StoryPoint',
+  pathJSON: 'StoryPoint.StoryPoint',
+  objName: 'StoryPoint',
   type: 'input',
   ObjectInputType: 'input',
   show: false,

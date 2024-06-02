@@ -35970,10 +35970,10 @@ var FormInput = function (_Component) {
           return _react2.default.createElement('textarea', common);
         case 'ListOptions':
           {
-            console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
-            console.log(this.props.fieldid);
+            // console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
+            // console.log(this.props.fieldid);
             if (typeof this.props.fieldid !== "undefined" & this.props.objName !== "id") {
-              console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
+              // console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
               // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
               // console.log(this.props.fieldid + "=== undefined");
               return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
@@ -36092,7 +36092,7 @@ var ListOptions = function (_Component) {
           // onChange={e => this.setState({value: e.target.value})}
           , id: this.props.id });
       } else {
-        console.log("ListOptions - render - listid = " + this.props.listid);
+        // console.log("ListOptions - render - listid = " + this.props.listid);
         // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
         // console.log(this.props.options);
         // console.log("typeof this.props.options");
@@ -36600,7 +36600,7 @@ TaskEditor.propTypes = {
   // peopleAPIData: PropTypes.arrayOf(
   //   PropTypes.object
   // ),
-  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  optionsAPIData: _propTypes2.default.object
 };
 
 exports.default = TaskEditor;
@@ -36657,12 +36657,12 @@ exports.default = [{
   label: 'Название',
   pathJSON: 'TaskName',
   objName: 'id',
+  type: 'text',
+  ObjectInputType: 'text',
   show: true,
   editable: true,
   addnew: false,
   autoFilling: false,
-  type: 'text',
-  ObjectInputType: 'text',
   sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
   align: 'center'
 }, {
@@ -36815,10 +36815,10 @@ exports.default = [{
 }, {
   id: 'PriorityColor',
   label: 'PriorityColor',
-  pathJSON: '',
+  pathJSON: 'PriorityColor.color',
   objName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  ObjectInputType: 'ColorList',
   show: true,
   editable: false,
   addnew: false,
@@ -36861,10 +36861,10 @@ exports.default = [{
   autoFilling: false,
   sample: ''
 }, {
-  id: 'TaskTypeId',
-  label: 'TaskTypeId',
-  pathJSON: '',
-  objName: 'id',
+  id: 'StoryPoint',
+  label: 'StoryPoint',
+  pathJSON: 'StoryPoint.StoryPoint',
+  objName: 'StoryPoint',
   type: 'input',
   ObjectInputType: 'input',
   show: false,

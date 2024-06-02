@@ -245,7 +245,7 @@ TaskEditor.propTypes = {
   // peopleAPIData: PropTypes.arrayOf(
   //   PropTypes.object
   // ),
-  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  optionsAPIData: _propTypes2.default.object
 };
 
 exports.default = TaskEditor;

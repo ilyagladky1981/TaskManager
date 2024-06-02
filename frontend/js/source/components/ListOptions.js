@@ -48,7 +48,7 @@ class ListOptions extends Component {
               id={this.props.id} />
         )
     } else {
-      console.log("ListOptions - render - listid = " + this.props.listid);
+      // console.log("ListOptions - render - listid = " + this.props.listid);
       // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
       // console.log(this.props.options);
       // console.log("typeof this.props.options");
@@ -64,7 +64,7 @@ class ListOptions extends Component {
             this.props.options.map((item, idx) =>
               <option value={item[this.props.objName]} 
                       dataid={item.id}
-                      key={idx} />
+                      key={idx} ></option>
             )
           }</datalist>
         </div>

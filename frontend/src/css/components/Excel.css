@@ -9,6 +9,7 @@
 
 
 .Excel th {
+  width: 100%;
   background-color: #9bc2e6;
   color: #181818;
   cursor: pointer;
@@ -19,6 +20,18 @@
 }
 
 .Excel table {
+  width: 100%;
+}
+
+.Excel tr {
+  width: 97%;
+}
+
+.Excel tbody {
+  width: 100%;
+}
+ 
+.Excel thead {
   width: 100%;
 }
 

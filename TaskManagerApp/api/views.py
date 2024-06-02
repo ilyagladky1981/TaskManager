@@ -97,7 +97,7 @@ def api_task_detail(request, taskId, UserId):
 def api_control_panel(request, CompanyId, UserId):
     if request.method == 'GET':
         q = (Q(ResultOfTaskName__Name='') | Q(ResultOfTaskName__Name='в_работе')) & Q(CompanyId=CompanyId) & Q(id__gte=1425)
-        control_panel = Task.objects.filter(q).order_by('-PriorityColor')
+        control_panel = Task.objects.filter(q) # .order_by('-PriorityColor')
         serializer = ControlSerializer(control_panel, many=True)
         return Response(serializer.data)
 
@@ -106,7 +106,7 @@ def api_control_panel(request, CompanyId, UserId):
 def api_control_panel_project(request, CompanyId, ProjectID, UserId):
     if request.method == 'GET':
         q = (Q(ResultOfTaskName__Name='') | Q(ResultOfTaskName__Name='в_работе')) & Q(CompanyId=CompanyId) & Q(id__gte=1425) & Q(ProjectName=ProjectID)
-        control_panel = Task.objects.filter(q).order_by('-PriorityColor')
+        control_panel = Task.objects.filter(q) #.order_by('-PriorityColor')
         serializer = ControlSerializer(control_panel, many=True)
         return Response(serializer.data)
 
@@ -152,7 +152,7 @@ def get_ittasktypename(request, CompanyId, UserId):
 
 
 @api_view(['GET'])
-def get_person_fio_api3(request, CompanyId, UserId):
+def get_prioritycolor(request, CompanyId, UserId):
     if request.method == 'GET':
         people = Person.objects.all()
         serializer = PersonFIOSerializer(people, many=True)

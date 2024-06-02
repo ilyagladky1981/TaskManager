@@ -55,11 +55,12 @@ class Task(models.Model):
     Comments = models.URLField(max_length=1000, null=True, blank=True)
     manual_selection = models.PositiveIntegerField(null=True, blank=True)
     manual_sort = models.PositiveIntegerField(null=True, blank=True)
-    PriorityColor = models.PositiveIntegerField(null=True, blank=True)
+    # PriorityColor = models.PositiveIntegerField(null=True, blank=True)
     ProjectName = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     Priority = models.OneToOneField('PriorityInfo', on_delete=models.CASCADE,  null=True, blank=True)
     CreatedByUser = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True)
-    TaskTypeId = models.ForeignKey('TaskType', on_delete=models.CASCADE, null=True, blank=True)
+    StoryPoint = models.ForeignKey('StoryPoint', on_delete=models.CASCADE, null=True, blank=True)
+    # TaskTypeId = models.ForeignKey('TaskType', on_delete=models.CASCADE, null=True, blank=True)
     EffortsId = models.ManyToManyField('TimeInterval', through='EffortsStats')
 
     
@@ -78,6 +79,13 @@ class Situation(models.Model):
     
     def __str__(self):
         return f"Situation.id={self.id}_{self.SituationType}"
+
+
+class PriorityColor(models.Model):
+    color = models.PositiveIntegerField(null=True, blank=True)
+    
+    def __str__(self):
+        return f"PriorityColor.id={self.id}_{self.color}_{self.color}"
 
 
 class Person(models.Model):
@@ -188,6 +196,18 @@ class TaskType(models.Model):
     
     class Meta:
         verbose_name_plural = "Task Type"
+
+class StoryPoint(models.Model):
+    StoryPoint = models.PositiveIntegerField(null=True, blank=True)
+    Volume = models.PositiveIntegerField(null=True, blank=True)
+    RiskAndUncertaintly = models.PositiveIntegerField(null=True, blank=True)
+    Complexity = models.PositiveIntegerField(null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = "StoryPoint"
+    
+    def __str__(self):
+        return f"StoryPoint.id=StoryPoint={self.StoryPoint}=f(Volume={self.Volume},RiskAndUncertaintly={self.RiskAndUncertaintly},Complexity={self.Complexity})"
 
 class OfficeCalendar(models.Model):
     Date = models.DateField(default=None)

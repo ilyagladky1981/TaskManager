@@ -24,8 +24,7 @@ class App2 extends Component {
       isLoaded: false,
       apiData: [],
       dataForRender: [],
-      peopleAPIData: [],
-      optionsAPIData: [],
+      optionsAPIData: {},
     }; 
     this.refreshList = this.refreshList.bind(this);
     
@@ -58,10 +57,6 @@ class App2 extends Component {
 
 
 
-  getArrayFromJSONresponse() {
-
-  }
-
 
   async refreshList() {
     try {
@@ -72,11 +67,12 @@ class App2 extends Component {
         'PersonFullNameId': 'people',
         'SituationType': 'situations',
         'ITTaskTypeName': 'ittasktypename',
+        'PriorityColor': 'prioritycolor'
       }
       // const peopleResp = await fetch(`${API_URL}people/1/1/`);
       // const peopleAPIres = await peopleResp.json();
 
-      let optionsData = [];
+      let optionsData = {};
       for (let url in urlDict) {
         if (!urlDict.hasOwnProperty(url)) continue;
         const urlResponse = await fetch(`${API_URL}${urlDict[url]}/1/1/`);
@@ -155,7 +151,15 @@ class App2 extends Component {
         inputDict.Comments = responseAPIData[elemNumber]['Comments'];
         inputDict.manual_selection = responseAPIData[elemNumber]['manual_selection'];
         inputDict.manual_sort = responseAPIData[elemNumber]['manual_sort'];
-        inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor'].toString();
+        // console.log(`App2 refreshList typeof responseAPIData[elemNumber]['PriorityColor'] = `);
+        // console.log(typeof responseAPIData[elemNumber]['PriorityColor']);
+        if (typeof responseAPIData[elemNumber]['PriorityColor'] !== 'undefined') {
+            if ('color' in responseAPIData[elemNumber]['PriorityColor']) {
+                inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor']['color'].toString();
+            }
+        } else {
+          inputDict.PriorityColor = '';
+        }
         if ( Object.keys(responseAPIData[elemNumber]['ProjectName']).length > 0) {
           inputDict.ProjectName = responseAPIData[elemNumber]['ProjectName']['id'];
         } else {
@@ -202,7 +206,7 @@ class App2 extends Component {
                     + currentdate.getMinutes() + ":" 
                     + currentdate.getSeconds() + ":" 
                     + currentdate.getMilliseconds();*/
-    const { error, isLoaded, apiData, dataForRender, peopleAPIData, optionsAPIData} = this.state;
+    const { error, isLoaded, apiData, dataForRender, optionsAPIData} = this.state;
     /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
     console.log("App2 render() at " + datetime);
     console.log('App2 apiData in render 1');
