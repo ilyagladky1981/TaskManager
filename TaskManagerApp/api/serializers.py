@@ -39,8 +39,8 @@ class TaskSerializer(serializers.ModelSerializer):
           'TypeOfActionName', 'Description', 
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
-          'manual_sort', 'PriorityColor', 'ProjectName', 
-          'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' )
+          'manual_sort', 'ProjectName', 'TaskTypeId',
+          'Priority', 'CreatedByUser',  'EffortsId' )
 
 
 class DepthTaskSerializer(serializers.ModelSerializer):
@@ -54,8 +54,8 @@ class DepthTaskSerializer(serializers.ModelSerializer):
           'TypeOfActionName', 'Description', 
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
-          'manual_sort', 'PriorityColor', 'ProjectName', 
-          'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' ]
+          'manual_sort', 'ProjectName', 'TaskTypeId',
+          'Priority', 'CreatedByUser',  'EffortsId' ]
 
 
 class ControlSerializer(serializers.ModelSerializer):
@@ -69,8 +69,8 @@ class ControlSerializer(serializers.ModelSerializer):
           'TypeOfActionName', 'Description', 
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
-          'manual_sort', 'PriorityColor', 'ProjectName', 
-          'Priority', 'CreatedByUser', 'TaskTypeId', 'EffortsId' ]
+          'manual_sort',  'ProjectName', 'TaskTypeId',
+          'Priority', 'CreatedByUser',  'EffortsId' ]
 
 
 class PersonFIOSerializer(serializers.ModelSerializer):    

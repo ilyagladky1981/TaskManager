@@ -64,7 +64,7 @@ class ListOptions extends Component {
             this.props.options.map((item, idx) =>
               <option value={item[this.props.objName]} 
                       dataid={item.id}
-                      key={idx} />
+                      key={idx} >item[this.props.objName]</option>
             )
           }</datalist>
         </div>
