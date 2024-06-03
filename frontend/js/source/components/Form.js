@@ -149,9 +149,7 @@ Form.propTypes = {
   // peopleAPIData: PropTypes.arrayOf(
   //   PropTypes.object
   // ),
-  optionsAPIData: PropTypes.arrayOf(
-    PropTypes.object
-  ),
+  optionsAPIData: PropTypes.object,
 };
 
 export default Form

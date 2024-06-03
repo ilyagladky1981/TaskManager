@@ -90,9 +90,8 @@ var FormInput = function (_Component) {
               return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
                 listid: this.props.fieldid,
                 API_URL: this.props.API_URL,
-                objName: this.props.objName
-                // options={this.props.peopleAPIData}
-                , options: this.props.optionsAPIData[this.props.fieldid]
+                objName: this.props.objName,
+                options: this.props.optionsAPIData[this.props.fieldid]
               }));
             } else {
               // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
@@ -121,7 +120,7 @@ FormInput.propTypes = {
   // peopleAPIData: PropTypes.arrayOf(
   //   PropTypes.object
   // ),
-  optionsAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  optionsAPIData: _propTypes2.default.object,
   ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'listcheckboxes'])
 };
 

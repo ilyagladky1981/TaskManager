@@ -80,7 +80,9 @@ ListOptions.propTypes = {
   listid : PropTypes.string,
   API_URL: PropTypes.string,
   objName: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.string),
+  options: PropTypes.arrayOf(
+               PropTypes.object
+            ),
 };
 
 export default ListOptions

@@ -22,6 +22,7 @@ from .models import PriorityInfo
 from .models import OfficeCalendar
 from .models import OfficeHours
 from .models import TimeInterval
+from .models import PriorityColor
 
 
 class CompanyResource(resources.ModelResource):
@@ -30,6 +31,13 @@ class CompanyResource(resources.ModelResource):
 
 class CompanyAdmin(ImportExportModelAdmin):
     resource_classes = [CompanyResource]
+
+class PriorityColorResource(resources.ModelResource):
+    class Meta:
+        model = PriorityColor
+
+class PriorityColorAdmin(ImportExportModelAdmin):
+    resource_classes = [PriorityColorResource]
 
 
 class TimeIntervalResource(resources.ModelResource):
@@ -166,5 +174,6 @@ admin.site.register(CategorySet, CategorySetAdmin)
 admin.site.register(OfficeHours, OfficeHoursAdmin)
 admin.site.register(OfficeCalendar)
 admin.site.register(TimeInterval, TimeIntervalAdmin)
+admin.site.register(PriorityColor, PriorityColorAdmin)
 
 
