@@ -321,7 +321,7 @@ export default [
     ObjectInputType: 'input',
     show: false,
     editable: true,
-    addnew: true,
+    addnew: false,
     autoFilling: false,
     sample: '',
   },

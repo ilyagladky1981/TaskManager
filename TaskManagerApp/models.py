@@ -1,3 +1,4 @@
+from colorfield.fields import ColorField
 from django.db import models
 from datetime import date
 from django.contrib import admin
@@ -82,10 +83,11 @@ class Situation(models.Model):
 
 
 class PriorityColor(models.Model):
-    color = models.PositiveIntegerField(null=True, blank=True)
+    color = ColorField(default='#FF0000')
+    priority = models.PositiveIntegerField(null=True, blank=True)
     
     def __str__(self):
-        return f"PriorityColor.id={self.id}_{self.color}_{self.color}"
+        return f"PriorityColor.id={self.id}_color={self.color}_priority={self.priority}"
 
 
 class Person(models.Model):

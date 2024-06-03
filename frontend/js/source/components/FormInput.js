@@ -62,7 +62,6 @@ class FormInput extends Component {
                       listid={this.props.fieldid} 
                       API_URL={this.props.API_URL} 
                       objName={this.props.objName}
-                      // options={this.props.peopleAPIData}
                       options={this.props.optionsAPIData[this.props.fieldid]}
                       />;
         } else {
@@ -88,12 +87,10 @@ FormInput.propTypes = {
   // peopleAPIData: PropTypes.arrayOf(
   //   PropTypes.object
   // ),
-  optionsAPIData: PropTypes.arrayOf(
-    PropTypes.object
-  ),
+  optionsAPIData: PropTypes.object,
   ObjectInputType: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
-                      'input', 'ListOptions', 'datetime', 
-                      'listcheckboxes']),
+                          'input', 'ListOptions', 'datetime', 
+                          'ListCheckboxes', 'ColorList']),
 };
 
 export default FormInput

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from ..models import Task, ServiceSet, Service, CategorySet
 from ..models import Person, Situation, ITTaskType
-
+from ..models import PriorityColor
 
 
 class CategorySetSerializer(serializers.ModelSerializer):
@@ -116,7 +116,14 @@ class ITTaskTypeSerializer(serializers.ModelSerializer):
             ]
 
 
-
+class PriorityColorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PriorityColor
+        fields = [
+            'id',
+            'color',
+            'priority'
+            ]
 
 
 

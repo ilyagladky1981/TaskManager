@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
 from ..models import Task, ServiceSet, Person
 from ..models import ResultOfTask, Situation, ITTaskType
+from ..models import PriorityColor
 from django.db.models import Q
 
 from rest_framework.response import Response
@@ -18,6 +19,7 @@ from .serializers import ServiceSetSerializer, CategorySetSerializer
 from .serializers import PersonFIOSerializer
 from .serializers import SituationSerializer
 from .serializers import ITTaskTypeSerializer
+from .serializers import PriorityColorSerializer
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 import json
@@ -154,8 +156,8 @@ def get_ittasktypename(request, CompanyId, UserId):
 @api_view(['GET'])
 def get_prioritycolor(request, CompanyId, UserId):
     if request.method == 'GET':
-        people = Person.objects.all()
-        serializer = PersonFIOSerializer(people, many=True)
+        priorityColors = PriorityColor.objects.all()
+        serializer = PriorityColorSerializer(priorityColors, many=True)
         return Response(serializer.data)
 
 @api_view(['GET'])
