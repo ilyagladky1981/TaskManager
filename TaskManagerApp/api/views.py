@@ -161,10 +161,10 @@ def get_prioritycolor(request, CompanyId, UserId):
         return Response(serializer.data)
 
 @api_view(['GET'])
-def get_person_fio_api4(request, CompanyId, UserId):
+def get_projectname(request, CompanyId, UserId):
     if request.method == 'GET':
-        people = Person.objects.all()
-        serializer = PersonFIOSerializer(people, many=True)
+        tasks = Task.objects.all()
+        serializer = TaskNamesSerializer(tasks, many=True)
         return Response(serializer.data)
 
 
