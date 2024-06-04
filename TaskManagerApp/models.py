@@ -4,6 +4,7 @@ from datetime import date
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.utils import timezone
+# from stringfield import StringField
 
 
 
@@ -72,7 +73,7 @@ class Task(models.Model):
         return super(Task, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f"task.id={self.id}_{self.TaskName[:50]}" 
+        return f"task.id={self.id}_{self.TaskName}" 
 
 
 class Situation(models.Model):
