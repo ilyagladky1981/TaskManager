@@ -35774,7 +35774,7 @@ var Form = function (_Component) {
                 prefilled = JSON.parse(JSON.stringify(value));
               }*/
               if (!_this3.props.readonly) {
-                if (field.editable) {
+                if (field.addnew) {
                   return _react2.default.createElement(
                     'tr',
                     { className: 'FormRowShowField', key: field.id },
@@ -35797,7 +35797,7 @@ var Form = function (_Component) {
                         fieldid: field.id,
                         ObjectInputType: field.ObjectInputType,
                         API_URL: _this3.props.API_URL,
-                        objName: field.objName
+                        objName: field.optionListObjName
                         // peopleAPIData={this.props.peopleAPIData}
                         , optionsAPIData: _this3.props.optionsAPIData
                       }))
@@ -36010,7 +36010,7 @@ FormInput.propTypes = {
   //   PropTypes.object
   // ),
   optionsAPIData: _propTypes2.default.object,
-  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'listcheckboxes'])
+  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes', 'ColorList'])
 };
 
 exports.default = FormInput;
@@ -36129,7 +36129,7 @@ ListOptions.propTypes = {
   listid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  options: _propTypes2.default.object
+  options: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = ListOptions;
@@ -36610,7 +36610,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _ref, _ref2;
+var _ref;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -36619,7 +36619,7 @@ exports.default = [{
   id: 'id',
   label: '#',
   pathJSON: 'id',
-  objName: 'id',
+  optionListObjName: 'id',
   show: false,
   editable: false,
   autoFilling: false,
@@ -36631,7 +36631,7 @@ exports.default = [{
   id: 'CompanyName',
   label: 'Компания',
   pathJSON: 'CompanyId.ShortName',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36642,7 +36642,7 @@ exports.default = [{
   id: 'TaskId',
   label: 'TaskId',
   pathJSON: 'TaskId',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36655,7 +36655,7 @@ exports.default = [{
   id: 'TaskName',
   label: 'Название',
   pathJSON: 'TaskName',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'text',
   ObjectInputType: 'text',
   show: true,
@@ -36668,7 +36668,7 @@ exports.default = [{
   id: 'DateRegistration',
   label: 'DateRegistration',
   pathJSON: 'DateRegistration',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36680,7 +36680,7 @@ exports.default = [{
   id: 'SituationType',
   label: 'Ситуация',
   pathJSON: 'SituationType.SituationType',
-  objName: 'SituationType',
+  optionListObjName: 'SituationType',
   type: 'input',
   ObjectInputType: 'ListOptions',
   show: false,
@@ -36692,7 +36692,7 @@ exports.default = [{
   id: 'ServiceName',
   label: 'Сервис',
   pathJSON: 'ServiceName.[].ServiceName',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36700,16 +36700,24 @@ exports.default = [{
   addnew: true,
   autoFilling: false,
   sample: ''
-}, (_ref = {
+}, {
   id: 'PersonFullNameId',
   label: 'ФИО заказчика',
   pathJSON: 'PersonFullNameId.PersonFullName',
-  objName: 'id'
-}, _defineProperty(_ref, 'objName', 'PersonFullName'), _defineProperty(_ref, 'type', 'input'), _defineProperty(_ref, 'ObjectInputType', 'ListOptions'), _defineProperty(_ref, 'show', true), _defineProperty(_ref, 'editable', true), _defineProperty(_ref, 'addnew', true), _defineProperty(_ref, 'autoFilling', false), _defineProperty(_ref, 'sample', 'Денисов Николай Валерьевич'), _defineProperty(_ref, 'dataURL', "people/"), _ref), {
+  optionListObjName: 'PersonFullName',
+  type: 'input',
+  ObjectInputType: 'ListOptions',
+  show: true,
+  editable: true,
+  addnew: true,
+  autoFilling: false,
+  sample: 'Денисов Николай Валерьевич',
+  dataURL: "people/"
+}, {
   id: 'ITTaskTypeName',
   label: 'ITTaskTypeName',
   pathJSON: 'ITTaskTypeName.ITTaskTypeName',
-  objName: 'ITTaskTypeName',
+  optionListObjName: 'ITTaskTypeName',
   type: 'input',
   ObjectInputType: 'ListOptions',
   show: false,
@@ -36721,7 +36729,7 @@ exports.default = [{
   id: 'TypeOfActionName',
   label: 'TypeOfActionName',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36733,7 +36741,7 @@ exports.default = [{
   id: 'Description',
   label: 'Description',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'text',
   ObjectInputType: 'text',
   show: false,
@@ -36741,33 +36749,33 @@ exports.default = [{
   addnew: true,
   autoFilling: false,
   sample: ''
-}, (_ref2 = {
+}, (_ref = {
   id: 'CategoryOfTaskName',
   label: 'CategoryOfTaskName',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
   editable: true,
   addnew: true
-}, _defineProperty(_ref2, 'addnew', true), _defineProperty(_ref2, 'autoFilling', false), _defineProperty(_ref2, 'sample', ''), _ref2), {
+}, _defineProperty(_ref, 'addnew', true), _defineProperty(_ref, 'autoFilling', false), _defineProperty(_ref, 'sample', ''), _ref), {
   id: 'ResultOfTaskName',
   label: 'ResultOfTaskName',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
   editable: true,
-  addnew: true,
+  addnew: false,
   autoFilling: false,
   sample: ''
 }, {
   id: 'DateOfDone',
   label: 'DateOfDone',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36779,7 +36787,7 @@ exports.default = [{
   id: 'Comments',
   label: 'Comments',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'text',
   ObjectInputType: 'text',
   show: true,
@@ -36791,7 +36799,7 @@ exports.default = [{
   id: 'manual_selection',
   label: 'manual_selection',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36803,7 +36811,7 @@ exports.default = [{
   id: 'manual_sort',
   label: 'manual_sort',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36815,7 +36823,7 @@ exports.default = [{
   id: 'PriorityColor',
   label: 'PriorityColor',
   pathJSON: 'PriorityColor.color',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'ColorList',
   show: true,
@@ -36826,10 +36834,10 @@ exports.default = [{
 }, {
   id: 'ProjectName',
   label: 'ProjectName',
-  pathJSON: '',
-  objName: 'id',
+  pathJSON: 'ProjectName.id',
+  optionListObjName: 'fullTaskName',
   type: 'input',
-  ObjectInputType: 'input',
+  ObjectInputType: 'ListOptions',
   show: false,
   editable: true,
   addnew: true,
@@ -36839,7 +36847,7 @@ exports.default = [{
   id: 'Priority',
   label: 'Priority',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36851,7 +36859,19 @@ exports.default = [{
   id: 'Author',
   label: 'Author',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
+  type: 'input',
+  ObjectInputType: 'input',
+  show: false,
+  editable: false,
+  addnew: false,
+  autoFilling: false,
+  sample: ''
+}, {
+  id: 'StoryPoint',
+  label: 'StoryPoint',
+  pathJSON: 'StoryPoint.StoryPoint',
+  optionListObjName: 'StoryPoint',
   type: 'input',
   ObjectInputType: 'input',
   show: false,
@@ -36860,22 +36880,10 @@ exports.default = [{
   autoFilling: false,
   sample: ''
 }, {
-  id: 'StoryPoint',
-  label: 'StoryPoint',
-  pathJSON: 'StoryPoint.StoryPoint',
-  objName: 'StoryPoint',
-  type: 'input',
-  ObjectInputType: 'input',
-  show: false,
-  editable: true,
-  addnew: true,
-  autoFilling: false,
-  sample: ''
-}, {
   id: 'EffortsId',
   label: 'EffortsId',
   pathJSON: '',
-  objName: 'id',
+  optionListObjName: 'id',
   type: 'input',
   ObjectInputType: 'input',
   show: false,

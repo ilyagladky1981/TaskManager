@@ -35228,7 +35228,7 @@ var Form = function (_Component) {
                 prefilled = JSON.parse(JSON.stringify(value));
               }*/
               if (!_this3.props.readonly) {
-                if (field.editable) {
+                if (field.addnew) {
                   return _react2.default.createElement(
                     'tr',
                     { className: 'FormRowShowField', key: field.id },
@@ -35251,7 +35251,7 @@ var Form = function (_Component) {
                         fieldid: field.id,
                         ObjectInputType: field.ObjectInputType,
                         API_URL: _this3.props.API_URL,
-                        objName: field.objName
+                        objName: field.optionListObjName
                         // peopleAPIData={this.props.peopleAPIData}
                         , optionsAPIData: _this3.props.optionsAPIData
                       }))
@@ -35464,7 +35464,7 @@ FormInput.propTypes = {
   //   PropTypes.object
   // ),
   optionsAPIData: _propTypes2.default.object,
-  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'listcheckboxes'])
+  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes', 'ColorList'])
 };
 
 exports.default = FormInput;
@@ -35583,7 +35583,7 @@ ListOptions.propTypes = {
   listid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  options: _propTypes2.default.object
+  options: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = ListOptions;

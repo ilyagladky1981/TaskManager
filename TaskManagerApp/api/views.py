@@ -20,6 +20,8 @@ from .serializers import PersonFIOSerializer
 from .serializers import SituationSerializer
 from .serializers import ITTaskTypeSerializer
 from .serializers import PriorityColorSerializer
+# from .serializers import TaskShortInfoSerializer
+from .serializers import TaskNameSerializer
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 import json
@@ -164,15 +166,20 @@ def get_prioritycolor(request, CompanyId, UserId):
 def get_projectname(request, CompanyId, UserId):
     if request.method == 'GET':
         tasks = Task.objects.all()
-        serializer = TaskNamesSerializer(tasks, many=True)
+        serializer = TaskNameSerializer(tasks, many=True)
         return Response(serializer.data)
 
 
 @api_view(['GET'])
 def get_person_fio_api5(request, CompanyId, UserId):
     if request.method == 'GET':
-        people = Person.objects.all()
-        serializer = PersonFIOSerializer(people, many=True)
+        tasks = Task.objects.all()
+        serializer = TaskShortInfoSerializer(tasks, many=True)
+        # print('serializer')
+        # print(serializer)
+        # fullnameserializer = TaskNameSerializer(serializer, many=True)
+        # print('fullnameserializer')
+        # print(fullnameserializer)
         return Response(serializer.data)
 
 
