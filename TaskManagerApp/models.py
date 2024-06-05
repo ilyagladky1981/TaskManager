@@ -4,7 +4,11 @@ from datetime import date
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.utils import timezone
-# from stringfield import StringField
+
+
+
+
+
 
 
 
@@ -64,14 +68,14 @@ class Task(models.Model):
     StoryPoint = models.ForeignKey('StoryPoint', on_delete=models.CASCADE, null=True, blank=True)
     # TaskTypeId = models.ForeignKey('TaskType', on_delete=models.CASCADE, null=True, blank=True)
     EffortsId = models.ManyToManyField('TimeInterval', through='EffortsStats')
-
     
     def save(self, *args, **kwargs):
         if not self.id:
             self.DateRegistration = timezone.now()
         self.modified = timezone.now()
         return super(Task, self).save(*args, **kwargs)
-
+    
+    
     def __str__(self):
         return f"task.id={self.id}_{self.TaskName}" 
 

@@ -130,7 +130,7 @@ var Form = function (_Component) {
                 prefilled = JSON.parse(JSON.stringify(value));
               }*/
               if (!_this3.props.readonly) {
-                if (field.editable) {
+                if (field.addnew) {
                   return _react2.default.createElement(
                     'tr',
                     { className: 'FormRowShowField', key: field.id },
@@ -153,7 +153,7 @@ var Form = function (_Component) {
                         fieldid: field.id,
                         ObjectInputType: field.ObjectInputType,
                         API_URL: _this3.props.API_URL,
-                        objName: field.objName
+                        objName: field.optionListObjName
                         // peopleAPIData={this.props.peopleAPIData}
                         , optionsAPIData: _this3.props.optionsAPIData
                       }))

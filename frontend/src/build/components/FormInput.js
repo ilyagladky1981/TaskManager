@@ -121,7 +121,7 @@ FormInput.propTypes = {
   //   PropTypes.object
   // ),
   optionsAPIData: _propTypes2.default.object,
-  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'listcheckboxes'])
+  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes', 'ColorList'])
 };
 
 exports.default = FormInput;

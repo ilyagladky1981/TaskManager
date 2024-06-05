@@ -85,7 +85,7 @@ class Form extends Component {
           prefilled = JSON.parse(JSON.stringify(value));
         }*/
         if (!this.props.readonly) {
-          if (field.editable) {
+          if (field.addnew) {
             return (
               <tr className="FormRowShowField" key={field.id}>
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
@@ -95,7 +95,7 @@ class Form extends Component {
                                                 fieldid={field.id}
                                                 ObjectInputType={field.ObjectInputType}
                                                 API_URL={this.props.API_URL}
-                                                objName={field.objName}
+                                                objName={field.optionListObjName}
                                                 // peopleAPIData={this.props.peopleAPIData}
                                                 optionsAPIData={this.props.optionsAPIData}
                                                 /></td>

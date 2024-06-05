@@ -64,10 +64,11 @@ class App2 extends Component {
       const responseAPIData = await response.json();
       
       const urlDict = {
-        'PersonFullNameId': 'people',
-        'SituationType': 'situations',
-        'ITTaskTypeName': 'ittasktypename',
-        'PriorityColor': 'prioritycolor'
+        'PersonFullNameId':  'people',
+        'SituationType'   :  'situations',
+        'ITTaskTypeName'  :  'ittasktypename',
+        'PriorityColor'   :  'prioritycolor',
+        'ProjectName'     :  'projectname'
       }
       // const peopleResp = await fetch(`${API_URL}people/1/1/`);
       // const peopleAPIres = await peopleResp.json();
@@ -80,6 +81,7 @@ class App2 extends Component {
         optionsData[url] = structuredClone(urlAPIres);
       }
 
+      optionsData['ProjectName'].append({"id":-1,"ProjectName":"Эта задача"})
       // console.log(`App2 refreshList typeof peopleAPIres = ${typeof peopleAPIres}`);
       console.log(`App2 refreshList optionsData = `);
       console.log(optionsData);
@@ -90,7 +92,7 @@ class App2 extends Component {
       // console.log(peopleData);
       
       
-
+      
       let preparedAPIData = [];
       let inputDict = {};
       let inputLen = responseAPIData.length;
@@ -137,7 +139,7 @@ class App2 extends Component {
           inputDict.ServiceName = '';
         }
 
-        inputDict.PersonFullNameId = responseAPIData[elemNumber]['PersonFullNameId']['PersonFullName'];
+        inputDict.PersonFullNameId = responseAPIData[elemNumber]['PersonFullName'];
         inputDict.ITTaskTypeName = responseAPIData[elemNumber]['ITTaskTypeName']['ITTaskTypeName'];
         inputDict.TypeOfActionName = responseAPIData[elemNumber]['TypeOfActionName']['TypeOfActionName'];
         inputDict.Description = responseAPIData[elemNumber]['Description'];
