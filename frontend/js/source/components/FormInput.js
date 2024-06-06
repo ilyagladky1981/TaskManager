@@ -24,9 +24,9 @@ class FormInput extends Component {
       ref: 'input',
       defaultValue: this.props.defaultValue,
     };
-    // console.log("FormInput - render - this.props.ObjectInputType =");
-    // console.log(this.props.ObjectInputType);
-    switch (this.props.ObjectInputType) {
+    // console.log("FormInput - render - this.props.objectInputType =");
+    // console.log(this.props.objectInputType);
+    switch (this.props.objectInputType) {
       case 'year':
         return (
           <input
@@ -88,7 +88,7 @@ FormInput.propTypes = {
   //   PropTypes.object
   // ),
   optionsAPIData: PropTypes.object,
-  ObjectInputType: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
+  objectInputType: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
                           'input', 'ListOptions', 'datetime', 
                           'ListCheckboxes', 'ColorList']),
 };

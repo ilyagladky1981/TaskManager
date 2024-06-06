@@ -93,7 +93,7 @@ class Form extends Component {
                                                 ref={field.id} 
                                                 defaultValue={prefilled} 
                                                 fieldid={field.id}
-                                                ObjectInputType={field.ObjectInputType}
+                                                objectInputType={field.objectInputType}
                                                 API_URL={this.props.API_URL}
                                                 objName={field.optionListObjName}
                                                 // peopleAPIData={this.props.peopleAPIData}

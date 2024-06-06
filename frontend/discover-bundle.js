@@ -35249,7 +35249,7 @@ var Form = function (_Component) {
                         ref: field.id,
                         defaultValue: prefilled,
                         fieldid: field.id,
-                        ObjectInputType: field.ObjectInputType,
+                        objectInputType: field.objectInputType,
                         API_URL: _this3.props.API_URL,
                         objName: field.optionListObjName
                         // peopleAPIData={this.props.peopleAPIData}
@@ -35405,9 +35405,9 @@ var FormInput = function (_Component) {
         ref: 'input',
         defaultValue: this.props.defaultValue
       };
-      // console.log("FormInput - render - this.props.ObjectInputType =");
-      // console.log(this.props.ObjectInputType);
-      switch (this.props.ObjectInputType) {
+      // console.log("FormInput - render - this.props.objectInputType =");
+      // console.log(this.props.objectInputType);
+      switch (this.props.objectInputType) {
         case 'year':
           return _react2.default.createElement('input', _extends({}, common, {
             type: 'number',
@@ -35464,7 +35464,7 @@ FormInput.propTypes = {
   //   PropTypes.object
   // ),
   optionsAPIData: _propTypes2.default.object,
-  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes', 'ColorList'])
+  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes', 'ColorList'])
 };
 
 exports.default = FormInput;
