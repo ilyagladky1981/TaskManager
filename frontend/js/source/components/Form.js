@@ -89,25 +89,27 @@ class Form extends Component {
             return (
               <tr className="FormRowShowField" key={field.id}>
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
-                <td className="FormTableData"><FormInput {...field} 
-                                                ref={field.id} 
-                                                defaultValue={prefilled} 
-                                                fieldid={field.id}
-                                                objectInputType={field.objectInputType}
-                                                API_URL={this.props.API_URL}
-                                                objName={field.optionListObjName}
-                                                // peopleAPIData={this.props.peopleAPIData}
-                                                optionsAPIData={this.props.optionsAPIData}
-                                                /></td>
+                <td className="FormTableData">
+                  <FormInput {...field} 
+                    ref={field.id}
+                    defaultValue={prefilled}
+                    fieldid={field.id}
+                    objectInputType={field.objectInputType}
+                    API_URL={this.props.API_URL}
+                    objName={field.optionListObjName}
+                    // peopleAPIData={this.props.peopleAPIData}
+                    optionsAPIData={this.props.optionsAPIData}
+                  /></td>
               </tr>
             );
           } else {
             return (
               <tr className="FormRowHideField" key={field.id}>
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
-                <td className="FormTableData"><FormInput {...field} 
-                                                ref={field.id} 
-                                                defaultValue={prefilled}/></td>
+                <td className="FormTableData">
+                  <FormInput {...field} 
+                    ref={field.id}
+                    defaultValue={prefilled}/></td>
               </tr>
             );
           }

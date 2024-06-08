@@ -14,6 +14,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _Button = require('./Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32,7 +36,7 @@ var ListCheckboxes = function (_Component) {
 
     _this.state = {
       value: props.defaultValue,
-      dataid: 0
+      datalist: []
     };
     return _this;
   }
@@ -40,7 +44,7 @@ var ListCheckboxes = function (_Component) {
   _createClass(ListCheckboxes, [{
     key: 'getValue',
     value: function getValue() {
-      return this.state.dataid;
+      return this.state.datalist;
     }
   }, {
     key: 'render',
@@ -85,7 +89,7 @@ var ListCheckboxes = function (_Component) {
             list: "options" + this.props.listid,
             defaultValue: this.props.defaultValue,
             onChange: function onChange(e) {
-              return _this2.setState({ value: e.target.value, dataid: e.target.dataid });
+              return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
             },
             id: this.props.id }),
           _react2.default.createElement(
@@ -96,6 +100,16 @@ var ListCheckboxes = function (_Component) {
                 dataid: item.id,
                 key: idx });
             })
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: this._addNewDialog.bind(this) },
+            '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: activateLasers },
+            'Activate Lasers'
           )
         );
       }

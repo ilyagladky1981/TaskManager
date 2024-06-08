@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import Button from './Button';
 
 
 class ListCheckboxes extends Component {
@@ -8,12 +9,12 @@ class ListCheckboxes extends Component {
     super(props);
     this.state = {
       value: props.defaultValue,
-      dataid: 0,
+      datalist: [],
     };
   }
   
   getValue() {
-    return this.state.dataid;
+    return this.state.datalist;
   }
 
   
@@ -57,7 +58,7 @@ class ListCheckboxes extends Component {
           <input
             list={"options" + this.props.listid}
             defaultValue={this.props.defaultValue}
-            onChange={e => this.setState({ value: e.target.value, dataid: e.target.dataid})}
+            onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid})}
             id={this.props.id} />
           <datalist id={"options" + this.props.listid}>{
             this.props.options.map((item, idx) =>
@@ -65,7 +66,13 @@ class ListCheckboxes extends Component {
                       dataid={item.id}  
                       key={idx} />
             )
-          }</datalist>
+          }</datalist>   
+          <button onClick={this._addNewDialog.bind(this)}>
+            Добавить задачу
+          </button>
+          <button onClick={activateLasers}>
+            Activate Lasers
+          </button>
         </div>
       );
     }

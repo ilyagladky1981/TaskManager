@@ -22,25 +22,25 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ListOptions = function (_Component) {
-  _inherits(ListOptions, _Component);
+var InputFieldWithCheckBoxes = function (_Component) {
+  _inherits(InputFieldWithCheckBoxes, _Component);
 
-  function ListOptions(props) {
-    _classCallCheck(this, ListOptions);
+  function InputFieldWithCheckBoxes(props) {
+    _classCallCheck(this, InputFieldWithCheckBoxes);
 
-    var _this = _possibleConstructorReturn(this, (ListOptions.__proto__ || Object.getPrototypeOf(ListOptions)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (InputFieldWithCheckBoxes.__proto__ || Object.getPrototypeOf(InputFieldWithCheckBoxes)).call(this, props));
 
     _this.state = {
       value: props.defaultValue,
-      dataid: 0
+      datalist: []
     };
     return _this;
   }
 
-  _createClass(ListOptions, [{
+  _createClass(InputFieldWithCheckBoxes, [{
     key: 'getValue',
     value: function getValue() {
-      return this.state.dataid;
+      return this.state.datalist;
     }
   }, {
     key: 'render',
@@ -85,7 +85,7 @@ var ListOptions = function (_Component) {
             list: "options" + this.props.listid,
             defaultValue: this.props.defaultValue,
             onChange: function onChange(e) {
-              return _this2.setState({ value: e.target.value, dataid: e.target.dataid });
+              return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
             },
             id: this.props.id }),
           _react2.default.createElement(
@@ -96,16 +96,21 @@ var ListOptions = function (_Component) {
                 dataid: item.id,
                 key: idx });
             })
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: this._addNewDialog.bind(this) },
+            '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
           )
         );
       }
     }
   }]);
 
-  return ListOptions;
+  return InputFieldWithCheckBoxes;
 }(_react.Component);
 
-ListOptions.propTypes = {
+InputFieldWithCheckBoxes.propTypes = {
   id: _propTypes2.default.string,
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
@@ -114,4 +119,4 @@ ListOptions.propTypes = {
   options: _propTypes2.default.arrayOf(_propTypes2.default.string)
 };
 
-exports.default = ListOptions;
+exports.default = ListCheckboxes;

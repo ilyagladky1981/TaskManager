@@ -50,6 +50,24 @@ class FormInput extends Component {
         );
       case 'text':
         return <textarea {...common} />;
+      case 'InputFieldWithCheckBoxes': {
+        // console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
+        // console.log(this.props.fieldid);
+        if ((typeof this.props.fieldid !== "undefined") &
+          (this.props.objName !== "id")) {
+          // console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
+          // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
+          // console.log(this.props.fieldid + "=== undefined");
+          return <InputFieldWithCheckBoxes {...common}
+            listid={this.props.fieldid}
+            objName={this.props.objName}
+            options={this.props.optionsAPIData[this.props.fieldid]}
+          />;
+        } else {
+          // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
+          return <input {...common} type="text" />
+        }
+      }; 
       case 'ListOptions': {
         // console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
         // console.log(this.props.fieldid);
@@ -60,7 +78,6 @@ class FormInput extends Component {
             // console.log(this.props.fieldid + "=== undefined");
             return <ListOptions {...common} 
                       listid={this.props.fieldid} 
-                      API_URL={this.props.API_URL} 
                       objName={this.props.objName}
                       options={this.props.optionsAPIData[this.props.fieldid]}
                       />;
@@ -90,7 +107,7 @@ FormInput.propTypes = {
   optionsAPIData: PropTypes.object,
   objectInputType: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
                           'input', 'ListOptions', 'datetime', 
-                          'ListCheckboxes', 'ColorList']),
+                          'InputFieldWithCheckBoxes', 'ColorList']),
 };
 
 export default FormInput

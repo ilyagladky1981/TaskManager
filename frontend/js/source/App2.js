@@ -68,7 +68,8 @@ class App2 extends Component {
         'SituationType'   :  'situations',
         'ITTaskTypeName'  :  'ittasktypename',
         'PriorityColor'   :  'prioritycolor',
-        'ProjectName'     :  'projectname'
+        'ProjectName'     :  'projectname',
+        'ServiceName'     :  'services'
       }
       // const peopleResp = await fetch(`${API_URL}people/1/1/`);
       // const peopleAPIres = await peopleResp.json();

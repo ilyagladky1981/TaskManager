@@ -2,18 +2,18 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 
-class ListOptions extends Component {
+class InputFieldWithCheckBoxes extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
       value: props.defaultValue,
-      dataid: 0,
+      datalist: [],
     };
   }
   
   getValue() {
-    return this.state.dataid;
+    return this.state.datalist;
   }
 
   
@@ -48,7 +48,6 @@ class ListOptions extends Component {
               id={this.props.id} />
         )
     } else {
-      // console.log("ListOptions - render - listid = " + this.props.listid);
       // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
       // console.log(this.props.options);
       // console.log("typeof this.props.options");
@@ -58,15 +57,11 @@ class ListOptions extends Component {
           <input
             list={"options" + this.props.listid}
             defaultValue={this.props.defaultValue}
-            onChange={e => this.setState({ value: e.target.value, dataid: e.target.dataid})}
+            onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid})}
             id={this.props.id} />
-          <datalist id={"options" + this.props.listid}>{
-            this.props.options.map((item, idx) =>
-              <option value={item[this.props.objName]} 
-                      dataid={item.id}
-                      key={idx} ></option>
-            )
-          }</datalist>
+          <button onClick={this._addNewDialog.bind(this)}>
+            Выбрать
+          </button>
         </div>
       );
     }
@@ -74,16 +69,14 @@ class ListOptions extends Component {
   }
 }
 
-ListOptions.propTypes = {
+InputFieldWithCheckBoxes.propTypes = {
   id: PropTypes.string,
   defaultValue: PropTypes.string,
   listid : PropTypes.string,
   objName: PropTypes.string,
-  options: PropTypes.arrayOf(
-               PropTypes.object
-            ),
+  options: PropTypes.arrayOf(PropTypes.string),
 };
 
-export default ListOptions
+export default InputFieldWithCheckBoxes
 
 

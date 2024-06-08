@@ -35968,6 +35968,25 @@ var FormInput = function (_Component) {
             defaultValue: parseInt(this.props.defaultValue, 10) }));
         case 'text':
           return _react2.default.createElement('textarea', common);
+        case 'InputFieldWithCheckBoxes':
+          {
+            // console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
+            // console.log(this.props.fieldid);
+            if (typeof this.props.fieldid !== "undefined" & this.props.objName !== "id") {
+              // console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
+              // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
+              // console.log(this.props.fieldid + "=== undefined");
+              return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
+                listid: this.props.fieldid,
+                API_URL: this.props.API_URL,
+                objName: this.props.objName,
+                options: this.props.optionsAPIData[this.props.fieldid]
+              }));
+            } else {
+              // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
+              return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+            }
+          };
         case 'ListOptions':
           {
             // console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
@@ -36010,7 +36029,7 @@ FormInput.propTypes = {
   //   PropTypes.object
   // ),
   optionsAPIData: _propTypes2.default.object,
-  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes', 'ColorList'])
+  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList'])
 };
 
 exports.default = FormInput;
