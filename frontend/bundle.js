@@ -35795,7 +35795,7 @@ var Form = function (_Component) {
                         ref: field.id,
                         defaultValue: prefilled,
                         fieldid: field.id,
-                        ObjectInputType: field.ObjectInputType,
+                        objectInputType: field.objectInputType,
                         API_URL: _this3.props.API_URL,
                         objName: field.optionListObjName
                         // peopleAPIData={this.props.peopleAPIData}
@@ -35951,9 +35951,9 @@ var FormInput = function (_Component) {
         ref: 'input',
         defaultValue: this.props.defaultValue
       };
-      // console.log("FormInput - render - this.props.ObjectInputType =");
-      // console.log(this.props.ObjectInputType);
-      switch (this.props.ObjectInputType) {
+      // console.log("FormInput - render - this.props.objectInputType =");
+      // console.log(this.props.objectInputType);
+      switch (this.props.objectInputType) {
         case 'year':
           return _react2.default.createElement('input', _extends({}, common, {
             type: 'number',
@@ -35968,6 +35968,25 @@ var FormInput = function (_Component) {
             defaultValue: parseInt(this.props.defaultValue, 10) }));
         case 'text':
           return _react2.default.createElement('textarea', common);
+        case 'InputFieldWithCheckBoxes':
+          {
+            // console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
+            // console.log(this.props.fieldid);
+            if (typeof this.props.fieldid !== "undefined" & this.props.objName !== "id") {
+              // console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
+              // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
+              // console.log(this.props.fieldid + "=== undefined");
+              return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
+                listid: this.props.fieldid,
+                API_URL: this.props.API_URL,
+                objName: this.props.objName,
+                options: this.props.optionsAPIData[this.props.fieldid]
+              }));
+            } else {
+              // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
+              return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+            }
+          };
         case 'ListOptions':
           {
             // console.log("FormInput - render - case=ListOptions - this.props.fieldid =");
@@ -36010,7 +36029,7 @@ FormInput.propTypes = {
   //   PropTypes.object
   // ),
   optionsAPIData: _propTypes2.default.object,
-  ObjectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'ListCheckboxes', 'ColorList'])
+  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList'])
 };
 
 exports.default = FormInput;
@@ -36624,7 +36643,7 @@ exports.default = [{
   editable: false,
   autoFilling: false,
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   sample: 1425,
   align: 'center'
 }, {
@@ -36633,7 +36652,7 @@ exports.default = [{
   pathJSON: 'CompanyId.ShortName',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: false,
   autoFilling: false,
@@ -36644,7 +36663,7 @@ exports.default = [{
   pathJSON: 'TaskId',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36657,10 +36676,10 @@ exports.default = [{
   pathJSON: 'TaskName',
   optionListObjName: 'id',
   type: 'text',
-  ObjectInputType: 'text',
+  objectInputType: 'text',
   show: true,
   editable: true,
-  addnew: false,
+  addnew: true,
   autoFilling: false,
   sample: '_17 Проект. Подключить Wi-Fi для Денисова Николая и Нечаева Дмитрия.',
   align: 'center'
@@ -36670,7 +36689,7 @@ exports.default = [{
   pathJSON: 'DateRegistration',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36682,7 +36701,7 @@ exports.default = [{
   pathJSON: 'SituationType.SituationType',
   optionListObjName: 'SituationType',
   type: 'input',
-  ObjectInputType: 'ListOptions',
+  objectInputType: 'ListOptions',
   show: false,
   editable: true,
   addnew: true,
@@ -36694,7 +36713,7 @@ exports.default = [{
   pathJSON: 'ServiceName.[].ServiceName',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: true,
   addnew: true,
@@ -36706,7 +36725,7 @@ exports.default = [{
   pathJSON: 'PersonFullNameId.PersonFullName',
   optionListObjName: 'PersonFullName',
   type: 'input',
-  ObjectInputType: 'ListOptions',
+  objectInputType: 'ListOptions',
   show: true,
   editable: true,
   addnew: true,
@@ -36719,7 +36738,7 @@ exports.default = [{
   pathJSON: 'ITTaskTypeName.ITTaskTypeName',
   optionListObjName: 'ITTaskTypeName',
   type: 'input',
-  ObjectInputType: 'ListOptions',
+  objectInputType: 'ListOptions',
   show: false,
   editable: true,
   addnew: true,
@@ -36731,7 +36750,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: true,
   addnew: false,
@@ -36743,7 +36762,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'text',
-  ObjectInputType: 'text',
+  objectInputType: 'text',
   show: false,
   editable: true,
   addnew: true,
@@ -36755,7 +36774,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: true,
   addnew: true
@@ -36765,7 +36784,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: true,
   addnew: false,
@@ -36777,7 +36796,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36789,7 +36808,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'text',
-  ObjectInputType: 'text',
+  objectInputType: 'text',
   show: true,
   editable: true,
   addnew: true,
@@ -36801,7 +36820,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36813,7 +36832,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36825,7 +36844,7 @@ exports.default = [{
   pathJSON: 'PriorityColor.color',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'ColorList',
+  objectInputType: 'ColorList',
   show: true,
   editable: false,
   addnew: false,
@@ -36837,7 +36856,7 @@ exports.default = [{
   pathJSON: 'ProjectName.id',
   optionListObjName: 'fullTaskName',
   type: 'input',
-  ObjectInputType: 'ListOptions',
+  objectInputType: 'ListOptions',
   show: false,
   editable: true,
   addnew: true,
@@ -36849,7 +36868,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36861,7 +36880,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: false,
   addnew: false,
@@ -36873,7 +36892,7 @@ exports.default = [{
   pathJSON: 'StoryPoint.StoryPoint',
   optionListObjName: 'StoryPoint',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: true,
   addnew: false,
@@ -36885,7 +36904,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'id',
   type: 'input',
-  ObjectInputType: 'input',
+  objectInputType: 'input',
   show: false,
   editable: true,
   addnew: false,

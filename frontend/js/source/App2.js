@@ -68,7 +68,8 @@ class App2 extends Component {
         'SituationType'   :  'situations',
         'ITTaskTypeName'  :  'ittasktypename',
         'PriorityColor'   :  'prioritycolor',
-        'ProjectName'     :  'projectname'
+        'ProjectName'     :  'projectname',
+        'ServiceName'     :  'services'
       }
       // const peopleResp = await fetch(`${API_URL}people/1/1/`);
       // const peopleAPIres = await peopleResp.json();
@@ -81,7 +82,7 @@ class App2 extends Component {
         optionsData[url] = structuredClone(urlAPIres);
       }
 
-      optionsData['ProjectName'].append({"id":-1,"ProjectName":"Эта задача"})
+      optionsData['ProjectName'].push({"id":-1,"fullTaskName":"Эта задача"})
       // console.log(`App2 refreshList typeof peopleAPIres = ${typeof peopleAPIres}`);
       console.log(`App2 refreshList optionsData = `);
       console.log(optionsData);
