@@ -153,9 +153,8 @@ var Form = function (_Component) {
                         fieldid: field.id,
                         objectInputType: field.objectInputType,
                         API_URL: _this3.props.API_URL,
-                        objName: field.optionListObjName
-                        // peopleAPIData={this.props.peopleAPIData}
-                        , optionsAPIData: _this3.props.optionsAPIData
+                        objName: field.optionListObjName,
+                        optionsAPIData: _this3.props.optionsAPIData
                       }))
                     )
                   );

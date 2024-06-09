@@ -110,7 +110,6 @@ ListOptions.propTypes = {
   id: _propTypes2.default.string,
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
-  API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
   options: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };

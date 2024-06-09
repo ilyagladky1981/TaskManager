@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
-from ..models import Task, ServiceSet, Person
+from ..models import Task, Person
 from ..models import ResultOfTask, Situation, ITTaskType
+from ..models import ServiceSet, Service 
+from ..models import CategoryOfTask, CategorySet
 from ..models import PriorityColor
 from django.db.models import Q
 
@@ -16,12 +18,15 @@ from django.utils import timezone
 from django.http import JsonResponse
 from .serializers import TaskSerializer, DepthTaskSerializer, ControlSerializer
 from .serializers import ServiceSetSerializer, CategorySetSerializer
+from .serializers import CategoryOfTaskSerializer, ServiceSerializer
 from .serializers import PersonFIOSerializer
 from .serializers import SituationSerializer
 from .serializers import ITTaskTypeSerializer
 from .serializers import PriorityColorSerializer
 # from .serializers import TaskShortInfoSerializer
 from .serializers import TaskNameSerializer
+
+
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 import json
@@ -171,25 +176,25 @@ def get_projectname(request, CompanyId, UserId):
 
 
 @api_view(['GET'])
-def get_person_fio_api5(request, CompanyId, UserId):
+def get_categories(request, CompanyId, UserId):
     if request.method == 'GET':
-        tasks = Task.objects.all()
-        serializer = TaskShortInfoSerializer(tasks, many=True)
-        # print('serializer')
-        # print(serializer)
-        # fullnameserializer = TaskNameSerializer(serializer, many=True)
-        # print('fullnameserializer')
-        # print(fullnameserializer)
+        categories = CategoryOfTask.objects.all()
+        serializer = CategoryOfTaskSerializer(categories, many=True)
         return Response(serializer.data)
 
 
 @api_view(['GET'])
-def get_person_fio_api6(request, CompanyId, UserId):
+def get_services(request, CompanyId, UserId):
     if request.method == 'GET':
-        people = Person.objects.all()
-        serializer = PersonFIOSerializer(people, many=True)
+        service = Service.objects.all()
+        serializer = ServiceSerializer(service, many=True)
         return Response(serializer.data)
 
+
+# ServiceSet, Service 
+# CategoryOfTask, CategorySet
+# ServiceSetSerializer, CategorySetSerializer
+# CategoryOfTaskSerializer, ServiceSerializer
 
 @api_view(['GET'])
 def get_person_fio_api7(request, CompanyId, UserId):

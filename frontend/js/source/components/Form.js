@@ -97,7 +97,6 @@ class Form extends Component {
                     objectInputType={field.objectInputType}
                     API_URL={this.props.API_URL}
                     objName={field.optionListObjName}
-                    // peopleAPIData={this.props.peopleAPIData}
                     optionsAPIData={this.props.optionsAPIData}
                   /></td>
               </tr>
