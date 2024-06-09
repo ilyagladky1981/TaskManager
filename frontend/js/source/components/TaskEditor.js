@@ -140,8 +140,9 @@ class TaskEditor extends Component {
   }
   
   render() {
-    /*console.log('TaskEditor - render - this.state.data');
-    console.log(this.state.data);*/
+    /*
+    console.log('TaskEditor - render - this.props.schema');
+    console.log(this.props.schema);*/
 
     return (
       <div className="TaskEditor">
@@ -173,7 +174,6 @@ class TaskEditor extends Component {
                 fields={this.props.schema} 
                 addNewDialog={true}
                 API_URL={this.props.API_URL}
-                // peopleAPIData={this.props.peopleAPIData}
                 optionsAPIData={this.props.optionsAPIData}/>
             </Dialog>
           : null}
@@ -193,9 +193,7 @@ TaskEditor.propTypes = {
     PropTypes.object
   ),
   API_URL: PropTypes.string,
-  // peopleAPIData: PropTypes.arrayOf(
-  //   PropTypes.object
-  // ),
+  
   optionsAPIData: PropTypes.object,
 };
 

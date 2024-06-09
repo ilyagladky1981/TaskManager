@@ -227,7 +227,7 @@ Form.propTypes = {
     type: _propTypes2.default.string,
     dataURL: _propTypes2.default.string,
     options: _propTypes2.default.arrayOf(_propTypes2.default.string),
-    ObjectInputType: _propTypes2.default.string.isRequired
+    objectInputType: _propTypes2.default.string.isRequired
   })).isRequired,
   initialData: _propTypes2.default.object,
   readonly: _propTypes2.default.bool,

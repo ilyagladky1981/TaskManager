@@ -102,9 +102,6 @@ FormInput.propTypes = {
   fieldid: PropTypes.string, 
   API_URL: PropTypes.string,
   objName: PropTypes.string,
-  // peopleAPIData: PropTypes.arrayOf(
-  //   PropTypes.object
-  // ),
   optionsAPIData: PropTypes.object,
   objectInputType: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
                           'input', 'ListOptions', 'datetime', 

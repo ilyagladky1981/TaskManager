@@ -238,10 +238,6 @@ var App2 = function (_Component) {
           apiData = _state.apiData,
           dataForRender = _state.dataForRender,
           optionsAPIData = _state.optionsAPIData;
-      /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
-      console.log("App2 render() at " + datetime);
-      console.log('App2 apiData in render 1');
-      console.log(apiData);*/
 
       if (error) {
         return _react2.default.createElement(
@@ -255,9 +251,9 @@ var App2 = function (_Component) {
       } else if (typeof dataForRender !== "undefined") {
         /*console.log(`instanceof Array = ${apiData instanceof Array}`);
         console.log('App2 apiData in render 2');
-        console.log(apiDatcurrentdatea);
-        console.log('App2 apiData#2 in render 3');
-        console.log(apiData);*/
+        console.log(apiDatcurrentdatea);*/
+        console.log('App2 - render - schema');
+        console.log(_schema2.default);
         document.title = "Task Manager";
         return _react2.default.createElement(
           'div',

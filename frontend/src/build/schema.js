@@ -14,10 +14,11 @@ exports.default = [{
   label: '#',
   pathJSON: 'id',
   optionListObjName: 'id',
+  type: 'input',
   show: false,
   editable: false,
   autoFilling: false,
-  type: 'input',
+  addnew: false,
   objectInputType: 'input',
   sample: 1425,
   align: 'center'
@@ -29,6 +30,7 @@ exports.default = [{
   type: 'input',
   objectInputType: 'input',
   show: false,
+  addnew: false,
   editable: false,
   autoFilling: false,
   sample: 1
@@ -149,7 +151,7 @@ exports.default = [{
   pathJSON: '',
   optionListObjName: 'CategoryOfTaskName',
   type: 'input',
-  objectInputType: 'input',
+  objectInputType: 'InputFieldWithCheckBoxes',
   show: false,
   editable: true,
   addnew: true

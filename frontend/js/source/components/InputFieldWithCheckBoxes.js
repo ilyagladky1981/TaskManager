@@ -22,14 +22,15 @@ class InputFieldWithCheckBoxes extends Component {
 
   _selectValuesDialog() {
     console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
-    this.setState({showSelectValueDialog: true});
+    // this.setState({showSelectValueDialog: true});
   }
 
   _addNew(action) {
-    if (action === 'dismiss') {
-      this.setState({showSelectValueDialog: false});
-      return;
-    }
+    console.log("InputFieldWithCheckBoxes - _addNew - !!! - unexpected");
+    // if (action === 'dismiss') {
+    //   this.setState({showSelectValueDialog: false});
+    //   return;
+    // }
   }
   
   render() {
@@ -77,7 +78,14 @@ class InputFieldWithCheckBoxes extends Component {
               Выбрать
             </button>
           </div>
-          {this.state.showSelectValueDialog
+        </div>
+      );
+    }
+    
+  }
+}
+
+/*  {this.state.showSelectValueDialog
             ? <Dialog
               modal={true}
               header="Добавить новую задачу"
@@ -91,15 +99,7 @@ class InputFieldWithCheckBoxes extends Component {
                 API_URL={this.props.API_URL}
                 optionsAPIData={this.props.optionsAPIData} />
             </Dialog>
-            : null}
-        </div>
-      );
-    }
-    
-  }
-}
-
-/*  */
+            : null}*/
 InputFieldWithCheckBoxes.propTypes = {
   id: PropTypes.string,
   defaultValue: PropTypes.string,

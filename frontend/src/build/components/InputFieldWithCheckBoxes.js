@@ -56,15 +56,16 @@ var InputFieldWithCheckBoxes = function (_Component) {
     key: '_selectValuesDialog',
     value: function _selectValuesDialog() {
       console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
-      this.setState({ showSelectValueDialog: true });
+      // this.setState({showSelectValueDialog: true});
     }
   }, {
     key: '_addNew',
     value: function _addNew(action) {
-      if (action === 'dismiss') {
-        this.setState({ showSelectValueDialog: false });
-        return;
-      }
+      console.log("InputFieldWithCheckBoxes - _addNew - !!! - unexpected");
+      // if (action === 'dismiss') {
+      //   this.setState({showSelectValueDialog: false});
+      //   return;
+      // }
     }
   }, {
     key: 'render',
@@ -119,22 +120,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
               { onClick: this._selectValuesDialog.bind(this) },
               '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
             )
-          ),
-          this.state.showSelectValueDialog ? _react2.default.createElement(
-            _Dialog2.default,
-            {
-              modal: true,
-              header: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E \u0437\u0430\u0434\u0430\u0447\u0443',
-              confirmLabel: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C',
-              onAction: this._addNew.bind(this)
-            },
-            _react2.default.createElement(_Form2.default, {
-              ref: this.formRef2,
-              fields: this.props.schema,
-              addNewDialog: true,
-              API_URL: this.props.API_URL,
-              optionsAPIData: this.props.optionsAPIData })
-          ) : null
+          )
         );
       }
     }
@@ -143,7 +129,21 @@ var InputFieldWithCheckBoxes = function (_Component) {
   return InputFieldWithCheckBoxes;
 }(_react.Component);
 
-/*  */
+/*  {this.state.showSelectValueDialog
+            ? <Dialog
+              modal={true}
+              header="Добавить новую задачу"
+              confirmLabel="Добавить"
+              onAction={this._addNew.bind(this)}
+            >
+              <Form
+                ref={this.formRef2}
+                fields={this.props.schema}
+                addNewDialog={true}
+                API_URL={this.props.API_URL}
+                optionsAPIData={this.props.optionsAPIData} />
+            </Dialog>
+            : null}*/
 
 
 InputFieldWithCheckBoxes.propTypes = {

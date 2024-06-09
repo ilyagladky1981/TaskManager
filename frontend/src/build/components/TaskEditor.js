@@ -173,8 +173,9 @@ var TaskEditor = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      /*console.log('TaskEditor - render - this.state.data');
-      console.log(this.state.data);*/
+      /**/
+      console.log('TaskEditor - render - this.props.schema');
+      console.log(this.props.schema);
 
       return _react2.default.createElement(
         'div',
@@ -215,9 +216,8 @@ var TaskEditor = function (_Component) {
             ref: this.formRef,
             fields: this.props.schema,
             addNewDialog: true,
-            API_URL: this.props.API_URL
-            // peopleAPIData={this.props.peopleAPIData}
-            , optionsAPIData: this.props.optionsAPIData })
+            API_URL: this.props.API_URL,
+            optionsAPIData: this.props.optionsAPIData })
         ) : null
       );
     }
@@ -242,9 +242,7 @@ TaskEditor.propTypes = {
   initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   API_URL: _propTypes2.default.string,
-  // peopleAPIData: PropTypes.arrayOf(
-  //   PropTypes.object
-  // ),
+
   optionsAPIData: _propTypes2.default.object
 };
 

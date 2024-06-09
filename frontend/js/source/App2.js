@@ -211,10 +211,6 @@ class App2 extends Component {
                     + currentdate.getSeconds() + ":" 
                     + currentdate.getMilliseconds();*/
     const { error, isLoaded, apiData, dataForRender, optionsAPIData} = this.state;
-    /*console.log(`App2 error in render = ${error} , isLoaded in render = ${isLoaded}`);
-    console.log("App2 render() at " + datetime);
-    console.log('App2 apiData in render 1');
-    console.log(apiData);*/
     if (error) {
       return <div>Error: {error.message}</div>;
     /*} else if (!isLoaded) {                defaultApiData
@@ -222,9 +218,9 @@ class App2 extends Component {
     } else if (typeof dataForRender !== "undefined") {
       /*console.log(`instanceof Array = ${apiData instanceof Array}`);
       console.log('App2 apiData in render 2');
-      console.log(apiDatcurrentdatea);
-      console.log('App2 apiData#2 in render 3');
-      console.log(apiData);*/
+      console.log(apiDatcurrentdatea);*/
+      // console.log('App2 - render - schema');
+      // console.log(schema);
       document.title = "Task Manager";
       return (
         <div className="app">

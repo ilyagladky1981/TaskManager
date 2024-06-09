@@ -140,7 +140,7 @@ Form.propTypes = {
     type: PropTypes.string,
     dataURL: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.string),
-    ObjectInputType: PropTypes.string.isRequired,
+    objectInputType: PropTypes.string.isRequired,
   })).isRequired,
   initialData: PropTypes.object,
   readonly: PropTypes.bool,
