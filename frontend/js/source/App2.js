@@ -64,12 +64,13 @@ class App2 extends Component {
       const responseAPIData = await response.json();
       
       const urlDict = {
-        'PersonFullNameId':  'people',
-        'SituationType'   :  'situations',
-        'ITTaskTypeName'  :  'ittasktypename',
-        'PriorityColor'   :  'prioritycolor',
-        'ProjectName'     :  'projectname',
-        'ServiceName'     :  'services'
+        'PersonFullNameId'    :  'people',
+        'SituationType'       :  'situations',
+        'ITTaskTypeName'      :  'ittasktypename',
+        'PriorityColor'       :  'prioritycolor',
+        'ProjectName'         :  'projectname',
+        'ServiceName'         :  'services',
+        'CategoryOfTaskName'  :  'categories'
       }
       // const peopleResp = await fetch(`${API_URL}people/1/1/`);
       // const peopleAPIres = await peopleResp.json();

@@ -14,6 +14,14 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _Dialog = require('./Dialog');
+
+var _Dialog2 = _interopRequireDefault(_Dialog);
+
+var _Form = require('./Form');
+
+var _Form2 = _interopRequireDefault(_Form);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32,8 +40,10 @@ var InputFieldWithCheckBoxes = function (_Component) {
 
     _this.state = {
       value: props.defaultValue,
-      datalist: []
+      datalist: [],
+      showSelectValueDialog: false
     };
+    _this.formRef2 = _react2.default.createRef();
     return _this;
   }
 
@@ -41,6 +51,20 @@ var InputFieldWithCheckBoxes = function (_Component) {
     key: 'getValue',
     value: function getValue() {
       return this.state.datalist;
+    }
+  }, {
+    key: '_selectValuesDialog',
+    value: function _selectValuesDialog() {
+      console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
+      this.setState({ showSelectValueDialog: true });
+    }
+  }, {
+    key: '_addNew',
+    value: function _addNew(action) {
+      if (action === 'dismiss') {
+        this.setState({ showSelectValueDialog: false });
+        return;
+      }
     }
   }, {
     key: 'render',
@@ -81,27 +105,36 @@ var InputFieldWithCheckBoxes = function (_Component) {
         return _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement('input', {
-            list: "options" + this.props.listid,
-            defaultValue: this.props.defaultValue,
-            onChange: function onChange(e) {
-              return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
-            },
-            id: this.props.id }),
           _react2.default.createElement(
-            'datalist',
-            { id: "options" + this.props.listid },
-            this.props.options.map(function (item, idx) {
-              return _react2.default.createElement('option', { value: item[_this2.props.objName],
-                dataid: item.id,
-                key: idx });
-            })
+            'div',
+            null,
+            _react2.default.createElement('input', {
+              defaultValue: this.props.defaultValue,
+              onChange: function onChange(e) {
+                return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
+              },
+              id: this.props.id }),
+            _react2.default.createElement(
+              'button',
+              { onClick: this._selectValuesDialog.bind(this) },
+              '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
+            )
           ),
-          _react2.default.createElement(
-            'button',
-            { onClick: this._addNewDialog.bind(this) },
-            '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
-          )
+          this.state.showSelectValueDialog ? _react2.default.createElement(
+            _Dialog2.default,
+            {
+              modal: true,
+              header: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E \u0437\u0430\u0434\u0430\u0447\u0443',
+              confirmLabel: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C',
+              onAction: this._addNew.bind(this)
+            },
+            _react2.default.createElement(_Form2.default, {
+              ref: this.formRef2,
+              fields: this.props.schema,
+              addNewDialog: true,
+              API_URL: this.props.API_URL,
+              optionsAPIData: this.props.optionsAPIData })
+          ) : null
         );
       }
     }
@@ -110,13 +143,15 @@ var InputFieldWithCheckBoxes = function (_Component) {
   return InputFieldWithCheckBoxes;
 }(_react.Component);
 
+/*  */
+
+
 InputFieldWithCheckBoxes.propTypes = {
   id: _propTypes2.default.string,
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
-  API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  options: _propTypes2.default.arrayOf(_propTypes2.default.string)
+  options: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
-exports.default = ListCheckboxes;
+exports.default = InputFieldWithCheckBoxes;

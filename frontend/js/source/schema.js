@@ -164,7 +164,7 @@ export default [
     id: 'CategoryOfTaskName',
     label: 'CategoryOfTaskName',
     pathJSON: '',
-    optionListObjName: 'id',
+    optionListObjName: 'CategoryOfTaskName',
     type: 'input',
     objectInputType: 'input',
     show: false,

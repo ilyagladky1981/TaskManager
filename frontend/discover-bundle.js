@@ -276,7 +276,7 @@ checkPropTypes.resetWarningCache = function() {
 module.exports = checkPropTypes;
 
 }).call(this)}).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":31}],4:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":32}],4:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -957,7 +957,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this)}).call(this,require('_process'))
-},{"./checkPropTypes":3,"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":31,"object-assign":2,"react-is":11}],6:[function(require,module,exports){
+},{"./checkPropTypes":3,"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":32,"object-assign":2,"react-is":11}],6:[function(require,module,exports){
 (function (process){(function (){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -980,7 +980,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./factoryWithThrowingShims":4,"./factoryWithTypeCheckers":5,"_process":31,"react-is":11}],7:[function(require,module,exports){
+},{"./factoryWithThrowingShims":4,"./factoryWithTypeCheckers":5,"_process":32,"react-is":11}],7:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1182,7 +1182,7 @@ exports.typeOf = typeOf;
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":31}],10:[function(require,module,exports){
+},{"_process":32}],10:[function(require,module,exports){
 /** @license React v16.13.1
  * react-is.production.min.js
  *
@@ -1210,7 +1210,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-is.development.js":9,"./cjs/react-is.production.min.js":10,"_process":31}],12:[function(require,module,exports){
+},{"./cjs/react-is.development.js":9,"./cjs/react-is.production.min.js":10,"_process":32}],12:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -31082,7 +31082,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":31,"react":17,"scheduler":20}],13:[function(require,module,exports){
+},{"_process":32,"react":17,"scheduler":20}],13:[function(require,module,exports){
 /**
  * @license React
  * react-dom.production.min.js
@@ -31449,7 +31449,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":12,"./cjs/react-dom.production.min.js":13,"_process":31}],15:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":12,"./cjs/react-dom.production.min.js":13,"_process":32}],15:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -34192,7 +34192,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":31}],16:[function(require,module,exports){
+},{"_process":32}],16:[function(require,module,exports){
 /**
  * @license React
  * react.production.min.js
@@ -34231,7 +34231,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react.development.js":15,"./cjs/react.production.min.js":16,"_process":31}],18:[function(require,module,exports){
+},{"./cjs/react.development.js":15,"./cjs/react.production.min.js":16,"_process":32}],18:[function(require,module,exports){
 (function (process,setImmediate){(function (){
 /**
  * @license React
@@ -34869,7 +34869,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":31,"timers":32}],19:[function(require,module,exports){
+},{"_process":32,"timers":33}],19:[function(require,module,exports){
 (function (setImmediate){(function (){
 /**
  * @license React
@@ -34892,7 +34892,7 @@ exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();"
 exports.unstable_shouldYield=M;exports.unstable_wrapCallback=function(a){var b=y;return function(){var c=y;y=b;try{return a.apply(this,arguments)}finally{y=c}}};
 
 }).call(this)}).call(this,require("timers").setImmediate)
-},{"timers":32}],20:[function(require,module,exports){
+},{"timers":33}],20:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -34903,7 +34903,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/scheduler.development.js":18,"./cjs/scheduler.production.min.js":19,"_process":31}],21:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":18,"./cjs/scheduler.production.min.js":19,"_process":32}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35251,9 +35251,8 @@ var Form = function (_Component) {
                         fieldid: field.id,
                         objectInputType: field.objectInputType,
                         API_URL: _this3.props.API_URL,
-                        objName: field.optionListObjName
-                        // peopleAPIData={this.props.peopleAPIData}
-                        , optionsAPIData: _this3.props.optionsAPIData
+                        objName: field.optionListObjName,
+                        optionsAPIData: _this3.props.optionsAPIData
                       }))
                     )
                   );
@@ -35340,7 +35339,7 @@ Form.propTypes = {
 };
 
 exports.default = Form;
-},{"./FormInput":25,"./Rating":28,"prop-types":6,"react":17}],25:[function(require,module,exports){
+},{"./FormInput":25,"./Rating":29,"prop-types":6,"react":17}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35370,6 +35369,10 @@ var _Suggest2 = _interopRequireDefault(_Suggest);
 var _ListOptions = require('./ListOptions');
 
 var _ListOptions2 = _interopRequireDefault(_ListOptions);
+
+var _InputFieldWithCheckBoxes = require('./InputFieldWithCheckBoxes');
+
+var _InputFieldWithCheckBoxes2 = _interopRequireDefault(_InputFieldWithCheckBoxes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35430,9 +35433,8 @@ var FormInput = function (_Component) {
               // console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
               // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
               // console.log(this.props.fieldid + "=== undefined");
-              return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
+              return _react2.default.createElement(_InputFieldWithCheckBoxes2.default, _extends({}, common, {
                 listid: this.props.fieldid,
-                API_URL: this.props.API_URL,
                 objName: this.props.objName,
                 options: this.props.optionsAPIData[this.props.fieldid]
               }));
@@ -35451,7 +35453,6 @@ var FormInput = function (_Component) {
               // console.log(this.props.fieldid + "=== undefined");
               return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
                 listid: this.props.fieldid,
-                API_URL: this.props.API_URL,
                 objName: this.props.objName,
                 options: this.props.optionsAPIData[this.props.fieldid]
               }));
@@ -35487,7 +35488,165 @@ FormInput.propTypes = {
 };
 
 exports.default = FormInput;
-},{"./ListOptions":26,"./Rating":28,"./Suggest":29,"prop-types":6,"react":17}],26:[function(require,module,exports){
+},{"./InputFieldWithCheckBoxes":26,"./ListOptions":27,"./Rating":29,"./Suggest":30,"prop-types":6,"react":17}],26:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Dialog = require('./Dialog');
+
+var _Dialog2 = _interopRequireDefault(_Dialog);
+
+var _Form = require('./Form');
+
+var _Form2 = _interopRequireDefault(_Form);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var InputFieldWithCheckBoxes = function (_Component) {
+  _inherits(InputFieldWithCheckBoxes, _Component);
+
+  function InputFieldWithCheckBoxes(props) {
+    _classCallCheck(this, InputFieldWithCheckBoxes);
+
+    var _this = _possibleConstructorReturn(this, (InputFieldWithCheckBoxes.__proto__ || Object.getPrototypeOf(InputFieldWithCheckBoxes)).call(this, props));
+
+    _this.state = {
+      value: props.defaultValue,
+      datalist: [],
+      showSelectValueDialog: false
+    };
+    _this.formRef2 = _react2.default.createRef();
+    return _this;
+  }
+
+  _createClass(InputFieldWithCheckBoxes, [{
+    key: 'getValue',
+    value: function getValue() {
+      return this.state.datalist;
+    }
+  }, {
+    key: '_selectValuesDialog',
+    value: function _selectValuesDialog() {
+      console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
+      this.setState({ showSelectValueDialog: true });
+    }
+  }, {
+    key: '_addNew',
+    value: function _addNew(action) {
+      if (action === 'dismiss') {
+        this.setState({ showSelectValueDialog: false });
+        return;
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      // console.log("ListOptions - render - this.props.listid =");
+      // console.log("schema = " + typeof this.props.schema);
+      // console.log("schema[listid] = " + typeof typeof this.props.schema[this.props.listid]);
+      // console.log("schema[listid].dataURL = " + typeof this.props.schema[this.props.listid].dataURL);
+      // if (typeof this.props.dataURL === 'undefined') {
+      //       console.log("ListOptions - render - (dataURL === undefined) => listid = " + this.props.listid);
+      //       return (
+      //         <input 
+      //           defaultValue={this.props.defaultValue}
+      //           //onChange={e => this.setState({value: e.target.value})}
+      //           id={this.props.id} />
+      //       )
+      // } else {
+      // console.log("ListOptions - render - this.props.schema[this.props.listid].dataURL =");
+      // console.log(typeof this.props.schema[this.props.listid].dataURL);
+      // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
+      // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
+      if (!Array.isArray(this.props.options)) {
+        // console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
+        // console.log(this.props.options);
+        // console.log("typeof this.props.options");
+        // console.log(typeof this.props.options);
+        return _react2.default.createElement('input', {
+          defaultValue: this.props.defaultValue
+          // onChange={e => this.setState({value: e.target.value})}
+          , id: this.props.id });
+      } else {
+        // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
+        // console.log(this.props.options);
+        // console.log("typeof this.props.options");
+        // console.log(typeof this.props.options);
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement('input', {
+              defaultValue: this.props.defaultValue,
+              onChange: function onChange(e) {
+                return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
+              },
+              id: this.props.id }),
+            _react2.default.createElement(
+              'button',
+              { onClick: this._selectValuesDialog.bind(this) },
+              '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
+            )
+          ),
+          this.state.showSelectValueDialog ? _react2.default.createElement(
+            _Dialog2.default,
+            {
+              modal: true,
+              header: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E \u0437\u0430\u0434\u0430\u0447\u0443',
+              confirmLabel: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C',
+              onAction: this._addNew.bind(this)
+            },
+            _react2.default.createElement(_Form2.default, {
+              ref: this.formRef2,
+              fields: this.props.schema,
+              addNewDialog: true,
+              API_URL: this.props.API_URL,
+              optionsAPIData: this.props.optionsAPIData })
+          ) : null
+        );
+      }
+    }
+  }]);
+
+  return InputFieldWithCheckBoxes;
+}(_react.Component);
+
+/*  */
+
+
+InputFieldWithCheckBoxes.propTypes = {
+  id: _propTypes2.default.string,
+  defaultValue: _propTypes2.default.string,
+  listid: _propTypes2.default.string,
+  objName: _propTypes2.default.string,
+  options: _propTypes2.default.arrayOf(_propTypes2.default.object)
+};
+
+exports.default = InputFieldWithCheckBoxes;
+},{"./Dialog":23,"./Form":24,"prop-types":6,"react":17}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35600,13 +35759,12 @@ ListOptions.propTypes = {
   id: _propTypes2.default.string,
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
-  API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
   options: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = ListOptions;
-},{"prop-types":6,"react":17}],27:[function(require,module,exports){
+},{"prop-types":6,"react":17}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35624,7 +35782,7 @@ var Logo = function Logo() {
 };
 
 exports.default = Logo;
-},{"react":17}],28:[function(require,module,exports){
+},{"react":17}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35745,7 +35903,7 @@ Rating.defaultProps = {
 };
 
 exports.default = Rating;
-},{"classnames":1,"prop-types":6,"react":17}],29:[function(require,module,exports){
+},{"classnames":1,"prop-types":6,"react":17}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35824,7 +35982,7 @@ Suggest.propTypes = {
 };
 
 exports.default = Suggest;
-},{"prop-types":6,"react":17}],30:[function(require,module,exports){
+},{"prop-types":6,"react":17}],31:[function(require,module,exports){
 'use strict';
 
 var _Actions = require('./components/Actions');
@@ -36132,7 +36290,7 @@ _reactDom2.default.render(_react2.default.createElement(
     )
   )
 ), document.getElementById('pad'));
-},{"./components/Actions":21,"./components/Button":22,"./components/Dialog":23,"./components/Form":24,"./components/FormInput":25,"./components/Logo":27,"./components/Rating":28,"./components/Suggest":29,"react":17,"react-dom":14}],31:[function(require,module,exports){
+},{"./components/Actions":21,"./components/Button":22,"./components/Dialog":23,"./components/Form":24,"./components/FormInput":25,"./components/Logo":28,"./components/Rating":29,"./components/Suggest":30,"react":17,"react-dom":14}],32:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -36318,7 +36476,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 (function (setImmediate,clearImmediate){(function (){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -36397,4 +36555,4 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this)}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":31,"timers":32}]},{},[30]);
+},{"process/browser.js":32,"timers":33}]},{},[31]);

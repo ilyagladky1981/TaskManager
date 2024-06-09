@@ -4,7 +4,7 @@ from rest_framework.renderers import JSONRenderer
 # from stringfield import StringField
 from ..models import Task, ServiceSet, Service, CategorySet
 from ..models import Person, Situation, ITTaskType
-from ..models import PriorityColor
+from ..models import PriorityColor, CategoryOfTask
 import io
 
 
@@ -12,8 +12,17 @@ class CategorySetSerializer(serializers.ModelSerializer):
     class Meta:
         model = CategorySet
         fields = [
+            'id',
             'CategoryId',
             'TaskId',
+        ]
+
+class CategoryOfTaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CategoryOfTask
+        fields = [
+            'id',
+            'CategoryOfTaskName',
         ]
 
 class ServiceSerializer(serializers.ModelSerializer):    
@@ -21,13 +30,14 @@ class ServiceSerializer(serializers.ModelSerializer):
         model = Service
         fields = [
             'id',
-            'SituationType'
+            'ServiceName'
             ]
 
 class ServiceSetSerializer(serializers.ModelSerializer):
     class Meta:
         model = ServiceSet
         fields = [
+            'id',
             'ServiceId',
             'TaskId',
         ]

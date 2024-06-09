@@ -28,6 +28,10 @@ var _ListOptions = require('./ListOptions');
 
 var _ListOptions2 = _interopRequireDefault(_ListOptions);
 
+var _InputFieldWithCheckBoxes = require('./InputFieldWithCheckBoxes');
+
+var _InputFieldWithCheckBoxes2 = _interopRequireDefault(_InputFieldWithCheckBoxes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -87,9 +91,8 @@ var FormInput = function (_Component) {
               // console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
               // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
               // console.log(this.props.fieldid + "=== undefined");
-              return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
+              return _react2.default.createElement(_InputFieldWithCheckBoxes2.default, _extends({}, common, {
                 listid: this.props.fieldid,
-                API_URL: this.props.API_URL,
                 objName: this.props.objName,
                 options: this.props.optionsAPIData[this.props.fieldid]
               }));
@@ -108,7 +111,6 @@ var FormInput = function (_Component) {
               // console.log(this.props.fieldid + "=== undefined");
               return _react2.default.createElement(_ListOptions2.default, _extends({}, common, {
                 listid: this.props.fieldid,
-                API_URL: this.props.API_URL,
                 objName: this.props.objName,
                 options: this.props.optionsAPIData[this.props.fieldid]
               }));
