@@ -6,10 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Button = require('./Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -26,84 +22,59 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Dialog = function (_Component) {
-  _inherits(Dialog, _Component);
+var ModalForm = function (_Component) {
+  _inherits(ModalForm, _Component);
 
-  function Dialog() {
-    _classCallCheck(this, Dialog);
+  function ModalForm(props) {
+    _classCallCheck(this, ModalForm);
 
-    return _possibleConstructorReturn(this, (Dialog.__proto__ || Object.getPrototypeOf(Dialog)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ModalForm.__proto__ || Object.getPrototypeOf(ModalForm)).call(this, props));
   }
 
-  _createClass(Dialog, [{
+  // componentWillUnmount() {
+  //   document.body.classList.remove('ModalForm');
+  // }
+
+  // componentDidMount() {
+  //   if (this.props.modal) {
+  //     document.body.classList.add('ModalForm');
+  //   }
+  // }
+
+
+  _createClass(ModalForm, [{
     key: 'render',
-
-
-    // componentWillUnmount() {
-    //   document.body.classList.remove('DialogModalOpen');
-    // }
-
-    // componentDidMount() {
-    //   if (this.props.modal) {
-    //     document.body.classList.add('DialogModalOpen');
-    //   }
-    // }
-
     value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          onClose = _props.onClose,
+          formClassName = _props.formClassName,
+          formContentClassName = _props.formContentClassName;
+
       return _react2.default.createElement(
         'div',
-        { className: this.props.modal ? 'Dialog DialogModal' : 'Dialog' },
+        { className: formClassName },
         _react2.default.createElement(
           'div',
-          { className: this.props.modal ? 'DialogModalWrap' : null },
+          { className: formContentClassName },
+          children,
           _react2.default.createElement(
-            'div',
-            { className: 'DialogHeader' },
-            this.props.header
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'DialogBody' },
-            this.props.children
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'DialogFooter' },
-            this.props.hasCancel ? _react2.default.createElement(
-              'span',
-              {
-                className: 'DialogDismiss',
-                onClick: this.props.onAction.bind(this, 'dismiss') },
-              '\u041E\u0442\u043C\u0435\u043D\u0430'
-            ) : null,
-            '   ',
-            _react2.default.createElement(
-              _Button2.default,
-              { onClick: this.props.onAction.bind(this, this.props.hasCancel ? 'confirm' : 'dismiss') },
-              this.props.confirmLabel
-            )
+            'button',
+            { onClick: onClose },
+            '\u0417\u0430\u043A\u0440\u044B\u0442\u044C'
           )
         )
       );
     }
   }]);
 
-  return Dialog;
+  return ModalForm;
 }(_react.Component);
 
-Dialog.propTypes = {
-  header: _propTypes2.default.string.isRequired,
-  confirmLabel: _propTypes2.default.string,
-  modal: _propTypes2.default.bool,
-  onAction: _propTypes2.default.func,
-  hasCancel: _propTypes2.default.bool
+ModalForm.propTypes = {
+  formClassName: _propTypes2.default.string,
+  onClose: _propTypes2.default.func,
+  formContentClassName: _propTypes2.default.string
 };
 
-Dialog.defaultProps = {
-  confirmLabel: 'ok',
-  modal: false,
-  onAction: function onAction() {},
-  hasCancel: true
-};
-
-exports.default = Dialog;
+exports.default = ModalForm;

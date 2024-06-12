@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Dialog from './Dialog';
-import Form from './Form';
+// import Dialog from './Dialog';
+// import Form from './Form';
 
 
 class InputFieldWithCheckBoxes extends Component {
@@ -10,8 +10,7 @@ class InputFieldWithCheckBoxes extends Component {
     super(props);
     this.state = {
       value: props.defaultValue,
-      datalist: [],
-      showSelectValueDialog: false,
+      datalist: []
     };
     this.formRef2 = React.createRef();
   }
@@ -20,17 +19,20 @@ class InputFieldWithCheckBoxes extends Component {
     return this.state.datalist;
   }
 
-  _selectValuesDialog() {
-    console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
-    this.setState({showSelectValueDialog: true});
-  }
+  // _selectValuesDialog() {
+  //   console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
+  //   alert('Функция _selectValuesDialog вызвана!');
+  //   // this.setState({showSelectValueDialog: true});
+  //   // e.stopPropagation();
+  // }
 
-  _addNew(action) {
-    if (action === 'dismiss') {
-      this.setState({showSelectValueDialog: false});
-      return;
-    }
-  }
+  // _addNew(action) {
+  //   console.log("InputFieldWithCheckBoxes - _addNew - !!! - unexpected");
+  //   // if (action === 'dismiss') {
+  //   //   this.setState({showSelectValueDialog: false});
+  //   //   return;
+  //   // }
+  // }
   
   render() {
     // console.log("ListOptions - render - this.props.listid =");
@@ -63,7 +65,7 @@ class InputFieldWithCheckBoxes extends Component {
         )
     } else {
       // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
-      // console.log(this.props.options);
+      // console.log(this.props.options);(e) => this._selectValuesDialog.bind(this, e)
       // console.log("typeof this.props.options");
       // console.log(typeof this.props.options);
       return (
@@ -72,12 +74,21 @@ class InputFieldWithCheckBoxes extends Component {
             <input
               defaultValue={this.props.defaultValue}
               onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid})}
-              id={this.props.id} />
-            <button onClick={this._selectValuesDialog.bind(this)}>
+              id={this.props.id} 
+              dataid={[1]}/>
+            <button onClick={this.props.showSelectValueDialog}>
               Выбрать
             </button>
+            
           </div>
-          {this.state.showSelectValueDialog
+        </div>
+      );
+    }
+    
+  }
+}
+
+/*  {this.state.showSelectValueDialog
             ? <Dialog
               modal={true}
               header="Добавить новую задачу"
@@ -91,15 +102,7 @@ class InputFieldWithCheckBoxes extends Component {
                 API_URL={this.props.API_URL}
                 optionsAPIData={this.props.optionsAPIData} />
             </Dialog>
-            : null}
-        </div>
-      );
-    }
-    
-  }
-}
-
-/*  */
+            : null}*/
 InputFieldWithCheckBoxes.propTypes = {
   id: PropTypes.string,
   defaultValue: PropTypes.string,
@@ -108,6 +111,8 @@ InputFieldWithCheckBoxes.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.object
   ),
+  showSelectValueDialog: PropTypes.func,
+  onDataChange: PropTypes.func,
 };
 
 export default InputFieldWithCheckBoxes

@@ -22,6 +22,10 @@ var _Form = require('./Form');
 
 var _Form2 = _interopRequireDefault(_Form);
 
+var _ModalForm = require('./ModalForm');
+
+var _ModalForm2 = _interopRequireDefault(_ModalForm);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -49,7 +53,8 @@ var TaskEditor = function (_Component) {
     _this.state = {
       data: props.initialData,
       fullData: props.fullAPIData,
-      addnew: false
+      addnew: false,
+      showNestedModal: false
     };
     _this._preSearchData = null;
     _this.formRef = _react2.default.createRef();
@@ -57,6 +62,18 @@ var TaskEditor = function (_Component) {
   }
 
   _createClass(TaskEditor, [{
+    key: 'openNestedModal',
+    value: function openNestedModal() {
+      this.setState({ showNestedModal: true });
+      // console.log('this.state.addnew =' + this.state.addnew);
+      // alert('Функция openNestedModal вызвана!');
+    }
+  }, {
+    key: 'closeNestedModal',
+    value: function closeNestedModal() {
+      this.setState({ showNestedModal: false });
+    }
+  }, {
     key: '_addNewDialog',
     value: function _addNewDialog() {
       this.setState({ addnew: true });
@@ -64,8 +81,13 @@ var TaskEditor = function (_Component) {
   }, {
     key: '_addNew',
     value: function _addNew(action) {
+      // console.log("TaskEditor - _addNew pressed !!! ");
+      // alert('Oh look, an alert!');
       if (action === 'dismiss') {
         this.setState({ addnew: false });
+        console.log('Функция _addNew вызвана! action == dismiss');
+        console.log('this.state.addnew =' + this.state.addnew);
+        alert('Функция _addNew вызвана! action == dismiss');
         return;
       }
       var data = Array.from(this.state.data);
@@ -173,8 +195,10 @@ var TaskEditor = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      /*console.log('TaskEditor - render - this.state.data');
-      console.log(this.state.data);*/
+      /*
+      console.log('TaskEditor - render - this.props.schema');
+      console.log(this.props.schema);*/
+      var showNestedModal = this.state.showNestedModal;
 
       return _react2.default.createElement(
         'div',
@@ -215,9 +239,26 @@ var TaskEditor = function (_Component) {
             ref: this.formRef,
             fields: this.props.schema,
             addNewDialog: true,
-            API_URL: this.props.API_URL
-            // peopleAPIData={this.props.peopleAPIData}
-            , optionsAPIData: this.props.optionsAPIData })
+            API_URL: this.props.API_URL,
+            optionsAPIData: this.props.optionsAPIData,
+            showNestedModal: this.openNestedModal.bind(this) }),
+          showNestedModal && _react2.default.createElement(
+            _ModalForm2.default,
+            {
+              onClose: this.closeNestedModal.bind(this),
+              formClassName: 'nestedmodal',
+              formContentClassName: 'nestedmodal__content' },
+            _react2.default.createElement(
+              'h3',
+              null,
+              '\u0412\u043B\u043E\u0436\u0435\u043D\u043D\u043E\u0435 \u043C\u043E\u0434\u0430\u043B\u044C\u043D\u043E\u0435 \u043E\u043A\u043D\u043E'
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              '\u042D\u0442\u043E \u0432\u043B\u043E\u0436\u0435\u043D\u043D\u043E\u0435 \u043C\u043E\u0434\u0430\u043B\u044C\u043D\u043E\u0435 \u043E\u043A\u043D\u043E'
+            )
+          )
         ) : null
       );
     }
@@ -242,9 +283,7 @@ TaskEditor.propTypes = {
   initialData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   fullAPIData: _propTypes2.default.arrayOf(_propTypes2.default.object),
   API_URL: _propTypes2.default.string,
-  // peopleAPIData: PropTypes.arrayOf(
-  //   PropTypes.object
-  // ),
+
   optionsAPIData: _propTypes2.default.object
 };
 

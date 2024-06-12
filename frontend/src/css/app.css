@@ -7,9 +7,20 @@ body {
   margin: 0;
 }
 
-input, textarea {
-  /*font-size: 14px;*/
-  /*padding: 10px;*/
+input .width100 {
+  text-align: center;
+  width: 97%;
+  font: 14px Arial;
+}
+
+input .withButton {
+  text-align: center;
+  width: 97%;
+  font: 14px Arial;
+}
+
+
+textarea {
   text-align: center;
   width: 97%;
   font: 14px Arial;
