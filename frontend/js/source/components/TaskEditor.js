@@ -2,6 +2,7 @@ import Button from './Button';
 import Dialog from './Dialog';
 import Excel from './Excel';
 import Form from './Form';
+import ModalForm from './ModalForm';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
@@ -14,6 +15,7 @@ class TaskEditor extends Component {
       data: props.initialData,
       fullData: props.fullAPIData,
       addnew: false,
+      showNestedModal: false,
     };
     this._preSearchData = null;
     this.formRef = React.createRef();
@@ -29,14 +31,29 @@ class TaskEditor extends Component {
     return null;
   }
 
-  
+  openNestedModal() {
+    this.setState({ showNestedModal: true });
+    // console.log('this.state.addnew =' + this.state.addnew);
+    // alert('Функция openNestedModal вызвана!');
+  };
+
+  closeNestedModal() {
+    this.setState({ showNestedModal: false });
+  };
+
+
   _addNewDialog() {
     this.setState({addnew: true});
   }
   
   _addNew(action) {
+    // console.log("TaskEditor - _addNew pressed !!! ");
+    // alert('Oh look, an alert!');
     if (action === 'dismiss') {
       this.setState({addnew: false});
+      console.log('Функция _addNew вызвана! action == dismiss');
+      console.log('this.state.addnew =' + this.state.addnew);
+      alert('Функция _addNew вызвана! action == dismiss');
       return;
     }
     let data = Array.from(this.state.data);
@@ -80,37 +97,6 @@ class TaskEditor extends Component {
   }
   
   
-  /*async _saveData(data) { 
-    try {
-      console.log("TaskEditor - _saveData - data");
-      console.log(data);
-      const response = await fetch(`${this.props.API_URL}control/1/`,
-          { method: 'POST',
-            mode: "cors",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data),
-          });
-      
-      const responsePOSTAPIData = await response.json();
-      console.log("TaskEditor - responsePOSTAPIData");
-      console.log(responsePOSTAPIData);
-      
-      return responsePOSTAPIData;
-    } catch(error) {
-      console.error(error);
-    }
-  };*/
-
-
-
-  
-  /*_commitToStorage(data) {
-    //save to REST
-    localStorage.setItem('data', JSON.stringify(data));
-  }*/
-  
   _startSearching() {
     this._preSearchData = this.state.data;
   }
@@ -143,7 +129,7 @@ class TaskEditor extends Component {
     /*
     console.log('TaskEditor - render - this.props.schema');
     console.log(this.props.schema);*/
-
+    const { showNestedModal } = this.state;
     return (
       <div className="TaskEditor">
         <div className="TaskEditorToolbar">
@@ -174,7 +160,18 @@ class TaskEditor extends Component {
                 fields={this.props.schema} 
                 addNewDialog={true}
                 API_URL={this.props.API_URL}
-                optionsAPIData={this.props.optionsAPIData}/>
+                optionsAPIData={this.props.optionsAPIData}
+                showNestedModal={this.openNestedModal.bind(this)}>
+              </Form>
+              {showNestedModal && (
+              <ModalForm 
+                          onClose={this.closeNestedModal.bind(this)} 
+                          formClassName='nestedmodal'
+                          formContentClassName='nestedmodal__content'>
+                <h3>Вложенное модальное окно</h3>
+                <p>Это вложенное модальное окно</p>
+              </ModalForm>
+              )}
             </Dialog>
           : null}
       </div>

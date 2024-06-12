@@ -98,6 +98,7 @@ class Form extends Component {
                     API_URL={this.props.API_URL}
                     objName={field.optionListObjName}
                     optionsAPIData={this.props.optionsAPIData}
+                    showNestedModal={this.props.showNestedModal}
                   /></td>
               </tr>
             );
@@ -128,7 +129,8 @@ class Form extends Component {
             }</td>
           </tr>
         );
-        }, this)}</tbody></table></form>
+        }, this)}</tbody></table>
+        </form>
     );
   }
 }
@@ -147,10 +149,8 @@ Form.propTypes = {
   addNewDialog: PropTypes.bool,
   defaultValue: PropTypes.object,
   API_URL: PropTypes.string,
-  // peopleAPIData: PropTypes.arrayOf(
-  //   PropTypes.object
-  // ),
   optionsAPIData: PropTypes.object,
+  showNestedModal: PropTypes.func,
 };
 
 export default Form

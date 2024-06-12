@@ -14,14 +14,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Dialog = require('./Dialog');
-
-var _Dialog2 = _interopRequireDefault(_Dialog);
-
-var _Form = require('./Form');
-
-var _Form2 = _interopRequireDefault(_Form);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29,6 +21,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import Dialog from './Dialog';
+// import Form from './Form';
+
 
 var InputFieldWithCheckBoxes = function (_Component) {
   _inherits(InputFieldWithCheckBoxes, _Component);
@@ -40,8 +36,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
 
     _this.state = {
       value: props.defaultValue,
-      datalist: [],
-      showSelectValueDialog: false
+      datalist: []
     };
     _this.formRef2 = _react2.default.createRef();
     return _this;
@@ -52,21 +47,22 @@ var InputFieldWithCheckBoxes = function (_Component) {
     value: function getValue() {
       return this.state.datalist;
     }
-  }, {
-    key: '_selectValuesDialog',
-    value: function _selectValuesDialog() {
-      console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
-      // this.setState({showSelectValueDialog: true});
-    }
-  }, {
-    key: '_addNew',
-    value: function _addNew(action) {
-      console.log("InputFieldWithCheckBoxes - _addNew - !!! - unexpected");
-      // if (action === 'dismiss') {
-      //   this.setState({showSelectValueDialog: false});
-      //   return;
-      // }
-    }
+
+    // _selectValuesDialog() {
+    //   console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
+    //   alert('Функция _selectValuesDialog вызвана!');
+    //   // this.setState({showSelectValueDialog: true});
+    //   // e.stopPropagation();
+    // }
+
+    // _addNew(action) {
+    //   console.log("InputFieldWithCheckBoxes - _addNew - !!! - unexpected");
+    //   // if (action === 'dismiss') {
+    //   //   this.setState({showSelectValueDialog: false});
+    //   //   return;
+    //   // }
+    // }
+
   }, {
     key: 'render',
     value: function render() {
@@ -100,7 +96,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
           , id: this.props.id });
       } else {
         // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
-        // console.log(this.props.options);
+        // console.log(this.props.options);(e) => this._selectValuesDialog.bind(this, e)
         // console.log("typeof this.props.options");
         // console.log(typeof this.props.options);
         return _react2.default.createElement(
@@ -114,10 +110,11 @@ var InputFieldWithCheckBoxes = function (_Component) {
               onChange: function onChange(e) {
                 return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
               },
-              id: this.props.id }),
+              id: this.props.id,
+              dataid: [1] }),
             _react2.default.createElement(
               'button',
-              { onClick: this._selectValuesDialog.bind(this) },
+              { onClick: this.props.showSelectValueDialog },
               '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
             )
           )
@@ -151,7 +148,9 @@ InputFieldWithCheckBoxes.propTypes = {
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  options: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  options: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  showSelectValueDialog: _propTypes2.default.func,
+  onDataChange: _propTypes2.default.func
 };
 
 exports.default = InputFieldWithCheckBoxes;

@@ -154,7 +154,8 @@ var Form = function (_Component) {
                         objectInputType: field.objectInputType,
                         API_URL: _this3.props.API_URL,
                         objName: field.optionListObjName,
-                        optionsAPIData: _this3.props.optionsAPIData
+                        optionsAPIData: _this3.props.optionsAPIData,
+                        showNestedModal: _this3.props.showNestedModal
                       }))
                     )
                   );
@@ -234,10 +235,8 @@ Form.propTypes = {
   addNewDialog: _propTypes2.default.bool,
   defaultValue: _propTypes2.default.object,
   API_URL: _propTypes2.default.string,
-  // peopleAPIData: PropTypes.arrayOf(
-  //   PropTypes.object
-  // ),
-  optionsAPIData: _propTypes2.default.object
+  optionsAPIData: _propTypes2.default.object,
+  showNestedModal: _propTypes2.default.func
 };
 
 exports.default = Form;

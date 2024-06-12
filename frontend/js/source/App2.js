@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 //import Logo from './components/Logo';
 import TaskEditor from './components/TaskEditor';
 import schema from './schema';
-//import Modal from "./components/Modal";
+
 
 //import axios from 'axios';
 

@@ -94,7 +94,8 @@ var FormInput = function (_Component) {
               return _react2.default.createElement(_InputFieldWithCheckBoxes2.default, _extends({}, common, {
                 listid: this.props.fieldid,
                 objName: this.props.objName,
-                options: this.props.optionsAPIData[this.props.fieldid]
+                options: this.props.optionsAPIData[this.props.fieldid],
+                showSelectValueDialog: this.props.showNestedModal
               }));
             } else {
               // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
@@ -139,7 +140,8 @@ FormInput.propTypes = {
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
   optionsAPIData: _propTypes2.default.object,
-  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList'])
+  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList']),
+  showNestedModal: _propTypes2.default.func
 };
 
 exports.default = FormInput;

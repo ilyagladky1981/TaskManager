@@ -29,8 +29,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 //import Logo from './components/Logo';
 
 
-//import Modal from "./components/Modal";
-
 //import axios from 'axios';
 
 //import './css/app.css';
@@ -252,8 +250,8 @@ var App2 = function (_Component) {
         /*console.log(`instanceof Array = ${apiData instanceof Array}`);
         console.log('App2 apiData in render 2');
         console.log(apiDatcurrentdatea);*/
-        console.log('App2 - render - schema');
-        console.log(_schema2.default);
+        // console.log('App2 - render - schema');
+        // console.log(schema);
         document.title = "Task Manager";
         return _react2.default.createElement(
           'div',

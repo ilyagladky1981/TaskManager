@@ -63,6 +63,7 @@ class FormInput extends Component {
             listid={this.props.fieldid}
             objName={this.props.objName}
             options={this.props.optionsAPIData[this.props.fieldid]}
+            showSelectValueDialog={this.props.showNestedModal}
           />;
         } else {
           // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
@@ -106,6 +107,7 @@ FormInput.propTypes = {
   objectInputType: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
                           'input', 'ListOptions', 'datetime', 
                           'InputFieldWithCheckBoxes', 'ColorList']),
+  showNestedModal: PropTypes.func,
 };
 
 export default FormInput

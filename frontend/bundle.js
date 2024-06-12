@@ -276,7 +276,7 @@ checkPropTypes.resetWarningCache = function() {
 module.exports = checkPropTypes;
 
 }).call(this)}).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":36}],4:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":37}],4:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -957,7 +957,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this)}).call(this,require('_process'))
-},{"./checkPropTypes":3,"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":36,"object-assign":2,"react-is":11}],6:[function(require,module,exports){
+},{"./checkPropTypes":3,"./lib/ReactPropTypesSecret":7,"./lib/has":8,"_process":37,"object-assign":2,"react-is":11}],6:[function(require,module,exports){
 (function (process){(function (){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -980,7 +980,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./factoryWithThrowingShims":4,"./factoryWithTypeCheckers":5,"_process":36,"react-is":11}],7:[function(require,module,exports){
+},{"./factoryWithThrowingShims":4,"./factoryWithTypeCheckers":5,"_process":37,"react-is":11}],7:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1182,7 +1182,7 @@ exports.typeOf = typeOf;
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":36}],10:[function(require,module,exports){
+},{"_process":37}],10:[function(require,module,exports){
 /** @license React v16.13.1
  * react-is.production.min.js
  *
@@ -1210,7 +1210,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-is.development.js":9,"./cjs/react-is.production.min.js":10,"_process":36}],12:[function(require,module,exports){
+},{"./cjs/react-is.development.js":9,"./cjs/react-is.production.min.js":10,"_process":37}],12:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -31082,7 +31082,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":36,"react":17,"scheduler":20}],13:[function(require,module,exports){
+},{"_process":37,"react":17,"scheduler":20}],13:[function(require,module,exports){
 /**
  * @license React
  * react-dom.production.min.js
@@ -31449,7 +31449,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":12,"./cjs/react-dom.production.min.js":13,"_process":36}],15:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":12,"./cjs/react-dom.production.min.js":13,"_process":37}],15:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -34192,7 +34192,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":36}],16:[function(require,module,exports){
+},{"_process":37}],16:[function(require,module,exports){
 /**
  * @license React
  * react.production.min.js
@@ -34231,7 +34231,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react.development.js":15,"./cjs/react.production.min.js":16,"_process":36}],18:[function(require,module,exports){
+},{"./cjs/react.development.js":15,"./cjs/react.production.min.js":16,"_process":37}],18:[function(require,module,exports){
 (function (process,setImmediate){(function (){
 /**
  * @license React
@@ -34869,7 +34869,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":36,"timers":37}],19:[function(require,module,exports){
+},{"_process":37,"timers":38}],19:[function(require,module,exports){
 (function (setImmediate){(function (){
 /**
  * @license React
@@ -34892,7 +34892,7 @@ exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();"
 exports.unstable_shouldYield=M;exports.unstable_wrapCallback=function(a){var b=y;return function(){var c=y;y=b;try{return a.apply(this,arguments)}finally{y=c}}};
 
 }).call(this)}).call(this,require("timers").setImmediate)
-},{"timers":37}],20:[function(require,module,exports){
+},{"timers":38}],20:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -34903,7 +34903,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/scheduler.development.js":18,"./cjs/scheduler.production.min.js":19,"_process":36}],21:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":18,"./cjs/scheduler.production.min.js":19,"_process":37}],21:[function(require,module,exports){
 'use strict';
 
 var _Logo = require('./components/Logo');
@@ -34950,7 +34950,7 @@ _reactDom2.default.render(_react2.default.createElement(
   ),
   _react2.default.createElement(_TaskEditor2.default, { schema: _schema2.default, initialData: data })
 ), document.getElementById('app'));
-},{"./components/Logo":31,"./components/TaskEditor":34,"./schema":35,"react":17,"react-dom":14}],22:[function(require,module,exports){
+},{"./components/Logo":31,"./components/TaskEditor":35,"./schema":36,"react":17,"react-dom":14}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35072,19 +35072,19 @@ var Dialog = function (_Component) {
   }
 
   _createClass(Dialog, [{
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      document.body.classList.remove('DialogModalOpen');
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      if (this.props.modal) {
-        document.body.classList.add('DialogModalOpen');
-      }
-    }
-  }, {
     key: 'render',
+
+
+    // componentWillUnmount() {
+    //   document.body.classList.remove('DialogModalOpen');
+    // }
+
+    // componentDidMount() {
+    //   if (this.props.modal) {
+    //     document.body.classList.add('DialogModalOpen');
+    //   }
+    // }
+
     value: function render() {
       return _react2.default.createElement(
         'div',
@@ -35112,6 +35112,7 @@ var Dialog = function (_Component) {
                 onClick: this.props.onAction.bind(this, 'dismiss') },
               '\u041E\u0442\u043C\u0435\u043D\u0430'
             ) : null,
+            '   ',
             _react2.default.createElement(
               _Button2.default,
               { onClick: this.props.onAction.bind(this, this.props.hasCancel ? 'confirm' : 'dismiss') },
@@ -35548,7 +35549,7 @@ Excel.propTypes = {
 };
 
 exports.default = Excel;
-},{"./Actions":22,"./Dialog":24,"./ExcelFormInput":26,"./Form":27,"./Rating":32,"classnames":1,"prop-types":6,"react":17}],26:[function(require,module,exports){
+},{"./Actions":22,"./Dialog":24,"./ExcelFormInput":26,"./Form":27,"./Rating":33,"classnames":1,"prop-types":6,"react":17}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35641,7 +35642,7 @@ ExcelFormInput.propTypes = {
 };
 
 exports.default = ExcelFormInput;
-},{"./Rating":32,"./Suggest":33,"prop-types":6,"react":17}],27:[function(require,module,exports){
+},{"./Rating":33,"./Suggest":34,"prop-types":6,"react":17}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35798,7 +35799,8 @@ var Form = function (_Component) {
                         objectInputType: field.objectInputType,
                         API_URL: _this3.props.API_URL,
                         objName: field.optionListObjName,
-                        optionsAPIData: _this3.props.optionsAPIData
+                        optionsAPIData: _this3.props.optionsAPIData,
+                        showNestedModal: _this3.props.showNestedModal
                       }))
                     )
                   );
@@ -35878,14 +35880,12 @@ Form.propTypes = {
   addNewDialog: _propTypes2.default.bool,
   defaultValue: _propTypes2.default.object,
   API_URL: _propTypes2.default.string,
-  // peopleAPIData: PropTypes.arrayOf(
-  //   PropTypes.object
-  // ),
-  optionsAPIData: _propTypes2.default.object
+  optionsAPIData: _propTypes2.default.object,
+  showNestedModal: _propTypes2.default.func
 };
 
 exports.default = Form;
-},{"./FormInput":28,"./Rating":32,"prop-types":6,"react":17}],28:[function(require,module,exports){
+},{"./FormInput":28,"./Rating":33,"prop-types":6,"react":17}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35982,7 +35982,8 @@ var FormInput = function (_Component) {
               return _react2.default.createElement(_InputFieldWithCheckBoxes2.default, _extends({}, common, {
                 listid: this.props.fieldid,
                 objName: this.props.objName,
-                options: this.props.optionsAPIData[this.props.fieldid]
+                options: this.props.optionsAPIData[this.props.fieldid],
+                showSelectValueDialog: this.props.showNestedModal
               }));
             } else {
               // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
@@ -36027,11 +36028,12 @@ FormInput.propTypes = {
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
   optionsAPIData: _propTypes2.default.object,
-  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList'])
+  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList']),
+  showNestedModal: _propTypes2.default.func
 };
 
 exports.default = FormInput;
-},{"./InputFieldWithCheckBoxes":29,"./ListOptions":30,"./Rating":32,"./Suggest":33,"prop-types":6,"react":17}],29:[function(require,module,exports){
+},{"./InputFieldWithCheckBoxes":29,"./ListOptions":30,"./Rating":33,"./Suggest":34,"prop-types":6,"react":17}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36048,14 +36050,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Dialog = require('./Dialog');
-
-var _Dialog2 = _interopRequireDefault(_Dialog);
-
-var _Form = require('./Form');
-
-var _Form2 = _interopRequireDefault(_Form);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36063,6 +36057,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import Dialog from './Dialog';
+// import Form from './Form';
+
 
 var InputFieldWithCheckBoxes = function (_Component) {
   _inherits(InputFieldWithCheckBoxes, _Component);
@@ -36074,8 +36072,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
 
     _this.state = {
       value: props.defaultValue,
-      datalist: [],
-      showSelectValueDialog: false
+      datalist: []
     };
     _this.formRef2 = _react2.default.createRef();
     return _this;
@@ -36086,21 +36083,22 @@ var InputFieldWithCheckBoxes = function (_Component) {
     value: function getValue() {
       return this.state.datalist;
     }
-  }, {
-    key: '_selectValuesDialog',
-    value: function _selectValuesDialog() {
-      console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
-      // this.setState({showSelectValueDialog: true});
-    }
-  }, {
-    key: '_addNew',
-    value: function _addNew(action) {
-      console.log("InputFieldWithCheckBoxes - _addNew - !!! - unexpected");
-      // if (action === 'dismiss') {
-      //   this.setState({showSelectValueDialog: false});
-      //   return;
-      // }
-    }
+
+    // _selectValuesDialog() {
+    //   console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
+    //   alert('Функция _selectValuesDialog вызвана!');
+    //   // this.setState({showSelectValueDialog: true});
+    //   // e.stopPropagation();
+    // }
+
+    // _addNew(action) {
+    //   console.log("InputFieldWithCheckBoxes - _addNew - !!! - unexpected");
+    //   // if (action === 'dismiss') {
+    //   //   this.setState({showSelectValueDialog: false});
+    //   //   return;
+    //   // }
+    // }
+
   }, {
     key: 'render',
     value: function render() {
@@ -36134,7 +36132,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
           , id: this.props.id });
       } else {
         // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
-        // console.log(this.props.options);
+        // console.log(this.props.options);(e) => this._selectValuesDialog.bind(this, e)
         // console.log("typeof this.props.options");
         // console.log(typeof this.props.options);
         return _react2.default.createElement(
@@ -36148,10 +36146,11 @@ var InputFieldWithCheckBoxes = function (_Component) {
               onChange: function onChange(e) {
                 return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
               },
-              id: this.props.id }),
+              id: this.props.id,
+              dataid: [1] }),
             _react2.default.createElement(
               'button',
-              { onClick: this._selectValuesDialog.bind(this) },
+              { onClick: this.props.showSelectValueDialog },
               '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
             )
           )
@@ -36185,11 +36184,13 @@ InputFieldWithCheckBoxes.propTypes = {
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
   objName: _propTypes2.default.string,
-  options: _propTypes2.default.arrayOf(_propTypes2.default.object)
+  options: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  showSelectValueDialog: _propTypes2.default.func,
+  onDataChange: _propTypes2.default.func
 };
 
 exports.default = InputFieldWithCheckBoxes;
-},{"./Dialog":24,"./Form":27,"prop-types":6,"react":17}],30:[function(require,module,exports){
+},{"prop-types":6,"react":17}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36334,6 +36335,87 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ModalForm = function (_Component) {
+  _inherits(ModalForm, _Component);
+
+  function ModalForm(props) {
+    _classCallCheck(this, ModalForm);
+
+    return _possibleConstructorReturn(this, (ModalForm.__proto__ || Object.getPrototypeOf(ModalForm)).call(this, props));
+  }
+
+  // componentWillUnmount() {
+  //   document.body.classList.remove('ModalForm');
+  // }
+
+  // componentDidMount() {
+  //   if (this.props.modal) {
+  //     document.body.classList.add('ModalForm');
+  //   }
+  // }
+
+
+  _createClass(ModalForm, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          onClose = _props.onClose,
+          formClassName = _props.formClassName,
+          formContentClassName = _props.formContentClassName;
+
+      return _react2.default.createElement(
+        'div',
+        { className: formClassName },
+        _react2.default.createElement(
+          'div',
+          { className: formContentClassName },
+          children,
+          _react2.default.createElement(
+            'button',
+            { onClick: onClose },
+            '\u0417\u0430\u043A\u0440\u044B\u0442\u044C'
+          )
+        )
+      );
+    }
+  }]);
+
+  return ModalForm;
+}(_react.Component);
+
+ModalForm.propTypes = {
+  formClassName: _propTypes2.default.string,
+  onClose: _propTypes2.default.func,
+  formContentClassName: _propTypes2.default.string
+};
+
+exports.default = ModalForm;
+},{"prop-types":6,"react":17}],33:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -36446,7 +36528,7 @@ Rating.defaultProps = {
 };
 
 exports.default = Rating;
-},{"classnames":1,"prop-types":6,"react":17}],33:[function(require,module,exports){
+},{"classnames":1,"prop-types":6,"react":17}],34:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36525,7 +36607,7 @@ Suggest.propTypes = {
 };
 
 exports.default = Suggest;
-},{"prop-types":6,"react":17}],34:[function(require,module,exports){
+},{"prop-types":6,"react":17}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36549,6 +36631,10 @@ var _Excel2 = _interopRequireDefault(_Excel);
 var _Form = require('./Form');
 
 var _Form2 = _interopRequireDefault(_Form);
+
+var _ModalForm = require('./ModalForm');
+
+var _ModalForm2 = _interopRequireDefault(_ModalForm);
 
 var _react = require('react');
 
@@ -36577,7 +36663,8 @@ var TaskEditor = function (_Component) {
     _this.state = {
       data: props.initialData,
       fullData: props.fullAPIData,
-      addnew: false
+      addnew: false,
+      showNestedModal: false
     };
     _this._preSearchData = null;
     _this.formRef = _react2.default.createRef();
@@ -36585,6 +36672,18 @@ var TaskEditor = function (_Component) {
   }
 
   _createClass(TaskEditor, [{
+    key: 'openNestedModal',
+    value: function openNestedModal() {
+      this.setState({ showNestedModal: true });
+      // console.log('this.state.addnew =' + this.state.addnew);
+      // alert('Функция openNestedModal вызвана!');
+    }
+  }, {
+    key: 'closeNestedModal',
+    value: function closeNestedModal() {
+      this.setState({ showNestedModal: false });
+    }
+  }, {
     key: '_addNewDialog',
     value: function _addNewDialog() {
       this.setState({ addnew: true });
@@ -36592,8 +36691,13 @@ var TaskEditor = function (_Component) {
   }, {
     key: '_addNew',
     value: function _addNew(action) {
+      // console.log("TaskEditor - _addNew pressed !!! ");
+      // alert('Oh look, an alert!');
       if (action === 'dismiss') {
         this.setState({ addnew: false });
+        console.log('Функция _addNew вызвана! action == dismiss');
+        console.log('this.state.addnew =' + this.state.addnew);
+        alert('Функция _addNew вызвана! action == dismiss');
         return;
       }
       var data = Array.from(this.state.data);
@@ -36701,9 +36805,10 @@ var TaskEditor = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      /**/
+      /*
       console.log('TaskEditor - render - this.props.schema');
-      console.log(this.props.schema);
+      console.log(this.props.schema);*/
+      var showNestedModal = this.state.showNestedModal;
 
       return _react2.default.createElement(
         'div',
@@ -36745,7 +36850,25 @@ var TaskEditor = function (_Component) {
             fields: this.props.schema,
             addNewDialog: true,
             API_URL: this.props.API_URL,
-            optionsAPIData: this.props.optionsAPIData })
+            optionsAPIData: this.props.optionsAPIData,
+            showNestedModal: this.openNestedModal.bind(this) }),
+          showNestedModal && _react2.default.createElement(
+            _ModalForm2.default,
+            {
+              onClose: this.closeNestedModal.bind(this),
+              formClassName: 'nestedmodal',
+              formContentClassName: 'nestedmodal__content' },
+            _react2.default.createElement(
+              'h3',
+              null,
+              '\u0412\u043B\u043E\u0436\u0435\u043D\u043D\u043E\u0435 \u043C\u043E\u0434\u0430\u043B\u044C\u043D\u043E\u0435 \u043E\u043A\u043D\u043E'
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              '\u042D\u0442\u043E \u0432\u043B\u043E\u0436\u0435\u043D\u043D\u043E\u0435 \u043C\u043E\u0434\u0430\u043B\u044C\u043D\u043E\u0435 \u043E\u043A\u043D\u043E'
+            )
+          )
         ) : null
       );
     }
@@ -36775,7 +36898,7 @@ TaskEditor.propTypes = {
 };
 
 exports.default = TaskEditor;
-},{"./Button":23,"./Dialog":24,"./Excel":25,"./Form":27,"prop-types":6,"react":17}],35:[function(require,module,exports){
+},{"./Button":23,"./Dialog":24,"./Excel":25,"./Form":27,"./ModalForm":32,"prop-types":6,"react":17}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37066,7 +37189,7 @@ exports.default = [{
   autoFilling: false,
   sample: ''
 }];
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -37252,7 +37375,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 (function (setImmediate,clearImmediate){(function (){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -37331,4 +37454,4 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this)}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":36,"timers":37}]},{},[21]);
+},{"process/browser.js":37,"timers":38}]},{},[21]);
