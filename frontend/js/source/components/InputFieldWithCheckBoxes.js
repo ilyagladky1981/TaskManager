@@ -53,15 +53,20 @@ class InputFieldWithCheckBoxes extends Component {
       // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
       // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
     if (!Array.isArray(this.props.options)) {
-        // console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
-        // console.log(this.props.options);
+        console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
+        console.log(this.props.options);
         // console.log("typeof this.props.options");
         // console.log(typeof this.props.options);
         return (
+          <div>
             <input 
               defaultValue={this.props.defaultValue}
               // onChange={e => this.setState({value: e.target.value})}
               id={this.props.id} />
+              <a onClick={this.props.showSelectValueDialog} className="button">
+                Выбрать
+              </a> 
+        </div>
         )
     } else {
       // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
@@ -76,10 +81,9 @@ class InputFieldWithCheckBoxes extends Component {
               onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid})}
               id={this.props.id} 
               dataid={[1]}/>
-            <button onClick={this.props.showSelectValueDialog}>
-              Выбрать
-            </button>
-            
+            <a onClick={this.props.showSelectValueDialog} className="button">
+                Выбрать
+            </a>  
           </div>
         </div>
       );

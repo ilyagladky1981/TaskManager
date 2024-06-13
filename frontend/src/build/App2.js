@@ -57,22 +57,13 @@ var App2 = function (_Component) {
 
     return _this;
   }
+  ///////////////-TMP-////////////////////
+  // async componentDidMount() {
+  //   await this.refreshList();
+  // };
+  ///////////////-TMP-////////////////////
 
   _createClass(App2, [{
-    key: 'componentDidMount',
-    value: async function componentDidMount() {
-      //console.log("componentDidMount()");
-      await this.refreshList();
-
-      /*const { error, isLoaded, apiData, dataForRender } = this.state;
-      console.log(`App2 error in componentDidMount = ${error} , isLoaded in componentDidMount = ${isLoaded}`);
-      console.log('App2 apiData in componentDidMount');
-      console.log(apiData);
-      
-      console.log("App2 componentDidMount - dataForRender");
-      console.log(dataForRender);*/
-    }
-  }, {
     key: 'getPeopleNames',
     value: function getPeopleNames(apiResponse, objName) {
       var len = apiResponse.length;
@@ -215,12 +206,13 @@ var App2 = function (_Component) {
       }
     }
   }, {
-    key: 'toggle',
-    value: function toggle() {
-      return this.setState({ modal: !this.state.modal });
-    }
-  }, {
     key: 'render',
+
+
+    // toggle() {
+    //   return this.setState({ modal: !this.state.modal });
+    // };
+
     value: function render() {
       /*var currentdate = new Date(); 
       var datetime = "App2  Last Sync: " + currentdate.getDate() + "/"

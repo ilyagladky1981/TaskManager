@@ -36122,14 +36122,23 @@ var InputFieldWithCheckBoxes = function (_Component) {
       // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
       // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
       if (!Array.isArray(this.props.options)) {
-        // console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
-        // console.log(this.props.options);
+        console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
+        console.log(this.props.options);
         // console.log("typeof this.props.options");
         // console.log(typeof this.props.options);
-        return _react2.default.createElement('input', {
-          defaultValue: this.props.defaultValue
-          // onChange={e => this.setState({value: e.target.value})}
-          , id: this.props.id });
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('input', {
+            defaultValue: this.props.defaultValue
+            // onChange={e => this.setState({value: e.target.value})}
+            , id: this.props.id }),
+          _react2.default.createElement(
+            'a',
+            { onClick: this.props.showSelectValueDialog },
+            '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
+          )
+        );
       } else {
         // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
         // console.log(this.props.options);(e) => this._selectValuesDialog.bind(this, e)
@@ -36664,7 +36673,7 @@ var TaskEditor = function (_Component) {
       data: props.initialData,
       fullData: props.fullAPIData,
       addnew: false,
-      showNestedModal: false
+      showNestedModalForm: false
     };
     _this._preSearchData = null;
     _this.formRef = _react2.default.createRef();
@@ -36674,14 +36683,14 @@ var TaskEditor = function (_Component) {
   _createClass(TaskEditor, [{
     key: 'openNestedModal',
     value: function openNestedModal() {
-      this.setState({ showNestedModal: true });
+      this.setState({ showNestedModalForm: true });
       // console.log('this.state.addnew =' + this.state.addnew);
       // alert('Функция openNestedModal вызвана!');
     }
   }, {
     key: 'closeNestedModal',
     value: function closeNestedModal() {
-      this.setState({ showNestedModal: false });
+      this.setState({ showNestedModalForm: false });
     }
   }, {
     key: '_addNewDialog',
@@ -36691,8 +36700,6 @@ var TaskEditor = function (_Component) {
   }, {
     key: '_addNew',
     value: function _addNew(action) {
-      // console.log("TaskEditor - _addNew pressed !!! ");
-      // alert('Oh look, an alert!');
       if (action === 'dismiss') {
         this.setState({ addnew: false });
         console.log('Функция _addNew вызвана! action == dismiss');
@@ -36740,35 +36747,6 @@ var TaskEditor = function (_Component) {
       //this._saveData(data);
       //this._commitToStorage(data);
     }
-
-    /*async _saveData(data) { 
-      try {
-        console.log("TaskEditor - _saveData - data");
-        console.log(data);
-        const response = await fetch(`${this.props.API_URL}control/1/`,
-            { method: 'POST',
-              mode: "cors",
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data),
-            });
-        
-        const responsePOSTAPIData = await response.json();
-        console.log("TaskEditor - responsePOSTAPIData");
-        console.log(responsePOSTAPIData);
-        
-        return responsePOSTAPIData;
-      } catch(error) {
-        console.error(error);
-      }
-    };*/
-
-    /*_commitToStorage(data) {
-      //save to REST
-      localStorage.setItem('data', JSON.stringify(data));
-    }*/
-
   }, {
     key: '_startSearching',
     value: function _startSearching() {
@@ -36808,7 +36786,7 @@ var TaskEditor = function (_Component) {
       /*
       console.log('TaskEditor - render - this.props.schema');
       console.log(this.props.schema);*/
-      var showNestedModal = this.state.showNestedModal;
+      var showNestedModalForm = this.state.showNestedModalForm;
 
       return _react2.default.createElement(
         'div',
@@ -36852,7 +36830,7 @@ var TaskEditor = function (_Component) {
             API_URL: this.props.API_URL,
             optionsAPIData: this.props.optionsAPIData,
             showNestedModal: this.openNestedModal.bind(this) }),
-          showNestedModal && _react2.default.createElement(
+          showNestedModalForm && _react2.default.createElement(
             _ModalForm2.default,
             {
               onClose: this.closeNestedModal.bind(this),

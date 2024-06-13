@@ -15,7 +15,7 @@ class TaskEditor extends Component {
       data: props.initialData,
       fullData: props.fullAPIData,
       addnew: false,
-      showNestedModal: false,
+      showNestedModalForm: false,
     };
     this._preSearchData = null;
     this.formRef = React.createRef();
@@ -32,13 +32,13 @@ class TaskEditor extends Component {
   }
 
   openNestedModal() {
-    this.setState({ showNestedModal: true });
+    this.setState({ showNestedModalForm: true });
     // console.log('this.state.addnew =' + this.state.addnew);
     // alert('Функция openNestedModal вызвана!');
   };
 
   closeNestedModal() {
-    this.setState({ showNestedModal: false });
+    this.setState({ showNestedModalForm: false });
   };
 
 
@@ -47,8 +47,6 @@ class TaskEditor extends Component {
   }
   
   _addNew(action) {
-    // console.log("TaskEditor - _addNew pressed !!! ");
-    // alert('Oh look, an alert!');
     if (action === 'dismiss') {
       this.setState({addnew: false});
       console.log('Функция _addNew вызвана! action == dismiss');
@@ -129,7 +127,7 @@ class TaskEditor extends Component {
     /*
     console.log('TaskEditor - render - this.props.schema');
     console.log(this.props.schema);*/
-    const { showNestedModal } = this.state;
+    const { showNestedModalForm } = this.state;
     return (
       <div className="TaskEditor">
         <div className="TaskEditorToolbar">
@@ -163,7 +161,7 @@ class TaskEditor extends Component {
                 optionsAPIData={this.props.optionsAPIData}
                 showNestedModal={this.openNestedModal.bind(this)}>
               </Form>
-              {showNestedModal && (
+              {showNestedModalForm && (
               <ModalForm 
                           onClose={this.closeNestedModal.bind(this)} 
                           formClassName='nestedmodal'

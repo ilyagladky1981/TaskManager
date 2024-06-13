@@ -35576,14 +35576,23 @@ var InputFieldWithCheckBoxes = function (_Component) {
       // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
       // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
       if (!Array.isArray(this.props.options)) {
-        // console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
-        // console.log(this.props.options);
+        console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
+        console.log(this.props.options);
         // console.log("typeof this.props.options");
         // console.log(typeof this.props.options);
-        return _react2.default.createElement('input', {
-          defaultValue: this.props.defaultValue
-          // onChange={e => this.setState({value: e.target.value})}
-          , id: this.props.id });
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('input', {
+            defaultValue: this.props.defaultValue
+            // onChange={e => this.setState({value: e.target.value})}
+            , id: this.props.id }),
+          _react2.default.createElement(
+            'a',
+            { onClick: this.props.showSelectValueDialog },
+            '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
+          )
+        );
       } else {
         // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
         // console.log(this.props.options);(e) => this._selectValuesDialog.bind(this, e)

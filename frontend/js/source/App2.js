@@ -29,21 +29,11 @@ class App2 extends Component {
     this.refreshList = this.refreshList.bind(this);
     
   }
-
-  async componentDidMount() {
-    //console.log("componentDidMount()");
-    await this.refreshList();
-    
-    /*const { error, isLoaded, apiData, dataForRender } = this.state;
-    console.log(`App2 error in componentDidMount = ${error} , isLoaded in componentDidMount = ${isLoaded}`);
-    console.log('App2 apiData in componentDidMount');
-    console.log(apiData);
-    
-    console.log("App2 componentDidMount - dataForRender");
-    console.log(dataForRender);*/
-
-  };
-
+///////////////-TMP-////////////////////
+  // async componentDidMount() {
+  //   await this.refreshList();
+  // };
+///////////////-TMP-////////////////////
 
   getPeopleNames(apiResponse, objName) {
     let len = apiResponse.length;
@@ -197,9 +187,9 @@ class App2 extends Component {
   };
 
 
-  toggle() {
-    return this.setState({ modal: !this.state.modal });
-  };
+  // toggle() {
+  //   return this.setState({ modal: !this.state.modal });
+  // };
 
   render() {
     /*var currentdate = new Date(); 
