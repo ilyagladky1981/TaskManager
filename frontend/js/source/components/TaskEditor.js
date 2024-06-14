@@ -49,17 +49,14 @@ class TaskEditor extends Component {
   _addNew(action) {
     if (action === 'dismiss') {
       this.setState({addnew: false});
-      console.log('Функция _addNew вызвана! action == dismiss');
-      console.log('this.state.addnew =' + this.state.addnew);
-      alert('Функция _addNew вызвана! action == dismiss');
       return;
     }
     let data = Array.from(this.state.data);
     let newRow = this.formRef.current.getData()
-    console.log("TaskEditor - _addNew - newRow");
-    console.log(newRow);
-    console.log("TaskEditor - _addNew - JSON.stringify(newRow)");
-    console.log(JSON.stringify(newRow));
+    // console.log("TaskEditor - _addNew - newRow");
+    // console.log(newRow);
+    // console.log("TaskEditor - _addNew - JSON.stringify(newRow)");
+    // console.log(JSON.stringify(newRow));
     data.unshift();
     this.setState({
       addnew: false,
@@ -147,30 +144,30 @@ class TaskEditor extends Component {
             API_URL={this.props.API_URL} />
         </div>
         {this.state.addnew
-          ? <Dialog 
-              modal={true}
-              header="Добавить новую задачу"
-              confirmLabel="Добавить"
-              onAction={this._addNew.bind(this)}
-            >
-              <Form
-                ref={this.formRef}
-                fields={this.props.schema} 
-                addNewDialog={true}
-                API_URL={this.props.API_URL}
-                optionsAPIData={this.props.optionsAPIData}
-                showNestedModal={this.openNestedModal.bind(this)}>
-              </Form>
-              {showNestedModalForm && (
-              <ModalForm 
-                          onClose={this.closeNestedModal.bind(this)} 
-                          formClassName='nestedmodal'
-                          formContentClassName='nestedmodal__content'>
+          ? <Dialog
+            modal={true}
+            header="Добавить новую задачу"
+            confirmLabel="Добавить"
+            onAction={this._addNew.bind(this)}
+          >
+            <Form
+              ref={this.formRef}
+              fields={this.props.schema}
+              addNewDialog={true}
+              API_URL={this.props.API_URL}
+              optionsAPIData={this.props.optionsAPIData}
+              showNestedModal={this.openNestedModal.bind(this)}>
+            </Form>
+            {showNestedModalForm && (
+              <ModalForm
+                onClose={this.closeNestedModal.bind(this)}
+                formClassName='nestedmodal'
+                formContentClassName='nestedmodal__content'>
                 <h3>Вложенное модальное окно</h3>
                 <p>Это вложенное модальное окно</p>
               </ModalForm>
-              )}
-            </Dialog>
+            )}
+          </Dialog>
           : null}
       </div>
     );

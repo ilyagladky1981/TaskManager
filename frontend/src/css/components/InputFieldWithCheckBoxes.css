@@ -1,0 +1,30 @@
+
+.rowFWCB {
+  display: flex;
+  /*border: 2px solid red;*/
+  /*height: 30px;*/
+  /*line-height: 26px;*/
+}
+.columnFWCB {
+  display: block;
+  /*border: 2px solid blue;*/
+}
+/* Растягиваем второй блок на максимальнуцю ширину */
+.columnFWCB.max {
+  flex: 1;
+}
+
+table.IFWCB {
+  width: 100%;
+  border-collapse: collapse;
+}
+td.max {
+  width: 100%;
+}
+td.min {
+  white-space: nowrap;
+}
+/*button {
+  padding: 8px 12px;
+  font-size: 16px;
+}*/

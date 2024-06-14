@@ -29,11 +29,11 @@ class App2 extends Component {
     this.refreshList = this.refreshList.bind(this);
     
   }
-///////////////-TMP-////////////////////
-  // async componentDidMount() {
-  //   await this.refreshList();
-  // };
-///////////////-TMP-////////////////////
+
+  async componentDidMount() {
+    await this.refreshList();
+  };
+
 
   getPeopleNames(apiResponse, objName) {
     let len = apiResponse.length;

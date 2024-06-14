@@ -57,13 +57,13 @@ var App2 = function (_Component) {
 
     return _this;
   }
-  ///////////////-TMP-////////////////////
-  // async componentDidMount() {
-  //   await this.refreshList();
-  // };
-  ///////////////-TMP-////////////////////
 
   _createClass(App2, [{
+    key: 'componentDidMount',
+    value: async function componentDidMount() {
+      await this.refreshList();
+    }
+  }, {
     key: 'getPeopleNames',
     value: function getPeopleNames(apiResponse, objName) {
       var len = apiResponse.length;

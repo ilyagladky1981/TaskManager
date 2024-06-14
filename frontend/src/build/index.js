@@ -14,6 +14,8 @@ require('./css/app.css');
 
 require('./css/components/TaskEditor.css');
 
+require('./css/components/InputFieldWithCheckBoxes.css');
+
 require('./css/components/ModalDialog.css');
 
 require('./css/components/Actions.css');
@@ -44,9 +46,10 @@ var _reportWebVitals2 = _interopRequireDefault(_reportWebVitals);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var root = _client2.default.createRoot(document.getElementById('root'));
-//import './index.css';
+// import './css/components/buttons.scss';
 
+//import './index.css';
+var root = _client2.default.createRoot(document.getElementById('root'));
 root.render(_react2.default.createElement(
   _react2.default.StrictMode,
   null,

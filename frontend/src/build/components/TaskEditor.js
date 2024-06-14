@@ -83,17 +83,14 @@ var TaskEditor = function (_Component) {
     value: function _addNew(action) {
       if (action === 'dismiss') {
         this.setState({ addnew: false });
-        console.log('Функция _addNew вызвана! action == dismiss');
-        console.log('this.state.addnew =' + this.state.addnew);
-        alert('Функция _addNew вызвана! action == dismiss');
         return;
       }
       var data = Array.from(this.state.data);
       var newRow = this.formRef.current.getData();
-      console.log("TaskEditor - _addNew - newRow");
-      console.log(newRow);
-      console.log("TaskEditor - _addNew - JSON.stringify(newRow)");
-      console.log(JSON.stringify(newRow));
+      // console.log("TaskEditor - _addNew - newRow");
+      // console.log(newRow);
+      // console.log("TaskEditor - _addNew - JSON.stringify(newRow)");
+      // console.log(JSON.stringify(newRow));
       data.unshift();
       this.setState({
         addnew: false,

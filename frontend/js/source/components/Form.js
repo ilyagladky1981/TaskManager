@@ -100,6 +100,7 @@ class Form extends Component {
                     optionsAPIData={this.props.optionsAPIData}
                     showNestedModal={this.props.showNestedModal}
                   /></td>;
+              </tr>
             );
           } else {
             return (

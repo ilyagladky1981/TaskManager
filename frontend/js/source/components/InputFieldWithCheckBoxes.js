@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import bootstrap from 'bootstrap'
 // import Dialog from './Dialog';
 // import Form from './Form';
 
@@ -53,20 +54,28 @@ class InputFieldWithCheckBoxes extends Component {
       // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
       // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
     if (!Array.isArray(this.props.options)) {
-        console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
-        console.log(this.props.options);
+        // console.log("InputFieldWithCheckBoxes - render - (dataURL !!! undefined) - !Array = ");
+        // console.log(this.props.options);
         // console.log("typeof this.props.options");
         // console.log(typeof this.props.options);
         return (
-          <div>
-            <input 
-              defaultValue={this.props.defaultValue}
-              // onChange={e => this.setState({value: e.target.value})}
-              id={this.props.id} />
-              <a onClick={this.props.showSelectValueDialog} className="button">
-                Выбрать
-              </a> 
-        </div>
+          <table className='IFWCB'>
+            <tbody>
+              <tr className='rowFWCB'>
+                <td className='max'>
+                  <input
+                    defaultValue={this.props.defaultValue}
+                    // onChange={e => this.setState({value: e.target.value})}
+                    id={this.props.id} />
+                </td>
+                <td className='min'>
+                  <a onClick={this.props.showSelectValueDialog} className="btn btn-primary btn-sm">
+                    Выбрать
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         )
     } else {
       // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
@@ -74,18 +83,24 @@ class InputFieldWithCheckBoxes extends Component {
       // console.log("typeof this.props.options");
       // console.log(typeof this.props.options);
       return (
-        <div>
-          <div>
-            <input
-              defaultValue={this.props.defaultValue}
-              onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid})}
-              id={this.props.id} 
-              dataid={[1]}/>
-            <a onClick={this.props.showSelectValueDialog} className="button">
-                Выбрать
-            </a>  
-          </div>
-        </div>
+        <table className='IFWCB'>
+          <tbody>
+            <tr className='rowFWCB'>
+              <td className='max'>
+                <input
+                  defaultValue={this.props.defaultValue}
+                  onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
+                  id={this.props.id}
+                  dataid={[1]} />
+              </td>
+              <td className='min'>
+                <a onClick={this.props.showSelectValueDialog} className="button">
+                  Выбрать
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       );
     }
     
