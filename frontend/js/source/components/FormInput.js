@@ -60,11 +60,11 @@ class FormInput extends Component {
           // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
           // console.log(this.props.fieldid + "=== undefined");
           return <InputFieldWithCheckBoxes {...common}
-            listid={this.props.fieldid}
-            objName={this.props.objName}
-            options={this.props.optionsAPIData[this.props.fieldid]}
-            showSelectValueDialog={this.props.showNestedModal}
-          />;
+              listid={this.props.fieldid}
+              objName={this.props.objName}
+              options={this.props.optionsAPIData[this.props.fieldid]}
+              showSelectValueDialog={this.props.showNestedModal}
+            />;
         } else {
           // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
           return <input {...common} type="text" />

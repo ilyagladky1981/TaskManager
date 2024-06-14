@@ -31,17 +31,6 @@ var ModalForm = function (_Component) {
     return _possibleConstructorReturn(this, (ModalForm.__proto__ || Object.getPrototypeOf(ModalForm)).call(this, props));
   }
 
-  // componentWillUnmount() {
-  //   document.body.classList.remove('ModalForm');
-  // }
-
-  // componentDidMount() {
-  //   if (this.props.modal) {
-  //     document.body.classList.add('ModalForm');
-  //   }
-  // }
-
-
   _createClass(ModalForm, [{
     key: 'render',
     value: function render() {

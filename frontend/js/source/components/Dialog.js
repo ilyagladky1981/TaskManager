@@ -19,7 +19,7 @@ class Dialog extends Component {
       <div className={this.props.modal ? 'Dialog DialogModal' : 'Dialog'}>
         <div className={this.props.modal ? 'DialogModalWrap' : null}>
           <div className="DialogHeader">{this.props.header}</div>
-          <div className="DialogBody">{this.props.children}</div>
+          <div className="DialogBody" >{this.props.children}</div>
           <div className="DialogFooter">
             {this.props.hasCancel
               ? <span 

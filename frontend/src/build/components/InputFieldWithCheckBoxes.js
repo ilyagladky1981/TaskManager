@@ -14,6 +14,14 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _bootstrap = require('bootstrap');
+
+var _bootstrap2 = _interopRequireDefault(_bootstrap);
+
+var _Button = require('react-bootstrap/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -86,36 +94,73 @@ var InputFieldWithCheckBoxes = function (_Component) {
       // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
       // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
       if (!Array.isArray(this.props.options)) {
-        // console.log("ListOptions - render - (dataURL !!! undefined) - !Array = ");
+        // console.log("InputFieldWithCheckBoxes - render - (dataURL !!! undefined) - !Array = ");
         // console.log(this.props.options);
         // console.log("typeof this.props.options");
         // console.log(typeof this.props.options);
-        return _react2.default.createElement('input', {
-          defaultValue: this.props.defaultValue
-          // onChange={e => this.setState({value: e.target.value})}
-          , id: this.props.id });
+        return _react2.default.createElement(
+          'table',
+          { className: 'IFWCB' },
+          _react2.default.createElement(
+            'tbody',
+            null,
+            _react2.default.createElement(
+              'tr',
+              { className: 'rowFWCB' },
+              _react2.default.createElement(
+                'td',
+                { className: 'max' },
+                _react2.default.createElement('input', {
+                  defaultValue: this.props.defaultValue
+                  // onChange={e => this.setState({value: e.target.value})}
+                  , id: this.props.id })
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'min' },
+                _react2.default.createElement(
+                  'a',
+                  { onClick: this.props.showSelectValueDialog, className: 'btn btn-primary btn-sm' },
+                  '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
+                )
+              )
+            )
+          )
+        );
       } else {
         // console.log("ListOptions - render - (options === isArray) - this.props.options = ");
         // console.log(this.props.options);(e) => this._selectValuesDialog.bind(this, e)
         // console.log("typeof this.props.options");
         // console.log(typeof this.props.options);
         return _react2.default.createElement(
-          'div',
-          null,
+          'table',
+          { className: 'IFWCB' },
           _react2.default.createElement(
-            'div',
+            'tbody',
             null,
-            _react2.default.createElement('input', {
-              defaultValue: this.props.defaultValue,
-              onChange: function onChange(e) {
-                return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
-              },
-              id: this.props.id,
-              dataid: [1] }),
             _react2.default.createElement(
-              'button',
-              { onClick: this.props.showSelectValueDialog },
-              '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
+              'tr',
+              { className: 'rowFWCB' },
+              _react2.default.createElement(
+                'td',
+                { className: 'max' },
+                _react2.default.createElement('input', {
+                  defaultValue: this.props.defaultValue,
+                  onChange: function onChange(e) {
+                    return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
+                  },
+                  id: this.props.id,
+                  dataid: [1] })
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'min' },
+                _react2.default.createElement(
+                  'a',
+                  { onClick: this.props.showSelectValueDialog, className: 'button' },
+                  '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
+                )
+              )
             )
           )
         );

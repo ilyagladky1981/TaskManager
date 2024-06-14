@@ -31,17 +31,7 @@ class App2 extends Component {
   }
 
   async componentDidMount() {
-    //console.log("componentDidMount()");
     await this.refreshList();
-    
-    /*const { error, isLoaded, apiData, dataForRender } = this.state;
-    console.log(`App2 error in componentDidMount = ${error} , isLoaded in componentDidMount = ${isLoaded}`);
-    console.log('App2 apiData in componentDidMount');
-    console.log(apiData);
-    
-    console.log("App2 componentDidMount - dataForRender");
-    console.log(dataForRender);*/
-
   };
 
 
@@ -197,9 +187,9 @@ class App2 extends Component {
   };
 
 
-  toggle() {
-    return this.setState({ modal: !this.state.modal });
-  };
+  // toggle() {
+  //   return this.setState({ modal: !this.state.modal });
+  // };
 
   render() {
     /*var currentdate = new Date(); 

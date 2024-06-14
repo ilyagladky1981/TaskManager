@@ -150,11 +150,11 @@ var Excel = function (_Component) {
       this._fireDataChange(data);
 
       /*
-      =====================
+      ==========================================
       Saving data of currently changed row
       этот код нужен и будет здесь работать
       для быстрого комментирования задач
-      =====================
+      ==========================================
       const value = this.inputRef.current.getValue();
       let data = Array.from(this.state.data);
       let rowId = this.state.edit.row;

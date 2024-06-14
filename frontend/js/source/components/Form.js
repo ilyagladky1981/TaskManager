@@ -99,7 +99,7 @@ class Form extends Component {
                     objName={field.optionListObjName}
                     optionsAPIData={this.props.optionsAPIData}
                     showNestedModal={this.props.showNestedModal}
-                  /></td>
+                  /></td>;
               </tr>
             );
           } else {

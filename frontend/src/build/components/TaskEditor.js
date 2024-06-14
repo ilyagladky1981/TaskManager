@@ -54,7 +54,7 @@ var TaskEditor = function (_Component) {
       data: props.initialData,
       fullData: props.fullAPIData,
       addnew: false,
-      showNestedModal: false
+      showNestedModalForm: false
     };
     _this._preSearchData = null;
     _this.formRef = _react2.default.createRef();
@@ -64,14 +64,14 @@ var TaskEditor = function (_Component) {
   _createClass(TaskEditor, [{
     key: 'openNestedModal',
     value: function openNestedModal() {
-      this.setState({ showNestedModal: true });
+      this.setState({ showNestedModalForm: true });
       // console.log('this.state.addnew =' + this.state.addnew);
       // alert('Функция openNestedModal вызвана!');
     }
   }, {
     key: 'closeNestedModal',
     value: function closeNestedModal() {
-      this.setState({ showNestedModal: false });
+      this.setState({ showNestedModalForm: false });
     }
   }, {
     key: '_addNewDialog',
@@ -81,21 +81,16 @@ var TaskEditor = function (_Component) {
   }, {
     key: '_addNew',
     value: function _addNew(action) {
-      // console.log("TaskEditor - _addNew pressed !!! ");
-      // alert('Oh look, an alert!');
       if (action === 'dismiss') {
         this.setState({ addnew: false });
-        console.log('Функция _addNew вызвана! action == dismiss');
-        console.log('this.state.addnew =' + this.state.addnew);
-        alert('Функция _addNew вызвана! action == dismiss');
         return;
       }
       var data = Array.from(this.state.data);
       var newRow = this.formRef.current.getData();
-      console.log("TaskEditor - _addNew - newRow");
-      console.log(newRow);
-      console.log("TaskEditor - _addNew - JSON.stringify(newRow)");
-      console.log(JSON.stringify(newRow));
+      // console.log("TaskEditor - _addNew - newRow");
+      // console.log(newRow);
+      // console.log("TaskEditor - _addNew - JSON.stringify(newRow)");
+      // console.log(JSON.stringify(newRow));
       data.unshift();
       this.setState({
         addnew: false,
@@ -130,35 +125,6 @@ var TaskEditor = function (_Component) {
       //this._saveData(data);
       //this._commitToStorage(data);
     }
-
-    /*async _saveData(data) { 
-      try {
-        console.log("TaskEditor - _saveData - data");
-        console.log(data);
-        const response = await fetch(`${this.props.API_URL}control/1/`,
-            { method: 'POST',
-              mode: "cors",
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data),
-            });
-        
-        const responsePOSTAPIData = await response.json();
-        console.log("TaskEditor - responsePOSTAPIData");
-        console.log(responsePOSTAPIData);
-        
-        return responsePOSTAPIData;
-      } catch(error) {
-        console.error(error);
-      }
-    };*/
-
-    /*_commitToStorage(data) {
-      //save to REST
-      localStorage.setItem('data', JSON.stringify(data));
-    }*/
-
   }, {
     key: '_startSearching',
     value: function _startSearching() {
@@ -198,7 +164,7 @@ var TaskEditor = function (_Component) {
       /*
       console.log('TaskEditor - render - this.props.schema');
       console.log(this.props.schema);*/
-      var showNestedModal = this.state.showNestedModal;
+      var showNestedModalForm = this.state.showNestedModalForm;
 
       return _react2.default.createElement(
         'div',
@@ -242,7 +208,7 @@ var TaskEditor = function (_Component) {
             API_URL: this.props.API_URL,
             optionsAPIData: this.props.optionsAPIData,
             showNestedModal: this.openNestedModal.bind(this) }),
-          showNestedModal && _react2.default.createElement(
+          showNestedModalForm && _react2.default.createElement(
             _ModalForm2.default,
             {
               onClose: this.closeNestedModal.bind(this),

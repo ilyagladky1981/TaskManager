@@ -7,17 +7,6 @@ class ModalForm extends Component {
     super(props);
   }
 
-  // componentWillUnmount() {
-  //   document.body.classList.remove('ModalForm');
-  // }
-  
-  // componentDidMount() {
-  //   if (this.props.modal) {
-  //     document.body.classList.add('ModalForm');
-  //   }
-  // }
-
-
   render() {
     const { children, onClose, formClassName, formContentClassName } = this.props;
     return (

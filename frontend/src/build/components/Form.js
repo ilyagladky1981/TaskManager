@@ -157,7 +157,8 @@ var Form = function (_Component) {
                         optionsAPIData: _this3.props.optionsAPIData,
                         showNestedModal: _this3.props.showNestedModal
                       }))
-                    )
+                    ),
+                    ';'
                   );
                 } else {
                   return _react2.default.createElement(
