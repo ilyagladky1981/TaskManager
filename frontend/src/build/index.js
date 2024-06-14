@@ -36,6 +36,8 @@ require('./css/components/Rating.css');
 
 require('./css/components/Suggest.css');
 
+require('bootstrap/dist/css/bootstrap.min.css');
+
 var _App = require('./build/App2');
 
 var _App2 = _interopRequireDefault(_App);
@@ -46,10 +48,11 @@ var _reportWebVitals2 = _interopRequireDefault(_reportWebVitals);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var root = _client2.default.createRoot(document.getElementById('root'));
 // import './css/components/buttons.scss';
 
 //import './index.css';
-var root = _client2.default.createRoot(document.getElementById('root'));
+
 root.render(_react2.default.createElement(
   _react2.default.StrictMode,
   null,

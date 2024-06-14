@@ -16,6 +16,7 @@ import './css/components/Form.css'
 import './css/components/FormInput.css'
 import './css/components/Rating.css'
 import './css/components/Suggest.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App2 from './build/App2';
 import reportWebVitals from './reportWebVitals';
 

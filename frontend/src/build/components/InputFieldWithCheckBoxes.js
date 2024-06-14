@@ -18,6 +18,10 @@ var _bootstrap = require('bootstrap');
 
 var _bootstrap2 = _interopRequireDefault(_bootstrap);
 
+var _Button = require('react-bootstrap/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -116,7 +120,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
                 { className: 'min' },
                 _react2.default.createElement(
                   'a',
-                  { onClick: this.props.showSelectValueDialog, className: 'btn btn-primary' },
+                  { onClick: this.props.showSelectValueDialog, className: 'btn btn-primary btn-sm' },
                   '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
                 )
               )

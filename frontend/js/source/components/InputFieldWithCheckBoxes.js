@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import bootstrap from 'bootstrap'
+import Button from 'react-bootstrap/Button';
 // import Dialog from './Dialog';
 // import Form from './Form';
 
