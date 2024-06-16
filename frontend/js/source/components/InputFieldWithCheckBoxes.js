@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import bootstrap from 'bootstrap'
 import Button from 'react-bootstrap/Button';
+import ModalForm from './ModalForm';
+import CheckBoxForm from './CheckBoxForm';
+
 // import Dialog from './Dialog';
 // import Form from './Form';
 
@@ -12,7 +15,8 @@ class InputFieldWithCheckBoxes extends Component {
     super(props);
     this.state = {
       value: props.defaultValue,
-      datalist: []
+      datalist: [],
+      showNestedModalForm: false,
     };
     this.formRef2 = React.createRef();
   }
@@ -21,17 +25,31 @@ class InputFieldWithCheckBoxes extends Component {
     return this.state.datalist;
   }
 
+  openNestedModal() {
+    this.setState({ showNestedModalForm: true });
+  };
+
+
+  closeNestedModal() {
+    this.setState({ showNestedModalForm: false });
+  };
+
+  _fillFieldData() {
+    this.setState({ datalist: [1] })
+  }
+
+
   // _selectValuesDialog() {
   //   console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
   //   alert('Функция _selectValuesDialog вызвана!');
-  //   // this.setState({showSelectValueDialog: true});
+  //   // this.setState({showNestedModalForm: true});
   //   // e.stopPropagation();
   // }
 
   // _addNew(action) {
   //   console.log("InputFieldWithCheckBoxes - _addNew - !!! - unexpected");
   //   // if (action === 'dismiss') {
-  //   //   this.setState({showSelectValueDialog: false});
+  //   //   this.setState({showNestedModalForm: false});
   //   //   return;
   //   // }
   // }
@@ -54,6 +72,22 @@ class InputFieldWithCheckBoxes extends Component {
       // console.log(typeof this.props.schema[this.props.listid].dataURL);
       // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
       // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
+    // let n = 2;
+    // let m = this.props.options.length;
+    // let k = Math.floor(m / n);
+    // let p = m % n;
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // m = numbers.length;
+    // k = m / n;
+    // p = m % n;
+    // //const parts = numbers.map((number, idx) => getListParts());
+    // let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    //  n = 2;
+    // let newArr = [];
+    // for (let i = 0; i < array.length + 1; i = i + n) {
+    //   newArr.push(array.slice(i, i + n));
+    // }
+    // // console.log(newArr);
     if (!Array.isArray(this.props.options)) {
         // console.log("InputFieldWithCheckBoxes - render - (dataURL !!! undefined) - !Array = ");
         // console.log(this.props.options);
@@ -67,10 +101,14 @@ class InputFieldWithCheckBoxes extends Component {
                   <input
                     defaultValue={this.props.defaultValue}
                     // onChange={e => this.setState({value: e.target.value})}
-                    id={this.props.id} />
+                    id={this.props.id} ></input>
                 </td>
                 <td className='min'>
-                  <a onClick={this.props.showSelectValueDialog} className="btn btn-primary btn-sm">
+                  <a
+                    onClick={this.openNestedModal.bind(this)}
+                    className="btn btn-primary btn-sm"
+                    href="#" 
+                    role="button">
                     Выбрать
                   </a>
                 </td>
@@ -90,14 +128,28 @@ class InputFieldWithCheckBoxes extends Component {
               <td className='max'>
                 <input
                   defaultValue={this.props.defaultValue}
-                  onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
+                  // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
                   id={this.props.id}
-                  dataid={[1]} />
+                  dataid={[1]} >{this.state.datalist.toString()}</input>
               </td>
               <td className='min'>
-                <a onClick={this.props.showSelectValueDialog} className="button">
+                <a 
+                  onClick={this.openNestedModal.bind(this)} 
+                  className="button">
                   Выбрать
                 </a>
+                {this.state.showNestedModalForm && (
+                    <ModalForm
+                      onClose={this.closeNestedModal.bind(this)}
+                      formClassName='nestedmodal'
+                      formContentClassName='nestedmodal__content'>
+                      {/* <CheckBoxForm 
+                        columnNumber={2}
+                        options={this.props.options}
+                        onClick={this._fillFieldData.bind(this)}
+                        ></CheckBoxForm> */}
+                    </ModalForm>
+                  )}
               </td>
             </tr>
           </tbody>
@@ -108,21 +160,7 @@ class InputFieldWithCheckBoxes extends Component {
   }
 }
 
-/*  {this.state.showSelectValueDialog
-            ? <Dialog
-              modal={true}
-              header="Добавить новую задачу"
-              confirmLabel="Добавить"
-              onAction={this._addNew.bind(this)}
-            >
-              <Form
-                ref={this.formRef2}
-                fields={this.props.schema}
-                addNewDialog={true}
-                API_URL={this.props.API_URL}
-                optionsAPIData={this.props.optionsAPIData} />
-            </Dialog>
-            : null}*/
+
 InputFieldWithCheckBoxes.propTypes = {
   id: PropTypes.string,
   defaultValue: PropTypes.string,
@@ -131,7 +169,7 @@ InputFieldWithCheckBoxes.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.object
   ),
-  showSelectValueDialog: PropTypes.func,
+  // showSelectValueDialog: PropTypes.func,
   onDataChange: PropTypes.func,
 };
 

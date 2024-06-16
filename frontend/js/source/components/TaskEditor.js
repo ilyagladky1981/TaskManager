@@ -2,7 +2,7 @@ import Button from './Button';
 import Dialog from './Dialog';
 import Excel from './Excel';
 import Form from './Form';
-import ModalForm from './ModalForm';
+
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
@@ -31,15 +31,9 @@ class TaskEditor extends Component {
     return null;
   }
 
-  openNestedModal() {
-    this.setState({ showNestedModalForm: true });
-    // console.log('this.state.addnew =' + this.state.addnew);
-    // alert('Функция openNestedModal вызвана!');
-  };
+  
 
-  closeNestedModal() {
-    this.setState({ showNestedModalForm: false });
-  };
+
 
 
   _addNewDialog() {
@@ -156,17 +150,9 @@ class TaskEditor extends Component {
               addNewDialog={true}
               API_URL={this.props.API_URL}
               optionsAPIData={this.props.optionsAPIData}
-              showNestedModal={this.openNestedModal.bind(this)}>
-            </Form>
-            {showNestedModalForm && (
-              <ModalForm
-                onClose={this.closeNestedModal.bind(this)}
-                formClassName='nestedmodal'
-                formContentClassName='nestedmodal__content'>
-                <h3>Вложенное модальное окно</h3>
-                <p>Это вложенное модальное окно</p>
-              </ModalForm>
-            )}
+              // showNestedModal={this.openNestedModal.bind(this)}
+              />
+            {/**/ }
           </Dialog>
           : null}
       </div>
