@@ -6699,7 +6699,7 @@ checkPropTypes.resetWarningCache = function() {
 module.exports = checkPropTypes;
 
 }).call(this)}).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":11,"./lib/has":12,"_process":46}],8:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":11,"./lib/has":12,"_process":47}],8:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -7380,7 +7380,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this)}).call(this,require('_process'))
-},{"./checkPropTypes":7,"./lib/ReactPropTypesSecret":11,"./lib/has":12,"_process":46,"object-assign":6,"react-is":15}],10:[function(require,module,exports){
+},{"./checkPropTypes":7,"./lib/ReactPropTypesSecret":11,"./lib/has":12,"_process":47,"object-assign":6,"react-is":15}],10:[function(require,module,exports){
 (function (process){(function (){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -7403,7 +7403,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./factoryWithThrowingShims":8,"./factoryWithTypeCheckers":9,"_process":46,"react-is":15}],11:[function(require,module,exports){
+},{"./factoryWithThrowingShims":8,"./factoryWithTypeCheckers":9,"_process":47,"react-is":15}],11:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -7605,7 +7605,7 @@ exports.typeOf = typeOf;
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":46}],14:[function(require,module,exports){
+},{"_process":47}],14:[function(require,module,exports){
 /** @license React v16.13.1
  * react-is.production.min.js
  *
@@ -7633,7 +7633,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-is.development.js":13,"./cjs/react-is.production.min.js":14,"_process":46}],16:[function(require,module,exports){
+},{"./cjs/react-is.development.js":13,"./cjs/react-is.production.min.js":14,"_process":47}],16:[function(require,module,exports){
 "use strict";
 "use client";
 
@@ -37646,7 +37646,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":46,"react":25,"scheduler":29}],19:[function(require,module,exports){
+},{"_process":47,"react":25,"scheduler":29}],19:[function(require,module,exports){
 /**
  * @license React
  * react-dom.production.min.js
@@ -38013,7 +38013,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":18,"./cjs/react-dom.production.min.js":19,"_process":46}],21:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":18,"./cjs/react-dom.production.min.js":19,"_process":47}],21:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -39331,7 +39331,7 @@ exports.jsxs = jsxs;
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":46,"react":25}],22:[function(require,module,exports){
+},{"_process":47,"react":25}],22:[function(require,module,exports){
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -42087,7 +42087,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":46}],24:[function(require,module,exports){
+},{"_process":47}],24:[function(require,module,exports){
 /**
  * @license React
  * react.production.min.js
@@ -42126,7 +42126,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react.development.js":23,"./cjs/react.production.min.js":24,"_process":46}],26:[function(require,module,exports){
+},{"./cjs/react.development.js":23,"./cjs/react.production.min.js":24,"_process":47}],26:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -42137,7 +42137,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-jsx-runtime.development.js":21,"./cjs/react-jsx-runtime.production.min.js":22,"_process":46}],27:[function(require,module,exports){
+},{"./cjs/react-jsx-runtime.development.js":21,"./cjs/react-jsx-runtime.production.min.js":22,"_process":47}],27:[function(require,module,exports){
 (function (process,setImmediate){(function (){
 /**
  * @license React
@@ -42775,7 +42775,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":46,"timers":47}],28:[function(require,module,exports){
+},{"_process":47,"timers":48}],28:[function(require,module,exports){
 (function (setImmediate){(function (){
 /**
  * @license React
@@ -42798,7 +42798,7 @@ exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();"
 exports.unstable_shouldYield=M;exports.unstable_wrapCallback=function(a){var b=y;return function(){var c=y;y=b;try{return a.apply(this,arguments)}finally{y=c}}};
 
 }).call(this)}).call(this,require("timers").setImmediate)
-},{"timers":47}],29:[function(require,module,exports){
+},{"timers":48}],29:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -42809,7 +42809,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/scheduler.development.js":27,"./cjs/scheduler.production.min.js":28,"_process":46}],30:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":27,"./cjs/scheduler.production.min.js":28,"_process":47}],30:[function(require,module,exports){
 'use strict';
 
 var _Logo = require('./components/Logo');
@@ -42856,7 +42856,7 @@ _reactDom2.default.render(_react2.default.createElement(
   ),
   _react2.default.createElement(_TaskEditor2.default, { schema: _schema2.default, initialData: data })
 ), document.getElementById('app'));
-},{"./components/Logo":40,"./components/TaskEditor":44,"./schema":45,"react":25,"react-dom":20}],31:[function(require,module,exports){
+},{"./components/Logo":41,"./components/TaskEditor":45,"./schema":46,"react":25,"react-dom":20}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42940,6 +42940,173 @@ Button.propTypes = {
 
 exports.default = Button;
 },{"classnames":5,"prop-types":10,"react":25}],33:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _FormInput = require('./FormInput');
+
+var _FormInput2 = _interopRequireDefault(_FormInput);
+
+var _Rating = require('./Rating');
+
+var _Rating2 = _interopRequireDefault(_Rating);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CheckBoxForm = function (_Component) {
+  _inherits(CheckBoxForm, _Component);
+
+  function CheckBoxForm(props) {
+    _classCallCheck(this, CheckBoxForm);
+
+    var _this = _possibleConstructorReturn(this, (CheckBoxForm.__proto__ || Object.getPrototypeOf(CheckBoxForm)).call(this, props));
+
+    _this.currentFormInputRef = _react2.default.createRef();
+    _this.state = {
+      formData: null
+    };
+    return _this;
+  }
+
+  _createClass(CheckBoxForm, [{
+    key: 'getData',
+    value: function getData() {}
+    // let data = {};
+    // let schema_tmp = this.props.fields;
+    // console.log("getData - schema_tmp");
+    // console.log(schema_tmp);
+    // this.props.fields.forEach(field => 
+    //   data[field.id] = this.refs[field.id].getValue()
+    // );
+    // return data;
+
+
+    // _handleSearch(event) {
+    // const term = event.target.value.toLowerCase();
+    // setSearchTerm(term);
+    //
+    // const filtered = data.filter((item) =>
+    //   item.toLowerCase().includes(term)
+    // );
+    // setFilteredData(filtered);
+    // };
+
+  }, {
+    key: '_handleSearch',
+    value: function _handleSearch(listid) {
+      // let inputData = {};
+      // let schema_tmp = this.props.fields;
+      console.log("Excel - _handleSearch - listid ");
+      console.log(listid);
+    }
+  }, {
+    key: 'getListParts',
+    value: function getListParts(idx) {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      /*let fields_tmp = this.props.fields;
+      console.log("render - fields_tmp");
+      console.log(fields_tmp);
+      console.log("render - this.props.addNewDialog");
+      console.log(this.props.addNewDialog);*/
+      // let n = 3;
+      // // let m = this.props.options.length;
+      // let k = Math.floor(m / n);
+      // let p = m % n;
+      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      var n = 2;
+      var m = numbers.length;
+      var k = Math.floor(m / n);
+      var p = m % n;
+      var parts = [];
+      var part_size = k + 1;
+      for (var i = 0; i < p * part_size; i = i + part_size) {
+        parts.push(numbers.slice(i, i + part_size));
+      }
+      for (var _i = p * part_size; _i < numbers.length; _i = _i + part_size - 1) {
+        parts.push(numbers.slice(_i, _i + part_size - 1));
+      }
+      console.log('Form - render - parts');
+      console.log(parts);
+
+      //parts = 
+      return _react2.default.createElement(
+        'form',
+        { className: 'Form' },
+        _react2.default.createElement(
+          'table',
+          { className: 'FormTable' },
+          _react2.default.createElement(
+            'tbody',
+            null,
+            _react2.default.createElement(
+              'tr',
+              null,
+              this.props.parts.map(function (part) {
+                return _react2.default.createElement(
+                  'td',
+                  null,
+                  part.map(function (elem, idx) {
+                    return _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement('input', {
+                        type: 'checkbox',
+                        id: "checkbox" + { idx: idx },
+                        name: "checkbox" + { idx: idx },
+                        value: elem }),
+                      _react2.default.createElement(
+                        'label',
+                        {
+                          'for': "checkbox" + { idx: idx } },
+                        elem
+                      ),
+                      _react2.default.createElement('br', null)
+                    );
+                  }, _this2)
+                );
+              }, this)
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return CheckBoxForm;
+}(_react.Component);
+
+CheckBoxForm.propTypes = {
+  columnNumber: _propTypes2.default.number,
+  onClick: _propTypes2.default.func,
+  paramName: _propTypes2.default.string,
+  options: _propTypes2.default.arrayOf(_propTypes2.default.object)
+};
+
+exports.default = CheckBoxForm;
+},{"./FormInput":38,"./Rating":43,"prop-types":10,"react":25}],34:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43049,7 +43216,7 @@ Dialog.defaultProps = {
 };
 
 exports.default = Dialog;
-},{"./Button":32,"prop-types":10,"react":25}],34:[function(require,module,exports){
+},{"./Button":32,"prop-types":10,"react":25}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43455,7 +43622,7 @@ Excel.propTypes = {
 };
 
 exports.default = Excel;
-},{"./Actions":31,"./Dialog":33,"./ExcelFormInput":35,"./Form":36,"./Rating":42,"classnames":5,"prop-types":10,"react":25}],35:[function(require,module,exports){
+},{"./Actions":31,"./Dialog":34,"./ExcelFormInput":36,"./Form":37,"./Rating":43,"classnames":5,"prop-types":10,"react":25}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43548,7 +43715,7 @@ ExcelFormInput.propTypes = {
 };
 
 exports.default = ExcelFormInput;
-},{"./Rating":42,"./Suggest":43,"prop-types":10,"react":25}],36:[function(require,module,exports){
+},{"./Rating":43,"./Suggest":44,"prop-types":10,"react":25}],37:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43641,6 +43808,27 @@ var Form = function (_Component) {
       console.log(fields_tmp);
       console.log("render - this.props.addNewDialog");
       console.log(this.props.addNewDialog);*/
+      // let n = 3;
+      // // let m = this.props.options.length;
+      // let k = Math.floor(m / n);
+      // let p = m % n;
+      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      var n = 2;
+      var m = numbers.length;
+      var k = Math.floor(m / n);
+      var p = m % n;
+      //const parts = numbers.map((number, idx) => getListParts());
+      // let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      var newArr = [];
+      var part_size = k + 1;
+      for (var i = 0; i < p * part_size; i = i + part_size) {
+        newArr.push(numbers.slice(i, i + part_size));
+      }
+      for (var _i = p * part_size; _i < numbers.length; _i = _i + part_size - 1) {
+        newArr.push(numbers.slice(_i, _i + part_size - 1));
+      }
+      console.log('Form - render - newArr');
+      console.log(newArr);
       return _react2.default.createElement(
         'form',
         { className: 'Form' },
@@ -43690,7 +43878,8 @@ var Form = function (_Component) {
                       { className: 'FormTableLabel' },
                       _react2.default.createElement(
                         'label',
-                        { className: 'FormLabel', htmlFor: field.id },
+                        { className: 'FormLabel',
+                          htmlFor: field.id },
                         field.label,
                         ':\xA0'
                       )
@@ -43705,11 +43894,10 @@ var Form = function (_Component) {
                         objectInputType: field.objectInputType,
                         API_URL: _this3.props.API_URL,
                         objName: field.optionListObjName,
-                        optionsAPIData: _this3.props.optionsAPIData,
-                        showNestedModal: _this3.props.showNestedModal
+                        optionsAPIData: _this3.props.optionsAPIData
+                        // showNestedModal={this.props.showNestedModal} 
                       }))
-                    ),
-                    ';'
+                    )
                   );
                 } else {
                   return _react2.default.createElement(
@@ -43787,12 +43975,12 @@ Form.propTypes = {
   addNewDialog: _propTypes2.default.bool,
   defaultValue: _propTypes2.default.object,
   API_URL: _propTypes2.default.string,
-  optionsAPIData: _propTypes2.default.object,
-  showNestedModal: _propTypes2.default.func
+  optionsAPIData: _propTypes2.default.object
+  // showNestedModal: PropTypes.func,
 };
 
 exports.default = Form;
-},{"./FormInput":37,"./Rating":42,"prop-types":10,"react":25}],37:[function(require,module,exports){
+},{"./FormInput":38,"./Rating":43,"prop-types":10,"react":25}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43886,11 +44074,12 @@ var FormInput = function (_Component) {
               // console.log("FormInput - render - case ListOptions - objName = " + this.props.objName);
               // console.log("FormInput - render - case ListOptions - listid = " + this.props.fieldid);
               // console.log(this.props.fieldid + "=== undefined");
+              // return null;
               return _react2.default.createElement(_InputFieldWithCheckBoxes2.default, _extends({}, common, {
                 listid: this.props.fieldid,
                 objName: this.props.objName,
-                options: this.props.optionsAPIData[this.props.fieldid],
-                showSelectValueDialog: this.props.showNestedModal
+                options: this.props.optionsAPIData[this.props.fieldid]
+                // showSelectValueDialog={this.props.showNestedModal}
               }));
             } else {
               // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
@@ -43935,12 +44124,12 @@ FormInput.propTypes = {
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
   optionsAPIData: _propTypes2.default.object,
-  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList']),
-  showNestedModal: _propTypes2.default.func
+  objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList'])
+  // showNestedModal: PropTypes.func,
 };
 
 exports.default = FormInput;
-},{"./InputFieldWithCheckBoxes":38,"./ListOptions":39,"./Rating":42,"./Suggest":43,"prop-types":10,"react":25}],38:[function(require,module,exports){
+},{"./InputFieldWithCheckBoxes":39,"./ListOptions":40,"./Rating":43,"./Suggest":44,"prop-types":10,"react":25}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43965,6 +44154,14 @@ var _Button = require('react-bootstrap/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
+var _ModalForm = require('./ModalForm');
+
+var _ModalForm2 = _interopRequireDefault(_ModalForm);
+
+var _CheckBoxForm = require('./CheckBoxForm');
+
+var _CheckBoxForm2 = _interopRequireDefault(_CheckBoxForm);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -43987,7 +44184,8 @@ var InputFieldWithCheckBoxes = function (_Component) {
 
     _this.state = {
       value: props.defaultValue,
-      datalist: []
+      datalist: [],
+      showNestedModalForm: false
     };
     _this.formRef2 = _react2.default.createRef();
     return _this;
@@ -43998,18 +44196,33 @@ var InputFieldWithCheckBoxes = function (_Component) {
     value: function getValue() {
       return this.state.datalist;
     }
+  }, {
+    key: 'openNestedModal',
+    value: function openNestedModal() {
+      this.setState({ showNestedModalForm: true });
+    }
+  }, {
+    key: 'closeNestedModal',
+    value: function closeNestedModal() {
+      this.setState({ showNestedModalForm: false });
+    }
+  }, {
+    key: '_fillFieldData',
+    value: function _fillFieldData() {
+      this.setState({ datalist: [1] });
+    }
 
     // _selectValuesDialog() {
     //   console.log("InputFieldWithCheckBoxes - _selectValuesDialog - button click = ok");
     //   alert('Функция _selectValuesDialog вызвана!');
-    //   // this.setState({showSelectValueDialog: true});
+    //   // this.setState({showNestedModalForm: true});
     //   // e.stopPropagation();
     // }
 
     // _addNew(action) {
     //   console.log("InputFieldWithCheckBoxes - _addNew - !!! - unexpected");
     //   // if (action === 'dismiss') {
-    //   //   this.setState({showSelectValueDialog: false});
+    //   //   this.setState({showNestedModalForm: false});
     //   //   return;
     //   // }
     // }
@@ -44017,8 +44230,6 @@ var InputFieldWithCheckBoxes = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       // console.log("ListOptions - render - this.props.listid =");
       // console.log("schema = " + typeof this.props.schema);
       // console.log("schema[listid] = " + typeof typeof this.props.schema[this.props.listid]);
@@ -44036,6 +44247,22 @@ var InputFieldWithCheckBoxes = function (_Component) {
       // console.log(typeof this.props.schema[this.props.listid].dataURL);
       // console.log("ListOptions - render - (dataURL !!! undefined) => listid = " + this.props.listid);
       // console.log("ListOptions - render - (dataURL !!! undefined) === " + this.props.dataURL);
+      // let n = 2;
+      // let m = this.props.options.length;
+      // let k = Math.floor(m / n);
+      // let p = m % n;
+      // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      // m = numbers.length;
+      // k = m / n;
+      // p = m % n;
+      // //const parts = numbers.map((number, idx) => getListParts());
+      // let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      //  n = 2;
+      // let newArr = [];
+      // for (let i = 0; i < array.length + 1; i = i + n) {
+      //   newArr.push(array.slice(i, i + n));
+      // }
+      // // console.log(newArr);
       if (!Array.isArray(this.props.options)) {
         // console.log("InputFieldWithCheckBoxes - render - (dataURL !!! undefined) - !Array = ");
         // console.log(this.props.options);
@@ -44063,7 +44290,11 @@ var InputFieldWithCheckBoxes = function (_Component) {
                 { className: 'min' },
                 _react2.default.createElement(
                   'a',
-                  { onClick: this.props.showSelectValueDialog, className: 'btn btn-primary btn-sm' },
+                  {
+                    onClick: this.openNestedModal.bind(this),
+                    className: 'btn btn-primary btn-sm',
+                    href: '#',
+                    role: 'button' },
                   '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
                 )
               )
@@ -44087,22 +44318,30 @@ var InputFieldWithCheckBoxes = function (_Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'max' },
-                _react2.default.createElement('input', {
-                  defaultValue: this.props.defaultValue,
-                  onChange: function onChange(e) {
-                    return _this2.setState({ value: e.target.value, datalist: e.target.dataid });
-                  },
-                  id: this.props.id,
-                  dataid: [1] })
+                _react2.default.createElement(
+                  'input',
+                  {
+                    defaultValue: this.props.defaultValue
+                    // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
+                    , id: this.props.id,
+                    dataid: [1] },
+                  this.state.datalist.toString()
+                )
               ),
               _react2.default.createElement(
                 'td',
                 { className: 'min' },
                 _react2.default.createElement(
                   'a',
-                  { onClick: this.props.showSelectValueDialog, className: 'button' },
+                  {
+                    onClick: this.openNestedModal.bind(this),
+                    className: 'button' },
                   '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
-                )
+                ),
+                this.state.showNestedModalForm && _react2.default.createElement(_ModalForm2.default, {
+                  onClose: this.closeNestedModal.bind(this),
+                  formClassName: 'nestedmodal',
+                  formContentClassName: 'nestedmodal__content' })
               )
             )
           )
@@ -44114,35 +44353,18 @@ var InputFieldWithCheckBoxes = function (_Component) {
   return InputFieldWithCheckBoxes;
 }(_react.Component);
 
-/*  {this.state.showSelectValueDialog
-            ? <Dialog
-              modal={true}
-              header="Добавить новую задачу"
-              confirmLabel="Добавить"
-              onAction={this._addNew.bind(this)}
-            >
-              <Form
-                ref={this.formRef2}
-                fields={this.props.schema}
-                addNewDialog={true}
-                API_URL={this.props.API_URL}
-                optionsAPIData={this.props.optionsAPIData} />
-            </Dialog>
-            : null}*/
-
-
 InputFieldWithCheckBoxes.propTypes = {
   id: _propTypes2.default.string,
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
   objName: _propTypes2.default.string,
   options: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  showSelectValueDialog: _propTypes2.default.func,
+  // showSelectValueDialog: PropTypes.func,
   onDataChange: _propTypes2.default.func
 };
 
 exports.default = InputFieldWithCheckBoxes;
-},{"bootstrap":4,"prop-types":10,"react":25,"react-bootstrap/Button":16}],39:[function(require,module,exports){
+},{"./CheckBoxForm":33,"./ModalForm":42,"bootstrap":4,"prop-types":10,"react":25,"react-bootstrap/Button":16}],40:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44260,7 +44482,7 @@ ListOptions.propTypes = {
 };
 
 exports.default = ListOptions;
-},{"prop-types":10,"react":25}],40:[function(require,module,exports){
+},{"prop-types":10,"react":25}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -44278,7 +44500,7 @@ var Logo = function Logo() {
 };
 
 exports.default = Logo;
-},{"react":25}],41:[function(require,module,exports){
+},{"react":25}],42:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44348,7 +44570,7 @@ ModalForm.propTypes = {
 };
 
 exports.default = ModalForm;
-},{"prop-types":10,"react":25}],42:[function(require,module,exports){
+},{"prop-types":10,"react":25}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44469,7 +44691,7 @@ Rating.defaultProps = {
 };
 
 exports.default = Rating;
-},{"classnames":5,"prop-types":10,"react":25}],43:[function(require,module,exports){
+},{"classnames":5,"prop-types":10,"react":25}],44:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44548,7 +44770,7 @@ Suggest.propTypes = {
 };
 
 exports.default = Suggest;
-},{"prop-types":10,"react":25}],44:[function(require,module,exports){
+},{"prop-types":10,"react":25}],45:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44572,10 +44794,6 @@ var _Excel2 = _interopRequireDefault(_Excel);
 var _Form = require('./Form');
 
 var _Form2 = _interopRequireDefault(_Form);
-
-var _ModalForm = require('./ModalForm');
-
-var _ModalForm2 = _interopRequireDefault(_ModalForm);
 
 var _react = require('react');
 
@@ -44613,18 +44831,6 @@ var TaskEditor = function (_Component) {
   }
 
   _createClass(TaskEditor, [{
-    key: 'openNestedModal',
-    value: function openNestedModal() {
-      this.setState({ showNestedModalForm: true });
-      // console.log('this.state.addnew =' + this.state.addnew);
-      // alert('Функция openNestedModal вызвана!');
-    }
-  }, {
-    key: 'closeNestedModal',
-    value: function closeNestedModal() {
-      this.setState({ showNestedModalForm: false });
-    }
-  }, {
     key: '_addNewDialog',
     value: function _addNewDialog() {
       this.setState({ addnew: true });
@@ -44757,25 +44963,9 @@ var TaskEditor = function (_Component) {
             fields: this.props.schema,
             addNewDialog: true,
             API_URL: this.props.API_URL,
-            optionsAPIData: this.props.optionsAPIData,
-            showNestedModal: this.openNestedModal.bind(this) }),
-          showNestedModalForm && _react2.default.createElement(
-            _ModalForm2.default,
-            {
-              onClose: this.closeNestedModal.bind(this),
-              formClassName: 'nestedmodal',
-              formContentClassName: 'nestedmodal__content' },
-            _react2.default.createElement(
-              'h3',
-              null,
-              '\u0412\u043B\u043E\u0436\u0435\u043D\u043D\u043E\u0435 \u043C\u043E\u0434\u0430\u043B\u044C\u043D\u043E\u0435 \u043E\u043A\u043D\u043E'
-            ),
-            _react2.default.createElement(
-              'p',
-              null,
-              '\u042D\u0442\u043E \u0432\u043B\u043E\u0436\u0435\u043D\u043D\u043E\u0435 \u043C\u043E\u0434\u0430\u043B\u044C\u043D\u043E\u0435 \u043E\u043A\u043D\u043E'
-            )
-          )
+            optionsAPIData: this.props.optionsAPIData
+            // showNestedModal={this.openNestedModal.bind(this)}
+          })
         ) : null
       );
     }
@@ -44805,7 +44995,7 @@ TaskEditor.propTypes = {
 };
 
 exports.default = TaskEditor;
-},{"./Button":32,"./Dialog":33,"./Excel":34,"./Form":36,"./ModalForm":41,"prop-types":10,"react":25}],45:[function(require,module,exports){
+},{"./Button":32,"./Dialog":34,"./Excel":35,"./Form":37,"prop-types":10,"react":25}],46:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45096,7 +45286,7 @@ exports.default = [{
   autoFilling: false,
   sample: ''
 }];
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -45282,7 +45472,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 (function (setImmediate,clearImmediate){(function (){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -45361,4 +45551,4 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this)}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":46,"timers":47}]},{},[30]);
+},{"process/browser.js":47,"timers":48}]},{},[30]);

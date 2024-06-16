@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _FormInput = require('./FormInput');
@@ -49,18 +47,16 @@ var CheckBoxForm = function (_Component) {
 
   _createClass(CheckBoxForm, [{
     key: 'getData',
-    value: function getData() {
-      var _this2 = this;
+    value: function getData() {}
+    // let data = {};
+    // let schema_tmp = this.props.fields;
+    // console.log("getData - schema_tmp");
+    // console.log(schema_tmp);
+    // this.props.fields.forEach(field => 
+    //   data[field.id] = this.refs[field.id].getValue()
+    // );
+    // return data;
 
-      var data = {};
-      var schema_tmp = this.props.fields;
-      console.log("getData - schema_tmp");
-      console.log(schema_tmp);
-      this.props.fields.forEach(function (field) {
-        return data[field.id] = _this2.refs[field.id].getValue();
-      });
-      return data;
-    }
 
     // _handleSearch(event) {
     // const term = event.target.value.toLowerCase();
@@ -81,15 +77,39 @@ var CheckBoxForm = function (_Component) {
       console.log(listid);
     }
   }, {
+    key: 'getListParts',
+    value: function getListParts(idx) {}
+  }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       /*let fields_tmp = this.props.fields;
       console.log("render - fields_tmp");
       console.log(fields_tmp);
       console.log("render - this.props.addNewDialog");
       console.log(this.props.addNewDialog);*/
+      // let n = 3;
+      // // let m = this.props.options.length;
+      // let k = Math.floor(m / n);
+      // let p = m % n;
+      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      var n = 2;
+      var m = numbers.length;
+      var k = Math.floor(m / n);
+      var p = m % n;
+      var parts = [];
+      var part_size = k + 1;
+      for (var i = 0; i < p * part_size; i = i + part_size) {
+        parts.push(numbers.slice(i, i + part_size));
+      }
+      for (var _i = p * part_size; _i < numbers.length; _i = _i + part_size - 1) {
+        parts.push(numbers.slice(_i, _i + part_size - 1));
+      }
+      console.log('Form - render - parts');
+      console.log(parts);
+
+      //parts = 
       return _react2.default.createElement(
         'form',
         { className: 'Form' },
@@ -99,119 +119,34 @@ var CheckBoxForm = function (_Component) {
           _react2.default.createElement(
             'tbody',
             null,
-            this.props.fields.map(function (field) {
-              var prefilled = void 0;
-              var value = _this3.props.initialData && _this3.props.initialData[field.id];
-              /*console.log("render - value");
-              console.log(value);
-              console.log("render - field.id");
-              console.log(field.id);
-              console.log("render - this.props.initialData");
-              console.log(this.props.initialData);
-              console.log("render - this.props.initialData[field.id]");
-              console.log(this.props.initialData[field.id]);*/
-
-              if (_this3.props.addNewDialog) {
-                if (field.autoFilling) {
-                  prefilled = _this3.props.defaultValue[field.id];
-                } else {
-                  prefilled = '';
-                }
-              } else {
-                if (value) {
-                  prefilled = JSON.parse(JSON.stringify(value));
-                } else {
-                  prefilled = '';
-                }
-              }
-              /*if (!value && field.autoFilling) {
-                prefilled = JSON.parse(JSON.stringify(this.props.initialData[field.id].defaultValue));
-              } else {
-                prefilled = JSON.parse(JSON.stringify(value));
-              }*/
-              if (!_this3.props.readonly) {
-                if (field.addnew) {
-                  return _react2.default.createElement(
-                    'tr',
-                    { className: 'FormRowShowField', key: field.id },
-                    _react2.default.createElement(
-                      'td',
-                      { className: 'FormTableLabel' },
+            _react2.default.createElement(
+              'tr',
+              null,
+              this.props.parts.map(function (part) {
+                return _react2.default.createElement(
+                  'td',
+                  null,
+                  part.map(function (elem, idx) {
+                    return _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement('input', {
+                        type: 'checkbox',
+                        id: "checkbox" + { idx: idx },
+                        name: "checkbox" + { idx: idx },
+                        value: elem }),
                       _react2.default.createElement(
                         'label',
-                        { className: 'FormLabel', htmlFor: field.id },
-                        field.label,
-                        ':\xA0'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'td',
-                      { className: 'FormTableData' },
-                      _react2.default.createElement(_FormInput2.default, _extends({}, field, {
-                        ref: field.id,
-                        defaultValue: prefilled,
-                        fieldid: field.id,
-                        objectInputType: field.objectInputType,
-                        API_URL: _this3.props.API_URL,
-                        objName: field.optionListObjName
-                        // peopleAPIData={this.props.peopleAPIData}
-                        , optionsAPIData: _this3.props.optionsAPIData
-                      }))
-                    )
-                  );
-                } else {
-                  return _react2.default.createElement(
-                    'tr',
-                    { className: 'FormRowHideField', key: field.id },
-                    _react2.default.createElement(
-                      'td',
-                      { className: 'FormTableLabel' },
-                      _react2.default.createElement(
-                        'label',
-                        { className: 'FormLabel', htmlFor: field.id },
-                        field.label,
-                        ':\xA0'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'td',
-                      { className: 'FormTableData' },
-                      _react2.default.createElement(_FormInput2.default, _extends({}, field, {
-                        ref: field.id,
-                        defaultValue: prefilled }))
-                    )
-                  );
-                }
-              }
-
-              if (!prefilled) {
-                return null;
-              }
-
-              return _react2.default.createElement(
-                'tr',
-                { className: 'FormRow', key: field.id },
-                _react2.default.createElement(
-                  'td',
-                  { className: 'FormTableLabel' },
-                  _react2.default.createElement(
-                    'span',
-                    { className: 'FormLabel' },
-                    field.label,
-                    ':'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  { className: 'FormTableData' },
-                  field.type === 'rating' ? _react2.default.createElement(_Rating2.default, { readonly: true, defaultValue: parseInt(prefilled, 10) }) : _react2.default.createElement(
-                    'div',
-                    null,
-                    prefilled
-                  )
-                )
-              );
-            }, this)
+                        {
+                          'for': "checkbox" + { idx: idx } },
+                        elem
+                      ),
+                      _react2.default.createElement('br', null)
+                    );
+                  }, _this2)
+                );
+              }, this)
+            )
           )
         )
       );
@@ -222,23 +157,10 @@ var CheckBoxForm = function (_Component) {
 }(_react.Component);
 
 CheckBoxForm.propTypes = {
-  fields: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    id: _propTypes2.default.string.isRequired,
-    label: _propTypes2.default.string.isRequired,
-    type: _propTypes2.default.string,
-    dataURL: _propTypes2.default.string,
-    options: _propTypes2.default.arrayOf(_propTypes2.default.string),
-    ObjectInputType: _propTypes2.default.string.isRequired
-  })).isRequired,
-  initialData: _propTypes2.default.object,
-  readonly: _propTypes2.default.bool,
-  addNewDialog: _propTypes2.default.bool,
-  defaultValue: _propTypes2.default.object,
-  API_URL: _propTypes2.default.string,
-  // peopleAPIData: PropTypes.arrayOf(
-  //   PropTypes.object
-  // ),
-  optionsAPIData: _propTypes2.default.object
+  columnNumber: _propTypes2.default.number,
+  onClick: _propTypes2.default.func,
+  paramName: _propTypes2.default.string,
+  options: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 
 exports.default = CheckBoxForm;
