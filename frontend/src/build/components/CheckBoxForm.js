@@ -68,17 +68,14 @@ var CheckBoxForm = function (_Component) {
     // setFilteredData(filtered);
     // };
 
-  }, {
-    key: '_handleSearch',
-    value: function _handleSearch(listid) {
-      // let inputData = {};
-      // let schema_tmp = this.props.fields;
-      console.log("Excel - _handleSearch - listid ");
-      console.log(listid);
-    }
-  }, {
-    key: 'getListParts',
-    value: function getListParts(idx) {}
+    // _handleSearch(listid) {
+    //   // let inputData = {};
+    //   // let schema_tmp = this.props.fields;
+    //   // console.log("Excel - _handleSearch - listid ");
+    //   // console.log(listid);
+    // }
+
+
   }, {
     key: 'render',
     value: function render() {
@@ -89,12 +86,12 @@ var CheckBoxForm = function (_Component) {
       console.log(fields_tmp);
       console.log("render - this.props.addNewDialog");
       console.log(this.props.addNewDialog);*/
-      // let n = 3;
+      // let n = this.props.columnNumber;
       // // let m = this.props.options.length;
       // let k = Math.floor(m / n);
       // let p = m % n;
-      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      var n = 2;
+      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+      var n = this.props.columnNumber;
       var m = numbers.length;
       var k = Math.floor(m / n);
       var p = m % n;
@@ -106,13 +103,18 @@ var CheckBoxForm = function (_Component) {
       for (var _i = p * part_size; _i < numbers.length; _i = _i + part_size - 1) {
         parts.push(numbers.slice(_i, _i + part_size - 1));
       }
-      console.log('Form - render - parts');
+      console.log('CheckBoxForm - render - parts');
       console.log(parts);
 
       //parts = 
       return _react2.default.createElement(
         'form',
         { className: 'Form' },
+        _react2.default.createElement(
+          'div',
+          { 'class': 'CheckBoxFormHeader' },
+          this.props.paramName
+        ),
         _react2.default.createElement(
           'table',
           { className: 'FormTable' },
@@ -122,23 +124,25 @@ var CheckBoxForm = function (_Component) {
             _react2.default.createElement(
               'tr',
               null,
-              this.props.parts.map(function (part) {
+
+              //this.props.
+              parts.map(function (part, pid) {
                 return _react2.default.createElement(
                   'td',
-                  null,
+                  { className: 'checkboxForm' },
                   part.map(function (elem, idx) {
                     return _react2.default.createElement(
                       'div',
-                      null,
+                      { className: 'checkboxForm' },
                       _react2.default.createElement('input', {
                         type: 'checkbox',
-                        id: "checkbox" + { idx: idx },
-                        name: "checkbox" + { idx: idx },
+                        id: "checkbox" + (pid * part.length + idx),
+                        name: "checkbox" + (pid * part.length + idx),
                         value: elem }),
                       _react2.default.createElement(
                         'label',
                         {
-                          'for': "checkbox" + { idx: idx } },
+                          'for': "checkbox" + (pid * part.length + idx) },
                         elem
                       ),
                       _react2.default.createElement('br', null)
