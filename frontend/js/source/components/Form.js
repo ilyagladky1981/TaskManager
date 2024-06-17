@@ -52,27 +52,27 @@ class Form extends Component {
     console.log(fields_tmp);
     console.log("render - this.props.addNewDialog");
     console.log(this.props.addNewDialog);*/
-    // let n = 3;
-    // // let m = this.props.options.length;
+    // // let n = 3;
+    // // // let m = this.props.options.length;
+    // // let k = Math.floor(m / n);
+    // // let p = m % n;
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // let n = 2;
+    // let m = numbers.length;
     // let k = Math.floor(m / n);
     // let p = m % n;
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    let n = 2;
-    let m = numbers.length;
-    let k = Math.floor(m / n);
-    let p = m % n;
-    //const parts = numbers.map((number, idx) => getListParts());
-    // let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    let newArr = [];
-    let part_size = k + 1;
-    for (let i = 0; i < p*part_size; i = i + part_size) {
-      newArr.push(numbers.slice(i, i + part_size));
-    }
-    for (let i = p*part_size; i < numbers.length; i = i + part_size - 1) {
-      newArr.push(numbers.slice(i, i + part_size - 1));
-    }
-    console.log('Form - render - newArr');
-    console.log(newArr);
+    // //const parts = numbers.map((number, idx) => getListParts());
+    // // let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // let newArr = [];
+    // let part_size = k + 1;
+    // for (let i = 0; i < p*part_size; i = i + part_size) {
+    //   newArr.push(numbers.slice(i, i + part_size));
+    // }
+    // for (let i = p*part_size; i < numbers.length; i = i + part_size - 1) {
+    //   newArr.push(numbers.slice(i, i + part_size - 1));
+    // }
+    // console.log('Form - render - newArr');
+    // console.log(newArr);
     return (
       <form className="Form"><table className="FormTable">
         <tbody>{this.props.fields.map(field => {
@@ -122,6 +122,7 @@ class Form extends Component {
                     API_URL={this.props.API_URL}
                     objName={field.optionListObjName}
                     optionsAPIData={this.props.optionsAPIData}
+                    paramName={field.label}
                     // showNestedModal={this.props.showNestedModal} 
                     />
                 </td>

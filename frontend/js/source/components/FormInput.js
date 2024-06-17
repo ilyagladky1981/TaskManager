@@ -32,6 +32,7 @@ class FormInput extends Component {
         return (
           <input
             {...common}
+            className='Form CommonFormInput'
             type="number" 
             defaultValue={this.props.defaultValue || new Date().getFullYear()} />
         );
@@ -64,11 +65,12 @@ class FormInput extends Component {
               listid={this.props.fieldid}
               objName={this.props.objName}
               options={this.props.optionsAPIData[this.props.fieldid]}
+              paramName={this.props.paramName}
               // showSelectValueDialog={this.props.showNestedModal}
             />;
         } else {
           // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
-          return <input {...common} type="text" />
+          return <input {...common} className='Form CommonFormInput' type="text" />
         }
       }; 
       case 'ListOptions': {
@@ -86,12 +88,12 @@ class FormInput extends Component {
                       />;
         } else {
           // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
-          return <input {...common} type="text" />
+          return <input {...common} className='Form CommonFormInput' type="text" />
         }
       }; 
-      case 'input': return <input {...common} type="text" />;
+      case 'input': return <input {...common} className='Form CommonFormInput' type="text" />;
       default:
-        return <input {...common} type="text" />;  
+        return <input {...common} className='Form CommonFormInput' type="text" />;  
     }
   }
 }
@@ -104,6 +106,7 @@ FormInput.propTypes = {
   fieldid: PropTypes.string, 
   API_URL: PropTypes.string,
   objName: PropTypes.string,
+  paramName: PropTypes.string,
   optionsAPIData: PropTypes.object,
   objectInputType: PropTypes.oneOf(['year', 'suggest', 'rating', 'text', 
                           'input', 'ListOptions', 'datetime', 

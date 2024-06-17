@@ -71,6 +71,7 @@ var FormInput = function (_Component) {
       switch (this.props.objectInputType) {
         case 'year':
           return _react2.default.createElement('input', _extends({}, common, {
+            className: 'Form CommonFormInput',
             type: 'number',
             defaultValue: this.props.defaultValue || new Date().getFullYear() }));
         case 'suggest':
@@ -95,12 +96,13 @@ var FormInput = function (_Component) {
               return _react2.default.createElement(_InputFieldWithCheckBoxes2.default, _extends({}, common, {
                 listid: this.props.fieldid,
                 objName: this.props.objName,
-                options: this.props.optionsAPIData[this.props.fieldid]
+                options: this.props.optionsAPIData[this.props.fieldid],
+                paramName: this.props.paramName
                 // showSelectValueDialog={this.props.showNestedModal}
               }));
             } else {
               // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
-              return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+              return _react2.default.createElement('input', _extends({}, common, { className: 'Form CommonFormInput', type: 'text' }));
             }
           };
         case 'ListOptions':
@@ -118,13 +120,13 @@ var FormInput = function (_Component) {
               }));
             } else {
               // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
-              return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+              return _react2.default.createElement('input', _extends({}, common, { className: 'Form CommonFormInput', type: 'text' }));
             }
           };
         case 'input':
-          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          return _react2.default.createElement('input', _extends({}, common, { className: 'Form CommonFormInput', type: 'text' }));
         default:
-          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          return _react2.default.createElement('input', _extends({}, common, { className: 'Form CommonFormInput', type: 'text' }));
       }
     }
   }]);
@@ -140,6 +142,7 @@ FormInput.propTypes = {
   fieldid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
+  paramName: _propTypes2.default.string,
   optionsAPIData: _propTypes2.default.object,
   objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList'])
   // showNestedModal: PropTypes.func,

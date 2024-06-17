@@ -42963,17 +42963,14 @@ var CheckBoxForm = function (_Component) {
     // setFilteredData(filtered);
     // };
 
-  }, {
-    key: '_handleSearch',
-    value: function _handleSearch(listid) {
-      // let inputData = {};
-      // let schema_tmp = this.props.fields;
-      console.log("Excel - _handleSearch - listid ");
-      console.log(listid);
-    }
-  }, {
-    key: 'getListParts',
-    value: function getListParts(idx) {}
+    // _handleSearch(listid) {
+    //   // let inputData = {};
+    //   // let schema_tmp = this.props.fields;
+    //   // console.log("Excel - _handleSearch - listid ");
+    //   // console.log(listid);
+    // }
+
+
   }, {
     key: 'render',
     value: function render() {
@@ -42984,12 +42981,12 @@ var CheckBoxForm = function (_Component) {
       console.log(fields_tmp);
       console.log("render - this.props.addNewDialog");
       console.log(this.props.addNewDialog);*/
-      // let n = 3;
+      // let n = this.props.columnNumber;
       // // let m = this.props.options.length;
       // let k = Math.floor(m / n);
       // let p = m % n;
-      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      var n = 2;
+      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+      var n = this.props.columnNumber;
       var m = numbers.length;
       var k = Math.floor(m / n);
       var p = m % n;
@@ -43001,13 +42998,18 @@ var CheckBoxForm = function (_Component) {
       for (var _i = p * part_size; _i < numbers.length; _i = _i + part_size - 1) {
         parts.push(numbers.slice(_i, _i + part_size - 1));
       }
-      console.log('Form - render - parts');
+      console.log('CheckBoxForm - render - parts');
       console.log(parts);
 
       //parts = 
       return _react2.default.createElement(
         'form',
         { className: 'Form' },
+        _react2.default.createElement(
+          'div',
+          { 'class': 'CheckBoxFormHeader' },
+          this.props.paramName
+        ),
         _react2.default.createElement(
           'table',
           { className: 'FormTable' },
@@ -43017,23 +43019,25 @@ var CheckBoxForm = function (_Component) {
             _react2.default.createElement(
               'tr',
               null,
-              this.props.parts.map(function (part) {
+
+              //this.props.
+              parts.map(function (part, pid) {
                 return _react2.default.createElement(
                   'td',
-                  null,
+                  { className: 'checkboxForm' },
                   part.map(function (elem, idx) {
                     return _react2.default.createElement(
                       'div',
-                      null,
+                      { className: 'checkboxForm' },
                       _react2.default.createElement('input', {
                         type: 'checkbox',
-                        id: "checkbox" + { idx: idx },
-                        name: "checkbox" + { idx: idx },
+                        id: "checkbox" + (pid * part.length + idx),
+                        name: "checkbox" + (pid * part.length + idx),
                         value: elem }),
                       _react2.default.createElement(
                         'label',
                         {
-                          'for': "checkbox" + { idx: idx } },
+                          'for': "checkbox" + (pid * part.length + idx) },
                         elem
                       ),
                       _react2.default.createElement('br', null)
@@ -43262,27 +43266,27 @@ var Form = function (_Component) {
       console.log(fields_tmp);
       console.log("render - this.props.addNewDialog");
       console.log(this.props.addNewDialog);*/
-      // let n = 3;
-      // // let m = this.props.options.length;
+      // // let n = 3;
+      // // // let m = this.props.options.length;
+      // // let k = Math.floor(m / n);
+      // // let p = m % n;
+      // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      // let n = 2;
+      // let m = numbers.length;
       // let k = Math.floor(m / n);
       // let p = m % n;
-      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      var n = 2;
-      var m = numbers.length;
-      var k = Math.floor(m / n);
-      var p = m % n;
-      //const parts = numbers.map((number, idx) => getListParts());
-      // let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      var newArr = [];
-      var part_size = k + 1;
-      for (var i = 0; i < p * part_size; i = i + part_size) {
-        newArr.push(numbers.slice(i, i + part_size));
-      }
-      for (var _i = p * part_size; _i < numbers.length; _i = _i + part_size - 1) {
-        newArr.push(numbers.slice(_i, _i + part_size - 1));
-      }
-      console.log('Form - render - newArr');
-      console.log(newArr);
+      // //const parts = numbers.map((number, idx) => getListParts());
+      // // let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      // let newArr = [];
+      // let part_size = k + 1;
+      // for (let i = 0; i < p*part_size; i = i + part_size) {
+      //   newArr.push(numbers.slice(i, i + part_size));
+      // }
+      // for (let i = p*part_size; i < numbers.length; i = i + part_size - 1) {
+      //   newArr.push(numbers.slice(i, i + part_size - 1));
+      // }
+      // console.log('Form - render - newArr');
+      // console.log(newArr);
       return _react2.default.createElement(
         'form',
         { className: 'Form' },
@@ -43348,7 +43352,8 @@ var Form = function (_Component) {
                         objectInputType: field.objectInputType,
                         API_URL: _this3.props.API_URL,
                         objName: field.optionListObjName,
-                        optionsAPIData: _this3.props.optionsAPIData
+                        optionsAPIData: _this3.props.optionsAPIData,
+                        paramName: field.label
                         // showNestedModal={this.props.showNestedModal} 
                       }))
                     )
@@ -43508,6 +43513,7 @@ var FormInput = function (_Component) {
       switch (this.props.objectInputType) {
         case 'year':
           return _react2.default.createElement('input', _extends({}, common, {
+            className: 'Form CommonFormInput',
             type: 'number',
             defaultValue: this.props.defaultValue || new Date().getFullYear() }));
         case 'suggest':
@@ -43532,12 +43538,13 @@ var FormInput = function (_Component) {
               return _react2.default.createElement(_InputFieldWithCheckBoxes2.default, _extends({}, common, {
                 listid: this.props.fieldid,
                 objName: this.props.objName,
-                options: this.props.optionsAPIData[this.props.fieldid]
+                options: this.props.optionsAPIData[this.props.fieldid],
+                paramName: this.props.paramName
                 // showSelectValueDialog={this.props.showNestedModal}
               }));
             } else {
               // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
-              return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+              return _react2.default.createElement('input', _extends({}, common, { className: 'Form CommonFormInput', type: 'text' }));
             }
           };
         case 'ListOptions':
@@ -43555,13 +43562,13 @@ var FormInput = function (_Component) {
               }));
             } else {
               // console.log("FormInput - render - case ListOptions - this.props.fieldid = " + this.props.fieldid);
-              return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+              return _react2.default.createElement('input', _extends({}, common, { className: 'Form CommonFormInput', type: 'text' }));
             }
           };
         case 'input':
-          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          return _react2.default.createElement('input', _extends({}, common, { className: 'Form CommonFormInput', type: 'text' }));
         default:
-          return _react2.default.createElement('input', _extends({}, common, { type: 'text' }));
+          return _react2.default.createElement('input', _extends({}, common, { className: 'Form CommonFormInput', type: 'text' }));
       }
     }
   }]);
@@ -43577,6 +43584,7 @@ FormInput.propTypes = {
   fieldid: _propTypes2.default.string,
   API_URL: _propTypes2.default.string,
   objName: _propTypes2.default.string,
+  paramName: _propTypes2.default.string,
   optionsAPIData: _propTypes2.default.object,
   objectInputType: _propTypes2.default.oneOf(['year', 'suggest', 'rating', 'text', 'input', 'ListOptions', 'datetime', 'InputFieldWithCheckBoxes', 'ColorList'])
   // showNestedModal: PropTypes.func,
@@ -43611,10 +43619,6 @@ var _Button2 = _interopRequireDefault(_Button);
 var _ModalForm = require('./ModalForm');
 
 var _ModalForm2 = _interopRequireDefault(_ModalForm);
-
-var _CheckBoxForm = require('./CheckBoxForm');
-
-var _CheckBoxForm2 = _interopRequireDefault(_CheckBoxForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43772,15 +43776,13 @@ var InputFieldWithCheckBoxes = function (_Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'max' },
-                _react2.default.createElement(
-                  'input',
-                  {
-                    defaultValue: this.props.defaultValue
-                    // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
-                    , id: this.props.id,
-                    dataid: [1] },
-                  this.state.datalist.toString()
-                )
+                _react2.default.createElement('input', {
+                  className: 'Form CommonFormInput',
+                  defaultValue: this.props.defaultValue
+                  // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
+                  , id: this.props.id,
+                  value: this.state.datalist.toString(),
+                  dataid: [1] })
               ),
               _react2.default.createElement(
                 'td',
@@ -43795,7 +43797,10 @@ var InputFieldWithCheckBoxes = function (_Component) {
                 this.state.showNestedModalForm && _react2.default.createElement(_ModalForm2.default, {
                   onClose: this.closeNestedModal.bind(this),
                   formClassName: 'nestedmodal',
-                  formContentClassName: 'nestedmodal__content' })
+                  formContentClassName: 'nestedmodal__content',
+                  fillFieldData: this._fillFieldData.bind(this),
+                  paramName: this.props.paramName,
+                  options: this.props.options })
               )
             )
           )
@@ -43812,13 +43817,14 @@ InputFieldWithCheckBoxes.propTypes = {
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
   objName: _propTypes2.default.string,
+  paramName: _propTypes2.default.string,
   options: _propTypes2.default.arrayOf(_propTypes2.default.object),
   // showSelectValueDialog: PropTypes.func,
   onDataChange: _propTypes2.default.func
 };
 
 exports.default = InputFieldWithCheckBoxes;
-},{"./CheckBoxForm":32,"./ModalForm":39,"bootstrap":4,"prop-types":10,"react":25,"react-bootstrap/Button":16}],37:[function(require,module,exports){
+},{"./ModalForm":39,"bootstrap":4,"prop-types":10,"react":25,"react-bootstrap/Button":16}],37:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43891,7 +43897,8 @@ var ListOptions = function (_Component) {
         // console.log("typeof this.props.options");
         // console.log(typeof this.props.options);
         return _react2.default.createElement('input', {
-          defaultValue: this.props.defaultValue
+          defaultValue: this.props.defaultValue,
+          className: 'Form CommonFormInput'
           // onChange={e => this.setState({value: e.target.value})}
           , id: this.props.id });
       } else {
@@ -43906,6 +43913,7 @@ var ListOptions = function (_Component) {
           _react2.default.createElement('input', {
             list: "options" + this.props.listid,
             defaultValue: this.props.defaultValue,
+            className: 'Form CommonFormInput',
             onChange: function onChange(e) {
               return _this2.setState({ value: e.target.value, dataid: e.target.dataid });
             },
@@ -43971,6 +43979,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _CheckBoxForm = require('./CheckBoxForm');
+
+var _CheckBoxForm2 = _interopRequireDefault(_CheckBoxForm);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44003,12 +44015,18 @@ var ModalForm = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: formContentClassName },
-          children,
+          _react2.default.createElement(_CheckBoxForm2.default, {
+            paramName: this.props.paramName,
+            columnNumber: 3,
+            options: this.props.options,
+            onClick: this.props.fillFieldData
+          }),
           _react2.default.createElement(
             'button',
             { onClick: onClose },
             '\u0417\u0430\u043A\u0440\u044B\u0442\u044C'
-          )
+          ),
+          _react2.default.createElement('input', { className: 'Form CheckBoxFormApply', type: 'submit', value: '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C', onClick: this.props.onClick })
         )
       );
     }
@@ -44020,11 +44038,14 @@ var ModalForm = function (_Component) {
 ModalForm.propTypes = {
   formClassName: _propTypes2.default.string,
   onClose: _propTypes2.default.func,
-  formContentClassName: _propTypes2.default.string
+  fillFieldData: _propTypes2.default.func,
+  formContentClassName: _propTypes2.default.string,
+  paramName: _propTypes2.default.string,
+  options: _propTypes2.default.array
 };
 
 exports.default = ModalForm;
-},{"prop-types":10,"react":25}],40:[function(require,module,exports){
+},{"./CheckBoxForm":32,"prop-types":10,"react":25}],40:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

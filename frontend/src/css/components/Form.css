@@ -6,6 +6,7 @@
 }
 
 .Form .FormRowShowField{
+  display: flex;
 }
 
 .Form .FormRowHideField{
@@ -41,9 +42,27 @@
   width: 97%;
 }
 
-.Form input {
+/* .Form input {
+  width: 97%;
+} */
+
+
+.Form input.CommonFormInput {
   width: 97%;
 }
+
+
+
+.Form input.checkboxForm {
+  width: fit-content;
+}
+
+
+.Form input.CheckBoxFormApply {
+  width: fit-content;
+}
+
+
 
 
 

@@ -39,17 +39,13 @@ class CheckBoxForm extends Component {
     // setFilteredData(filtered);
   // };
 
-  _handleSearch(listid) {
-    // let inputData = {};
-    // let schema_tmp = this.props.fields;
-    console.log("Excel - _handleSearch - listid ");
-    console.log(listid);
-  }
+  // _handleSearch(listid) {
+  //   // let inputData = {};
+  //   // let schema_tmp = this.props.fields;
+  //   // console.log("Excel - _handleSearch - listid ");
+  //   // console.log(listid);
+  // }
 
-  getListParts(idx) {
-    
-
-  }
   
   render() {
     /*let fields_tmp = this.props.fields;
@@ -57,12 +53,12 @@ class CheckBoxForm extends Component {
     console.log(fields_tmp);
     console.log("render - this.props.addNewDialog");
     console.log(this.props.addNewDialog);*/
-    // let n = 3;
+    // let n = this.props.columnNumber;
     // // let m = this.props.options.length;
     // let k = Math.floor(m / n);
     // let p = m % n;
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    let n = 2;
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+    let n = this.props.columnNumber;
     let m = numbers.length;
     let k = Math.floor(m / n);
     let p = m % n;
@@ -74,38 +70,40 @@ class CheckBoxForm extends Component {
     for (let i = p*part_size; i < numbers.length; i = i + part_size - 1) {
       parts.push(numbers.slice(i, i + part_size - 1));
     }
-    console.log('Form - render - parts');
+    console.log('CheckBoxForm - render - parts');
     console.log(parts);
     
     //parts = 
     return (
-      <form className="Form"><table className="FormTable">
+      <form className="Form">
+        <div class="CheckBoxFormHeader">{this.props.paramName}</div>
+        <table className="FormTable">
         <tbody><tr>{
-          this.props.parts.map(part => {
+          //this.props.
+          parts.map((part, pid) => {
             return (
-              <td>
+              <td className="checkboxForm">
                 {part.map((elem, idx) => {
                   return (
-                    <div>
+                    <div className="checkboxForm">
                       <input
                         type="checkbox"
-                        id={"checkbox"+{idx}}
-                        name={"checkbox"+{idx}}
-                        value={elem}>
-                      </input>
+                        id={"checkbox"+(pid*part.length+idx)}
+                        name={"checkbox"+(pid*part.length+idx)}
+                        value={elem} />
                       <label
-                        for={"checkbox"+{idx}}>{elem}</label>
+                        for={"checkbox"+(pid*part.length+idx)}>{elem}</label>
                       <br></br>
                     </div>
                   )
                   }, this)
                 }
-              </td>)
+              </td>
+              )
           }, this)
           }
         </tr></tbody></table>
-        {/* <input type="submit" value="Заполнить" onClick={this.props.onClick}>
-        </input> */}
+        
         </form>
       );
   }

@@ -44,6 +44,7 @@ class ListOptions extends Component {
         return (
             <input 
               defaultValue={this.props.defaultValue}
+              className='CommonFormInput'
               // onChange={e => this.setState({value: e.target.value})}
               id={this.props.id} />
         )
@@ -58,6 +59,7 @@ class ListOptions extends Component {
           <input
             list={"options" + this.props.listid}
             defaultValue={this.props.defaultValue}
+            className='CommonFormInput'
             onChange={e => this.setState({ value: e.target.value, dataid: e.target.dataid})}
             id={this.props.id} />
           <datalist id={"options" + this.props.listid}>{

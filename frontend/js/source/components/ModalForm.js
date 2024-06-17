@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CheckBoxForm from './CheckBoxForm';
 
 
 class ModalForm extends Component {
@@ -13,7 +14,8 @@ class ModalForm extends Component {
       <div className={formClassName}>
         <div className={formContentClassName}>
           {children}
-          <button onClick={onClose}>Закрыть</button>
+          <button onClick={onClose}>Закрыть</button> 
+          <input className="CheckBoxFormApply" type="submit" value="Применить" onClick={this.props.onClick} />
         </div>
       </div>
     );
@@ -23,7 +25,10 @@ class ModalForm extends Component {
 ModalForm.propTypes = {
   formClassName: PropTypes.string,
   onClose: PropTypes.func,
+  // fillFieldData: PropTypes.func,
   formContentClassName: PropTypes.string,
+  // paramName: PropTypes.string,
+  // options: PropTypes.array,
 };
 
 export default ModalForm; 

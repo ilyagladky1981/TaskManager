@@ -26,10 +26,6 @@ var _ModalForm = require('./ModalForm');
 
 var _ModalForm2 = _interopRequireDefault(_ModalForm);
 
-var _CheckBoxForm = require('./CheckBoxForm');
-
-var _CheckBoxForm2 = _interopRequireDefault(_CheckBoxForm);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -186,15 +182,13 @@ var InputFieldWithCheckBoxes = function (_Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'max' },
-                _react2.default.createElement(
-                  'input',
-                  {
-                    defaultValue: this.props.defaultValue
-                    // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
-                    , id: this.props.id,
-                    dataid: [1] },
-                  this.state.datalist.toString()
-                )
+                _react2.default.createElement('input', {
+                  className: 'Form CommonFormInput',
+                  defaultValue: this.props.defaultValue
+                  // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
+                  , id: this.props.id,
+                  value: this.state.datalist.toString(),
+                  dataid: [1] })
               ),
               _react2.default.createElement(
                 'td',
@@ -209,7 +203,10 @@ var InputFieldWithCheckBoxes = function (_Component) {
                 this.state.showNestedModalForm && _react2.default.createElement(_ModalForm2.default, {
                   onClose: this.closeNestedModal.bind(this),
                   formClassName: 'nestedmodal',
-                  formContentClassName: 'nestedmodal__content' })
+                  formContentClassName: 'nestedmodal__content',
+                  fillFieldData: this._fillFieldData.bind(this),
+                  paramName: this.props.paramName,
+                  options: this.props.options })
               )
             )
           )
@@ -226,6 +223,7 @@ InputFieldWithCheckBoxes.propTypes = {
   defaultValue: _propTypes2.default.string,
   listid: _propTypes2.default.string,
   objName: _propTypes2.default.string,
+  paramName: _propTypes2.default.string,
   options: _propTypes2.default.arrayOf(_propTypes2.default.object),
   // showSelectValueDialog: PropTypes.func,
   onDataChange: _propTypes2.default.func
