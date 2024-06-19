@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useRef } from 'react';
 import PropTypes from 'prop-types';
 import bootstrap from 'bootstrap'
 import Button from 'react-bootstrap/Button';
@@ -18,7 +18,7 @@ class InputFieldWithCheckBoxes extends Component {
       datalist: [],
       showNestedModalForm: false,
     };
-    this.formRef2 = React.createRef();
+    this.checkBoxFormRef = React.createRef();
   }
   
   getValue() {
@@ -148,7 +148,7 @@ class InputFieldWithCheckBoxes extends Component {
                     // fillFieldData={this._fillFieldData.bind(this)}
                     // options={this.props.options}
                     >
-                      <CheckBoxForm
+                    <CheckBoxForm
                       ref={this.checkBoxFormRef}
                       paramName={this.props.paramName}
                       columnNumber={3}

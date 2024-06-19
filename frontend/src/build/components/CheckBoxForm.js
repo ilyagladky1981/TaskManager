@@ -6,14 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _FormInput = require('./FormInput');
-
-var _FormInput2 = _interopRequireDefault(_FormInput);
-
-var _Rating = require('./Rating');
-
-var _Rating2 = _interopRequireDefault(_Rating);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -38,7 +30,7 @@ var CheckBoxForm = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (CheckBoxForm.__proto__ || Object.getPrototypeOf(CheckBoxForm)).call(this, props));
 
-    _this.currentFormInputRef = _react2.default.createRef();
+    _this.formInputRefs = _react.useRef < Record < string, VALUE >> {};
     _this.state = {
       formData: null
     };
@@ -138,7 +130,12 @@ var CheckBoxForm = function (_Component) {
                         type: 'checkbox',
                         id: "checkbox" + (pid * part.length + idx),
                         name: "checkbox" + (pid * part.length + idx),
-                        value: elem }),
+                        ref: function ref(element) {
+                          return _this2.formInputRefs.current[idx] = element;
+                        },
+                        dataid: pid * part.length + idx,
+                        value: elem,
+                        key: pid * part.length + idx }),
                       _react2.default.createElement(
                         'label',
                         {
@@ -164,6 +161,7 @@ CheckBoxForm.propTypes = {
   columnNumber: _propTypes2.default.number,
   onClick: _propTypes2.default.func,
   paramName: _propTypes2.default.string,
+  objName: _propTypes2.default.string,
   options: _propTypes2.default.arrayOf(_propTypes2.default.object)
 };
 

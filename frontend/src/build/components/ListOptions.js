@@ -71,7 +71,7 @@ var ListOptions = function (_Component) {
         // console.log(typeof this.props.options);
         return _react2.default.createElement('input', {
           defaultValue: this.props.defaultValue,
-          className: 'Form CommonFormInput'
+          className: 'CommonFormInput'
           // onChange={e => this.setState({value: e.target.value})}
           , id: this.props.id });
       } else {
@@ -86,7 +86,7 @@ var ListOptions = function (_Component) {
           _react2.default.createElement('input', {
             list: "options" + this.props.listid,
             defaultValue: this.props.defaultValue,
-            className: 'Form CommonFormInput',
+            className: 'CommonFormInput',
             onChange: function onChange(e) {
               return _this2.setState({ value: e.target.value, dataid: e.target.dataid });
             },

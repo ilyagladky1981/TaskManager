@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CheckBoxForm from './CheckBoxForm';
 
 
 class ModalForm extends Component {
@@ -25,8 +24,8 @@ class ModalForm extends Component {
 ModalForm.propTypes = {
   formClassName: PropTypes.string,
   onClose: PropTypes.func,
-  // fillFieldData: PropTypes.func,
   formContentClassName: PropTypes.string,
+  // fillFieldData: PropTypes.func,
   // paramName: PropTypes.string,
   // options: PropTypes.array,
 };

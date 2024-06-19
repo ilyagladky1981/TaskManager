@@ -1,6 +1,4 @@
-import FormInput from './FormInput';
-import Rating from './Rating';
-import React, {Component} from 'react';
+import React, {Component, useRef} from 'react';
 import PropTypes from 'prop-types';
 
 
@@ -11,7 +9,7 @@ class CheckBoxForm extends Component {
 
   constructor(props) {
     super(props);
-    this.currentFormInputRef = React.createRef();
+    this.formInputRefs = useRef<Record<string, VALUE>>({})
     this.state = {
       formData: null,
     };
@@ -90,10 +88,13 @@ class CheckBoxForm extends Component {
                         type="checkbox"
                         id={"checkbox"+(pid*part.length+idx)}
                         name={"checkbox"+(pid*part.length+idx)}
-                        value={elem} />
+                        ref={(element) => this.formInputRefs.current[idx] = element}
+                        dataid={pid*part.length+idx}
+                        value={elem} 
+                        key={pid*part.length+idx}  />
                       <label
                         for={"checkbox"+(pid*part.length+idx)}>{elem}</label>
-                      <br></br>
+                      <br/>
                     </div>
                   )
                   }, this)
@@ -103,9 +104,8 @@ class CheckBoxForm extends Component {
           }, this)
           }
         </tr></tbody></table>
-        
-        </form>
-      );
+      </form>
+    );
   }
 }
 
@@ -113,6 +113,7 @@ CheckBoxForm.propTypes = {
   columnNumber : PropTypes.number,
   onClick: PropTypes.func,
   paramName: PropTypes.string,
+  objName: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.object
   ),

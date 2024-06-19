@@ -14,10 +14,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _CheckBoxForm = require('./CheckBoxForm');
-
-var _CheckBoxForm2 = _interopRequireDefault(_CheckBoxForm);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -50,18 +46,13 @@ var ModalForm = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: formContentClassName },
-          _react2.default.createElement(_CheckBoxForm2.default, {
-            paramName: this.props.paramName,
-            columnNumber: 3,
-            options: this.props.options,
-            onClick: this.props.fillFieldData
-          }),
+          children,
           _react2.default.createElement(
             'button',
             { onClick: onClose },
             '\u0417\u0430\u043A\u0440\u044B\u0442\u044C'
           ),
-          _react2.default.createElement('input', { className: 'Form CheckBoxFormApply', type: 'submit', value: '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C', onClick: this.props.onClick })
+          _react2.default.createElement('input', { className: 'CheckBoxFormApply', type: 'submit', value: '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C', onClick: this.props.onClick })
         )
       );
     }
@@ -73,10 +64,10 @@ var ModalForm = function (_Component) {
 ModalForm.propTypes = {
   formClassName: _propTypes2.default.string,
   onClose: _propTypes2.default.func,
-  fillFieldData: _propTypes2.default.func,
-  formContentClassName: _propTypes2.default.string,
-  paramName: _propTypes2.default.string,
-  options: _propTypes2.default.array
+  formContentClassName: _propTypes2.default.string
+  // fillFieldData: PropTypes.func,
+  // paramName: PropTypes.string,
+  // options: PropTypes.array,
 };
 
 exports.default = ModalForm;

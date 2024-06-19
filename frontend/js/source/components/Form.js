@@ -1,6 +1,6 @@
 import FormInput from './FormInput';
 import Rating from './Rating';
-import React, {Component} from 'react';
+import React, {Component, useRef} from 'react';
 import PropTypes from 'prop-types';
 
 
@@ -11,7 +11,7 @@ class Form extends Component {
 
   constructor(props) {
     super(props);
-    this.currentFormInputRef = React.createRef();
+    this.formInputRefs = useRef<Record<string, VALUE>>({})
     this.state = {
       formData: null,
     };
@@ -23,7 +23,7 @@ class Form extends Component {
     console.log("getData - schema_tmp");
     console.log(schema_tmp);
     this.props.fields.forEach(field => 
-      data[field.id] = this.refs[field.id].getValue()
+      data[field.id] = this.formInputRefs[field.id].getValue()
     );
     return data;
   }
@@ -115,7 +115,7 @@ class Form extends Component {
                 </td>
                 <td className="FormTableData">
                   <FormInput {...field}
-                    ref={field.id}
+                    ref={(element) => this.formInputRefs.current[field.id] = element}
                     defaultValue={prefilled}
                     fieldid={field.id}
                     objectInputType={field.objectInputType}
@@ -134,7 +134,7 @@ class Form extends Component {
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
                 <td className="FormTableData">
                   <FormInput {...field} 
-                    ref={field.id}
+                    ref={(element) => formInputRefs.current[field.id] = element}
                     defaultValue={prefilled}/></td>
               </tr>
             );

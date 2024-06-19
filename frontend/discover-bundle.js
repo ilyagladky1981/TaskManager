@@ -6699,7 +6699,7 @@ checkPropTypes.resetWarningCache = function() {
 module.exports = checkPropTypes;
 
 }).call(this)}).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":11,"./lib/has":12,"_process":43}],8:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":11,"./lib/has":12,"_process":42}],8:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -7380,7 +7380,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this)}).call(this,require('_process'))
-},{"./checkPropTypes":7,"./lib/ReactPropTypesSecret":11,"./lib/has":12,"_process":43,"object-assign":6,"react-is":15}],10:[function(require,module,exports){
+},{"./checkPropTypes":7,"./lib/ReactPropTypesSecret":11,"./lib/has":12,"_process":42,"object-assign":6,"react-is":15}],10:[function(require,module,exports){
 (function (process){(function (){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -7403,7 +7403,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./factoryWithThrowingShims":8,"./factoryWithTypeCheckers":9,"_process":43,"react-is":15}],11:[function(require,module,exports){
+},{"./factoryWithThrowingShims":8,"./factoryWithTypeCheckers":9,"_process":42,"react-is":15}],11:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -7605,7 +7605,7 @@ exports.typeOf = typeOf;
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":43}],14:[function(require,module,exports){
+},{"_process":42}],14:[function(require,module,exports){
 /** @license React v16.13.1
  * react-is.production.min.js
  *
@@ -7633,7 +7633,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-is.development.js":13,"./cjs/react-is.production.min.js":14,"_process":43}],16:[function(require,module,exports){
+},{"./cjs/react-is.development.js":13,"./cjs/react-is.production.min.js":14,"_process":42}],16:[function(require,module,exports){
 "use strict";
 "use client";
 
@@ -37646,7 +37646,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":43,"react":25,"scheduler":29}],19:[function(require,module,exports){
+},{"_process":42,"react":25,"scheduler":29}],19:[function(require,module,exports){
 /**
  * @license React
  * react-dom.production.min.js
@@ -38013,7 +38013,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":18,"./cjs/react-dom.production.min.js":19,"_process":43}],21:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":18,"./cjs/react-dom.production.min.js":19,"_process":42}],21:[function(require,module,exports){
 (function (process){(function (){
 /**
  * @license React
@@ -39331,7 +39331,7 @@ exports.jsxs = jsxs;
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":43,"react":25}],22:[function(require,module,exports){
+},{"_process":42,"react":25}],22:[function(require,module,exports){
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -42087,7 +42087,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":43}],24:[function(require,module,exports){
+},{"_process":42}],24:[function(require,module,exports){
 /**
  * @license React
  * react.production.min.js
@@ -42126,7 +42126,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react.development.js":23,"./cjs/react.production.min.js":24,"_process":43}],26:[function(require,module,exports){
+},{"./cjs/react.development.js":23,"./cjs/react.production.min.js":24,"_process":42}],26:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -42137,7 +42137,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/react-jsx-runtime.development.js":21,"./cjs/react-jsx-runtime.production.min.js":22,"_process":43}],27:[function(require,module,exports){
+},{"./cjs/react-jsx-runtime.development.js":21,"./cjs/react-jsx-runtime.production.min.js":22,"_process":42}],27:[function(require,module,exports){
 (function (process,setImmediate){(function (){
 /**
  * @license React
@@ -42775,7 +42775,7 @@ if (
 }
 
 }).call(this)}).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":43,"timers":44}],28:[function(require,module,exports){
+},{"_process":42,"timers":43}],28:[function(require,module,exports){
 (function (setImmediate){(function (){
 /**
  * @license React
@@ -42798,7 +42798,7 @@ exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();"
 exports.unstable_shouldYield=M;exports.unstable_wrapCallback=function(a){var b=y;return function(){var c=y;y=b;try{return a.apply(this,arguments)}finally{y=c}}};
 
 }).call(this)}).call(this,require("timers").setImmediate)
-},{"timers":44}],29:[function(require,module,exports){
+},{"timers":43}],29:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -42809,7 +42809,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./cjs/scheduler.development.js":27,"./cjs/scheduler.production.min.js":28,"_process":43}],30:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":27,"./cjs/scheduler.production.min.js":28,"_process":42}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42893,177 +42893,6 @@ Button.propTypes = {
 
 exports.default = Button;
 },{"classnames":5,"prop-types":10,"react":25}],32:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _FormInput = require('./FormInput');
-
-var _FormInput2 = _interopRequireDefault(_FormInput);
-
-var _Rating = require('./Rating');
-
-var _Rating2 = _interopRequireDefault(_Rating);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CheckBoxForm = function (_Component) {
-  _inherits(CheckBoxForm, _Component);
-
-  function CheckBoxForm(props) {
-    _classCallCheck(this, CheckBoxForm);
-
-    var _this = _possibleConstructorReturn(this, (CheckBoxForm.__proto__ || Object.getPrototypeOf(CheckBoxForm)).call(this, props));
-
-    _this.currentFormInputRef = _react2.default.createRef();
-    _this.state = {
-      formData: null
-    };
-    return _this;
-  }
-
-  _createClass(CheckBoxForm, [{
-    key: 'getData',
-    value: function getData() {}
-    // let data = {};
-    // let schema_tmp = this.props.fields;
-    // console.log("getData - schema_tmp");
-    // console.log(schema_tmp);
-    // this.props.fields.forEach(field => 
-    //   data[field.id] = this.refs[field.id].getValue()
-    // );
-    // return data;
-
-
-    // _handleSearch(event) {
-    // const term = event.target.value.toLowerCase();
-    // setSearchTerm(term);
-    //
-    // const filtered = data.filter((item) =>
-    //   item.toLowerCase().includes(term)
-    // );
-    // setFilteredData(filtered);
-    // };
-
-    // _handleSearch(listid) {
-    //   // let inputData = {};
-    //   // let schema_tmp = this.props.fields;
-    //   // console.log("Excel - _handleSearch - listid ");
-    //   // console.log(listid);
-    // }
-
-
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      /*let fields_tmp = this.props.fields;
-      console.log("render - fields_tmp");
-      console.log(fields_tmp);
-      console.log("render - this.props.addNewDialog");
-      console.log(this.props.addNewDialog);*/
-      // let n = this.props.columnNumber;
-      // // let m = this.props.options.length;
-      // let k = Math.floor(m / n);
-      // let p = m % n;
-      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-      var n = this.props.columnNumber;
-      var m = numbers.length;
-      var k = Math.floor(m / n);
-      var p = m % n;
-      var parts = [];
-      var part_size = k + 1;
-      for (var i = 0; i < p * part_size; i = i + part_size) {
-        parts.push(numbers.slice(i, i + part_size));
-      }
-      for (var _i = p * part_size; _i < numbers.length; _i = _i + part_size - 1) {
-        parts.push(numbers.slice(_i, _i + part_size - 1));
-      }
-      console.log('CheckBoxForm - render - parts');
-      console.log(parts);
-
-      //parts = 
-      return _react2.default.createElement(
-        'form',
-        { className: 'Form' },
-        _react2.default.createElement(
-          'div',
-          { 'class': 'CheckBoxFormHeader' },
-          this.props.paramName
-        ),
-        _react2.default.createElement(
-          'table',
-          { className: 'FormTable' },
-          _react2.default.createElement(
-            'tbody',
-            null,
-            _react2.default.createElement(
-              'tr',
-              null,
-
-              //this.props.
-              parts.map(function (part, pid) {
-                return _react2.default.createElement(
-                  'td',
-                  { className: 'checkboxForm' },
-                  part.map(function (elem, idx) {
-                    return _react2.default.createElement(
-                      'div',
-                      { className: 'checkboxForm' },
-                      _react2.default.createElement('input', {
-                        type: 'checkbox',
-                        id: "checkbox" + (pid * part.length + idx),
-                        name: "checkbox" + (pid * part.length + idx),
-                        value: elem }),
-                      _react2.default.createElement(
-                        'label',
-                        {
-                          'for': "checkbox" + (pid * part.length + idx) },
-                        elem
-                      ),
-                      _react2.default.createElement('br', null)
-                    );
-                  }, _this2)
-                );
-              }, this)
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return CheckBoxForm;
-}(_react.Component);
-
-CheckBoxForm.propTypes = {
-  columnNumber: _propTypes2.default.number,
-  onClick: _propTypes2.default.func,
-  paramName: _propTypes2.default.string,
-  options: _propTypes2.default.arrayOf(_propTypes2.default.object)
-};
-
-exports.default = CheckBoxForm;
-},{"./FormInput":35,"./Rating":40,"prop-types":10,"react":25}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43173,7 +43002,7 @@ Dialog.defaultProps = {
 };
 
 exports.default = Dialog;
-},{"./Button":31,"prop-types":10,"react":25}],34:[function(require,module,exports){
+},{"./Button":31,"prop-types":10,"react":25}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43216,7 +43045,7 @@ var Form = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
 
-    _this.currentFormInputRef = _react2.default.createRef();
+    _this.formInputRefs = _react.useRef < Record < string, VALUE >> {};
     _this.state = {
       formData: null
     };
@@ -43233,7 +43062,7 @@ var Form = function (_Component) {
       console.log("getData - schema_tmp");
       console.log(schema_tmp);
       this.props.fields.forEach(function (field) {
-        return data[field.id] = _this2.refs[field.id].getValue();
+        return data[field.id] = _this2.formInputRefs[field.id].getValue();
       });
       return data;
     }
@@ -43346,7 +43175,9 @@ var Form = function (_Component) {
                       'td',
                       { className: 'FormTableData' },
                       _react2.default.createElement(_FormInput2.default, _extends({}, field, {
-                        ref: field.id,
+                        ref: function ref(element) {
+                          return _this3.formInputRefs.current[field.id] = element;
+                        },
                         defaultValue: prefilled,
                         fieldid: field.id,
                         objectInputType: field.objectInputType,
@@ -43376,7 +43207,9 @@ var Form = function (_Component) {
                       'td',
                       { className: 'FormTableData' },
                       _react2.default.createElement(_FormInput2.default, _extends({}, field, {
-                        ref: field.id,
+                        ref: function ref(element) {
+                          return formInputRefs.current[field.id] = element;
+                        },
                         defaultValue: prefilled }))
                     )
                   );
@@ -43439,7 +43272,7 @@ Form.propTypes = {
 };
 
 exports.default = Form;
-},{"./FormInput":35,"./Rating":40,"prop-types":10,"react":25}],35:[function(require,module,exports){
+},{"./FormInput":34,"./Rating":39,"prop-types":10,"react":25}],34:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43490,7 +43323,7 @@ var FormInput = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (FormInput.__proto__ || Object.getPrototypeOf(FormInput)).call(this, props));
 
-    _this.inputRef = _react2.default.createRef();
+    _this.inputRefs = _react.useRef < Record < string, VALUE >> {};
     //this.formRef = React.createRef();
     return _this;
   }
@@ -43591,7 +43424,7 @@ FormInput.propTypes = {
 };
 
 exports.default = FormInput;
-},{"./InputFieldWithCheckBoxes":36,"./ListOptions":37,"./Rating":40,"./Suggest":41,"prop-types":10,"react":25}],36:[function(require,module,exports){
+},{"./InputFieldWithCheckBoxes":35,"./ListOptions":36,"./Rating":39,"./Suggest":40,"prop-types":10,"react":25}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43645,7 +43478,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
       datalist: [],
       showNestedModalForm: false
     };
-    _this.formRef2 = _react2.default.createRef();
+    _this.checkBoxFormRef = _react2.default.createRef();
     return _this;
   }
 
@@ -43777,7 +43610,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
                 'td',
                 { className: 'max' },
                 _react2.default.createElement('input', {
-                  className: 'Form CommonFormInput',
+                  className: 'CommonFormInput',
                   defaultValue: this.props.defaultValue
                   // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
                   , id: this.props.id,
@@ -43794,13 +43627,22 @@ var InputFieldWithCheckBoxes = function (_Component) {
                     className: 'button' },
                   '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
                 ),
-                this.state.showNestedModalForm && _react2.default.createElement(_ModalForm2.default, {
-                  onClose: this.closeNestedModal.bind(this),
-                  formClassName: 'nestedmodal',
-                  formContentClassName: 'nestedmodal__content',
-                  fillFieldData: this._fillFieldData.bind(this),
-                  paramName: this.props.paramName,
-                  options: this.props.options })
+                this.state.showNestedModalForm && _react2.default.createElement(
+                  _ModalForm2.default,
+                  {
+                    onClose: this.closeNestedModal.bind(this),
+                    formClassName: 'nestedmodal',
+                    formContentClassName: 'nestedmodal__content'
+                    // fillFieldData={this._fillFieldData.bind(this)}
+                    // options={this.props.options}
+                  },
+                  _react2.default.createElement(CheckBoxForm, {
+                    ref: this.checkBoxFormRef,
+                    paramName: this.props.paramName,
+                    columnNumber: 3,
+                    options: this.props.options,
+                    onClick: this._fillFieldData.bind(this) })
+                )
               )
             )
           )
@@ -43824,7 +43666,7 @@ InputFieldWithCheckBoxes.propTypes = {
 };
 
 exports.default = InputFieldWithCheckBoxes;
-},{"./ModalForm":39,"bootstrap":4,"prop-types":10,"react":25,"react-bootstrap/Button":16}],37:[function(require,module,exports){
+},{"./ModalForm":38,"bootstrap":4,"prop-types":10,"react":25,"react-bootstrap/Button":16}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43898,7 +43740,7 @@ var ListOptions = function (_Component) {
         // console.log(typeof this.props.options);
         return _react2.default.createElement('input', {
           defaultValue: this.props.defaultValue,
-          className: 'Form CommonFormInput'
+          className: 'CommonFormInput'
           // onChange={e => this.setState({value: e.target.value})}
           , id: this.props.id });
       } else {
@@ -43913,7 +43755,7 @@ var ListOptions = function (_Component) {
           _react2.default.createElement('input', {
             list: "options" + this.props.listid,
             defaultValue: this.props.defaultValue,
-            className: 'Form CommonFormInput',
+            className: 'CommonFormInput',
             onChange: function onChange(e) {
               return _this2.setState({ value: e.target.value, dataid: e.target.dataid });
             },
@@ -43944,7 +43786,7 @@ ListOptions.propTypes = {
 };
 
 exports.default = ListOptions;
-},{"prop-types":10,"react":25}],38:[function(require,module,exports){
+},{"prop-types":10,"react":25}],37:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -43962,7 +43804,7 @@ var Logo = function Logo() {
 };
 
 exports.default = Logo;
-},{"react":25}],39:[function(require,module,exports){
+},{"react":25}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -43978,10 +43820,6 @@ var _react2 = _interopRequireDefault(_react);
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _CheckBoxForm = require('./CheckBoxForm');
-
-var _CheckBoxForm2 = _interopRequireDefault(_CheckBoxForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44015,18 +43853,13 @@ var ModalForm = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: formContentClassName },
-          _react2.default.createElement(_CheckBoxForm2.default, {
-            paramName: this.props.paramName,
-            columnNumber: 3,
-            options: this.props.options,
-            onClick: this.props.fillFieldData
-          }),
+          children,
           _react2.default.createElement(
             'button',
             { onClick: onClose },
             '\u0417\u0430\u043A\u0440\u044B\u0442\u044C'
           ),
-          _react2.default.createElement('input', { className: 'Form CheckBoxFormApply', type: 'submit', value: '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C', onClick: this.props.onClick })
+          _react2.default.createElement('input', { className: 'CheckBoxFormApply', type: 'submit', value: '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C', onClick: this.props.onClick })
         )
       );
     }
@@ -44038,14 +43871,14 @@ var ModalForm = function (_Component) {
 ModalForm.propTypes = {
   formClassName: _propTypes2.default.string,
   onClose: _propTypes2.default.func,
-  fillFieldData: _propTypes2.default.func,
-  formContentClassName: _propTypes2.default.string,
-  paramName: _propTypes2.default.string,
-  options: _propTypes2.default.array
+  formContentClassName: _propTypes2.default.string
+  // fillFieldData: PropTypes.func,
+  // paramName: PropTypes.string,
+  // options: PropTypes.array,
 };
 
 exports.default = ModalForm;
-},{"./CheckBoxForm":32,"prop-types":10,"react":25}],40:[function(require,module,exports){
+},{"prop-types":10,"react":25}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44166,7 +43999,7 @@ Rating.defaultProps = {
 };
 
 exports.default = Rating;
-},{"classnames":5,"prop-types":10,"react":25}],41:[function(require,module,exports){
+},{"classnames":5,"prop-types":10,"react":25}],40:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44245,7 +44078,7 @@ Suggest.propTypes = {
 };
 
 exports.default = Suggest;
-},{"prop-types":10,"react":25}],42:[function(require,module,exports){
+},{"prop-types":10,"react":25}],41:[function(require,module,exports){
 'use strict';
 
 var _Actions = require('./components/Actions');
@@ -44553,7 +44386,7 @@ _reactDom2.default.render(_react2.default.createElement(
     )
   )
 ), document.getElementById('pad'));
-},{"./components/Actions":30,"./components/Button":31,"./components/Dialog":33,"./components/Form":34,"./components/FormInput":35,"./components/Logo":38,"./components/Rating":40,"./components/Suggest":41,"react":25,"react-dom":20}],43:[function(require,module,exports){
+},{"./components/Actions":30,"./components/Button":31,"./components/Dialog":32,"./components/Form":33,"./components/FormInput":34,"./components/Logo":37,"./components/Rating":39,"./components/Suggest":40,"react":25,"react-dom":20}],42:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -44739,7 +44572,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],44:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 (function (setImmediate,clearImmediate){(function (){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -44818,4 +44651,4 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this)}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":43,"timers":44}]},{},[42]);
+},{"process/browser.js":42,"timers":43}]},{},[41]);
