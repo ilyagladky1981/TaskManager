@@ -111,7 +111,7 @@ exports.default = [{
   dataURL: "people/"
 }, {
   id: 'ITTaskTypeName',
-  label: 'ITTaskTypeName',
+  label: 'Тип задачи',
   pathJSON: 'ITTaskTypeName.ITTaskTypeName',
   optionListObjName: 'ITTaskTypeName',
   type: 'input',

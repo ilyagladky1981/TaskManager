@@ -48,7 +48,7 @@ var FormInput = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (FormInput.__proto__ || Object.getPrototypeOf(FormInput)).call(this, props));
 
-    _this.inputRef = _react2.default.createRef();
+    _this.inputRefs = _react.useRef < Record < string, VALUE >> {};
     //this.formRef = React.createRef();
     return _this;
   }

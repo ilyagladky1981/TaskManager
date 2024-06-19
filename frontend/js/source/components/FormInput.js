@@ -1,5 +1,5 @@
 import Rating from './Rating';
-import React, {Component} from 'react';
+import React, {Component, useRef} from 'react';
 import PropTypes from 'prop-types';
 import Suggest from './Suggest';
 import ListOptions from './ListOptions';
@@ -9,7 +9,7 @@ class FormInput extends Component {
 
   constructor(props) {
     super(props);
-    this.inputRef = React.createRef();
+    this.inputRefs = useRef<Record<string, VALUE>>({})
     //this.formRef = React.createRef();
   }
   

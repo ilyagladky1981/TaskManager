@@ -51,7 +51,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
       datalist: [],
       showNestedModalForm: false
     };
-    _this.formRef2 = _react2.default.createRef();
+    _this.checkBoxFormRef = _react2.default.createRef();
     return _this;
   }
 
@@ -183,7 +183,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
                 'td',
                 { className: 'max' },
                 _react2.default.createElement('input', {
-                  className: 'Form CommonFormInput',
+                  className: 'CommonFormInput',
                   defaultValue: this.props.defaultValue
                   // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
                   , id: this.props.id,
@@ -200,13 +200,22 @@ var InputFieldWithCheckBoxes = function (_Component) {
                     className: 'button' },
                   '\u0412\u044B\u0431\u0440\u0430\u0442\u044C'
                 ),
-                this.state.showNestedModalForm && _react2.default.createElement(_ModalForm2.default, {
-                  onClose: this.closeNestedModal.bind(this),
-                  formClassName: 'nestedmodal',
-                  formContentClassName: 'nestedmodal__content',
-                  fillFieldData: this._fillFieldData.bind(this),
-                  paramName: this.props.paramName,
-                  options: this.props.options })
+                this.state.showNestedModalForm && _react2.default.createElement(
+                  _ModalForm2.default,
+                  {
+                    onClose: this.closeNestedModal.bind(this),
+                    formClassName: 'nestedmodal',
+                    formContentClassName: 'nestedmodal__content'
+                    // fillFieldData={this._fillFieldData.bind(this)}
+                    // options={this.props.options}
+                  },
+                  _react2.default.createElement(CheckBoxForm, {
+                    ref: this.checkBoxFormRef,
+                    paramName: this.props.paramName,
+                    columnNumber: 3,
+                    options: this.props.options,
+                    onClick: this._fillFieldData.bind(this) })
+                )
               )
             )
           )

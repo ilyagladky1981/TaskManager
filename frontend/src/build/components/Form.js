@@ -40,7 +40,7 @@ var Form = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
 
-    _this.currentFormInputRef = _react2.default.createRef();
+    _this.formInputRefs = _react.useRef < Record < string, VALUE >> {};
     _this.state = {
       formData: null
     };
@@ -57,7 +57,7 @@ var Form = function (_Component) {
       console.log("getData - schema_tmp");
       console.log(schema_tmp);
       this.props.fields.forEach(function (field) {
-        return data[field.id] = _this2.refs[field.id].getValue();
+        return data[field.id] = _this2.formInputRefs[field.id].getValue();
       });
       return data;
     }
@@ -170,7 +170,9 @@ var Form = function (_Component) {
                       'td',
                       { className: 'FormTableData' },
                       _react2.default.createElement(_FormInput2.default, _extends({}, field, {
-                        ref: field.id,
+                        ref: function ref(element) {
+                          return _this3.formInputRefs.current[field.id] = element;
+                        },
                         defaultValue: prefilled,
                         fieldid: field.id,
                         objectInputType: field.objectInputType,
@@ -200,7 +202,9 @@ var Form = function (_Component) {
                       'td',
                       { className: 'FormTableData' },
                       _react2.default.createElement(_FormInput2.default, _extends({}, field, {
-                        ref: field.id,
+                        ref: function ref(element) {
+                          return formInputRefs.current[field.id] = element;
+                        },
                         defaultValue: prefilled }))
                     )
                   );
