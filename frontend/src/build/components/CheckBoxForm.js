@@ -30,7 +30,8 @@ var CheckBoxForm = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (CheckBoxForm.__proto__ || Object.getPrototypeOf(CheckBoxForm)).call(this, props));
 
-    _this.formInputRefs = _react.useRef < Record < string, VALUE >> {};
+    _this.checkBoxFormRefs = _react.useRef < HTMLElement > {};
+    _this.parts = [];
     _this.state = {
       formData: null
     };
@@ -39,16 +40,22 @@ var CheckBoxForm = function (_Component) {
 
   _createClass(CheckBoxForm, [{
     key: 'getData',
-    value: function getData() {}
-    // let data = {};
-    // let schema_tmp = this.props.fields;
-    // console.log("getData - schema_tmp");
-    // console.log(schema_tmp);
-    // this.props.fields.forEach(field => 
-    //   data[field.id] = this.refs[field.id].getValue()
-    // );
-    // return data;
+    value: function getData() {
+      var data = [];
+      console.log('CheckBoxForm - getData() - this.checkBoxFormRefs = ');
+      console.log(this.checkBoxFormRefs.current);
+      // for (let elemidx in this.checkBoxFormRefs) {
+      //     if (this.checkBoxFormRefs[elemidx].input.checked) {
+      //       data.push(this.checkBoxFormRefs[elemidx].input.value)
+      //     }
+      //   }
 
+      // this.parts.forEach((elem, elemidx) => {
+
+      // }
+      // );
+      return data;
+    }
 
     // _handleSearch(event) {
     // const term = event.target.value.toLowerCase();
@@ -82,25 +89,26 @@ var CheckBoxForm = function (_Component) {
       // // let m = this.props.options.length;
       // let k = Math.floor(m / n);
       // let p = m % n;
+      this.parts = [];
       var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
       var n = this.props.columnNumber;
       var m = numbers.length;
       var k = Math.floor(m / n);
       var p = m % n;
-      var parts = [];
+
       var part_size = k + 1;
       for (var i = 0; i < p * part_size; i = i + part_size) {
-        parts.push(numbers.slice(i, i + part_size));
+        this.parts.push(numbers.slice(i, i + part_size));
       }
       for (var _i = p * part_size; _i < numbers.length; _i = _i + part_size - 1) {
-        parts.push(numbers.slice(_i, _i + part_size - 1));
+        this.parts.push(numbers.slice(_i, _i + part_size - 1));
       }
-      console.log('CheckBoxForm - render - parts');
-      console.log(parts);
+      console.log('CheckBoxForm - render - this.parts');
+      console.log(this.parts);
 
-      //parts = 
+      //this.parts = 
       return _react2.default.createElement(
-        'form',
+        'div',
         { className: 'Form' },
         _react2.default.createElement(
           'div',
@@ -118,7 +126,7 @@ var CheckBoxForm = function (_Component) {
               null,
 
               //this.props.
-              parts.map(function (part, pid) {
+              this.parts.map(function (part, pid) {
                 return _react2.default.createElement(
                   'td',
                   { className: 'checkboxForm' },
@@ -130,16 +138,14 @@ var CheckBoxForm = function (_Component) {
                         type: 'checkbox',
                         id: "checkbox" + (pid * part.length + idx),
                         name: "checkbox" + (pid * part.length + idx),
-                        ref: function ref(element) {
-                          return _this2.formInputRefs.current[idx] = element;
-                        },
+                        ref: _this2.checkBoxFormRefs[idx],
                         dataid: pid * part.length + idx,
                         value: elem,
                         key: pid * part.length + idx }),
                       _react2.default.createElement(
                         'label',
                         {
-                          'for': "checkbox" + (pid * part.length + idx) },
+                          htmlFor: "checkbox" + (pid * part.length + idx) },
                         elem
                       ),
                       _react2.default.createElement('br', null)

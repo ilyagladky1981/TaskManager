@@ -7,25 +7,25 @@ import PropTypes from 'prop-types';
 
 
 class Form extends Component {
-
+  
 
   constructor(props) {
     super(props);
-    this.formInputRefs = useRef<Record<string, VALUE>>({})
+    this.formInputRefs = useRef<HTMLElement>([]);
     this.state = {
       formData: null,
     };
   }
 
   getData() {
-    let data = {};
-    let schema_tmp = this.props.fields;
-    console.log("getData - schema_tmp");
-    console.log(schema_tmp);
-    this.props.fields.forEach(field => 
-      data[field.id] = this.formInputRefs[field.id].getValue()
-    );
-    return data;
+    // let data = {};
+    // let schema_tmp = this.props.fields;
+    // console.log("getData - schema_tmp");
+    // console.log(schema_tmp);
+    // this.props.fields.forEach((field, fieldidx) => 
+    //   data[field.id] = this.formInputRefs.current[fieldidx].getValue()
+    // );
+    // return data;
   }
 
 
@@ -75,7 +75,7 @@ class Form extends Component {
     // console.log(newArr);
     return (
       <form className="Form"><table className="FormTable">
-        <tbody>{this.props.fields.map(field => {
+        <tbody>{this.props.fields.map((field, fieldidx) => {
         let prefilled;
         const value = this.props.initialData && this.props.initialData[field.id];
         /*console.log("render - value");
@@ -115,7 +115,7 @@ class Form extends Component {
                 </td>
                 <td className="FormTableData">
                   <FormInput {...field}
-                    ref={(element) => this.formInputRefs.current[field.id] = element}
+                    // ref={this.formInputRefs.current[fieldidx]}
                     defaultValue={prefilled}
                     fieldid={field.id}
                     objectInputType={field.objectInputType}
@@ -134,7 +134,7 @@ class Form extends Component {
                 <td className="FormTableLabel"><label className="FormLabel" htmlFor={field.id}>{field.label}:&nbsp;</label></td>
                 <td className="FormTableData">
                   <FormInput {...field} 
-                    ref={(element) => formInputRefs.current[field.id] = element}
+                    ref={this.formInputRefs[fieldidx]}
                     defaultValue={prefilled}/></td>
               </tr>
             );

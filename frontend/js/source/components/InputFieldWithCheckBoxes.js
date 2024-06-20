@@ -1,9 +1,9 @@
 import React, {Component, useRef } from 'react';
 import PropTypes from 'prop-types';
-import bootstrap from 'bootstrap'
-import Button from 'react-bootstrap/Button';
+// import bootstrap from 'bootstrap'
+// import Button from 'react-bootstrap/Button';
 import ModalForm from './ModalForm';
-
+import CheckBoxForm from './CheckBoxForm';
 
 // import Dialog from './Dialog';
 // import Form from './Form';
@@ -35,7 +35,18 @@ class InputFieldWithCheckBoxes extends Component {
   };
 
   _fillFieldData() {
-    this.setState({ datalist: [1] })
+    let data = [];
+    // let schema_tmp = this.props.fields;
+    // console.log("getData - schema_tmp");
+    // console.log(schema_tmp);
+    // this.props.fields.forEach((field, fieldidx) => 
+    //   data[field.id] = this.formInputRefs.current[fieldidx].getValue()
+    // );
+    
+
+    data = this.checkBoxFormRef.current.getData();
+    this.closeNestedModal();
+    this.setState({ datalist: data });
   }
 
 
@@ -99,6 +110,7 @@ class InputFieldWithCheckBoxes extends Component {
               <tr className='rowFWCB'>
                 <td className='max'>
                   <input
+                    className='CommonFormInput'
                     defaultValue={this.props.defaultValue}
                     // onChange={e => this.setState({value: e.target.value})}
                     id={this.props.id} />
@@ -128,10 +140,9 @@ class InputFieldWithCheckBoxes extends Component {
               <td className='max'>
                 <input
                   className='CommonFormInput'
-                  defaultValue={this.props.defaultValue}
-                  // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
+                  defaultValue={this.state.datalist.toString()}
+                  onChange={e => this.setState({ value: e.target.value})}
                   id={this.props.id}
-                  value={this.state.datalist.toString()}
                   dataid={[1]} />
               </td>
               <td className='min'>
@@ -145,6 +156,7 @@ class InputFieldWithCheckBoxes extends Component {
                     onClose={this.closeNestedModal.bind(this)}
                     formClassName='nestedmodal'
                     formContentClassName='nestedmodal__content'
+                    onApply={this._fillFieldData.bind(this)}
                     // fillFieldData={this._fillFieldData.bind(this)}
                     // options={this.props.options}
                     >
@@ -153,7 +165,8 @@ class InputFieldWithCheckBoxes extends Component {
                       paramName={this.props.paramName}
                       columnNumber={3}
                       options={this.props.options}
-                      onClick={this._fillFieldData.bind(this)} />
+                      objName={this.props.objName}
+                       />
                   </ModalForm>
                   )}
               </td>

@@ -40,7 +40,7 @@ var Form = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
 
-    _this.formInputRefs = _react.useRef < Record < string, VALUE >> {};
+    _this.formInputRefs = _react.useRef < HTMLElement > [];
     _this.state = {
       formData: null
     };
@@ -49,18 +49,16 @@ var Form = function (_Component) {
 
   _createClass(Form, [{
     key: 'getData',
-    value: function getData() {
-      var _this2 = this;
+    value: function getData() {}
+    // let data = {};
+    // let schema_tmp = this.props.fields;
+    // console.log("getData - schema_tmp");
+    // console.log(schema_tmp);
+    // this.props.fields.forEach((field, fieldidx) => 
+    //   data[field.id] = this.formInputRefs.current[fieldidx].getValue()
+    // );
+    // return data;
 
-      var data = {};
-      var schema_tmp = this.props.fields;
-      console.log("getData - schema_tmp");
-      console.log(schema_tmp);
-      this.props.fields.forEach(function (field) {
-        return data[field.id] = _this2.formInputRefs[field.id].getValue();
-      });
-      return data;
-    }
 
     // _handleSearch(event) {
     // const term = event.target.value.toLowerCase();
@@ -83,7 +81,7 @@ var Form = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       /*let fields_tmp = this.props.fields;
       console.log("render - fields_tmp");
@@ -120,9 +118,9 @@ var Form = function (_Component) {
           _react2.default.createElement(
             'tbody',
             null,
-            this.props.fields.map(function (field) {
+            this.props.fields.map(function (field, fieldidx) {
               var prefilled = void 0;
-              var value = _this3.props.initialData && _this3.props.initialData[field.id];
+              var value = _this2.props.initialData && _this2.props.initialData[field.id];
               /*console.log("render - value");
               console.log(value);
               console.log("render - field.id");
@@ -132,9 +130,9 @@ var Form = function (_Component) {
               console.log("render - this.props.initialData[field.id]");
               console.log(this.props.initialData[field.id]);*/
 
-              if (_this3.props.addNewDialog) {
+              if (_this2.props.addNewDialog) {
                 if (field.autoFilling) {
-                  prefilled = _this3.props.defaultValue[field.id];
+                  prefilled = _this2.props.defaultValue[field.id];
                 } else {
                   prefilled = '';
                 }
@@ -150,7 +148,7 @@ var Form = function (_Component) {
               } else {
                 prefilled = JSON.parse(JSON.stringify(value));
               }*/
-              if (!_this3.props.readonly) {
+              if (!_this2.props.readonly) {
                 if (field.addnew) {
                   return _react2.default.createElement(
                     'tr',
@@ -170,15 +168,13 @@ var Form = function (_Component) {
                       'td',
                       { className: 'FormTableData' },
                       _react2.default.createElement(_FormInput2.default, _extends({}, field, {
-                        ref: function ref(element) {
-                          return _this3.formInputRefs.current[field.id] = element;
-                        },
+                        // ref={this.formInputRefs.current[fieldidx]}
                         defaultValue: prefilled,
                         fieldid: field.id,
                         objectInputType: field.objectInputType,
-                        API_URL: _this3.props.API_URL,
+                        API_URL: _this2.props.API_URL,
                         objName: field.optionListObjName,
-                        optionsAPIData: _this3.props.optionsAPIData,
+                        optionsAPIData: _this2.props.optionsAPIData,
                         paramName: field.label
                         // showNestedModal={this.props.showNestedModal} 
                       }))
@@ -202,9 +198,7 @@ var Form = function (_Component) {
                       'td',
                       { className: 'FormTableData' },
                       _react2.default.createElement(_FormInput2.default, _extends({}, field, {
-                        ref: function ref(element) {
-                          return formInputRefs.current[field.id] = element;
-                        },
+                        ref: _this2.formInputRefs[fieldidx],
                         defaultValue: prefilled }))
                     )
                   );
