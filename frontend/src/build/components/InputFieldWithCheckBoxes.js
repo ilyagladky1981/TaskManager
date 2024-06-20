@@ -14,17 +14,13 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _bootstrap = require('bootstrap');
-
-var _bootstrap2 = _interopRequireDefault(_bootstrap);
-
-var _Button = require('react-bootstrap/Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
 var _ModalForm = require('./ModalForm');
 
 var _ModalForm2 = _interopRequireDefault(_ModalForm);
+
+var _CheckBoxForm = require('./CheckBoxForm');
+
+var _CheckBoxForm2 = _interopRequireDefault(_CheckBoxForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,6 +29,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import bootstrap from 'bootstrap'
+// import Button from 'react-bootstrap/Button';
+
 
 // import Dialog from './Dialog';
 // import Form from './Form';
@@ -73,7 +72,18 @@ var InputFieldWithCheckBoxes = function (_Component) {
   }, {
     key: '_fillFieldData',
     value: function _fillFieldData() {
-      this.setState({ datalist: [1] });
+      var data = [];
+      // let schema_tmp = this.props.fields;
+      // console.log("getData - schema_tmp");
+      // console.log(schema_tmp);
+      // this.props.fields.forEach((field, fieldidx) => 
+      //   data[field.id] = this.formInputRefs.current[fieldidx].getValue()
+      // );
+
+
+      data = this.checkBoxFormRef.current.getData();
+      this.closeNestedModal();
+      this.setState({ datalist: data });
     }
 
     // _selectValuesDialog() {
@@ -94,6 +104,8 @@ var InputFieldWithCheckBoxes = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       // console.log("ListOptions - render - this.props.listid =");
       // console.log("schema = " + typeof this.props.schema);
       // console.log("schema[listid] = " + typeof typeof this.props.schema[this.props.listid]);
@@ -145,6 +157,7 @@ var InputFieldWithCheckBoxes = function (_Component) {
                 'td',
                 { className: 'max' },
                 _react2.default.createElement('input', {
+                  className: 'CommonFormInput',
                   defaultValue: this.props.defaultValue
                   // onChange={e => this.setState({value: e.target.value})}
                   , id: this.props.id })
@@ -184,10 +197,11 @@ var InputFieldWithCheckBoxes = function (_Component) {
                 { className: 'max' },
                 _react2.default.createElement('input', {
                   className: 'CommonFormInput',
-                  defaultValue: this.props.defaultValue
-                  // onChange={e => this.setState({ value: e.target.value, datalist: e.target.dataid })}
-                  , id: this.props.id,
-                  value: this.state.datalist.toString(),
+                  defaultValue: this.state.datalist.toString(),
+                  onChange: function onChange(e) {
+                    return _this2.setState({ value: e.target.value });
+                  },
+                  id: this.props.id,
                   dataid: [1] })
               ),
               _react2.default.createElement(
@@ -205,16 +219,18 @@ var InputFieldWithCheckBoxes = function (_Component) {
                   {
                     onClose: this.closeNestedModal.bind(this),
                     formClassName: 'nestedmodal',
-                    formContentClassName: 'nestedmodal__content'
+                    formContentClassName: 'nestedmodal__content',
+                    onApply: this._fillFieldData.bind(this)
                     // fillFieldData={this._fillFieldData.bind(this)}
                     // options={this.props.options}
                   },
-                  _react2.default.createElement(CheckBoxForm, {
+                  _react2.default.createElement(_CheckBoxForm2.default, {
                     ref: this.checkBoxFormRef,
                     paramName: this.props.paramName,
                     columnNumber: 3,
                     options: this.props.options,
-                    onClick: this._fillFieldData.bind(this) })
+                    objName: this.props.objName
+                  })
                 )
               )
             )

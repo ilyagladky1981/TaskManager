@@ -5,11 +5,13 @@ import Suggest from './Suggest';
 import ListOptions from './ListOptions';
 import InputFieldWithCheckBoxes from './InputFieldWithCheckBoxes';
 
+
+
 class FormInput extends Component {
 
   constructor(props) {
     super(props);
-    this.inputRefs = useRef<Record<string, VALUE>>({})
+    this.inputRefs = useRef<HTMLElement>([]);
     //this.formRef = React.createRef();
   }
   

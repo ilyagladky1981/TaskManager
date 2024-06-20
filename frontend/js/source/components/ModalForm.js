@@ -8,13 +8,13 @@ class ModalForm extends Component {
   }
 
   render() {
-    const { children, onClose, formClassName, formContentClassName } = this.props;
+    const { children, onClose, formClassName, formContentClassName, onApply } = this.props;
     return (
       <div className={formClassName}>
         <div className={formContentClassName}>
           {children}
-          <button onClick={onClose}>Закрыть</button> 
-          <input className="CheckBoxFormApply" type="submit" value="Применить" onClick={this.props.onClick} />
+          <button onClick={onClose}>Закрыть</button> {'  '}
+          <a className="button" onClick={onApply} >Применить</a>
         </div>
       </div>
     );
@@ -24,6 +24,7 @@ class ModalForm extends Component {
 ModalForm.propTypes = {
   formClassName: PropTypes.string,
   onClose: PropTypes.func,
+  onApply: PropTypes.func,
   formContentClassName: PropTypes.string,
   // fillFieldData: PropTypes.func,
   // paramName: PropTypes.string,

@@ -38,7 +38,8 @@ var ModalForm = function (_Component) {
           children = _props.children,
           onClose = _props.onClose,
           formClassName = _props.formClassName,
-          formContentClassName = _props.formContentClassName;
+          formContentClassName = _props.formContentClassName,
+          onApply = _props.onApply;
 
       return _react2.default.createElement(
         'div',
@@ -52,7 +53,13 @@ var ModalForm = function (_Component) {
             { onClick: onClose },
             '\u0417\u0430\u043A\u0440\u044B\u0442\u044C'
           ),
-          _react2.default.createElement('input', { className: 'CheckBoxFormApply', type: 'submit', value: '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C', onClick: this.props.onClick })
+          ' ',
+          '  ',
+          _react2.default.createElement(
+            'a',
+            { className: 'button', onClick: onApply },
+            '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C'
+          )
         )
       );
     }
@@ -64,6 +71,7 @@ var ModalForm = function (_Component) {
 ModalForm.propTypes = {
   formClassName: _propTypes2.default.string,
   onClose: _propTypes2.default.func,
+  onApply: _propTypes2.default.func,
   formContentClassName: _propTypes2.default.string
   // fillFieldData: PropTypes.func,
   // paramName: PropTypes.string,

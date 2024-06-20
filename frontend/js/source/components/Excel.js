@@ -3,7 +3,7 @@ import Dialog from './Dialog';
 import Form from './Form';
 import ExcelFormInput from './ExcelFormInput';
 import Rating from './Rating';
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
