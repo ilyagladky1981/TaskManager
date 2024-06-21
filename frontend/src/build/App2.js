@@ -170,13 +170,14 @@ var App2 = function (_Component) {
           inputDict.manual_sort = responseAPIData[elemNumber]['manual_sort'];
           // console.log(`App2 refreshList typeof responseAPIData[elemNumber]['PriorityColor'] = `);
           // console.log(typeof responseAPIData[elemNumber]['PriorityColor']);
-          if (typeof responseAPIData[elemNumber]['PriorityColor'] !== 'undefined') {
-            if ('color' in responseAPIData[elemNumber]['PriorityColor']) {
-              inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor']['color'].toString();
-            }
-          } else {
-            inputDict.PriorityColor = '';
-          }
+          // if (typeof responseAPIData[elemNumber]['PriorityColor'] !== 'undefined') {
+          //     if ('color' in responseAPIData[elemNumber]['PriorityColor']) {
+          //         inputDict.PriorityColor = responseAPIData[elemNumber]['PriorityColor']['color'].toString();
+          //     }
+          // } else {
+          //   inputDict.PriorityColor = '';
+          // }
+          inputDict.PriorityColor = '';
           if (Object.keys(responseAPIData[elemNumber]['ProjectName']).length > 0) {
             inputDict.ProjectName = responseAPIData[elemNumber]['ProjectName']['id'];
           } else {

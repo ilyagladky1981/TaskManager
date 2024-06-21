@@ -152,7 +152,6 @@ class TaskEditor extends Component {
               optionsAPIData={this.props.optionsAPIData}
               // showNestedModal={this.openNestedModal.bind(this)}
               />
-            {/**/ }
           </Dialog>
           : null}
       </div>

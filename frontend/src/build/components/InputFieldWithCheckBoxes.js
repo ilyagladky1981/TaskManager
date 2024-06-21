@@ -82,8 +82,8 @@ var InputFieldWithCheckBoxes = function (_Component) {
 
 
       data = this.checkBoxFormRef.current.getData();
-      this.closeNestedModal();
       this.setState({ datalist: data });
+      this.closeNestedModal();
     }
 
     // _selectValuesDialog() {
