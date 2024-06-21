@@ -45,8 +45,8 @@ class InputFieldWithCheckBoxes extends Component {
     
 
     data = this.checkBoxFormRef.current.getData();
-    this.closeNestedModal();
     this.setState({ datalist: data });
+    this.closeNestedModal();
   }
 
 

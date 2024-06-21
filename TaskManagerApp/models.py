@@ -61,13 +61,13 @@ class Task(models.Model):
     Comments = models.URLField(max_length=1000, null=True, blank=True)
     manual_selection = models.PositiveIntegerField(null=True, blank=True)
     manual_sort = models.PositiveIntegerField(null=True, blank=True)
-    # PriorityColor = models.PositiveIntegerField(null=True, blank=True)
     ProjectName = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
-    Priority = models.OneToOneField('PriorityInfo', on_delete=models.CASCADE,  null=True, blank=True)
+    Priority = models.ForeignKey('PriorityInfo', on_delete=models.CASCADE,  null=True, blank=True)
     CreatedByUser = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True)
     StoryPoint = models.ForeignKey('StoryPoint', on_delete=models.CASCADE, null=True, blank=True)
     # TaskTypeId = models.ForeignKey('TaskType', on_delete=models.CASCADE, null=True, blank=True)
     EffortsId = models.ManyToManyField('TimeInterval', through='EffortsStats')
+    PriorityColor = models.IntegerField(null=True, blank=True)
     
     def save(self, *args, **kwargs):
         if not self.id:
@@ -191,6 +191,7 @@ class PriorityInfo(models.Model):
     PriorityCalculated = models.DecimalField(null=False, blank=False, max_digits=5, decimal_places=2)
     NpriorCalculated = models.PositiveIntegerField()
     RealPriority = models.DecimalField(null=False, blank=False, max_digits=6, decimal_places=4)
+    
     
     def __str__(self):
         return self.PriorityWeight

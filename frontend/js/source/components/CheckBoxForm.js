@@ -4,19 +4,26 @@ import PropTypes from 'prop-types';
 
 class CheckBoxForm extends Component {
 
+  //...
+
   constructor(props) {
-    super(props);
-    this.checkBoxFormRefs = useRef<HTMLElement>({});
+    super(props);//<HTMLInputElement>
+    // this.checkBoxFormRefs = useRef<HTMLInputElement>([]);
     this.parts = [];
     this.state = {
       formData: null,
+      checkBoxes: []
     };
   }
 
   getData() {
     let data = [];
-    console.log('CheckBoxForm - getData() - this.checkBoxFormRefs = ')
-    console.log(this.checkBoxFormRefs.current);
+    // console.log('CheckBoxForm - getData() - this.checkBoxFormRefs = ')
+    // console.log(this.checkBoxFormRefs.current);
+
+    // for (let elemidx = 0; elemidx < this.checkBoxFormRefs.current.length; elemidx++) {
+    //   console.log('elemidx = '+elemidx);
+    // }
     // for (let elemidx in this.checkBoxFormRefs) {
     //     if (this.checkBoxFormRefs[elemidx].input.checked) {
     //       data.push(this.checkBoxFormRefs[elemidx].input.value)
@@ -30,24 +37,6 @@ class CheckBoxForm extends Component {
     return data;
   }
 
-
-  // _handleSearch(event) {
-    // const term = event.target.value.toLowerCase();
-    // setSearchTerm(term);
-    //
-    // const filtered = data.filter((item) =>
-    //   item.toLowerCase().includes(term)
-    // );
-    // setFilteredData(filtered);
-  // };
-
-  // _handleSearch(listid) {
-  //   // let inputData = {};
-  //   // let schema_tmp = this.props.fields;
-  //   // console.log("Excel - _handleSearch - listid ");
-  //   // console.log(listid);
-  // }
-
   
   render() {
     /*let fields_tmp = this.props.fields;
@@ -59,8 +48,32 @@ class CheckBoxForm extends Component {
     // // let m = this.props.options.length;
     // let k = Math.floor(m / n);
     // let p = m % n;
+    // console.log('1 CheckBoxForm - render() before - this.checkBoxFormRefs = ');
+    // console.log(this.checkBoxFormRefs);
+    // console.log(this.checkBoxFormRefs.current);
+    // {6:6}, {7:7}, {8:8}, {9:9}, {10:10}, {11:11}, {12:12}, {13:13}, {14:14}
     this.parts = [];
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+    const numbers = [{'id':1, 'label':1}, {'id':2, 'label':2}, {'id':3, 'label':3}, {'id':4, 'label':4}, 
+      {'id':5, 'label':5}];
+    let NewCheckBoxArray = [];
+    NewCheckBoxArray.push(numbers[0]);
+    console.log('CheckBoxForm - render() - NewCheckBoxArray = ');
+    console.log(NewCheckBoxArray);
+    this.setState({checkBoxes : NewCheckBoxArray});
+    // let tmpdata = this.state.checkBoxes[0];
+    // tmpdata[0]['checked'] = false;
+
+    console.log('CheckBoxForm - render() - this.checkBoxes = ');
+    console.log(this.state.checkBoxes);
+    console.log('CheckBoxForm - render() - numbers = ');
+    console.log(numbers);
+    console.log('CheckBoxForm - render() - numbers[0] = ');
+    console.log(numbers[0]);
+
+    // this.setState({checkBoxes : tmpdata});
+    // console.log('CheckBoxForm - render() - this.checkBoxes = ');
+    // console.log(this.state.checkBoxes[0]);
+
     let n = this.props.columnNumber;
     let m = numbers.length;
     let k = Math.floor(m / n);
@@ -77,9 +90,10 @@ class CheckBoxForm extends Component {
     console.log(this.parts);
     
     //this.parts = 
+    // htmlFor={"checkbox"+(pid*part.length+idx)}>{elem}</label>
     return (
       <div className="Form">
-        <div class="CheckBoxFormHeader">{this.props.paramName}</div>
+        <div className="CheckBoxFormHeader">{this.props.paramName}</div>
         <table className="FormTable">
         <tbody><tr>{
           //this.props.
@@ -89,16 +103,17 @@ class CheckBoxForm extends Component {
                 {part.map((elem, idx) => {
                   return (
                     <div className="checkboxForm">
-                      <input
-                        type="checkbox"
-                        id={"checkbox"+(pid*part.length+idx)}
-                        name={"checkbox"+(pid*part.length+idx)}
-                        ref={this.checkBoxFormRefs[idx]}
-                        dataid={pid*part.length+idx}
-                        value={elem} 
-                        key={pid*part.length+idx}  />
-                      <label
-                        htmlFor={"checkbox"+(pid*part.length+idx)}>{elem}</label>
+                      <label key={idx}>
+                        <input
+                          type="checkbox"
+                          id={"checkbox" + (pid * part.length + idx)}
+                          name={"checkbox" + (pid * part.length + idx)}
+                          //ref={(element) => this.checkBoxFormRefs.current[idx] = element}
+                          ref={this.checkBoxFormRefs[pid * part.length + idx]}
+                          dataid={pid * part.length + idx}
+                          value={elem}
+                          key={pid * part.length + idx} />
+                        {elem}</label>
                       <br/>
                     </div>
                   )
@@ -108,6 +123,9 @@ class CheckBoxForm extends Component {
               )
           }, this)
           }
+          {console.log('2 CheckBoxForm - render() after - this.checkBoxFormRefs.current = ')}
+          {console.log(this.checkBoxFormRefs)}
+          {console.log(this.checkBoxFormRefs.current)}
         </tr></tbody></table>
       </div>
     );

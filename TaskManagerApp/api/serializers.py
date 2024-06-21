@@ -74,7 +74,9 @@ class DepthTaskSerializer(serializers.ModelSerializer):
 
 class ControlSerializer(serializers.ModelSerializer):
     PersonFullName = serializers.CharField(source='PersonFullNameId.PersonFullName')
-
+    CompanyShortName = serializers.CharField(source='CompanyId.ShortName')
+    
+    # Comments = Comments, 'PriorityColorId' 
     class Meta:
         model = Task
         depth = 1
@@ -86,7 +88,8 @@ class ControlSerializer(serializers.ModelSerializer):
           'CategoryOfTaskName', 'ResultOfTaskName', 
           'DateOfDone', 'Comments', 'manual_selection', 
           'manual_sort',  'ProjectName', 'StoryPoint',
-          'Priority', 'CreatedByUser',  'EffortsId' ]
+          'CreatedByUser',  'EffortsId', 
+          'CompanyShortName', 'PriorityColor']
 
 
 class PersonFIOSerializer(serializers.ModelSerializer):    

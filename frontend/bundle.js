@@ -35061,15 +35061,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var CheckBoxForm = function (_Component) {
   _inherits(CheckBoxForm, _Component);
 
+  //...
+
   function CheckBoxForm(props) {
     _classCallCheck(this, CheckBoxForm);
 
+    //<HTMLInputElement>
+    // this.checkBoxFormRefs = useRef<HTMLInputElement>([]);
     var _this = _possibleConstructorReturn(this, (CheckBoxForm.__proto__ || Object.getPrototypeOf(CheckBoxForm)).call(this, props));
 
-    _this.checkBoxFormRefs = _react.useRef < HTMLElement > {};
     _this.parts = [];
     _this.state = {
-      formData: null
+      formData: null,
+      checkBoxes: []
     };
     return _this;
   }
@@ -35078,8 +35082,12 @@ var CheckBoxForm = function (_Component) {
     key: 'getData',
     value: function getData() {
       var data = [];
-      console.log('CheckBoxForm - getData() - this.checkBoxFormRefs = ');
-      console.log(this.checkBoxFormRefs.current);
+      // console.log('CheckBoxForm - getData() - this.checkBoxFormRefs = ')
+      // console.log(this.checkBoxFormRefs.current);
+
+      // for (let elemidx = 0; elemidx < this.checkBoxFormRefs.current.length; elemidx++) {
+      //   console.log('elemidx = '+elemidx);
+      // }
       // for (let elemidx in this.checkBoxFormRefs) {
       //     if (this.checkBoxFormRefs[elemidx].input.checked) {
       //       data.push(this.checkBoxFormRefs[elemidx].input.value)
@@ -35092,25 +35100,6 @@ var CheckBoxForm = function (_Component) {
       // );
       return data;
     }
-
-    // _handleSearch(event) {
-    // const term = event.target.value.toLowerCase();
-    // setSearchTerm(term);
-    //
-    // const filtered = data.filter((item) =>
-    //   item.toLowerCase().includes(term)
-    // );
-    // setFilteredData(filtered);
-    // };
-
-    // _handleSearch(listid) {
-    //   // let inputData = {};
-    //   // let schema_tmp = this.props.fields;
-    //   // console.log("Excel - _handleSearch - listid ");
-    //   // console.log(listid);
-    // }
-
-
   }, {
     key: 'render',
     value: function render() {
@@ -35125,8 +35114,29 @@ var CheckBoxForm = function (_Component) {
       // // let m = this.props.options.length;
       // let k = Math.floor(m / n);
       // let p = m % n;
+      // console.log('1 CheckBoxForm - render() before - this.checkBoxFormRefs = ');
+      // console.log(this.checkBoxFormRefs);
+      // console.log(this.checkBoxFormRefs.current);
+      // {6:6}, {7:7}, {8:8}, {9:9}, {10:10}, {11:11}, {12:12}, {13:13}, {14:14}
       this.parts = [];
-      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+      var numbers = [{ 'id': 1, 'label': 1 }, { 'id': 2, 'label': 2 }, { 'id': 3, 'label': 3 }, { 'id': 4, 'label': 4 }, { 'id': 5, 'label': 5 }];
+      var NewCheckBoxArray = [];
+      NewCheckBoxArray.push(numbers[0]);
+      this.setState({ checkBoxes: NewCheckBoxArray });
+      // let tmpdata = this.state.checkBoxes[0];
+      // tmpdata[0]['checked'] = false;
+
+      console.log('CheckBoxForm - render() - this.checkBoxes = ');
+      console.log(this.state.checkBoxes);
+      console.log('CheckBoxForm - render() - numbers = ');
+      console.log(numbers);
+      console.log('CheckBoxForm - render() - numbers[0] = ');
+      console.log(numbers[0]);
+
+      // this.setState({checkBoxes : tmpdata});
+      // console.log('CheckBoxForm - render() - this.checkBoxes = ');
+      // console.log(this.state.checkBoxes[0]);
+
       var n = this.props.columnNumber;
       var m = numbers.length;
       var k = Math.floor(m / n);
@@ -35143,12 +35153,13 @@ var CheckBoxForm = function (_Component) {
       console.log(this.parts);
 
       //this.parts = 
+      // htmlFor={"checkbox"+(pid*part.length+idx)}>{elem}</label>
       return _react2.default.createElement(
         'div',
         { className: 'Form' },
         _react2.default.createElement(
           'div',
-          { 'class': 'CheckBoxFormHeader' },
+          { className: 'CheckBoxFormHeader' },
           this.props.paramName
         ),
         _react2.default.createElement(
@@ -35170,25 +35181,28 @@ var CheckBoxForm = function (_Component) {
                     return _react2.default.createElement(
                       'div',
                       { className: 'checkboxForm' },
-                      _react2.default.createElement('input', {
-                        type: 'checkbox',
-                        id: "checkbox" + (pid * part.length + idx),
-                        name: "checkbox" + (pid * part.length + idx),
-                        ref: _this2.checkBoxFormRefs[idx],
-                        dataid: pid * part.length + idx,
-                        value: elem,
-                        key: pid * part.length + idx }),
                       _react2.default.createElement(
                         'label',
-                        {
-                          htmlFor: "checkbox" + (pid * part.length + idx) },
+                        { key: idx },
+                        _react2.default.createElement('input', {
+                          type: 'checkbox',
+                          id: "checkbox" + (pid * part.length + idx),
+                          name: "checkbox" + (pid * part.length + idx)
+                          //ref={(element) => this.checkBoxFormRefs.current[idx] = element}
+                          , ref: _this2.checkBoxFormRefs[pid * part.length + idx],
+                          dataid: pid * part.length + idx,
+                          value: elem,
+                          key: pid * part.length + idx }),
                         elem
                       ),
                       _react2.default.createElement('br', null)
                     );
                   }, _this2)
                 );
-              }, this)
+              }, this),
+              console.log('2 CheckBoxForm - render() after - this.checkBoxFormRefs.current = '),
+              console.log(this.checkBoxFormRefs),
+              console.log(this.checkBoxFormRefs.current)
             )
           )
         )
@@ -36318,8 +36332,8 @@ var InputFieldWithCheckBoxes = function (_Component) {
 
 
       data = this.checkBoxFormRef.current.getData();
-      this.closeNestedModal();
       this.setState({ datalist: data });
+      this.closeNestedModal();
     }
 
     // _selectValuesDialog() {
